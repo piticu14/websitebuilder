@@ -1,0 +1,34 @@
+{*{layout ../../../../app/presenters/templates/@layoutBuilder.latte}*}
+{block title}Registrace{/block}
+{block content}
+    <div class="page-content container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-wrapper">
+                    <div class="box">
+                        <div class="content-wrap">
+                            <h6>Registrace</h6>
+                            <form n:name="signupForm">
+                                <ul class="alert-message error" n:if="$form->hasErrors()">
+                                    <li n:foreach="$form->errors as $error">{$error}</li>
+                                </ul>
+                                <input class="form-control" n:name="username">
+                                <input class="form-control" n:name="email">
+                                <input class="form-control" n:name="password">
+                                <input class="form-control" n:name="password2">
+
+                                <div class="action">
+                                    <input n:name="send" class="btn btn-primary signup">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="already">
+                        <p>Pokud už účet máte, stačí se</p>
+                        <a n:href="default">přihlásit.</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{/block}
