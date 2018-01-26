@@ -1,33 +1,42 @@
 {block title}Přihlásit se{/block}
 {block content}
-    <div class="page-content container center-block">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-8">
-                <div class="login-wrapper">
-                    <div class="box">
-                        <div class="content-wrap">
-                            <h6>Přihlášení</h6>
-
-                            <form n:name="signinForm">
-                                <ul class="alert-message error" n:if="$form->hasErrors()">
-                                    <li n:foreach="$form->errors as $error">{$error}</li>
-                                </ul>
-                                <input class="form-control" n:name="username">
-                                <input class="form-control" n:name="password">
-
-                                <div class="action">
-                                    <input n:name="send" class="btn btn-primary signup">
-                                </div>
-                            </form>
+    <br>
+    <div class="container">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form n:name="signinForm">
+                <ul class="alert-message error" n:if="$form->hasErrors()">
+                    <li n:foreach="$form->errors as $error">{$error}</li>
+                </ul>
+                <div class="row myborder">
+                    <h2 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">FastWeb - Přihlášení</h2>
+                    <hr>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                        <input size="60" maxlength="255" class="form-control" placeholder="Uživatelské jméno" n:name="username" type="text">
+                    </div>
+                    <div class="input-group margin-bottom-20">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                        <input size="60" maxlength="255" class="form-control" placeholder="Heslo" n:name="password"  type="password">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn-u" type="submit" n:name="signin">Přihlásit</button>
                         </div>
                     </div>
-
-                    <div class="already">
-                        <p>Pokud ještě nemáte účet, tady si ho</p>
-                        <a n:href="signup">vytvoříte.</a>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="account-already"><a n:href="reset">Zapomněli jste heslo?</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="account-already">Pokud ještě nemáte účet, tady si ho <a n:href="signup">vytvoříte.</a></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
+        <div class="col-md-3"></div>
     </div>
 {/block}
