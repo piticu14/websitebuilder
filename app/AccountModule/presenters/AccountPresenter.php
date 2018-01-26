@@ -26,25 +26,20 @@ class AccountPresenter extends BasePresenter
         $form->addText('username')
             ->setRequired('Prosim vyplňte uživatelské jméno')
             ->addRule(Form::MIN_LENGTH, 'Uživatelské jméno mít alespoň %d znaky', 4)
-            ->addRule(Form::MAX_LENGTH, 'Uživatelské jméno mít nejvíce %d znaky', 100)
-            ->setAttribute('placeholder','Uživatelské jméno');
+            ->addRule(Form::MAX_LENGTH, 'Uživatelské jméno mít nejvíce %d znaky', 100);
         $form->addPassword('password')
             ->setRequired('password')
             ->setRequired('Prosím vyplňte heslo')
-            ->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaky', 5)
-            ->setAttribute('placeholder','Heslo');
+            ->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaky', 5);
         $form->addPassword('password2')
             ->setRequired('Prosim vyplňte znovu heslo')
-            ->setAttribute('placeholder', 'Heslo znovu:')
             ->addConditionOn($form['password'], Form::VALID)
             ->addRule(Form::EQUAL, 'Hesla se neshodují.', $form['password']);
         $form->addEmail('email')
             ->addRule(Form::EMAIL, 'Neplatná emailová adresa')
             ->setRequired('Prosím vyplňte emailovou adresu')
-            ->addRule(Form::MAX_LENGTH, 'Emailová adresa může mít nejvíce %d znaky', 254)
-            ->setAttribute('placeholder', 'Email:');
-        $form->addSubmit('send','Registrovat')
-            ->setAttribute('class','btn btn-primary signup');
+            ->addRule(Form::MAX_LENGTH, 'Emailová adresa může mít nejvíce %d znaky', 254);
+        $form->addSubmit('signup','Registrovat');
         $form->onSuccess[] = [$this,'signupFormSucceeded'];
         return $form;
     }
@@ -75,15 +70,10 @@ class AccountPresenter extends BasePresenter
     {
         $form = new Form;
         $form->addtext('username')
-            ->setRequired('Prosím vyplňte uživatelské jméno')
-            ->setAttribute('placeholder', 'Uživatelské jméno:')
-            ->setAttribute('class', 'form-control');
+            ->setRequired('Prosím vyplňte uživatelské jméno');
         $form->addPassword('password')
-            ->setRequired('Prosím vyplňte heslo')
-            ->setAttribute('placeholder', 'Heslo:')
-            ->setAttribute('class', 'form-control');
-        $form->addSubmit('send','Přihlásit')
-            ->setAttribute('class', 'btn btn-primary signup');
+            ->setRequired('Prosím vyplňte heslo');
+        $form->addSubmit('signin','Přihlásit');
         $form->onSuccess[] = [$this,'signinFormSucceeded'];
         return $form;
     }
@@ -95,6 +85,57 @@ class AccountPresenter extends BasePresenter
             $this->redirect('Homepage:');
         } catch (Nette\Security\AuthenticationException $e) {
             $form->addError('Přihlášení bylo neúspěšné. Zkontrolujte své přihlašovací údaje.');
+        }
+    }
+
+    protected function createComponentSendPasswordLinkForm()
+    {
+        $form = new Form;
+        $form->addEmail('email');
+        $form->addSubmit('reset','Obnovit');
+        $form->onSuccess[] = [$this,'sendPasswordLinkFormSucceded'];
+        return $form;
+
+    }
+
+    public function sendPasswordLinkFormSucceded($form, $values)
+    {
+        $checkMail = $this->users->checkEmail($values->email);
+        if ($checkMail) {
+            $this->users->sendResetPasswordEmail($values->email);
+            $this->flashMessage('Resetování bylo úspěšné. Právě jsme Vám poslali e-mail s odkazem na obnovení hesla.', 'success');
+        } else {
+            $this->flashMessage('E-mail, který jste zadali, nepatří k žádnému účtu', 'error');
+        }
+    }
+
+    protected function createComponentResetPasswordForm()
+    {
+        $form = new Form;
+        $form->addPassword('password')
+            ->setRequired('password')
+            ->setRequired('Prosím vyplňte heslo')
+            ->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaky', 5);
+        $form->addPassword('password2')
+            ->setRequired('Prosim vyplňte znovu heslo')
+            ->addConditionOn($form['password'], Form::VALID)
+            ->addRule(Form::EQUAL, 'Hesla se neshodují.', $form['password']);
+        $form->addSubmit('reset','Nastavit heslo');
+        $form->addProtection();
+        $form->onSuccess[] = [$this,'resetPasswordFormSucceded'];
+        return $form;
+    }
+
+    public function resetPasswordFormSucceded($form, $values)
+    {
+        $data = array();
+        $data['password'] = password_hash($values->password, PASSWORD_DEFAULT);
+
+        if($this->users->updateUser($data))
+        {
+            $this->flashMessage('Vaše heslo bylo úspěšně změneno. Můžete se přihlásit novým heslem.', 'success');
+        } else {
+            $this->flashMessage('Nepodařilo se nastavit nové heslo', 'error');
         }
     }
 
