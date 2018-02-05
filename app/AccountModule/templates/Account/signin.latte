@@ -5,12 +5,20 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <form n:name="signinForm">
-                <ul class="alert-message error" n:if="$form->hasErrors()">
-                    <li n:foreach="$form->errors as $error">{$error}</li>
-                </ul>
                 <div class="row myborder">
-                    <h2 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">FastWeb - Přihlášení</h2>
+                    <div class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <p n:foreach="$form->errors as $error">{$error}</p>
+                    </div>
+                    {*<h2 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">FastWeb - Přihlášení</h2>*}
+                    <img src="{$basePath}/img/logo_websitebuilder.png" alt="FastWeb">
                     <hr>
+                    {snippet flashMessage}
+                        <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <p>{$flash->message}</p>
+                        </div>
+                    {/snippet}
                     <div class="input-group margin-bottom-20">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
                         <input size="60" maxlength="255" class="form-control" placeholder="Uživatelské jméno" n:name="username" type="text">
@@ -19,6 +27,7 @@
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
                         <input size="60" maxlength="255" class="form-control" placeholder="Heslo" n:name="password"  type="password">
                     </div>
+                    <br><br><br><br>
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <button class="btn-u" type="submit" n:name="signin">Přihlásit</button>

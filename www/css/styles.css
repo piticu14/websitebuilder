@@ -33,10 +33,10 @@ body {
 
 }
 .btn-u:hover {
-    background: #5fb611;
+    background: #f8d94a;
 }
 .btn-u:hover, .btn-u:focus, .btn-u:active, .btn-u.active, .open .dropdown-toggle.btn-u {
-    background: #5fb611;
+    background: #f8d94a;
 }
 .btn-u:hover {
     color: #fff;

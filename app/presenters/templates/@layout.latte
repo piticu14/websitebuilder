@@ -12,13 +12,6 @@
 </head>
 
 <body>
-{snippet flashMessage}
-    <div n:foreach="$flashes as $flash" class="alert-message {$flash->type}">
-        <a class="close" data-dismiss="alert">×</a>
-
-        <p>{$flash->message}</p>
-    </div>
-{/snippet}
 
     <div class="row">
         <div id="background"></div>
@@ -32,7 +25,12 @@
         <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+        <script src="{$basePath}/vendor/nette.ajax.js"></script>
+        <script>
+        $(function () {
+        $.nette.init();
+        });
+        </script>
     {/block}
             </div>
         </div>

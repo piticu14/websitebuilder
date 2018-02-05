@@ -1,0 +1,59 @@
+<script>
+    $('#sendPasswordLink').click(function (e) {
+        e.preventDefault();
+        $.nette.ajax({
+            url: {link sendPasswordLink!},
+            type: "POST",
+            data: { user_question_answer: $('#questionAnswer').val(),
+                    emailAddress: {$email},
+                    user_security_question: $('#securityQuestion').val()},
+            error: function(jqXHR,status,error) {
+                console.log(jqXHR);
+                console.log(status);
+                console.log(error);
+            }
+        });
+    });
+</script>
+<form n:name="securityQuestionForm">
+    <div class="row myborder">
+        <div class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <p n:foreach="$form->errors as $error">{$error}</p>
+        </div>
+        <img src="{$basePath}/img/logo_websitebuilder.png" alt="FastWeb">
+        <hr>
+        {snippet flashMessage}
+            <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <p>{$flash->message}</p>
+            </div>
+        {/snippet}
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
+            <input id="securityQuestion" size="60" maxlength="255" class="form-control"
+                   placeholder="Bezpečnostní otázka k vašému účtu" n:name="security_question" type="text" value="{$security_question}" disabled>
+        </div>
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
+            <input id="questionAnswer" size="60" maxlength="100" class="form-control"
+                   placeholder="Odpověď na bezpečnostní otázku" n:name="security_question_answer" type="text" required>
+        </div>
+        <br><br><br><br>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button id="sendPasswordLink"  class="btn-u" type="submit" n:name="reset">Obnovit heslo</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="account-already">Pokud ještě nemáte účet, tady si ho <a n:href="signup">vytvoříte.</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="account-already">Pokud už účet máte, stačí se <a n:href="signin">přihlásit.</a></p>
+            </div>
+        </div>
+</form>

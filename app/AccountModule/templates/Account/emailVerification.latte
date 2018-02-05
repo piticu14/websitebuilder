@@ -1,0 +1,56 @@
+<script>
+    $('#checkEmail').click(function (e) {
+        e.preventDefault();
+        $.nette.ajax({
+            url: {link checkEmail!},
+            type: "POST",
+            data: { emailAddress: $('#email').val() },
+            success: function (data) {
+                var email = $('#email').val();
+                {var email = email}
+            },
+            error: function(jqXHR,status,error) {
+                console.log(jqXHR);
+                console.log(status);
+                console.log(error);
+            }
+        });
+    });
+</script>
+<form n:name="emailVerificationForm">
+    <div class="row myborder">
+        <div class="alert alert-danger alert-dismissable" n:if="$form->hasErrors()">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <p n:foreach="$form->errors as $error">{$error}</p>
+        </div>
+        <img src="{$basePath}/img/logo_websitebuilder.png" alt="FastWeb">
+        <hr>
+        {snippet flashMessage}
+            <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <p>{$flash->message}</p>
+        </div>
+        {/snippet}
+        <div class="input-group margin-bottom-20">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
+            <input id="email" size="60" maxlength="255" class="form-control"
+                   placeholder="Emailová adresa vašeho účtu" n:name="email" type="text">
+        </div>
+        <br><br><br><br>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button  id="checkEmail" class="btn-u" type="submit" n:name="reset">Obnovit heslo</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="account-already">Pokud ještě nemáte účet, tady si ho <a n:href="signup">vytvoříte.</a></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="account-already">Pokud už účet máte, stačí se <a n:href="signin">přihlásit.</a></p>
+            </div>
+        </div>
+</form>

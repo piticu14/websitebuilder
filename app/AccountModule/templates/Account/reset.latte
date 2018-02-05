@@ -1,98 +1,47 @@
 {block title}Obnovení hesla{/block}
 {block content}
-<br>
-<div class="container">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-        {*
-{$var = $presenter->getParameter('token') && $presenter->getParameter('email') ? 1 : 0}
-<form n:name="$var ? resetPasswordForm : sendPasswordLinkForm">
-    <ul class="alert-message error" n:if="$form->hasErrors()">
-        <li n:foreach="$form->errors as $error">{$error}</li>
-    </ul>
-    <div class="row myborder">
-        <h2 style="color: black; margin: initial; margin-bottom: 10px;">FastWeb - Obnovení hesla</h2>
-        <hr>
-    {if $presenter->getParameter('token') && $presenter->getParameter('email')}
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-            <input size="60" maxlength="255" class="form-control" placeholder="Nové heslo" n:name="password"
-                   type="password">
+    <script>
+        window.onload = function () {
+                $('#checkEmail').click(function (e) {
+                    e.preventDefault();
+                    $.nette.ajax({
+                        url: {link checkEmail!},
+                        type: "POST",
+                        data: { emailAddress: $('#email').val() },
+                        success: function (data) {
+                            var email = $('#email').val();
+                            {var email = email}
+                        },
+                        error: function(jqXHR,status,error) {
+                            console.log(jqXHR);
+                            console.log(status);
+                            console.log(error);
+                        }
+                    });
+                });
+        }
+
+    </script>
+    <br>
+    <div class="container">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+
+            {if $presenter->getParameter('token') && $presenter->getParameter('email')}
+                {include 'resetPasswordForm.latte'}
+            {else}
+                {snippet resetPassword}
+                    {if $user_found}
+                        {include 'securityQuestionForm.latte'}
+
+                    {else}
+                        {include 'emailVerification.latte'}
+
+                    {/if}
+
+                {/snippet}
+            {/if}
         </div>
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-            <input size="60" maxlength="255" class="form-control"
-                   placeholder="Heslo pro kontrolu" n:name="password2" type="password">
-        </div>
-    {else}
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
-            <input size="60" maxlength="255" class="form-control"
-                   placeholder="Emailová adresa vašeho účtu" n:name="email" type="text">
-        </div>
-    {/if}
-        <br><br><br><br>
-
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <button class="btn-u" type="submit" n:name="reset">Obnovit heslo</button>
-            </div>
-        </div>
-    </form>
-
-        *}
-        {if $presenter->getParameter('token') && $presenter->getParameter('email')}
-        <form n:name="resetPasswordForm">
-            <ul class="alert-message error" n:if="$form->hasErrors()">
-                <li n:foreach="$form->errors as $error">{$error}</li>
-            </ul>
-            <div class="row myborder">
-                <h2 style="color: black; margin: initial; margin-bottom: 10px;">FastWeb - Obnovení hesla</h2>
-                <hr>
-                <div class="input-group margin-bottom-20">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-                    <input size="60" maxlength="255" class="form-control" placeholder="Nové heslo" n:name="password"
-                           type="password">
-                </div>
-                <div class="input-group margin-bottom-20">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-                    <input size="60" maxlength="255" class="form-control"
-                           placeholder="Heslo pro kontrolu" n:name="password2" type="password">
-                </div>
-                <br><br><br><br>
-
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <button class="btn-u" type="submit" n:name="reset">Nastavit heslo</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-        {else}
-        <form n:name="sendPasswordLinkForm">
-            <ul class="alert-message error" n:if="$form->hasErrors()">
-                <li n:foreach="$form->errors as $error">{$error}</li>
-            </ul>
-            <div class="row myborder">
-                <h2 style="color: black; margin: initial; margin-bottom: 10px;">FastWeb - Obnovení hesla</h2>
-                <hr>
-                <div class="input-group margin-bottom-20">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
-                    <input size="60" maxlength="255" class="form-control"
-                           placeholder="Emailová adresa vašeho účtu" n:name="email" type="text">
-                </div>
-                <br><br><br><br>
-
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <button class="btn-u" type="submit" n:name="reset">Obnovit heslo</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-        {/if}
-
+        <div class="col-md-3"></div>
     </div>
-    <div class="col-md-3"></div>
-</div>
 {/block}

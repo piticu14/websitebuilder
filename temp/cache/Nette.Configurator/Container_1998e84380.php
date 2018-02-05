@@ -38,6 +38,7 @@ class Container_1998e84380 extends Nette\DI\Container
 			'App\Model\Users' => [1 => ['24_App_Model_Users']],
 			'Nette\Security\IAuthenticator' => [1 => ['authenticator']],
 			'Authenticator' => [1 => ['authenticator']],
+			'App\Model\EmailNotification' => [1 => ['26_App_Model_EmailNotification']],
 			'App\Presenters\BasePresenter' => [1 => ['application.1', 'application.2', 'application.5']],
 			'Nette\Application\UI\Presenter' => [['application.1', 'application.2', 'application.3', 'application.5']],
 			'Nette\Application\UI\Control' => [['application.1', 'application.2', 'application.3', 'application.5']],
@@ -71,6 +72,7 @@ class Container_1998e84380 extends Nette\DI\Container
 		],
 		'services' => [
 			'24_App_Model_Users' => 'App\Model\Users',
+			'26_App_Model_EmailNotification' => 'App\Model\EmailNotification',
 			'application.1' => 'App\Presenters\AccountPresenter',
 			'application.2' => 'App\Presenters\BasePresenter',
 			'application.3' => 'App\Presenters\Error4xxPresenter',
@@ -168,9 +170,18 @@ class Container_1998e84380 extends Nette\DI\Container
 	}
 
 
+	public function createService__26_App_Model_EmailNotification(): App\Model\EmailNotification
+	{
+		$service = new App\Model\EmailNotification('C:\xampp\htdocs\websitebuilder\app/presenters/templates/Emails/',
+			$this->getService('mail.mailer'), $this->getService('latte.latteFactory'));
+		return $service;
+	}
+
+
 	public function createServiceApplication__1(): App\Presenters\AccountPresenter
 	{
-		$service = new App\Presenters\AccountPresenter($this->getService('24_App_Model_Users'));
+		$service = new App\Presenters\AccountPresenter($this->getService('24_App_Model_Users'),
+			$this->getService('26_App_Model_EmailNotification'));
 		$service->injectPrimary($this, $this->getService('application.presenterFactory'),
 			$this->getService('routing.router'), $this->getService('http.request'),
 			$this->getService('http.response'), $this->getService('session.session'),
@@ -396,7 +407,15 @@ class Container_1998e84380 extends Nette\DI\Container
 
 	public function createServiceMail__mailer(): Nette\Mail\IMailer
 	{
-		$service = new Nette\Mail\SendmailMailer;
+		$service = new Nette\Mail\SmtpMailer([
+			'smtp' => true,
+			'host' => 'smtp.gmail.com',
+			'port' => 465,
+			'username' => 'cudelcu.valentin@gmail.com',
+			'password' => '6M0i8c7h3a3e2l6a4',
+			'secure' => 'ssl',
+			'timeout' => null,
+		]);
 		return $service;
 	}
 

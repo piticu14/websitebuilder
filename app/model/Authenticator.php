@@ -28,6 +28,7 @@ class Authenticator implements Security\IAuthenticator
             throw new Security\AuthenticationException("Uživatelské jméno '$username' neexistuje",self::IDENTITY_NOT_FOUND);
         }
 
+
         if(!password_verify($password, $row->password)){
             throw new Security\AuthenticationException("Vaše heslo je neplatné.",self::INVALID_CREDENTIAL);
         }

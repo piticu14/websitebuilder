@@ -24,6 +24,7 @@ abstract class BaseManager extends Nette\Object
      */
     private $user;
 
+
     /**
      * BaseManager constructor.
      * @param Nette\Database\Context $database
