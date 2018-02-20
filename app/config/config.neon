@@ -10,6 +10,7 @@ application:
 session:
 	expiration: 14 days
 	autoStart: smart
+	save_path: %tempDir%/sessions
 mail:
     smtp: true
     host: smtp.gmail.com
@@ -21,6 +22,8 @@ mail:
 services:
 	router: App\RouterFactory::createRouter
 	- App\Model\Users
+	- App\Model\DashboardManager
+	- App\Model\UserRequest
 	- App\Model\EmailNotification(%appDir%/presenters/templates/Emails/)
 	authenticator: Authenticator
 

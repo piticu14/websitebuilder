@@ -5,9 +5,6 @@ namespace App\Presenters;
 
 use Nette;
 
-use App\Model\MediaManager;
-use App\Model\TemplateManager;
-use App\Model\PageManager;
 
 class BasePresenter extends Nette\Application\UI\Presenter
 {

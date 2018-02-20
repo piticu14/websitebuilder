@@ -12,10 +12,9 @@
 </head>
 
 <body>
-
-    <div class="row">
+    <div class="container">
         <div id="background"></div>
-        <div class="col-md-12">
+        <div class="row">
                 {include content}
 
     {block scripts}
@@ -26,13 +25,14 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="{$basePath}/vendor/nette.ajax.js"></script>
+        <script src="{$basePath}/vendor/netteForms.js"></script>
         <script>
         $(function () {
-        $.nette.init();
+            $.nette.init();
         });
         </script>
+        <script src="{$basePath}/js/custom.js"></script>
     {/block}
-            </div>
         </div>
     </div>
 </body>

@@ -1,22 +1,23 @@
-{*{layout ../../../../app/presenters/templates/@layoutBuilder.latte}*}
 {block title}Registrace{/block}
 {block content}
     <br>
-{snippet signupForm}
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-
-            <form n:name="signupForm" data-error-container="#error" data-url="{link register!}">
+    <div class="container">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <form n:name="signupForm">
                 <div class="row myborder">
-                    <div id="errorContainer" class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
+                    <div class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <p n:foreach="$form->errors as $error">{$error}</p>
                     </div>
                     <img src="{$basePath}/img/logo_websitebuilder.png" alt="FastWeb">
                     <hr>
+                    {snippet flashMessage}
                         <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                             <p>{$flash->message}</p>
                         </div>
+                    {/snippet}
                     <div class="input-group margin-bottom-20">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
                         <input size="60" maxlength="50" class="form-control" placeholder="Uživatelské jméno" n:name="username" type="text">
@@ -43,17 +44,18 @@
                     </div>
                     <br><br><br><br>
                     <div class="row">
-                        <div class="col-xl-12 text-center">
-                            <button id="signup" class="btn-u" type="submit" n:name="signup">Registrovat</button>
+                        <div class="col-md-12 text-center">
+                            <button class="btn-u" type="submit" n:name="signup">Registrovat</button>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xl-12">
+                        <div class="col-md-12">
                             <p class="account-already">Pokud už účet máte, stačí se <a n:href="signin">přihlásit.</a></p>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-{/snippet}
+        <div class="col-md-3"></div>
+    </div>
 {/block}

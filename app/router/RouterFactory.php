@@ -17,7 +17,10 @@ class RouterFactory
 	public static function createRouter()
 	{
 		$router = new RouteList();
+		$router[] = new Route('activate/email[/<token>]', 'Settings:emailActivation');
+		$router[] = new Route('activate/account[/<token>]','Account:Activation');
 		$router[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
+
 		return $router;
 	}
 

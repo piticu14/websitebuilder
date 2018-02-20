@@ -30,29 +30,29 @@
             </div>
         {/snippet}
         <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-question-sign mycolor"></i></span>
             <input id="securityQuestion" size="60" maxlength="255" class="form-control"
                    placeholder="Bezpečnostní otázka k vašému účtu" n:name="security_question" type="text" value="{$security_question}" disabled>
         </div>
         <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-exclamation-sign mycolor"></i></span>
             <input id="questionAnswer" size="60" maxlength="100" class="form-control"
                    placeholder="Odpověď na bezpečnostní otázku" n:name="security_question_answer" type="text" required>
         </div>
         <br><br><br><br>
 
         <div class="row">
-            <div class="col-md-12 text-center">
+            <div class="col-xl-12 text-center">
                 <button id="sendPasswordLink"  class="btn-u" type="submit" n:name="reset">Obnovit heslo</button>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-xl-12">
                 <p class="account-already">Pokud ještě nemáte účet, tady si ho <a n:href="signup">vytvoříte.</a></p>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-xl-12">
                 <p class="account-already">Pokud už účet máte, stačí se <a n:href="signin">přihlásit.</a></p>
             </div>
         </div>

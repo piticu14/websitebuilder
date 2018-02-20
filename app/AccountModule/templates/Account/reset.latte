@@ -8,10 +8,6 @@
                         url: {link checkEmail!},
                         type: "POST",
                         data: { emailAddress: $('#email').val() },
-                        success: function (data) {
-                            var email = $('#email').val();
-                            {var email = email}
-                        },
                         error: function(jqXHR,status,error) {
                             console.log(jqXHR);
                             console.log(status);
@@ -23,11 +19,9 @@
 
     </script>
     <br>
-    <div class="container">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
-            {if $presenter->getParameter('token') && $presenter->getParameter('email')}
+            {if $presenter->getParameter('token')}
                 {include 'resetPasswordForm.latte'}
             {else}
                 {snippet resetPassword}
@@ -42,6 +36,4 @@
                 {/snippet}
             {/if}
         </div>
-        <div class="col-md-3"></div>
-    </div>
 {/block}

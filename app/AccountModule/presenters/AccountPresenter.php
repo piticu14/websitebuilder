@@ -13,6 +13,7 @@ use Nette;
 use Nette\Application\UI\Form;
 use Nette\Utils\DateTime;
 use App\Model\Users;
+use App\Model\UserRequest;
 use App\Model\EmailNotification;
 use Latte;
 
@@ -25,187 +26,79 @@ class AccountPresenter extends BasePresenter
     /** @var EmailNotification */
     private $emailNotification;
 
+    /** @var UserRequest */
+    private $userRequest;
 
-    public function __construct(Users $users, EmailNotification $emailNotification)
+    /**
+     * AccountPresenter constructor.
+     * @param Users $users
+     * @param EmailNotification $emailNotification
+     * @param UserRequest $userRequest
+     */
+
+    public function __construct(Users $users, EmailNotification $emailNotification, UserRequest $userRequest)
     {
         $this->users = $users;
         $this->emailNotification = $emailNotification;
-
-
+        $this->userRequest = $userRequest;
     }
-    /*
-     * -----------------------------------------Signup Form----------------------------------------------------------
-     */
 
     protected function createComponentSignupForm()
     {
-
-        $securityQuestions = $this->users->getSecurityQuestions();
-        $form = new Form;
-        $form->addText('username')
-            ->setRequired('Prosim vyplňte uživatelské jméno')
-            ->addRule(Form::MIN_LENGTH, 'Uživatelské jméno mít alespoň %d znaky', 4)
-            ->addRule(Form::MAX_LENGTH, 'Uživatelské jméno mít nejvíce %d znaky', 100);
-        $form->addPassword('password')
-            ->setRequired('password')
-            ->setRequired('Prosím vyplňte heslo')
-            ->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaky', 5);
-        $form->addPassword('password2')
-            ->setRequired('Prosim vyplňte znovu heslo')
-            ->addConditionOn($form['password'], Form::VALID)
-            ->addRule(Form::EQUAL, 'Hesla se neshodují.', $form['password']);
-        $form->addEmail('email')
-            ->addRule(Form::EMAIL, 'Neplatná emailová adresa')
-            ->setRequired('Prosím vyplňte emailovou adresu')
-            ->addRule(Form::MAX_LENGTH, 'Emailová adresa může mít nejvíce %d znaky', 254);
-        $form->addSelect('security_questions', 'Bezpečnostní otázka', $securityQuestions);
-        $form->addText('security_question_answer')
-            ->setRequired('Prosim vyplňte odpověď na bezpečnostní otázku')
-            ->addRule(Form::MIN_LENGTH, 'Uživatelské jméno mít alespoň %d znaky', 1)
-            ->addRule(Form::MAX_LENGTH, 'Uživatelské jméno mít nejvíce %d znaky', 100);
-        $form->addSubmit('signup', 'Registrovat');
-
-        $form->onSuccess[] = [$this, 'signupFormSucceeded'];
-        return $form;
-    }
-
-    /**
-     * @param $form Nette\Application\UI\Form
-     * @param $values Nette\utils\ArrayHash
-     */
-
-    public function signupFormSucceeded($form, $values)
-    {
-
-        $data = [
-            'username' => $values->username,
-            'password' => $values->password,
-            'email' => $values->email,
-            'user_security_question_id' => $values->security_questions,
-            'user_security_question_answer' => $values->security_question_answer,
-            'activation_token' => bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM))
-        ];
-
-        $new_user = $this->users->register($data);
-        if ($new_user) {
-            $param = array(
-                'from' => 'FastWeb <support@fastweb.cz>',
-                'to' => $values->email,
-                'subject' => 'Aktivace účtu',
-                'email_template' => 'userActivation',
-                'body' => array(
-                    'token' => $data['activation_token']
-                )
-            );
-            $this->emailNotification->send($param);
-            $this->flashMessage('Váš účet byl úspěšně založen. Ověřte svůj účet pomoci emailu, který Vám právě přišel.', 'success');
+        $form = (new \SignupFormFactory($this->users, $this->emailNotification, $this->userRequest, $this->getHttpRequest()->getUrl()->getBaseUrl()))->create();
+        $form->onSuccess[] = function (Form $form) {
+            $this->flashMessage('Váš účet byl úspěšně založen. Ověřte svůj účet pomoci emailu, který jsme Vám právě odeslali.', 'success');
             $this->redirect('Account:signin');
-        } else {
-            //Use Ajax to check if username exists
-        }
+        };
+        return $form;
+
     }
 
-    /*
-     * -----------------------------------------Signin Form----------------------------------------------------------
-     */
     protected function createComponentSigninForm()
     {
-        $form = new Form;
-        $form->addtext('username')
-            ->setRequired('Prosím vyplňte uživatelské jméno');
-        $form->addPassword('password')
-            ->setRequired('Prosím vyplňte heslo');
-        $form->addSubmit('signin', 'Přihlásit');
-        $form->onSuccess[] = [$this, 'signinFormSucceeded'];
-        return $form;
+        return (new \SigninFormFactory($this->users,$this))->create();
     }
 
-    public function signinFormSucceeded($form, $values)
-    {
-        try {
-            $this->getUser()->login($values->username, $values->password);
-            if(!$this->users->isUserActivated()) {
-                $this->flashMessage('Váš účet není aktivován. Aktivujte ho pomoci emailu, který jste obdržel');
-                $this->redirect('Account:signin');
-            }
-            $this->redirect('Homepage:');
-        } catch (Nette\Security\AuthenticationException $e) {
-            $this->flashMessage('Přihlášení bylo neúspěšné. Zkontrolujte své přihlašovací údaje.','danger');
-        }
-    }
 
-    /*
- * -----------------------------------------Reset password Forms-------------------------------------------------------
- */
     protected function createComponentEmailVerificationForm()
     {
-        $form = new Form;
-        $form->addEmail('email')
-            ->setRequired('Zadejte prosím Email Vašého účtu');
-        $form->addSubmit('reset', 'Obnovit');
-        return $form;
-
+        return (new \EmailFormFactory)->create('Zadejte email Vašého účtu', 'Obnovit');
     }
 
 
     protected function createComponentResetPasswordForm()
     {
-        $form = new Form;
-        $form->addPassword('password')
-            ->setRequired('password')
-            ->setRequired('Prosím vyplňte heslo')
-            ->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaky', 5);
-        $form->addPassword('password2')
-            ->setRequired('Prosim vyplňte znovu heslo')
-            ->addConditionOn($form['password'], Form::VALID)
-            ->addRule(Form::EQUAL, 'Hesla se neshodují.', $form['password']);
-        $form->addSubmit('reset', 'Nastavit heslo');
-        $form->addProtection('Vypršel ochranný časový limit, odešlete prosím formulář ještě jednou');
-        $form->onSuccess[] = [$this, 'resetPasswordFormSucceded'];
-        return $form;
-    }
-
-    public function resetPasswordFormSucceded($form, $values)
-    {
-        $data = array();
-        $data['password'] = password_hash($values->password, PASSWORD_DEFAULT);
-
-        if ($this->users->updateUser($data)) {
-            $this->flashMessage('Vaše heslo bylo úspěšně změneno. Můžete se přihlásit novým heslem.', 'success');
-        } else {
-            $this->flashMessage('Nepodařilo se nastavit nové heslo', 'warning');
-        }
-        $this->redirect('Account:signin');
+        return (new \ResetPasswordFormFactory($this->users,$this))->create();
     }
 
     protected function createComponentSecurityQuestionForm()
     {
-        $form = new Form;
-        $form->addText('security_question');
-        $form->addText('security_question_answer')
-            ->setRequired('Odpovězte na bezpečnostní otázku');
-        $form->addSubmit('reset', 'Obnovit');
-        return $form;
+        return (new \SecurityQuestionFormFactory())->create();
     }
 
-    /*
-    * -----------------------------------------Reset password AJAX requests-------------------------------------------
-    */
+    protected function createComponentChangePasswordForm()
+    {
+        $form = (new \ResetPasswordFormFactory($this->users,$this))->create();
+        $form->addPassword('oldPassword')
+            ->setRequired('Zadejte staré heslo');
+    }
     public function handleSendPasswordLink($user_question_answer, $emailAddress, $user_security_question)
     {
 
         if($this->isAjax()){
             $user = $this->users->getUserBy('email',$emailAddress);
             if($user->user_security_question_answer === $user_question_answer) {
-                $this->users->deleteOldRPRequests($user->id);
+                $userEmail = $this->users->getUserEmail($user->email);
+                $this->userRequest->deleteOldUserRequests($userEmail->id,'resetPassword');
                 $param = array(
-                    'from' => 'FastWeb <resetPassword@fastweb.cz>',
+                    'from' => 'FastWeb <support@fastweb.cz>',
                     'to' => $emailAddress,
                     'subject' => 'Obnoveni hesla',
                     'email_template' => 'resetPasswordEmail',
                     'body' => array(
-                        'email' => $emailAddress,
-                        'token' => $this->users->sendResetPasswordRequest($emailAddress)->token
+                        'request' => 'account',
+                        'token' => $this->userRequest->addRequest($userEmail->id,'resetPassword')->token,
+                        'link' => $this->getHttpRequest()->getUrl()->getBaseUrl()
                     )
                 );
                 $this->emailNotification->send($param);
@@ -223,19 +116,13 @@ class AccountPresenter extends BasePresenter
 
     }
 
-    public function actionReset($email, $token){
-        $this->template->user_found = false;
-        if($email && $token) {
-            if($this->users->checkEmail($email) && $this->users->checkRPToken($token)){
-                $RPrequest = $this->users->getRPRequestRequest($token);
-                $now = DateTime::from(date("Y-m-d H:i:s"));
-                $RPRequestTime = DateTime::from($RPrequest->sent_at);
-                $RPRequestExpiredTime = $RPRequestTime->modifyClone('+10 minutes');
-                if($now > $RPRequestExpiredTime) {
-                    $this->setView('../../../../app/presenters/templates/Error/410');
-                }
-            } else {
-                $this->setView('../../../../app/presenters/templates/Error/410');
+    public function handleRegister($username, $email)
+    {
+        if($this->isAjax()) {
+            if($this->users->userDuplicate($username,$email) > 0) {
+                $this->payload->valid = false;
+                $this->flashMessage("Uživatel již existuje. Zadejte jiné údaje.");
+                $this->redrawControl('signupForm');
             }
 
         }
@@ -266,14 +153,33 @@ class AccountPresenter extends BasePresenter
         */
     }
 
+    public function actionReset($token){
+        $this->template->user_found = false;
+        if($token) {
+            if($this->userRequest->checkToken($token) > 0){
+                $RPrequest = $this->userRequest->getUserRequest($token,'resetPassword');
+                $now = DateTime::from(date("Y-m-d H:i:s"));
+                $RPRequestTime = DateTime::from($RPrequest->sent_at);
+                $RPRequestExpiredTime = $RPRequestTime->modifyClone('+10 minutes');
+                if($now > $RPRequestExpiredTime) {
+                    $this->setView('../../../../app/presenters/templates/Error/410');
+                }
+            } else {
+                $this->setView('../../../../app/presenters/templates/Error/410');
+            }
+        }
+    }
+
     public function actionActivation($token)
     {
-        if($this->users->checkActivationToken($token)) {
-            if($this->users->isUserActivated($token)) {
+        if($this->userRequest->checkToken($token)) {
+            $userEmail = $this->userRequest->getUserEmail($token);
+            if($this->users->isUserActive($userEmail->email)) {
                 $this->flashMessage('Váš účet je již aktivován.','info');
                 $this->redirect('Account:signin');
             }
-            $this->users->activateUser($token);
+            $this->users->activateUser($userEmail->email);
+            $this->flashMessage('Váš účet byl aktivován. Můžete se přihlásit');
             $this->redirect('Account:signin');
         } else {
             $this->setView('../../../../app/presenters/templates/Error/410');
@@ -286,6 +192,4 @@ class AccountPresenter extends BasePresenter
         $this->getUser()->logout();
         $this->redirect('Account:signin');
     }
-
-
 }

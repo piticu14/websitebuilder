@@ -10,9 +10,11 @@
 namespace App\Presenters;
 
 use Nette;
+use Nette\Application\UI\Form;
+
 use App\Model\DashboardManager;
 
-class DashboardPresenter  extends Nette\Application\UI\Presenter
+class DashboardPresenter  extends DashboardBasePresenter
 {
     /**
      * @var DashboardManager
@@ -29,21 +31,11 @@ class DashboardPresenter  extends Nette\Application\UI\Presenter
         $this->dashboardManager = $dashboardManager;
     }
 
-    public function beforeRender(){
-        if(!$this->getUser()->isLoggedIn()) {
-            $this->redirect("Account:signin");
-        }
-    }
-
     public function renderDefault(){
         $this->template->templates = $this->dashboardManager->getTemplates();
 
 }
-    public function formatLayoutTemplateFiles()
-    {
-        $layoutFiles = parent::formatLayoutTemplateFiles();
-        $dir = dirname($this->getReflection()->getFileName()); # adresář aktuálního presenteru
-        $layoutFiles[] = "$dir/../../presenters/templates/@dashboard_layout.latte";
-        return $layoutFiles;
-    }
+
+
+
 }

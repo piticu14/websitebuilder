@@ -20,8 +20,26 @@ class Users extends BaseManager
      */
     public function register($data)
     {
-        $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
-        return $this->getDatabase()->table('users')->insert($data);
+        return$this->getDatabase()->table('users')->insert(
+            [
+                'username' => $data->username,
+                'password' => password_hash($data->password, PASSWORD_DEFAULT),
+                'email' => $data->email,
+                'user_security_question_id' => $data->security_questions,
+                'user_security_question_answer' => $data->security_question_answer,
+            ]
+        );
+    }
+
+    public function addEmail($userId, $email, $isPrimary = 0)
+    {
+        return $this->getDatabase()->table('user_emails')->insert(
+            [
+                'user_id' => $userId,
+                'email' => $email,
+                'is_primary' => $isPrimary
+            ]
+        );
     }
 
     /**
@@ -51,47 +69,25 @@ class Users extends BaseManager
     /*---------------------------------Reset Password Methods----------------------------------- */
 
     /**
-     * Check if the email used for reset password request exists
+     * Check if user already exists in db
      * @param string $email
+     * @param string $username
      * @return bool
      */
+    public function userDuplicate($username, $email)
+    {
+       return $this->getDatabase()->table('users')
+            ->where('username = ? OR email = ?', $username, $email)
+            ->count();
+    }
+
     public function checkEmail($email)
     {
-        if($this->getDatabase()->table('users')->where('email',$email)->count()) {
-            return true;
-        }
-        return false;
+        return $this->getDatabase()->table('user_emails')
+            ->where('email',$email)
+            ->count();
     }
 
-    /**
-     * Check if the RP token exists to be sure that user doesn't change the token in link
-     * @param string $token
-     * @return bool
-     */
-
-    public function checkRPToken($token){
-        if($this->getDatabase()->table('reset_password_requests')->where('token',$token)->count()) {
-            return true;
-        }
-        return false;
-    }
-
-
-    /**
-     * Insert into database a new reset password request
-     * @param string $email
-     * @return bool|int|Nette\Database\Table\IRow
-     */
-    public function sendResetPasswordRequest($email)
-    {
-        $user = $this->getUserBy('email',$email);
-        $data = array(
-            'user_id' => $user->id,
-            'token' => bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM)),
-            'sent_at' => date("Y-m-d H:i:s")
-        );
-        return $this->getDatabase()->table('reset_password_requests')->insert($data);
-    }
 
     /**
      * @return array
@@ -110,48 +106,65 @@ class Users extends BaseManager
         return $this->getDatabase()->table('user_security_questions')->where('id',$user_security_question_id)->fetch();
     }
 
-    /**
-     * RP means Reset Password
-     * @param string $token
-     * @return bool|mixed|Nette\Database\Table\IRow|null
-     */
-    public function getRPRequestRequest($token){
-        $request = $this->getDatabase()->table('reset_password_requests')->where('token',$token);
 
-        if($request) {
-            return $request->fetch();
-        }
-        return null;
-    }
 
-    /**
-     * All old user password resquests will be deleted
-     * @param int $userId
-     */
-    public function deleteOldRPRequests($userId)
-    {
-        $this->getDatabase()->table('reset_password_requests')->where('user_id',$userId)->delete();
-    }
+
 
     /*---------------------------------User Activation Methods----------------------------------- */
-    public function checkActivationToken($token) {
-        return $this->getUserBy('activation_token',$token);
-    }
 
-    public function activateUser($token)
+    public function activateUser($email)
     {
-        $this->getDatabase()->table('users')->where('activation_token',$token)
+        $this->getDatabase()->table('users')->where('email',$email)
             ->update([
-                'activated' => 1
+                'active' => 1
             ]);
+        $this->getDatabase()->table('user_emails')->where('email',$email)
+            ->update([
+                'active' => 1
+            ]);
+
     }
 
-    public function isUserActivated($token = null) {
-        if($token) {
-            return $this->getUserBy('activation_token', $token)->activated;
-        } else {
-            return $this->getUserBy('id', $this->getUser()->id)->activated;
-        }
+    public function isUserActive($email)
+    {
+            return $this->getUserBy('email', $email)->active;
+    }
+
+
+    /*----------------------------------------User Emails------------------------- */
+    public function getUserEmail($email){
+        return $this->getDatabase()->table('user_emails')->where('email',$email)->fetch();
+    }
+
+    public function activateUserEmail($email){
+        return $this->getDatabase()->table('user_emails')->where('email',$email)->update([
+            'active' => 1
+        ]);
+    }
+
+    public function getUserEmailsList()
+    {
+        return $this->getDatabase()->table('user_emails')->where('user_id',$this->getUser()->id)->fetchAll();
+    }
+
+    public function setPrimaryEmail($email)
+    {
+        $this->getDatabase()->table('users')
+            ->where('id',$this->getUser()->id)
+            ->update([
+                'email' => $email
+            ]);
+        $this->getDatabase()->table('user_emails')
+            ->where('is_primary',1)
+            ->update([
+                'is_primary' => 0
+            ]);
+        $this->getDatabase()->table('user_emails')
+            ->where('email',$email)
+            ->update([
+                'is_primary' => 1
+            ]);
+
     }
 
 }

@@ -1,39 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0dbf6bb3-af8e-4275-a2e4-d0fec6d8aef8" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/activation.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordForm.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Dashboard/templates/default.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/EmailNotification.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/presenters/templates/Emails/userActivation.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/js/custom.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/presenters-templates-@layout.latte--55012a8ad2.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordEmail.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte" />
+    <list default="true" id="0dbf6bb3-af8e-4275-a2e4-d0fec6d8aef8" name="Default" comment="+ restored functionality">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/EmailFormFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/ResetPasswordFormFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/SecurityQuestionFormFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/SigninFormFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/SignupFormFactory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/presenters/EditPresenter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Edit/default.latte" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/SettingsModule/presenters/SettingsPresenter.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/SettingsModule/templates/Settings/default.latte" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/UserEmail.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/UserRequest.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/presenters/DashboardBasePresenter.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php.meta" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/Nette.RobotLoader/918ebb2911cd1b5dcefd74e5a128f0a5.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.Structure.cd7dcbd38ca3050d9df61c4e37d87e50/_07414f4e15ca943e6cde032dec85d92f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_0096ac3ff273022621f21bfd679d2d2a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_06ff0314ad2456b97fa29c79a4d3d0aa" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_0dc227762777abc59bb53dabc8d47c78" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_1ebbdf75472750edfa1918f6ff36ddd1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_1ff08b8f7e43001e1cfd0247709af153" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_21dc568edf8f9c8d78a22bffba17acae" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_222950dc20597beb98f71a919336bc0f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_2373d1fd7df33e45ee54a2bcf8946ea7" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_24040eabbc8d136895cf05d99662a802" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_2a142197020b464cbe37146341303a75" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_2fa94a8ecd96c641dced84b63663731f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_33661163581f79c12bfec661b181758b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_34ab01d197bcb81a60ae0a39c50af59b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_3827a0fe3604b1bffcf60d54c2feba79" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_38b07ad5a28d9ab231432f4561f068f2" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_3b1dd2d47fdc0bf7707c237c7442c610" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_3dff18e97a1bf04fb87056e8ab10018b" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_41c95c6efe3064c82cfcdfe2e9f0a093" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_42ffe6a76c954acb138eaac7812b02fc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_455e29a020ee255bf06a40a6c9918d03" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_4e62e997caddf8fc2fffd757bbf85447" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_57776fbe8a824c76026e096d8fa0b45c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_67475cf7dde097fe7e036b57836ee40f" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_6d4e16619a2cce1e24097ffbf630d4b6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_713c4576f9a829ef53b6f986bf127aa8" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_7a1fc00fca1ed7c9056d1fc27a20f367" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_7fcc5ad9045035024f5b64203f45ffed" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_8ba239844d9dac8b6753cc454699c2cc" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_8bfeeff565cd67be53f1be9295ba3ca0" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_8c7ee326230de9669a3a40882cfb1da3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_8e73e342c5498c61e0ee7880bc183158" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_9007b80fd21322dba6f6c70675894fdd" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_9399b42a7d957de6d1fa959942bdf77a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_99e86f763fae8e38fafcf78fe0abca63" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_9bdc35f1731b169bde0de0c348b81d5c" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_a1fcca1b07505d79f954e68accb58f07" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_ad1a97891f5b1a8f38a3250cc730ba8d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_b46b5f0aad83b1618429acd5d17244f1" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_babb9b0d7637653197ed4a6e6fd6ca26" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_bc031f8948b7733807fbf0039e3b2ad5" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_c1eead5c30cee9bfe586c2e3db31c861" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_c66b27debe083df2e366bb531f1f1e09" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_d3a20a9e982fbdc0d08de68b4b1f3b9e" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_d850ac3034ef122609670e6a6f06d685" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_dcae042364c489a6e6f0301327f1156d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_ddc3a3b1097f5e2b4e8e5eb94b4a6b9d" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_e0f091ff4911182e3b8d34a6a4b98108" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_f072fdf2d5466956151becba327a5582" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_f24e9994275569ad158d002eee0086a6" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_f3ebe0953c06995179f18d504f138097" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_fa010234b649a6e288f263e764d0d70a" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_fbb1c05e2dd0061011416db841646011" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/presenters-templates-@layout.latte--5125e16b0e.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-activation.latte--541ef7b620.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-emailVerification.latte--aec5c86b35.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-reset.latte--91ba113e50.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-resetPasswordForm.latte--b7e932b71d.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-securityQuestionForm.latte--c51f700fca.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-signin.latte--cf1e9b8038.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-signup.latte--a324c9b7cd.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Emails-resetPasswordEmail.latte--996bdecb51.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Error-404.latte--1190318c25.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Error-410.latte--c4f2a1fe01.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Homepage-default.latte--9ff035f487.php" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php.lock" afterPath="$PROJECT_DIR$/app/SettingsModule/templates/Settings/emailactivation.latte" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Emails-userActivation.latte--82bda4bb5a.php" afterPath="$PROJECT_DIR$/app/presenters/templates/Emails/emailActivation.latte" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/www/js/netteForms.js" afterPath="$PROJECT_DIR$/www/vendor/netteForms.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php" afterPath="$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification.latte" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/reset.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/reset.latte" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/signup.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/signup.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/bootstrap.php" afterPath="$PROJECT_DIR$/app/bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/presenters/DashboardPresenter.php" afterPath="$PROJECT_DIR$/app/Dashboard/presenters/DashboardPresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte" afterPath="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.neon" afterPath="$PROJECT_DIR$/app/config/config.neon" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Authenticator.php" afterPath="$PROJECT_DIR$/app/model/Authenticator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/BaseManager.php" afterPath="$PROJECT_DIR$/app/model/BaseManager.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Users.php" afterPath="$PROJECT_DIR$/app/model/Users.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/BasePresenter.php" afterPath="$PROJECT_DIR$/app/presenters/BasePresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/@layout.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/@layout.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/Error/410.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/Error/410.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php" afterPath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php.meta" afterPath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php.meta" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/cache/Nette.RobotLoader/918ebb2911cd1b5dcefd74e5a128f0a5.php" afterPath="$PROJECT_DIR$/temp/cache/Nette.RobotLoader/918ebb2911cd1b5dcefd74e5a128f0a5.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/cache/latte/presenters-templates-@layout.latte--5125e16b0e.php" afterPath="$PROJECT_DIR$/temp/cache/latte/presenters-templates-@layout.latte--5125e16b0e.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-signin.latte--cf1e9b8038.php" afterPath="$PROJECT_DIR$/temp/cache/latte/templates-Account-signin.latte--cf1e9b8038.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-signup.latte--a324c9b7cd.php" afterPath="$PROJECT_DIR$/temp/cache/latte/templates-Account-signup.latte--a324c9b7cd.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Homepage-default.latte--9ff035f487.php" afterPath="$PROJECT_DIR$/temp/cache/latte/templates-Homepage-default.latte--9ff035f487.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/creative.css" afterPath="$PROJECT_DIR$/www/css/creative.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/styles.css" afterPath="$PROJECT_DIR$/www/css/styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/Emails/userActivation.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/Emails/userActivation.latte" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/router/RouterFactory.php" afterPath="$PROJECT_DIR$/app/router/RouterFactory.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/dashboard_styles.css" afterPath="$PROJECT_DIR$/www/css/dashboard_styles.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/custom.js" afterPath="$PROJECT_DIR$/www/js/custom.js" />
     </list>
     <ignored path="websitebuilder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,8 +130,8 @@
       <file leaf-file-name="AccountPresenter.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-31.076923">
-              <caret line="194" column="5" selection-start-line="194" selection-start-column="5" selection-end-line="194" selection-end-column="5" />
+            <state vertical-scroll-proportion="56.23077">
+              <caret line="107" column="68" selection-start-line="107" selection-start-column="68" selection-end-line="107" selection-end-column="68" />
               <folding>
                 <element signature="e#7#88#0#PHP" expanded="true" />
                 <element signature="e#117#127#0#PHP" expanded="true" />
@@ -68,21 +140,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.latte" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/default.latte">
+      <file leaf-file-name="RouterFactory.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/router/RouterFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="-6.5384617">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="default.latte" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="resetPasswordForm.latte" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordForm.latte">
+      <file leaf-file-name="DashboardBasePresenter.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/presenters/DashboardBasePresenter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5">
-              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="@dashboard_layout.latte" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-26.153847">
+              <caret line="40" column="75" selection-start-line="40" selection-start-column="75" selection-end-line="40" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.05743243">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -91,28 +193,8 @@
       <file leaf-file-name="securityQuestionForm.latte" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.346153">
+            <state vertical-scroll-proportion="0.0">
               <caret line="38" column="85" selection-start-line="38" selection-start-column="85" selection-end-line="38" selection-end-column="85" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="resetPasswordEmail.latte" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.26923">
-              <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="120" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="signin.latte" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.153846">
-              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -121,8 +203,8 @@
       <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/model/Users.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.730769">
-              <caret line="72" column="79" selection-start-line="72" selection-start-column="79" selection-end-line="72" selection-end-column="79" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
               <folding>
                 <element signature="e#7#88#0#PHP" expanded="true" />
               </folding>
@@ -143,18 +225,8 @@
       <file leaf-file-name="default.latte" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231">
+            <state vertical-scroll-proportion="0.0">
               <caret line="33" column="100" selection-start-line="33" selection-start-column="100" selection-end-line="33" selection-end-column="100" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Authenticator.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/model/Authenticator.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.692307">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -173,7 +245,6 @@
         <option value="$PROJECT_DIR$/app/UserModule/presenters/UserPresenter.php" />
         <option value="$PROJECT_DIR$/app/AccountModule/presenters/UserPresenter.php" />
         <option value="$PROJECT_DIR$/app/presenters/templates/HomepagePresenter.php" />
-        <option value="$PROJECT_DIR$/app/router/RouterFactory.php" />
         <option value="$PROJECT_DIR$/creative/css/creative.css" />
         <option value="$PROJECT_DIR$/app/presenters/templates/@layoutBuilder.latte" />
         <option value="$PROJECT_DIR$/app/presenters/BasePresenter.php" />
@@ -205,6 +276,8 @@
         <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte" />
         <option value="$PROJECT_DIR$/app/model/Users.php" />
         <option value="$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php" />
+        <option value="$PROJECT_DIR$/app/router/RouterFactory.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -249,6 +322,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -291,11 +365,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -310,6 +380,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="presenters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="websitebuilder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="websitebuilder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="presenters" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -352,6 +448,10 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dashboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -391,7 +491,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -449,16 +548,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18854167" sideWeight="0.49624062" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.49624062" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3315734" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15771812" sideWeight="0.5037594" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -466,6 +564,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3315734" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -505,7 +604,33 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/config/config.neon">
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="120" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="72" column="79" selection-start-line="72" selection-start-column="79" selection-end-line="72" selection-end-column="79" />
+          <folding>
+            <element signature="e#7#88#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/vendor/nette.ajax.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -513,11 +638,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="100" selection-start-line="33" selection-start-column="100" selection-end-line="33" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/Authenticator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.neon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/presenters/BasePresenter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -548,21 +695,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/router/RouterFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17445838">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/presenters/templates/HomepagePresenter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.8461537">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#7#88#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -570,7 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35243902">
           <caret line="236" column="30" selection-start-line="236" selection-start-column="30" selection-end-line="236" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -578,7 +713,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.50236404">
           <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -586,7 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -594,7 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.9230769">
           <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -602,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693">
           <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -610,7 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.9230769">
           <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -626,15 +756,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7525196">
           <caret line="311" column="1" selection-start-line="311" selection-start-column="1" selection-end-line="311" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/netteForms.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.33297062">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -642,7 +763,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -650,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.692308">
           <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -658,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -666,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -674,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -682,7 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-15.038462">
           <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="71" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -690,7 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -698,7 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.576923">
           <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -706,7 +819,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2692308">
           <caret line="5" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -714,7 +826,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-17.0">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -762,7 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,31 +886,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.26923">
-          <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="120" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.153846">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/model/Authenticator.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.692307">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordForm.latte">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5">
+        <state vertical-scroll-proportion="0.0">
           <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
           <folding />
         </state>
@@ -808,7 +918,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.346153">
+        <state vertical-scroll-proportion="0.0">
           <caret line="38" column="85" selection-start-line="38" selection-start-column="85" selection-end-line="38" selection-end-column="85" />
           <folding />
         </state>
@@ -816,8 +926,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/model/Users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.730769">
-          <caret line="72" column="79" selection-start-line="72" selection-start-column="79" selection-end-line="72" selection-end-column="79" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
           <folding>
             <element signature="e#7#88#0#PHP" expanded="true" />
           </folding>
@@ -834,7 +944,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
+        <state vertical-scroll-proportion="0.0">
           <caret line="33" column="100" selection-start-line="33" selection-start-column="100" selection-end-line="33" selection-end-column="100" />
           <folding />
         </state>
@@ -842,8 +952,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-31.076923">
-          <caret line="194" column="5" selection-start-line="194" selection-start-column="5" selection-end-line="194" selection-end-column="5" />
+        <state vertical-scroll-proportion="56.23077">
+          <caret line="107" column="68" selection-start-line="107" selection-start-column="68" selection-end-line="107" selection-end-column="68" />
           <folding>
             <element signature="e#7#88#0#PHP" expanded="true" />
             <element signature="e#117#127#0#PHP" expanded="true" />
@@ -851,10 +961,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/default.latte">
+    <entry file="file://$PROJECT_DIR$/app/router/RouterFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/DashboardBasePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-26.153847">
+          <caret line="40" column="75" selection-start-line="40" selection-start-column="75" selection-end-line="40" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05743243">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>
