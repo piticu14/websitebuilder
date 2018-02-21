@@ -1,15 +1,18 @@
 {block title}Nastaveni{/block}
 {block content}
+    <script>
 
+    </script>
     <br><br><br>
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <div class="panel-group" id="accordion">
-                {snippet flashes}
-                    <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <p>{$flash->message}</p>
-                    </div>
-                {/snippet}
+            {snippet flashes}
+                <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+                    <p>{$flash->message}</p>
+                </div>
+            {/snippet}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -19,37 +22,37 @@
                     </h4>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
-                        <form n:name="resetPasswordForm" data-error-container="#error">
-                                <div id="errorContainer" class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
-                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    <p n:foreach="$form->errors as $error">{$error}</p>
-                                </div>
-                            <div class="input-group margin-bottom-20">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-                                <input size="60" maxlength="255" class="form-control" placeholder="Zadejte staré heslo" n:name="old_password"
-                                       type="password">
-                            </div>
-                            <div class="input-group margin-bottom-20">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-                                <input size="60" maxlength="255" class="form-control" placeholder="Zadejte nové heslo" n:name="password"
-                                       type="password">
-                            </div>
-                            <div class="input-group margin-bottom-20">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-                                <input size="60" maxlength="255" class="form-control"
-                                       placeholder="Zadejte znovu heslo pro kontrolu" n:name="password2" type="password">
-                            </div>
-                            <br>
+                    {form resetPasswordForm, class => "well form-horizontal", id => 'resetPasswordForm',  data-error-container => '#error'}
+                        <div id="errorContainer" class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <button class="btn-u" type="submit" n:name="reset">Nastavit heslo</button>
+                            <p n:foreach="$form->errors as $error">{$error}</p>
+                        </div>
+                    {var $form_names= ['old_password','password','password2']}
+                        {foreach $form_names as $form_name}
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{label $form_name}</label>
+
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                                        {input $form_name, class => 'form-control'}
+                                    </div>
                                 </div>
                             </div>
-                            <br>
-                        </form>
-                    </div>
+                        {/foreach}
+                        <div class="form-group">
+                            <div class="col-md-4 col-md-offset-4 inputGroupContainer">
+                                <div class="input-group">
+                                    {input reset, class => 'btn-u'}
+                                </div>
+                            </div>
+                        </div>
+                    {/form}
+                </div>
             </div>
+
+
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -73,25 +76,28 @@
                                     </thead>
                                     <tbody>
                                     {snippet emailSettings}
-                                    <tr n:foreach="$userEmails as $userEmail">
-                                        <td>{$userEmail->email}</td>
-                                        <td>
-                                        {if $userEmail->active}
-                                            Ověřeno
-                                        {else}
-                                            <a id="addEmail" href="#" data-url="{link activateEmail!}" data-email="{$userEmail->email}">Ověřit emailovou adresu</a>
-                                        {/if}
-                                        </td>
-                                        <td>
-                                        {snippet userEmail-$userEmail->id}
-                                        {if $userEmail->is_primary}
-                                            Primární email
-                                        {else}
-                                            <a id="setPrimary" href="#" data-url="{link setPrimary!}" data-email="{$userEmail->email}">Nastavit jako primární email</a>
-                                        {/if}
-                                        {/snippet}
-                                        </td>
-                                    </tr>
+                                        <tr n:foreach="$userEmails as $userEmail">
+                                            <td>{$userEmail->email}</td>
+                                            <td>
+                                                {if $userEmail->active}
+                                                    Ověřeno
+                                                {else}
+                                                    <a id="addEmail" href="#" data-url="{link activateEmail!}"
+                                                       data-email="{$userEmail->email}">Ověřit emailovou adresu</a>
+                                                {/if}
+                                            </td>
+                                            <td>
+                                                {snippet userEmail-$userEmail->id}
+                                                    {if $userEmail->is_primary}
+                                                        Primární email
+                                                    {else}
+                                                        <a id="setPrimary" href="#" data-url="{link setPrimary!}"
+                                                           data-email="{$userEmail->email}">Nastavit jako primární
+                                                            email</a>
+                                                    {/if}
+                                                {/snippet}
+                                            </td>
+                                        </tr>
                                     {/snippet}
                                     </tbody>
                                 </table>
@@ -99,25 +105,33 @@
                             </div>
 
                         </div>
-                        <form n:name="addEmailForm" data-error-container="#error">
-                            <div id="errorContainer" class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
+                        {form addEmailForm, class => "well form-horizontal", id => 'addEmailForm',  data-error-container => '#error'}
+                            <div id="errorContainer"
+                                 class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
                                 <p n:foreach="$form->errors as $error">{$error}</p>
                             </div>
-                            <div class="input-group margin-bottom-20">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
-                                <input id="email" size="60" maxlength="100" class="form-control"
-                                       placeholder="Nová emailová adresa" n:name="email" type="text">
-                            </div>
-                            <br>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{label email}</label>
 
-                            <div class="row">
-                                <div class="col-md-12 text-center">
-                                    <button class="btn-u" type="submit" n:name="reset">Přidat emailovou adresu</button>
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                                        {input email, class => 'form-control'}
+                                    </div>
                                 </div>
                             </div>
-                            <br>
-                        </form>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{label reset}</label>
+
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        {input reset, class => 'btn-u'}
+                                    </div>
+                                </div>
+                            </div>
+                        {/form}
                     </div>
                 </div>
 
@@ -132,7 +146,13 @@
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
                     <div class="panel-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
                     </div>
                 </div>
             </div>

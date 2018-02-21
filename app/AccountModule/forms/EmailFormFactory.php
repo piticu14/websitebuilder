@@ -13,8 +13,9 @@ class EmailFormFactory
     public function create($emailRequiredText, $submitText)
     {
         $form = new Form;
-        $form->addEmail('email')
-            ->setRequired($emailRequiredText);
+        $form->addEmail('email','Email')
+            ->setRequired($emailRequiredText)
+            ->setAttribute('placeholder','vas@email.cz');
         $form->addSubmit('reset', $submitText);
         return $form;
     }

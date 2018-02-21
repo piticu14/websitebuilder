@@ -41,26 +41,6 @@ class SettingsPresenter extends DashboardBasePresenter
         $this->userRequest = $userRequest;
     }
 
-    protected function createComponentResetPasswordForm()
-    {
-        $form = (new \ResetPasswordFormFactory($this->users, $this))->create();
-        $form->addPassword('old_password')
-            ->setRequired('Zadejte své staré heslo');
-        $form->onSuccess[] = function (Form $form) {
-            $this->flashMessage('Váš účet byl úspěšně založen. Ověřte svůj účet pomoci emailu, který Vám právě přišel.', 'success');
-            $this->redirect('Account:signin');
-        };
-        return $form;
-
-    }
-
-    protected function createComponentAddEmailForm()
-    {
-        $form = (new \EmailFormFactory())->create('Zadejte nový email','Přidat');
-        $form->onSuccess[] = [$this, 'addEmailFormSucceeded'];
-        return $form;
-    }
-
     public function addEmailFormSucceeded($form, $values)
     {
         $userEmail = $this->users->addEmail($this->getUser()->id,$values->email);
@@ -68,6 +48,22 @@ class SettingsPresenter extends DashboardBasePresenter
         $this->flashMessage('Právě jsme Vám poslali email s ověřením emailové adresy.', 'success');
         $this->redirect('this');
 
+    }
+
+    private function sendEmailActivation($userEmail)
+    {
+        $param = array(
+            'from' => 'FastWeb <support@fastweb.cz>',
+            'to' => $userEmail->email,
+            'subject' => 'Potvrzeni emailové adresy',
+            'email_template' => 'emailActivation',
+            'body' => array(
+                'request' => 'email',
+                'token' => $this->userRequest->addRequest($userEmail->id,'emailVerification')->token,
+                'link' => $this->getHttpRequest()->getUrl()->getBaseUrl() . 'activate/email'
+            )
+        );
+        $this->emailNotification->send($param);
     }
 
     public function actionEmailActivation($token){
@@ -94,22 +90,6 @@ class SettingsPresenter extends DashboardBasePresenter
         }
     }
 
-    private function sendEmailActivation($userEmail)
-    {
-        $param = array(
-            'from' => 'FastWeb <support@fastweb.cz>',
-            'to' => $userEmail->email,
-            'subject' => 'Potvrzeni emailové adresy',
-            'email_template' => 'emailActivation',
-            'body' => array(
-                'request' => 'email',
-                'token' => $this->userRequest->addRequest($userEmail->id,'emailVerification')->token,
-                'link' => $this->getHttpRequest()->getUrl()->getBaseUrl() . 'activate/email'
-            )
-        );
-        $this->emailNotification->send($param);
-    }
-
     public function handleSetPrimary($email)
     {
         if($this->isAjax()) {
@@ -125,5 +105,25 @@ class SettingsPresenter extends DashboardBasePresenter
         if (!isset($this->template->userEmails)) {
             $this->template->userEmails = $this->users->getUserEmailsList();
         }
+    }
+
+    protected function createComponentResetPasswordForm()
+    {
+        $form = (new \ResetPasswordFormFactory($this->users, $this))->create();
+        $form->addPassword('old_password','Staré heslo')
+            ->setRequired();
+        $form->onSuccess[] = function (Form $form) {
+            $this->flashMessage('Váš účet byl úspěšně založen. Ověřte svůj účet pomoci emailu, který Vám právě přišel.', 'success');
+            $this->redirect('Account:signin');
+        };
+        return $form;
+
+    }
+
+    protected function createComponentAddEmailForm()
+    {
+        $form = (new \EmailFormFactory())->create('Zadejte nový email','Přidat');
+        $form->onSuccess[] = [$this, 'addEmailFormSucceeded'];
+        return $form;
     }
 }

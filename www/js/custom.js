@@ -78,3 +78,67 @@ jQuery(function() {
     });
 });
 */
+$(document).ready(function() {
+    $('#resetPasswordForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            old_password: {
+                validators: {
+                    stringLength: {
+                        min: 6,
+                        message: 'Helo musi mít alespoň 6 znaků'
+                    },
+                    notEmpty: {
+                        message: 'Zadejte staré heslo'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    stringLength: {
+                        min: 6,
+                        message: 'Helo musi mít alespoň 6 znaků'
+                    },
+                    notEmpty: {
+                        message: 'Zadejte nové heslo'
+                    }
+                }
+            },
+            password2: {
+                validators: {
+                    stringLength: {
+                        min: 6,
+                        message: 'Helo musi mít alespoň 6 znaků'
+                    },
+                    notEmpty: {
+                        message: 'Zopakujte nové heslo'
+                    }
+                }
+            }
+        }
+    })
+
+    $('#addEmailForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            email: {
+                validators: {
+                    emailAddress: {
+                        message: 'Emailová adresa není ve spravném tvaru'
+                    },
+                    notEmpty: {
+                        message: 'Zadejte emailovou adresu'
+                    }
+                }
+            }
+        }
+    })
+});

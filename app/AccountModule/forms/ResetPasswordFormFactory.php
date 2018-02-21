@@ -35,13 +35,13 @@ class ResetPasswordFormFactory
     public function create()
     {
         $form = new Form;
-        $form->addPassword('password')
-            ->setRequired('Prosím zadejte heslo')
-            ->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaky', 5);
-        $form->addPassword('password2')
-            ->setRequired('Prosim zadejte znovu heslo')
+        $form->addPassword('password',"Nové heslo:")
+            ->setRequired('Zadejte nové heslo')
+            ->addRule(Form::MIN_LENGTH, 'Heslo musí mít alespoň %d znaky\n', 5);
+        $form->addPassword('password2','Potvrdit nové heslo')
+            ->setRequired('Zopakujte nové heslo')
             ->addConditionOn($form['password'], Form::VALID)
-            ->addRule(Form::EQUAL, 'Hesla se neshodují.', $form['password']);
+            ->addRule(Form::EQUAL, 'Hesla se neshodují.\n', $form['password']);
         $form->addSubmit('reset', 'Nastavit heslo');
         $form->addProtection('Vypršel ochranný časový limit, odešlete prosím formulář ještě jednou');
         $form->onSuccess[] = [$this, 'resetPasswordFormSucceded'];
