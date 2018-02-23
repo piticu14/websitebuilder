@@ -69,22 +69,26 @@ class Users extends BaseManager
     /*---------------------------------Reset Password Methods----------------------------------- */
 
     /**
-     * Check if user already exists in db
-     * @param string $email
+     * Check if username already exists in d
      * @param string $username
-     * @return bool
+     * @return int
      */
-    public function userDuplicate($username, $email)
+    public function usernameDuplicate($username)
     {
-       $username =  $this->getDatabase()->table('users')
+       return $this->getDatabase()->table('users')
             ->where('username', $username)
             ->count();
+    }
+    /**
+     * Check if email already exists in d
+     * @param string $email
+     * @return int
+     */
 
-        $email = $this->getDatabase()->table('user_emails')
+    public function emailDuplicate($email){
+        return $this->getDatabase()->table('user_emails')
             ->where('email',$email)
             ->count();
-
-        return $username + $email;
     }
 
     public function checkEmail($email)

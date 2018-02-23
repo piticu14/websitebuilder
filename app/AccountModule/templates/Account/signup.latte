@@ -2,58 +2,95 @@
 {block title}Registrace{/block}
 {block content}
     <br>
-{snippet signupForm}
-        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 
-            <form n:name="signupForm" data-error-container="#error" data-url="{link register!}">
-                <div class="row myborder">
-                    <div id="errorContainer" class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <p n:foreach="$form->errors as $error">{$error}</p>
-                    </div>
-                    <img src="{$basePath}/img/logo_websitebuilder.png" alt="FastWeb">
-                    <hr>
-                        <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <p>{$flash->message}</p>
+        {form signupForm, class => 'form-horizontal', data-error-container => '#error'}
+            <div class="row myborder">
+                <img src="{$basePath}/img/logo_websitebuilder.png" alt="FastWeb">
+                <hr>
+                <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <p>{$flash->message}</p>
+                </div>
+
+                <div n:class="form-group, $form['username']->hasErrors() ? has-error">
+                    <label class="col-md-4 control-label">{label username}</label>
+
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            {input username, maxlength => 50, class => 'form-control'}
                         </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
-                        <input size="60" maxlength="50" class="form-control" placeholder="Uživatelské jméno" n:name="username" type="text">
+                        <small class="help-block">{inputError username}</small>
                     </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-                        <input size="60" maxlength="50" class="form-control" placeholder="Heslo" n:name="password"  type="password">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
-                        <input size="60" maxlength="50" class="form-control" placeholder="Heslo pro kontrolu" n:name="password2" type="password">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
-                        <input size="60" maxlength="254" class="form-control" placeholder="Emailová adresa" n:name="email"  type="text">
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-question-sign mycolor"></i></span>
-                        <select n:name="security_questions" class="form-control"></select>
-                    </div>
-                    <div class="input-group margin-bottom-20">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-exclamation-sign mycolor"></i></span>
-                        <input size="60" maxlength="100" class="form-control" placeholder="Odpověď na bezpečnostní otázku" n:name="security_question_answer"  type="text">
-                    </div>
-                    <br><br><br><br>
-                    <div class="row">
-                        <div class="col-xl-12 text-center">
-                            <button id="signup" class="btn-u" type="submit" n:name="signup">Registrovat</button>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <p class="account-already">Pokud už účet máte, stačí se <a n:href="signin">přihlásit.</a></p>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">{label password}</label>
+
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+
+                            {input password, maxlength => 50, class => 'form-control'}
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
-{/snippet}
+                <div class="form-group">
+                    <label class="col-md-4 control-label">{label password2}</label>
+
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            {input password2, maxlength => 50, class => 'form-control'}
+                        </div>
+                    </div>
+                </div>
+                <div n:class="form-group, $form['email']->hasErrors() ? has-error">
+                    <label class="col-md-4 control-label">{label email}</label>
+
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                            {input email, maxlength => 254, class => 'form-control'}
+                        </div>
+                        <small class="help-block">{inputError email}</small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">{label security_questions}</label>
+
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-question-sign"></i></span>
+                            {input security_questions, class => 'form-control'}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label">{label security_question_answer}</label>
+
+                    <div class="col-md-8 inputGroupContainer">
+                        <div class="input-group">
+                            <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-exclamation-sign"></i></span>
+                            {input security_question_answer, maxlength => 100, class => 'form-control'}
+                        </div>
+                    </div>
+                </div>
+
+                <br><br><br><br>
+                <div class="form-group">
+                    <div class="col-md-offset-4 inputGroupContainer">
+                        <div class="input-group">
+                            {input signup, class => 'btn btn-u', id => 'signup'}
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="account-already">Pokud už účet máte, stačí se <a n:href="signin">přihlásit.</a></p>
+                    </div>
+                </div>
+            </div>
+        {/form}
+    </div>
 {/block}

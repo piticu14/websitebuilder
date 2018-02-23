@@ -37,10 +37,10 @@ class SigninFormFactory
     public function create()
     {
         $form = new Form;
-        $form->addtext('username')
+        $form->addtext('username','Uživatelské jméno')
             ->setHtmlAttribute('placeholder','John Doe')
             ->setRequired('Prosím vyplňte uživatelské jméno');
-        $form->addPassword('password')
+        $form->addPassword('password', 'Heslo')
             ->setRequired('Prosím vyplňte heslo');
         $form->addSubmit('signin', 'Přihlásit');
         $form->onSuccess[] = [$this, 'signinFormSucceeded'];

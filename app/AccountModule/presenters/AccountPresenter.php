@@ -46,6 +46,16 @@ class AccountPresenter extends BasePresenter
     protected function createComponentSignupForm()
     {
         $form = (new \SignupFormFactory($this->users, $this->emailNotification, $this->userRequest, $this->getHttpRequest()->getUrl()->getBaseUrl()))->create();
+
+        $form->onValidate[] = function ($form) {
+            $form['signup']->setDisabled();
+            if($this->users->usernameDuplicate($form['username']->value)){
+                $form['username']->addError('Uživatelské jméno již existuje');
+            }
+            if($this->users->emailDuplicate($form['email']->value)) {
+                $form['email']->addError('Emailová adresa již existuje');
+            }
+        };
         $form->onSuccess[] = function (Form $form) {
             $this->flashMessage('Váš účet byl úspěšně založen. Ověřte svůj účet pomoci emailu, který jsme Vám právě odeslali.', 'success');
             $this->redirect('Account:signin');
@@ -116,21 +126,10 @@ class AccountPresenter extends BasePresenter
 
     }
 
-    public function handleRegister($username, $email)
-    {
-        if($this->isAjax()) {
-            if($this->users->userDuplicate($username,$email) > 0) {
-                $this->payload->valid = false;
-                $this->flashMessage("Uživatel již existuje. Zadejte jiné údaje.");
-                $this->redrawControl('signupForm');
-            }
-
-        }
-    }
 
     public function handleCheckEmail($emailAddress)
     {
-        //using $emailAddress instead of $email because $email is uset in actioReset and show email address in link
+        //using $emailAddress instead of $email because $email is uset in actionReset and show email address in link
         if ($this->isAjax())
         {
             $user = $this->users->getUserBy('email',$emailAddress);

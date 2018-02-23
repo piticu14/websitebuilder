@@ -1,23 +1,5 @@
 {block title}Obnovení hesla{/block}
 {block content}
-    <script>
-        window.onload = function () {
-                $('#checkEmail').click(function (e) {
-                    e.preventDefault();
-                    $.nette.ajax({
-                        url: {link checkEmail!},
-                        type: "POST",
-                        data: { emailAddress: $('#email').val() },
-                        error: function(jqXHR,status,error) {
-                            console.log(jqXHR);
-                            console.log(status);
-                            console.log(error);
-                        }
-                    });
-                });
-        }
-
-    </script>
     <br>
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
 

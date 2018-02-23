@@ -22,7 +22,7 @@
                     </h4>
                 </div>
                 <div id="collapse1" class="panel-collapse collapse in">
-                    {form resetPasswordForm, class => "well form-horizontal", id => 'resetPasswordForm',  data-error-container => '#error'}
+                    {form resetPasswordForm, class => "well form-horizontal",  data-error-container => '#error'}
                         <div id="errorContainer" class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 
@@ -44,7 +44,7 @@
                         <div class="form-group">
                             <div class="col-md-4 col-md-offset-4 inputGroupContainer">
                                 <div class="input-group">
-                                    {input reset, class => 'btn-u'}
+                                    {input reset, class => 'btn btn-u'}
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                             </div>
 
                         </div>
-                        {form addEmailForm, class => "well form-horizontal", id => 'addEmailForm',  data-error-container => '#error'}
+                        {form addEmailForm, class => "well form-horizontal",  data-error-container => '#error'}
                             <div id="errorContainer"
                                  class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -127,7 +127,7 @@
 
                                 <div class="col-md-4 inputGroupContainer">
                                     <div class="input-group">
-                                        {input reset, class => 'btn-u'}
+                                        {input reset, class => 'btn btn-u'}
                                     </div>
                                 </div>
                             </div>

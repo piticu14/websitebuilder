@@ -1,2 +1,3 @@
 app/config/config.local.neon
 temp/cache
+.idea/workspace.xml

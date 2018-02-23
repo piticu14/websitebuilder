@@ -1,21 +1,4 @@
-<script>
-    $('#sendPasswordLink').click(function (e) {
-        e.preventDefault();
-        $.nette.ajax({
-            url: {link sendPasswordLink!},
-            type: "POST",
-            data: { user_question_answer: $('#questionAnswer').val(),
-                    emailAddress: {$email},
-                    user_security_question: $('#securityQuestion').val()},
-            error: function(jqXHR,status,error) {
-                console.log(jqXHR);
-                console.log(status);
-                console.log(error);
-            }
-        });
-    });
-</script>
-<form n:name="securityQuestionForm">
+<form n:name="securityQuestionForm" data-url={link sendPasswordLink!} data-email={$email}>
     <div class="row myborder">
         <div class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -43,7 +26,7 @@
 
         <div class="row">
             <div class="col-xl-12 text-center">
-                <button id="sendPasswordLink"  class="btn-u" type="submit" n:name="reset">Obnovit heslo</button>
+                <button id="sendPasswordLink"  class="btn btn-u" type="submit" n:name="reset">Obnovit heslo</button>
             </div>
         </div>
         <div class="row">
