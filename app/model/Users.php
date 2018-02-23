@@ -76,9 +76,15 @@ class Users extends BaseManager
      */
     public function userDuplicate($username, $email)
     {
-       return $this->getDatabase()->table('users')
-            ->where('username = ? OR email = ?', $username, $email)
+       $username =  $this->getDatabase()->table('users')
+            ->where('username', $username)
             ->count();
+
+        $email = $this->getDatabase()->table('user_emails')
+            ->where('email',$email)
+            ->count();
+
+        return $username + $email;
     }
 
     public function checkEmail($email)

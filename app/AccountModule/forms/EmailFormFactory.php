@@ -15,7 +15,7 @@ class EmailFormFactory
         $form = new Form;
         $form->addEmail('email','Email')
             ->setRequired($emailRequiredText)
-            ->setAttribute('placeholder','vas@email.cz');
+            ->setHtmlAttribute('placeholder','váš@email.cz');
         $form->addSubmit('reset', $submitText);
         return $form;
     }

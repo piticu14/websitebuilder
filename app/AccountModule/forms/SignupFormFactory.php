@@ -52,6 +52,7 @@ class SignupFormFactory
         $form = new Form;
         $form->addText('username')
             ->setRequired('Prosim vyplňte uživatelské jméno')
+            ->setHtmlAttribute('placeholder','John Doe')
             ->addRule(Form::MIN_LENGTH, 'Uživatelské jméno mít alespoň %d znaky', 4)
             ->addRule(Form::MAX_LENGTH, 'Uživatelské jméno mít nejvíce %d znaky', 100);
         $form->addPassword('password')
@@ -65,10 +66,12 @@ class SignupFormFactory
         $form->addEmail('email')
             ->addRule(Form::EMAIL, 'Neplatná emailová adresa')
             ->setRequired('Prosím vyplňte emailovou adresu')
+            ->setHtmlAttribute('placeholder','váš@email.cz')
             ->addRule(Form::MAX_LENGTH, 'Emailová adresa může mít nejvíce %d znaky', 254);
         $form->addSelect('security_questions', 'Bezpečnostní otázka', $securityQuestions);
         $form->addText('security_question_answer')
             ->setRequired('Prosim vyplňte odpověď na bezpečnostní otázku')
+            ->setHtmlAttribute('placeholder','Vaše odpověď')
             ->addRule(Form::MIN_LENGTH, 'Uživatelské jméno mít alespoň %d znaky', 1)
             ->addRule(Form::MAX_LENGTH, 'Uživatelské jméno mít nejvíce %d znaky', 100);
         $form->addSubmit('signup', 'Registrovat');

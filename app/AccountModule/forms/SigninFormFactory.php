@@ -38,6 +38,7 @@ class SigninFormFactory
     {
         $form = new Form;
         $form->addtext('username')
+            ->setHtmlAttribute('placeholder','John Doe')
             ->setRequired('Prosím vyplňte uživatelské jméno');
         $form->addPassword('password')
             ->setRequired('Prosím vyplňte heslo');

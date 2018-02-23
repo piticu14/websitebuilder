@@ -16,6 +16,7 @@ class SecurityQuestionFormFactory
         $form = new Form;
         $form->addText('security_question');
         $form->addText('security_question_answer')
+            ->setHtmlAttribute('placeholder','Vaše odpověď')
             ->setRequired('Odpovězte na bezpečnostní otázku');
         $form->addSubmit('reset', 'Obnovit');
         return $form;
