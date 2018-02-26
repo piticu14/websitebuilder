@@ -10,6 +10,8 @@ namespace App\Model;
 
 use Nette;
 
+//TODO: If user used the request set it in DB
+//TODO: Settings -> EmailVerification - If user ask for resending EmailVerification request, delete the old one
 
 class UserRequest extends BaseManager
 {
@@ -28,7 +30,7 @@ class UserRequest extends BaseManager
 
     /**
      * Insert into database a new user request
-     * @param id $userEmailId
+     * @param int $userEmailId
      * @param string $type
      * @return bool|int|Nette\Database\Table\IRow
      */

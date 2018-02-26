@@ -7,6 +7,8 @@
  * Time: 13:41
  */
 
+//TODO: Edit email template graphic
+
 namespace App\Presenters;
 
 use Nette;

@@ -1,7 +1,8 @@
-<form n:name="securityQuestionForm" data-url={link sendPasswordLink!} data-email={$email}>
+<form n:name="securityQuestionForm" class="form-horizontal" data-error-container='#error' data-url={link sendPasswordLink!} data-email={$email}>
     <div class="row myborder">
-        <div class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
+        <div id="errorContainer" class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
             <p n:foreach="$form->errors as $error">{$error}</p>
         </div>
         <img src="{$basePath}/img/logo_websitebuilder.png" alt="FastWeb">
@@ -9,24 +10,40 @@
         {snippet flashMessage}
             <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
                 <p>{$flash->message}</p>
             </div>
         {/snippet}
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-question-sign mycolor"></i></span>
-            <input id="securityQuestion" size="60" maxlength="255" class="form-control"
-                   placeholder="Bezpečnostní otázka k vašému účtu" n:name="security_question" type="text" value="{$security_question}" disabled>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="securityQuestion">{label security_question}</label>
+
+            <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                    <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-question-sign"></i></span>
+                    <input id="securityQuestion" size="60" maxlength="255" class="form-control"
+                            n:name="security_question" type="text" value="{$security_question}" disabled>
+                </div>
+            </div>
         </div>
-        <div class="input-group margin-bottom-20">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-exclamation-sign mycolor"></i></span>
-            <input id="questionAnswer" size="60" maxlength="100" class="form-control"
-                   placeholder="Odpověď na bezpečnostní otázku" n:name="security_question_answer" type="text" required>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="questionAnswer">{label security_question_answer}</label>
+
+            <div class="col-md-8 inputGroupContainer">
+                <div class="input-group">
+                    <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-question-sign"></i></span>
+                    <input id="questionAnswer" size="60" maxlength="255" class="form-control"
+                            n:name="security_question_answer" type="text">
+                </div>
+            </div>
         </div>
+
         <br><br><br><br>
 
-        <div class="row">
-            <div class="col-xl-12 text-center">
-                <button id="sendPasswordLink"  class="btn btn-u" type="submit" n:name="reset">Obnovit heslo</button>
+        <div class="form-group">
+            <div class="col-md-offset-4 inputGroupContainer">
+                <div class="input-group">
+                    <button id="sendPasswordLink" class="btn btn-u" type="submit" n:name="reset">Obnovit heslo</button>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -39,4 +56,5 @@
                 <p class="account-already">Pokud už účet máte, stačí se <a n:href="signin">přihlásit.</a></p>
             </div>
         </div>
+    </div>
 </form>
