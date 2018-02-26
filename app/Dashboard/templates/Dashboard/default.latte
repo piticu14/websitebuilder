@@ -5,13 +5,13 @@
     <div class="col-sm-12">
         <div class="case-study-gallery">
             <h1 class="title">VYBERTE ŠABLONU</h1>
-            <p>Šablonu, kterou vyberete budete upravovat podle Vaších potřeb.</p>
+            <p class="text">Šablonu, kterou vyberete budete upravovat podle Vaších potřeb.</p>
             {foreach $templates as $row}
                 <div class="case-study study{$row->id}" style="background-image:url('{$basePath}/thubmnails/{$row->title}.jpg');">
                     <div class="case-study__overlay">
                         <h2 class="case-study__title">{$row->name} Template</h2>
-                        <a class="case-study__link" target="_blank" href="{$basePath}/templates/{$row->title}/index.html">Preview</a> <br>
-                        <a class="case-study__link" href="#">Choose</a>
+                        <a class="case-study__link" target="_blank" href="{$basePath}/templates/{$row->title}/index.html">Přehled</a> <br>
+                        <a class="case-study__link" n:href="Dashboard:addSite $row->id">Vybrat</a>
                     </div>
                 </div>
             {/foreach}

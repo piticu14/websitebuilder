@@ -55,7 +55,7 @@ class SigninFormFactory
                 $this->presenter->flashMessage('Váš účet není aktivován. Aktivujte ho pomoci emailu, který jste obdržel');
                 $this->presenter->redirect('Account:signin');
             }
-            $this->presenter->redirect('Dashboard:default');
+            $this->presenter->redirect('Dashboard:projects');
         } catch (Nette\Security\AuthenticationException $e) {
             $this->presenter->flashMessage('Přihlášení bylo neúspěšné. Zkontrolujte své přihlašovací údaje.','danger');
         }

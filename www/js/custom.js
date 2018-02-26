@@ -1,3 +1,25 @@
+$(document).ready(function () {
+
+    if ($('#frm-emailVerificationForm').length) {
+        console.log('call email validator from docReady');
+        emailVerificationFormValidator();
+    }
+    if ($('#frm-securityQuestionForm').length) {
+        console.log('call sec validator from docReady');
+        securityQuestionFormValidator();
+    }
+});
+
+$(document).ajaxStop(function(){
+    if ($('#frm-emailVerificationForm').length) {
+        console.log('call email validator from ajaxStop');
+        emailVerificationFormValidator();
+    }
+    if ($('#frm-securityQuestionForm').length) {
+        console.log('call sec validator from ajaxStop');
+        securityQuestionFormValidator();
+    }
+});
 $(document).on('click', '#addEmail', function(e){
     e.preventDefault();
     $.nette.ajax({
@@ -36,23 +58,24 @@ $(document).on('click', '#setPrimary', function(e){
     });
 });
 
+/*
+
 $(document).on('click', '#sendPasswordLink', function(e){
     e.preventDefault();
     $.nette.ajax({
         url: $('#frm-securityQuestionForm').data('url'),
-    type: "POST",
+        type: "POST",
         data: { user_question_answer: $('#questionAnswer').val(),
-        emailAddress: $('#frm-securityQuestionForm').data('email'),
-        user_security_question: $('#securityQuestion').val()},
-    error: function(jqXHR,status,error) {
-        console.log(jqXHR);
-        console.log(status);
-        console.log(error);
-    }
+            emailAddress: $('#frm-securityQuestionForm').data('email'),
+            user_security_question: $('#securityQuestion').val()},
+        error: function(jqXHR,status,error) {
+            console.log(jqXHR);
+            console.log(status);
+            console.log(error);
+        }
+    });
 });
-});
-
-
+*/
 
 /*
 jQuery(function() {
@@ -83,7 +106,7 @@ jQuery(function() {
                 validators: {
                     stringLength: {
                         min: 6,
-                        message: 'Helo musi mít alespoň 6 znaků'
+                        message: 'Heslo musi mít alespoň 6 znaků'
                     },
                     notEmpty: {
                         message: 'Zadejte staré heslo'
@@ -94,7 +117,7 @@ jQuery(function() {
                 validators: {
                     stringLength: {
                         min: 6,
-                        message: 'Helo musi mít alespoň 6 znaků'
+                        message: 'Heslo musi mít alespoň 6 znaků'
                     },
                     notEmpty: {
                         message: 'Zadejte nové heslo'
@@ -148,7 +171,7 @@ $('#frm-signinForm').bootstrapValidator({
                 stringLength: {
                     min: 6,
                     max: 50,
-                    message: 'Uživatelské jméno musi mít nejméně 6 znaků a nejvíce 50 znaků'
+                    message: 'Uživatelské jméno nesmi být kratší 6 znaků a delší 50 znaků'
                 }
             }
         },
@@ -156,7 +179,7 @@ $('#frm-signinForm').bootstrapValidator({
             validators: {
                 stringLength: {
                     min: 6,
-                    message: 'Helo musi mít alespoň 6 znaků'
+                    message: 'Heslo musi mít alespoň 6 znaků'
                 },
                 notEmpty: {
                     message: 'Zadejte nové heslo'
@@ -166,6 +189,92 @@ $('#frm-signinForm').bootstrapValidator({
 
     }
 })
+
+$('#frm-siteForm').bootstrapValidator({
+    feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+        title: {
+            validators: {
+                notEmpty: {
+                    message: 'Zadejte název webu'
+                },
+                stringLength: {
+                    max: 45,
+                    message: 'Název webu může nejvíce 45 znaků'
+                }
+            }
+        },
+        subtitle: {
+            validators: {
+                stringLength: {
+                    max: 45,
+                    message: 'Podnázev webu může mít nejvíce 45 znaků'
+                }
+            }
+        },
+        subdomain: {
+            validators: {
+                regexp: {
+                    regexp: /^[\W = [A-Za-z0-9]+$/,
+                    message: 'Subdoména může obsahovat pouze čislice a písmenka'
+                },
+                notEmpty: {
+                    message: 'Zadejte subdoménu'
+                },
+                stringLength: {
+                    max: 20,
+                    message: 'Subdoména může mít nejvíce 20 znaků'
+                }
+            }
+        }
+
+    }
+})
+
+
+function securityQuestionFormValidator() {
+    $('#frm-securityQuestionForm').bootstrapValidator({
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        submitHandler: function (validator, form, submitButton) {
+            $('#frm-securityQuestionForm').data('bootstrapValidator').resetForm();
+            $.nette.ajax({
+                url: form.data('url'),
+                type: "POST",
+                data: { user_question_answer: $('#questionAnswer').val(),
+                    emailAddress: form.data('email'),
+                    user_security_question: $('#securityQuestion').val()},
+                error: function(jqXHR,status,error) {
+                    console.log(jqXHR);
+                    console.log(status);
+                    console.log(error);
+                }
+            });
+        },
+        fields: {
+            security_question_answer: {
+                validators: {
+                    notEmpty: {
+                        message: 'Zadejte kontrolní odpověď'
+                    },
+                    stringLength: {
+                        max: 100,
+                        message: 'Kontrolní odpověď nesmi být kratší 6 znaků a delší 100 znaků'
+                    }
+                }
+            }
+        }
+    })
+}
+
+
 function emailVerificationFormValidator() {
     $('#frm-emailVerificationForm').bootstrapValidator({
         feedbackIcons: {
@@ -178,8 +287,6 @@ function emailVerificationFormValidator() {
             $.nette.ajax({
                 url: form.data('url'),
                 type: "POST",
-                async: false,
-                cache: false,
                 data: {emailAddress: $(form).find('input[name="email"]').val()},
                 success: function (payload) {
                     $('#collapse' + payload.boxId).addClass('in');
@@ -190,7 +297,8 @@ function emailVerificationFormValidator() {
                     console.log(error);
                 }
             });
-            emailVerificationFormValidator();
+            securityQuestionFormValidator();
+
         },
         fields: {
             email: {
@@ -207,7 +315,6 @@ function emailVerificationFormValidator() {
     })
 }
 
-function signupFormValidator() {
     $('#frm-signupForm').bootstrapValidator({
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -223,7 +330,7 @@ function signupFormValidator() {
                     stringLength: {
                         min: 6,
                         max: 50,
-                        message: 'Uživatelské jméno musi mít nejméně 6 znaků a nejvíce 50 znaků'
+                        message: 'Uživatelské jméno nesmí být kratší 6 znaků a delší 50 znaků'
                     }
                 }
             },
@@ -231,7 +338,7 @@ function signupFormValidator() {
                 validators: {
                     stringLength: {
                         min: 6,
-                        message: 'Helo musi mít alespoň 6 znaků'
+                        message: 'Heslo musi mít alespoň 6 znaků'
                     },
                     notEmpty: {
                         message: 'Zadejte nové heslo'
@@ -266,18 +373,6 @@ function signupFormValidator() {
                     }
                 }
             }
-
         }
     })
-}
-$( document ).ready(function() {
-    emailVerificationFormValidator();
-    signupFormValidator();
-});
-$(document).on('submit', '#checkEmail', function(e) {
-    emailVerificationFormValidator();
-});
 
-$(document).on('click', '#signup', function(e) {
-    signupFormValidator();
-});

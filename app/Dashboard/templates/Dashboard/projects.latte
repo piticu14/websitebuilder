@@ -1,0 +1,47 @@
+{block title}Dashboard{/block}
+{block content}
+    <br>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
+    <div class="col-sm-12">
+        <div class="case-study-gallery">
+            <h1 class="title">VAŠE PROJEKTY</h1>
+            {snippet flashMessage}
+                <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <p class="text-center">{$flash->message}</p>
+                </div>
+            {/snippet}
+            <br>
+            {foreach $user_projects as $row}
+                <div class="case-study study{$row->template_id}" style="background-image:url('{$basePath}/thubmnails/{$row->template_title}.jpg');">
+                    <div class="case-study__overlay">
+                        <h2 class="case-study__title">{$row->title}</h2>
+                        <a class="case-study__link" target="_blank" href="#">Přehled</a> <br>
+                        <a class="case-study__link" href="#">Upravit</a>
+                    </div>
+                </div>
+            {/foreach}
+             <a n:href="Dashboard:default">
+                <div class="case-study">
+                    <div class="case-study__overlay">
+                       <i class="glyphicon glyphicon-plus-sign add_template"></i>
+                    </div>
+                </div>
+             </a>
+
+            {*
+            <div class="case-study study4">
+                <figure>
+                    <img class="case-study__img" src="https://static.squarespace.com/static/51b79838e4b0b8b55c75cf91/t/51c4b688e4b03003ea9f1a63/1371846281755/Hexxis+Logo+White.png" alt="" />
+                </figure>
+
+                <div class="case-study__overlay">
+                    <h2 class="case-study__title">Imperial Template</h2>
+                    <a class="case-study__link" href="#">Preview</a><br>
+                    <a class="case-study__link" href="#">Choose</a>
+                </div>
+            </div>
+            *}
+        </div>
+    </div>
+{/block}

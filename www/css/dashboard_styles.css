@@ -25,17 +25,17 @@ body {
     }
 }
 
-.case-study-gallery p {
+.case-study-gallery .text {
     margin: 0 auto 2rem;
     text-align: center;
     font-family: 'oswald';
-    font-size: 1.25rem;
+    font-size: 1.50rem;
     color: #444;
     font-weight: 100;
     width: 90%;
 }
 @media screen and (min-width: 37.5em) {
-    p {
+    .text {
         height: 70%;
     }
 }
@@ -147,7 +147,6 @@ body {
     background-color: white;
     color: #202020;
 }
-
 .case-study:hover .case-study__title {
     top: 0;
 }
@@ -396,3 +395,12 @@ body {
     display: inline-block;
     text-decoration: none;
 }
+
+.add_template {
+    font-size: 50px;
+    position: absolute;
+    color:white;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+
