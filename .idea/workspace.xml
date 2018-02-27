@@ -1,109 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0dbf6bb3-af8e-4275-a2e4-d0fec6d8aef8" name="Default" comment="+ restored functionality">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/EmailFormFactory.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/ResetPasswordFormFactory.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/SecurityQuestionFormFactory.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/SigninFormFactory.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/forms/SignupFormFactory.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/presenters/EditPresenter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Edit/default.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/SettingsModule/presenters/SettingsPresenter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/SettingsModule/templates/Settings/default.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/UserEmail.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/model/UserRequest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/presenters/DashboardBasePresenter.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php.meta" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/Nette.RobotLoader/918ebb2911cd1b5dcefd74e5a128f0a5.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.Structure.cd7dcbd38ca3050d9df61c4e37d87e50/_07414f4e15ca943e6cde032dec85d92f" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_0096ac3ff273022621f21bfd679d2d2a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_06ff0314ad2456b97fa29c79a4d3d0aa" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_0dc227762777abc59bb53dabc8d47c78" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_1ebbdf75472750edfa1918f6ff36ddd1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_1ff08b8f7e43001e1cfd0247709af153" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_21dc568edf8f9c8d78a22bffba17acae" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_222950dc20597beb98f71a919336bc0f" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_2373d1fd7df33e45ee54a2bcf8946ea7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_24040eabbc8d136895cf05d99662a802" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_2a142197020b464cbe37146341303a75" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_2fa94a8ecd96c641dced84b63663731f" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_33661163581f79c12bfec661b181758b" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_34ab01d197bcb81a60ae0a39c50af59b" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_3827a0fe3604b1bffcf60d54c2feba79" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_38b07ad5a28d9ab231432f4561f068f2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_3b1dd2d47fdc0bf7707c237c7442c610" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_3dff18e97a1bf04fb87056e8ab10018b" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_41c95c6efe3064c82cfcdfe2e9f0a093" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_42ffe6a76c954acb138eaac7812b02fc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_455e29a020ee255bf06a40a6c9918d03" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_4e62e997caddf8fc2fffd757bbf85447" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_57776fbe8a824c76026e096d8fa0b45c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_67475cf7dde097fe7e036b57836ee40f" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_6d4e16619a2cce1e24097ffbf630d4b6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_713c4576f9a829ef53b6f986bf127aa8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_7a1fc00fca1ed7c9056d1fc27a20f367" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_7fcc5ad9045035024f5b64203f45ffed" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_8ba239844d9dac8b6753cc454699c2cc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_8bfeeff565cd67be53f1be9295ba3ca0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_8c7ee326230de9669a3a40882cfb1da3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_8e73e342c5498c61e0ee7880bc183158" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_9007b80fd21322dba6f6c70675894fdd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_9399b42a7d957de6d1fa959942bdf77a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_99e86f763fae8e38fafcf78fe0abca63" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_9bdc35f1731b169bde0de0c348b81d5c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_a1fcca1b07505d79f954e68accb58f07" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_ad1a97891f5b1a8f38a3250cc730ba8d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_b46b5f0aad83b1618429acd5d17244f1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_babb9b0d7637653197ed4a6e6fd6ca26" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_bc031f8948b7733807fbf0039e3b2ad5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_c1eead5c30cee9bfe586c2e3db31c861" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_c66b27debe083df2e366bb531f1f1e09" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_d3a20a9e982fbdc0d08de68b4b1f3b9e" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_d850ac3034ef122609670e6a6f06d685" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_dcae042364c489a6e6f0301327f1156d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_ddc3a3b1097f5e2b4e8e5eb94b4a6b9d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_e0f091ff4911182e3b8d34a6a4b98108" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_f072fdf2d5466956151becba327a5582" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_f24e9994275569ad158d002eee0086a6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_f3ebe0953c06995179f18d504f138097" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_fa010234b649a6e288f263e764d0d70a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/_Nette.Database.cd7dcbd38ca3050d9df61c4e37d87e50/_fbb1c05e2dd0061011416db841646011" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/presenters-templates-@layout.latte--5125e16b0e.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-activation.latte--541ef7b620.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-emailVerification.latte--aec5c86b35.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-reset.latte--91ba113e50.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-resetPasswordForm.latte--b7e932b71d.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-securityQuestionForm.latte--c51f700fca.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-signin.latte--cf1e9b8038.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Account-signup.latte--a324c9b7cd.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Emails-resetPasswordEmail.latte--996bdecb51.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Error-404.latte--1190318c25.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Error-410.latte--c4f2a1fe01.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Homepage-default.latte--9ff035f487.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/temp/cache/Nette.Configurator/Container_1998e84380.php.lock" afterPath="$PROJECT_DIR$/app/SettingsModule/templates/Settings/emailactivation.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/temp/cache/latte/templates-Emails-userActivation.latte--82bda4bb5a.php" afterPath="$PROJECT_DIR$/app/presenters/templates/Emails/emailActivation.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/js/netteForms.js" afterPath="$PROJECT_DIR$/www/vendor/netteForms.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="0dbf6bb3-af8e-4275-a2e4-d0fec6d8aef8" name="Default" comment="Improve User Settings forms validation errors&#10;&#10;User Settings forms now have better javascript validation. I am using&#10;FormValidation Jquery plugin (check http://http://formvalidation.io/)&#10; &#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/zkouska.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/addSite.latte" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php" afterPath="$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/reset.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/reset.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/AccountModule/templates/Account/signup.latte" afterPath="$PROJECT_DIR$/app/AccountModule/templates/Account/signup.latte" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/presenters/DashboardPresenter.php" afterPath="$PROJECT_DIR$/app/Dashboard/presenters/DashboardPresenter.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte" afterPath="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/config.neon" afterPath="$PROJECT_DIR$/app/config/config.neon" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Authenticator.php" afterPath="$PROJECT_DIR$/app/model/Authenticator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/model/Users.php" afterPath="$PROJECT_DIR$/app/model/Users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/BasePresenter.php" afterPath="$PROJECT_DIR$/app/presenters/BasePresenter.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/projects.latte" afterPath="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/projects.latte" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/@layout.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/@layout.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/Emails/userActivation.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/Emails/userActivation.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/router/RouterFactory.php" afterPath="$PROJECT_DIR$/app/router/RouterFactory.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/dashboard_styles.css" afterPath="$PROJECT_DIR$/www/css/dashboard_styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/custom.js" afterPath="$PROJECT_DIR$/www/js/custom.js" />
     </list>
@@ -119,120 +24,154 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="C:\xampp\htdocs\websitebuilder" />
+  </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - websitebuilder@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - websitebuilder@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="user_requests" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - websitebuilder@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="site" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="websitebuilder" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AccountPresenter.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="56.23077">
-              <caret line="107" column="68" selection-start-line="107" selection-start-column="68" selection-end-line="107" selection-end-column="68" />
-              <folding>
-                <element signature="e#7#88#0#PHP" expanded="true" />
-                <element signature="e#117#127#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RouterFactory.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/router/RouterFactory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.latte" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DashboardBasePresenter.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/presenters/DashboardBasePresenter.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="@dashboard_layout.latte" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-26.153847">
-              <caret line="40" column="75" selection-start-line="40" selection-start-column="75" selection-end-line="40" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05743243">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="securityQuestionForm.latte" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="85" selection-start-line="38" selection-start-column="85" selection-end-line="38" selection-end-column="85" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Users.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/model/Users.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
-              <folding>
-                <element signature="e#7#88#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nette.ajax.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/vendor/nette.ajax.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.latte" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="33" column="100" selection-start-line="33" selection-start-column="100" selection-end-line="33" selection-end-column="100" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.6023454">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="SiteManager.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/model/SiteManager.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-20.26923">
+                  <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+                  <folding>
+                    <element signature="e#111#121#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="DashboardPresenter.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Dashboard/presenters/DashboardPresenter.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-29.423077">
+                  <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
+                  <folding>
+                    <element signature="e#116#126#0#PHP" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="SiteFormFactory.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Dashboard/forms/SiteFormFactory.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-18.307692">
+                  <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="projects.latte" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/Dashboard/projects.latte">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-4.576923">
+                  <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="12" selection-end-column="22" />
+                  <folding>
+                    <element signature="e#746#828#0#HTML" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="default.latte" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.3148148">
+                  <caret line="12" column="75" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="@dashboard_layout.latte" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-8.5">
+                  <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="dashboard_styles.css" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/www/css/dashboard_styles.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-46.98182">
+                  <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="custom.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/www/js/custom.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.21763869">
+                  <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -240,44 +179,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/config/config.local.neon" />
-        <option value="$PROJECT_DIR$/app/model/BaseManage.php" />
-        <option value="$PROJECT_DIR$/app/UserModule/presenters/UserPresenter.php" />
-        <option value="$PROJECT_DIR$/app/AccountModule/presenters/UserPresenter.php" />
-        <option value="$PROJECT_DIR$/app/presenters/templates/HomepagePresenter.php" />
-        <option value="$PROJECT_DIR$/creative/css/creative.css" />
-        <option value="$PROJECT_DIR$/app/presenters/templates/@layoutBuilder.latte" />
-        <option value="$PROJECT_DIR$/app/presenters/BasePresenter.php" />
-        <option value="$PROJECT_DIR$/app/bootstrap.php" />
-        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordEmail.latte" />
-        <option value="$PROJECT_DIR$/app/model/BaseManager.php" />
-        <option value="$PROJECT_DIR$/app/model/EmailNotification.php" />
-        <option value="$PROJECT_DIR$/www/css/creative.css" />
-        <option value="$PROJECT_DIR$/www/css/styles.css" />
-        <option value="$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte" />
-        <option value="$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte" />
-        <option value="$PROJECT_DIR$/www/js/custom.js" />
-        <option value="$PROJECT_DIR$/app/model/AnswerSecurityQuestionForm.php" />
-        <option value="$PROJECT_DIR$/app/model/SecurityQuestionForm.php" />
-        <option value="$PROJECT_DIR$/app/config/config.neon" />
         <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/answerSecurityQuestionForm.latte" />
         <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/sendPasswordLinkForm.latte" />
-        <option value="$PROJECT_DIR$/app/presenters/templates/@layout.latte" />
-        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/reset.latte" />
         <option value="$PROJECT_DIR$/app/presenters/templates/Error/404.latte" />
         <option value="$PROJECT_DIR$/app/presenters/templates/Error/500.phtml" />
         <option value="$PROJECT_DIR$/app/presenters/templates/Error/410.latte" />
-        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification.latte" />
-        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordForm.latte" />
-        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte" />
-        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/signup.latte" />
         <option value="$PROJECT_DIR$/app/presenters/templates/Emails/userActivation.latte" />
         <option value="$PROJECT_DIR$/app/model/Authenticator.php" />
-        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte" />
-        <option value="$PROJECT_DIR$/app/model/Users.php" />
-        <option value="$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php" />
-        <option value="$PROJECT_DIR$/app/router/RouterFactory.php" />
+        <option value="$PROJECT_DIR$/app/SettingsModule/presenters/SettingsPresenter.php" />
+        <option value="$PROJECT_DIR$/app/AccountModule/forms/ResetPasswordFormFactory.php" />
+        <option value="$PROJECT_DIR$/app/SettingsModule/templates/Settings/form.latte" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/app/presenters/templates/@layout.latte" />
+        <option value="$PROJECT_DIR$/app/AccountModule/forms/SignupFormFactory.php" />
+        <option value="$PROJECT_DIR$/www/css/styles.css" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification1.latte" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification.latte" />
+        <option value="$PROJECT_DIR$/app/model/Users.php" />
+        <option value="$PROJECT_DIR$/app/AccountModule/forms/EmailFormFactory.php" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/resetPassword1.latte" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/signup1.latte" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordForm1.latte" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordForm.latte" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/signup.latte" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte" />
+        <option value="$PROJECT_DIR$/app/SettingsModule/templates/Settings/default.latte" />
+        <option value="$PROJECT_DIR$/app/model/UserRequest.php" />
+        <option value="$PROJECT_DIR$/app/router/RouterFactory.php" />
+        <option value="$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte" />
+        <option value="dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.users" />
+        <option value="$PROJECT_DIR$/app/AccountModule/forms/SecurityQuestionFormFactory.php" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte" />
+        <option value="$PROJECT_DIR$/app/AccountModule/templates/Account/reset.latte" />
+        <option value="$PROJECT_DIR$/app/presenters/BasePresenter.php" />
+        <option value="dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.sites" />
+        <option value="$PROJECT_DIR$/app/Dashboard/SiteFormFactory.php" />
+        <option value="$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php" />
+        <option value="dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.templates" />
+        <option value="$PROJECT_DIR$/app/model/DashboardManager.php" />
+        <option value="$PROJECT_DIR$/app/model/SiteModel.php" />
+        <option value="$PROJECT_DIR$/app/config/config.neon" />
+        <option value="$PROJECT_DIR$/app/AccountModule/forms/SigninFormFactory.php" />
+        <option value="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/projects.latte" />
+        <option value="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/addSite.latte" />
+        <option value="$PROJECT_DIR$/app/model/SiteManager.php" />
+        <option value="$PROJECT_DIR$/www/css/dashboard_styles.css" />
+        <option value="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/addSiteForm.latte" />
+        <option value="$PROJECT_DIR$/app/Dashboard/forms/SiteFormFactory.php" />
+        <option value="$PROJECT_DIR$/app/Dashboard/presenters/DashboardPresenter.php" />
+        <option value="$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte" />
+        <option value="$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte" />
+        <option value="$PROJECT_DIR$/www/js/custom.js" />
       </list>
     </option>
   </component>
@@ -338,20 +290,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -471,24 +409,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AccountModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -496,9 +416,15 @@
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.toDoOptions" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\websitebuilder\app\AccountModule\templates\Account" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\websitebuilder\app\Dashboard\forms" />
       <recent name="C:\xampp\htdocs\websitebuilder\app\presenters\templates\Emails" />
       <recent name="C:\xampp\htdocs\websitebuilder\app\AccountModule\templates\Account" />
     </key>
@@ -544,49 +470,83 @@
       <option name="number" value="Default" />
       <updated>1516795024503</updated>
     </task>
+    <task id="LOCAL-00001" summary="+ restored functionality">
+      <created>1519158799649</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1519158799649</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Improve User Settings forms validation errors&#10;&#10;User Settings forms now have better javascript validation. &#10;&#10;UsingFormValidation Jquery plugin (check http://http://formvalidation.io/)&#10; &#10;">
+      <created>1519177556802</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1519177556802</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Delete form.latte (useless)&#10; &#10;">
+      <created>1519177813561</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1519177813561</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add placeholder to inputs and edit userDuplicate method">
+      <created>1519390906172</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1519390906172</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Finish validation for every user form&#10; &#10; + Added javascript validation (Bootstrap Validation) to every user form&#10; see http://formvalidation.io/) &#10; + Removed Ajax Request from SignupForm (useless) &#10; + Added single methods for username duplicate and email duplicate&#10; &#10; &#10; &#10;">
+      <created>1519429551155</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1519429551155</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update UserAccount forms&#10;&#10;+ Added js validator to SecurityQuestionForm&#10;+ Fixed js validator after seding Ajax Request&#10;+ Changed resetPassword link from ?token=token to /token&#10; &#10;">
+      <created>1519649559749</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1519649559749</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Work at User templates and projects&#10;&#10;+ created Addsite form&#10;++note: if subdomain exists concatenate subdomain and lastSiteId + 1&#10;+ created user projects, which show all user's projects and gives posbility to Preview project and edit it&#10;+ after signIn, user is redirected to his projects&#10;+ in userOptions  is added Projects item which leads to User's Projects&#10;&#10;">
+      <created>1519687510706</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1519687510706</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.49624062" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2196162" sideWeight="0.49624062" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20887446" sideWeight="0.5021322" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09594883" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33116883" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20887446" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24944155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2462203" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15771812" sideWeight="0.5037594" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3315734" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
-    <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946146" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18854167" sideWeight="0.49624062" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3315734" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15771812" sideWeight="0.5037594" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -599,404 +559,458 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="+ restored functionality" />
+    <MESSAGE value="Improve User Settings forms validation errors&#10;&#10;User Settings forms now have better javascript validation. &#10;&#10;UsingFormValidation Jquery plugin (check http://http://formvalidation.io/)&#10; &#10;" />
+    <MESSAGE value="Delete form.latte (useless)&#10; &#10;" />
+    <MESSAGE value="Add placeholder to inputs and edit userDuplicate method" />
+    <MESSAGE value="Finish validation for every user form&#10; &#10; + Added javascript validation (Bootstrap Validation) to every user form&#10; see http://formvalidation.io/) &#10; + Removed Ajax Request from SignupForm (useless) &#10; + Added single methods for username duplicate and email duplicate&#10; &#10; &#10; &#10;" />
+    <MESSAGE value="Update UserAccount forms&#10;&#10;+ Added js validator to SecurityQuestionForm&#10;+ Fixed js validator after seding Ajax Request&#10;+ Changed resetPassword link from ?token=token to /token&#10; &#10;" />
+    <MESSAGE value="Work at User templates and projects&#10;&#10;+ created Addsite form&#10;++note: if subdomain exists concatenate subdomain and lastSiteId + 1&#10;+ created user projects, which show all user's projects and gives posbility to Preview project and edit it&#10;+ after signIn, user is redirected to his projects&#10;+ in userOptions  is added Projects item which leads to User's Projects&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work at User templates and projects&#10;&#10;+ created Addsite form&#10;++note: if subdomain exists concatenate subdomain and lastSiteId + 1&#10;+ created user projects, which show all user's projects and gives posbility to Preview project and edit it&#10;+ after signIn, user is redirected to his projects&#10;+ in userOptions  is added Projects item which leads to User's Projects&#10;&#10;" />
+  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="120" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="79" selection-start-line="72" selection-start-column="79" selection-end-line="72" selection-end-column="79" />
-          <folding>
-            <element signature="e#7#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/vendor/nette.ajax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="-1.3660715">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte">
+    <entry file="file://$PROJECT_DIR$/www/vendor/netteForms.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="100" selection-start-line="33" selection-start-column="100" selection-end-line="33" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Authenticator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.neon">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/BasePresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signup.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#7#88#0#PHP" expanded="true" />
-            <element signature="e#117#127#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/HomepagePresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/creative/css/creative.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35243902">
-          <caret line="236" column="30" selection-start-line="236" selection-start-column="30" selection-end-line="236" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/creative/js/creative.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50236404">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/creative.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/BasePresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="19" column="65" selection-start-line="19" selection-start-column="65" selection-end-line="19" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.local.neon">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.538462">
-          <caret line="38" column="23" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/creative.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7525196">
-          <caret line="311" column="1" selection-start-line="311" selection-start-column="1" selection-end-line="311" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/BaseManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.692308">
-          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Error/4xx.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Error/403.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Error/405.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/config.neon">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.038462">
-          <caret line="23" column="34" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Error/503.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Error/404.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Error/500.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Error/410.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.0">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.384615">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="32" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/@layout.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.307692">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signup.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/EmailNotification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.961538">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/reset.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6153846">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="20" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/activation.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Emails/userActivation.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.309091">
-          <caret line="190" column="43" selection-start-line="190" selection-start-column="43" selection-end-line="190" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="37" selection-start-line="70" selection-start-column="37" selection-end-line="70" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Authenticator.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordForm.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="85" selection-start-line="38" selection-start-column="85" selection-end-line="38" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/Users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
-          <folding>
-            <element signature="e#7#88#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/vendor/nette.ajax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="33" column="100" selection-start-line="33" selection-start-column="100" selection-end-line="33" selection-end-column="100" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="56.23077">
-          <caret line="107" column="68" selection-start-line="107" selection-start-column="68" selection-end-line="107" selection-end-column="68" />
-          <folding>
-            <element signature="e#7#88#0#PHP" expanded="true" />
-            <element signature="e#117#127#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/router/RouterFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/DashboardBasePresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.153847">
-          <caret line="40" column="75" selection-start-line="40" selection-start-column="75" selection-end-line="40" selection-end-column="75" />
+        <state vertical-scroll-proportion="-5.6506696">
+          <caret line="217" column="26" selection-start-line="217" selection-start-column="22" selection-end-line="217" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05743243">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.navs">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/templates/bold/sass/bootstrap/_forms.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.63563216">
+          <caret line="489" column="5" selection-start-line="489" selection-start-column="5" selection-end-line="489" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/@layout.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.2692308">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="8" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.user_emails">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/forms/EmailFormFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="18" column="47" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.user_requests">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16290131">
+          <caret line="35" column="6" selection-start-line="35" selection-start-column="6" selection-end-line="35" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/zkouska.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/creative/vendor/bootstrap/js/bootstrap.bundle.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33277026">
+          <caret line="4687" column="7" selection-start-line="4687" selection-start-column="7" selection-end-line="4687" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Emails/resetPasswordEmail.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.1153846">
+          <caret line="70" column="89" selection-start-line="70" selection-start-column="89" selection-end-line="70" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SettingsModule/presenters/SettingsPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44017726">
+          <caret line="69" column="48" selection-start-line="69" selection-start-column="48" selection-end-line="70" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SettingsModule/templates/Settings/default.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.50812405">
+          <caret line="136" column="0" selection-start-line="136" selection-start-column="0" selection-end-line="136" selection-end-column="0" />
+          <folding>
+            <element signature="e#2815#2993#0#HTML" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.user_security_questions">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.users">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/UserRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6026588">
+          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/resetPasswordForm.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/reset.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/nette/application/src/Application/UI/Control.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52141804">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/HomepagePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.82865584">
+          <caret line="33" column="100" selection-start-line="33" selection-start-column="100" selection-end-line="33" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/emailVerification.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.1506647">
+          <caret line="0" column="91" selection-start-line="0" selection-start-column="91" selection-end-line="0" selection-end-column="135" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/BasePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="21" column="1" selection-start-line="21" selection-start-column="1" selection-end-line="21" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/securityQuestionForm.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35155097">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="25" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/router/RouterFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077">
+          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/forms/ResetPasswordFormFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7533235">
+          <caret line="37" column="50" selection-start-line="37" selection-start-column="50" selection-end-line="37" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/forms/SecurityQuestionFormFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3013294">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.local.neon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signin.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/forms/SignupFormFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.67799115">
+          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+          <folding>
+            <element signature="e#88#118#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/config.neon">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/Users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.0">
+          <caret line="75" column="20" selection-start-line="75" selection-start-column="20" selection-end-line="75" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/Authenticator.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6277696">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.025110783">
+          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
+          <folding>
+            <element signature="e#7#88#0#PHP" expanded="true" />
+            <element signature="e#154#164#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/forms/SigninFormFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71141976">
+          <caret line="57" column="58" selection-start-line="57" selection-start-column="58" selection-end-line="57" selection-end-column="58" />
+          <folding>
+            <element signature="e#7#87#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/templates/Account/signup.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31019202">
+          <caret line="55" column="24" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.site">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/DashboardManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44942528">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/SiteManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.26923">
+          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding>
+            <element signature="e#111#121#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/forms/SiteFormFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-18.307692">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/presenters/DashboardPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-29.423077">
+          <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
+          <folding>
+            <element signature="e#116#126#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/Dashboard/projects.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="e#746#828#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/@dashboard_layout.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="13" column="61" selection-start-line="13" selection-start-column="61" selection-end-line="13" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/css/dashboard_styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-46.98182">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21763869">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Dashboard/templates/Dashboard/default.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3148148">
+          <caret line="12" column="75" selection-start-line="12" selection-start-column="75" selection-end-line="12" selection-end-column="75" />
           <folding />
         </state>
       </provider>
