@@ -11,11 +11,71 @@
                     <div class="case-study__overlay">
                         <h2 class="case-study__title">{$row->name} Template</h2>
                         <a class="case-study__link" target="_blank" href="{$basePath}/templates/{$row->title}/index.html">Přehled</a> <br>
-                        <a class="case-study__link" n:href="Dashboard:addSite $row->id">Vybrat</a>
+                        <a class="case-study__link add-project-form" data-toggle="modal" id="{$row->id}" data-target="#exampleModalCenter" href="#">Vybrat</a>
                     </div>
                 </div>
             {/foreach}
+            <!-- Modal Add Project Form -->
+            {form siteForm, class => 'form-horizontal', data-error-container => '#error'}
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Pridat web</h4>
+                        </div>
+                        <div class="modal-body">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">{label title}</label>
 
+                                        <div class="col-md-7 col-xs-12 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                                {input title, maxlength => 45, class => 'form-control'}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">{label subtitle}</label>
+
+                                        <div class="col-md-7 col-xs-12 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+
+                                                {input subtitle, maxlength => 45, class => 'form-control'}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div n:class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">{label subdomain}</label>
+
+                                        <div class="col-md-7 col-xs-12 inputGroupContainer">
+                                            <div class="input-group">
+                                                <span class="mycolor input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                                {input subdomain, maxlength => 20, class => 'form-control'}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 col-xs-12 control-label">Aktivní</label>
+                                        <div class="col-md-7 col-xs-12 inputGroupContainer">
+                                            <div class="checkbox">
+                                                {input active class => 'form-control'}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {input template_id, id => 'template_id'}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            {input add, class => 'btn btn-primary'}
+                        </div>
+                        {/form}
+                    </div>
+                </div>
+            </div>
             {*
             <div class="case-study study4">
                 <figure>

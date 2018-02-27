@@ -98,6 +98,9 @@ body {
     top: 0;
     z-index: 10;
 }
+.case-study__overlay:hover .add_template{
+    color: white;
+}
 .case-study__overlay:after {
     content: '';
     width: 100%;
@@ -147,6 +150,7 @@ body {
     background-color: white;
     color: #202020;
 }
+
 .case-study:hover .case-study__title {
     top: 0;
 }
@@ -399,8 +403,15 @@ body {
 .add_template {
     font-size: 50px;
     position: absolute;
-    color:white;
+    color:#202020;
+    opacity: .75;
     top: 50%; left: 50%;
     transform: translate(-50%,-50%);
 }
 
+.case-study-addSite {
+    position: relative;
+    width: 50%;
+    left: 20%;
+    text-align: center;
+}

@@ -17,6 +17,7 @@ use App\Model\SiteManager;
 
 class DashboardPresenter  extends DashboardBasePresenter
 {
+    // TODO: create Site Modul and destroy Dashboard?
     /**
      * @var DashboardManager
      */
@@ -52,7 +53,7 @@ class DashboardPresenter  extends DashboardBasePresenter
     protected function createComponentSiteForm()
     {
         $form = (new \SiteFormFactory())->create();
-        $form->addHidden('template_id',$this->getParameter('id'));
+        $form->addHidden('template_id');
         $form->onSuccess[] = function (Form $form) {
             if($this->siteManager->subdomainDuplicate($form['subdomain']->value)){
                 $nextId = $this->siteManager->getLastInsertedId() + 1;

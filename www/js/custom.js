@@ -375,4 +375,7 @@ function emailVerificationFormValidator() {
             }
         }
     })
+$(document).on('click', '.add-project-form', function() {
+    $('#exampleModalCenter input[id="template_id"]').val($(this).attr('id'))
+});
 
