@@ -8,6 +8,11 @@ body {
     background-image: url("https://subtlepatterns.com/patterns/sativa.png");
 }
 
+a:focus {
+    color:white;
+    border-color:white;
+}
+
 .title {
     text-align: center;
     font-family: 'Oswald';

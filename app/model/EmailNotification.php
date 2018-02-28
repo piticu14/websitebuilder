@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 27.1.2018
- * Time: 11:53
- */
 
 namespace App\Model;
 

@@ -1,22 +1,17 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 7.2.2018
- * Time: 21:02
- */
-
 namespace App\Presenters;
+
 use Nette;
 use Nette\Application\UI\Form;
 
 use App\Model\Users;
 use App\Model\UserRequest;
 use App\Model\EmailNotification;
+use App\Model\ProjectManager;
 
 
-class SettingsPresenter extends DashboardBasePresenter
+class SettingsPresenter extends AdminBasePresenter
 {
     /** @var Users */
     private $users;
@@ -24,21 +19,27 @@ class SettingsPresenter extends DashboardBasePresenter
     /** @var EmailNotification */
     private $emailNotification;
 
-    /** @var UserRequests */
+    /** @var UserRequest */
     private $userRequest;
+
+    /** @var ProjectManager */
+    private $projectManager;
+
 
     /**
      * AccountPresenter constructor.
      * @param Users $users
      * @param EmailNotification $emailNotification
      * @param UserRequest $userRequest
+     * @param ProjectManager $projectManager
      */
 
-    public function __construct(Users $users, EmailNotification $emailNotification, UserRequest $userRequest)
+    public function __construct(Users $users, EmailNotification $emailNotification, UserRequest $userRequest, ProjectManager $projectManager)
     {
         $this->users = $users;
         $this->emailNotification = $emailNotification;
         $this->userRequest = $userRequest;
+        $this->projectManager = $projectManager;
     }
 
     public function addEmailFormSucceeded($form, $values)
@@ -100,7 +101,7 @@ class SettingsPresenter extends DashboardBasePresenter
 
     }
 
-    public function renderDefault()
+    public function renderDefault($id)
     {
         if (!isset($this->template->userEmails)) {
             $this->template->userEmails = $this->users->getUserEmailsList();
@@ -124,6 +125,16 @@ class SettingsPresenter extends DashboardBasePresenter
     {
         $form = (new \EmailFormFactory())->create('Zadejte nový email','Přidat');
         $form->onSuccess[] = [$this, 'addEmailFormSucceeded'];
+        return $form;
+    }
+
+    protected function createComponentProjectSettingsForm()
+    {
+        $form = (new \ProjectSettingsForm($this->projectManager))->create($this->getParameter('id'));
+        $form->onSuccess[] = function (Form $form){
+            $this->flashMessage('Aktualizace uspesna');
+            $this->redirect('Project:all');
+        };
         return $form;
     }
 }

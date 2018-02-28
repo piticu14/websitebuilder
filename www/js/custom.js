@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    if($('#collapse3').length){
+        $('#collapse3').addClass('in');
+    }else {
+        $('#collapse1').addClass('in');
+    }
     if ($('#frm-emailVerificationForm').length) {
         console.log('call email validator from docReady');
         emailVerificationFormValidator();
@@ -378,4 +383,19 @@ function emailVerificationFormValidator() {
 $(document).on('click', '.add-project-form', function() {
     $('#exampleModalCenter input[id="template_id"]').val($(this).attr('id'))
 });
+$(document).on('click', '.showProject', function() {
+    var project = $(this).data('project');
+    var projectLink = project.subdomain + '.fastweb.cz';
+    $('.modal-title').html(project.title);
+    $('#project-subdomain').html(projectLink).attr(projectLink);
+
+    if(parseInt(project.active)) {
+        $('#active').html('Stav: Aktivní')
+    }else {
+        $('#active').html('Stav: Neaktivní')
+    }
+    $('#settings').attr('href','/websitebuilder/www/settings/default/' + project.id);
+
+});
+
 

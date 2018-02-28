@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 24.1.2018
- * Time: 15:21
- */
-
 namespace App\Model;
 
 use Nette;
@@ -20,7 +13,7 @@ class Users extends BaseManager
      */
     public function register($data)
     {
-        return$this->getDatabase()->table('users')->insert(
+        return$this->getDatabase()->table('user')->insert(
             [
                 'username' => $data->username,
                 'password' => password_hash($data->password, PASSWORD_DEFAULT),
@@ -33,7 +26,7 @@ class Users extends BaseManager
 
     public function addEmail($userId, $email, $isPrimary = 0)
     {
-        return $this->getDatabase()->table('user_emails')->insert(
+        return $this->getDatabase()->table('user_email')->insert(
             [
                 'user_id' => $userId,
                 'email' => $email,
@@ -49,7 +42,7 @@ class Users extends BaseManager
      */
     public function updateUser($data)
     {
-        return $this->getDatabase()->table('users')->update($data);
+        return $this->getDatabase()->table('user')->update($data);
     }
 
     /**
@@ -60,7 +53,7 @@ class Users extends BaseManager
      */
     public function getUserBy($column,$value)
     {
-        $user = $this->getDatabase()->table('users')->where($column,$value);
+        $user = $this->getDatabase()->table('user')->where($column,$value);
         if($user->count()) {
             return $user->fetch();
         }
@@ -69,31 +62,31 @@ class Users extends BaseManager
     /*---------------------------------Reset Password Methods----------------------------------- */
 
     /**
-     * Check if username already exists in d
+     * Check if username already exists
      * @param string $username
      * @return int
      */
     public function usernameDuplicate($username)
     {
-       return $this->getDatabase()->table('users')
+       return $this->getDatabase()->table('user')
             ->where('username', $username)
             ->count();
     }
     /**
-     * Check if email already exists in d
+     * Check if email already exists
      * @param string $email
      * @return int
      */
 
     public function emailDuplicate($email){
-        return $this->getDatabase()->table('user_emails')
+        return $this->getDatabase()->table('user_email')
             ->where('email',$email)
             ->count();
     }
 
     public function checkEmail($email)
     {
-        return $this->getDatabase()->table('user_emails')
+        return $this->getDatabase()->table('user_email')
             ->where('email',$email)
             ->count();
     }
@@ -104,7 +97,7 @@ class Users extends BaseManager
      */
     public function getSecurityQuestions()
     {
-        return $this->getDatabase()->table('user_security_questions')->fetchPairs('id','security_question');
+        return $this->getDatabase()->table('user_security_question')->fetchPairs('id','security_question');
     }
 
     /**
@@ -113,7 +106,7 @@ class Users extends BaseManager
      */
     public function getUserSecurityQuestion($user_security_question_id)
     {
-        return $this->getDatabase()->table('user_security_questions')->where('id',$user_security_question_id)->fetch();
+        return $this->getDatabase()->table('user_security_question')->where('id',$user_security_question_id)->fetch();
     }
 
 
@@ -124,11 +117,11 @@ class Users extends BaseManager
 
     public function activateUser($email)
     {
-        $this->getDatabase()->table('users')->where('email',$email)
+        $this->getDatabase()->table('user')->where('email',$email)
             ->update([
                 'active' => 1
             ]);
-        $this->getDatabase()->table('user_emails')->where('email',$email)
+        $this->getDatabase()->table('user_email')->where('email',$email)
             ->update([
                 'active' => 1
             ]);
@@ -143,33 +136,33 @@ class Users extends BaseManager
 
     /*----------------------------------------User Emails------------------------- */
     public function getUserEmail($email){
-        return $this->getDatabase()->table('user_emails')->where('email',$email)->fetch();
+        return $this->getDatabase()->table('user_email')->where('email',$email)->fetch();
     }
 
     public function activateUserEmail($email){
-        return $this->getDatabase()->table('user_emails')->where('email',$email)->update([
+        return $this->getDatabase()->table('user_email')->where('email',$email)->update([
             'active' => 1
         ]);
     }
 
     public function getUserEmailsList()
     {
-        return $this->getDatabase()->table('user_emails')->where('user_id',$this->getUser()->id)->fetchAll();
+        return $this->getDatabase()->table('user_email')->where('user_id',$this->getUser()->id)->fetchAll();
     }
 
     public function setPrimaryEmail($email)
     {
-        $this->getDatabase()->table('users')
+        $this->getDatabase()->table('user')
             ->where('id',$this->getUser()->id)
             ->update([
                 'email' => $email
             ]);
-        $this->getDatabase()->table('user_emails')
+        $this->getDatabase()->table('user_email')
             ->where('is_primary',1)
             ->update([
                 'is_primary' => 0
             ]);
-        $this->getDatabase()->table('user_emails')
+        $this->getDatabase()->table('user_email')
             ->where('email',$email)
             ->update([
                 'is_primary' => 1

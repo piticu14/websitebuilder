@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 6.2.2018
- * Time: 20:13
- */
-
 use Nette\Application\UI\Form;
 
 use App\Model\Users;

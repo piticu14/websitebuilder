@@ -22,8 +22,7 @@ mail:
 services:
 	router: App\RouterFactory::createRouter
 	- App\Model\Users
-	- App\Model\DashboardManager
-	- App\Model\SiteManager
+	- App\Model\ProjectManager
 	- App\Model\UserRequest
 	- App\Model\EmailNotification(%appDir%/presenters/templates/Emails/)
 	authenticator: Authenticator
