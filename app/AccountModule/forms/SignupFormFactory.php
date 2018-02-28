@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 6.2.2018
- * Time: 16:52
- */
 use Nette\Application\UI\Form;
 
 use App\Model\Users;
@@ -91,7 +85,7 @@ class SignupFormFactory
                         'email_template' => 'userActivation',
                         'body' => array(
                             'email' => $values->email,
-                            'token' =>  $this->userRequest->addRequest($userEmail->id, 'userActivation')->token,
+                            'token' => $this->userRequest->addRequest($userEmail->id, 'userActivation')->token,
                             'link' => $this->baseUrl. 'activate/account'
                         )
                     );

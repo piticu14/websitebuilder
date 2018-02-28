@@ -2,13 +2,7 @@
 
 use Nette\Application\UI\Form;
 
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 26.2.2018
- * Time: 14:44
- */
-class SiteFormFactory
+class ProjectFormFactory
 {
 
     public function create()

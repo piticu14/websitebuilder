@@ -1,0 +1,69 @@
+{block title}FastWeb - Moje projekty{/block}
+{block content}
+    <br>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
+    <div class="col-sm-12">
+    <div class="case-study-gallery">
+        <h1 class="title">MOJE PROJEKTY</h1>
+        {snippet flashMessage}
+            <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+                <p class="text-center">{$flash->message}</p>
+            </div>
+        {/snippet}
+        <br>
+        {foreach $user_projects as $row}
+            <div class="case-study" style="background-image:url('{$basePath}/thubmnails/{$row->template_title}.jpg');">
+                <div class="case-study__overlay">
+                    <h2 class="case-study__title">{$row->title}</h2>
+                    <a class="case-study__link" target="_blank" href="#">Přehled</a> <br>
+                    <a class="case-study__link showProject" data-toggle="modal" data-project='{"id":"{$row->id}","title":"{$row->title}","subdomain":"{$row->subdomain}","active":"{$row->active}"}' data-target="#exampleModalCenter" href="#">Upravit</a>
+                </div>
+            </div>
+        {/foreach}
+        <a n:href="Project:chooseTemplate">
+            <div class="case-study">
+                <div class="case-study__overlay">
+                    <i class="glyphicon glyphicon-plus-sign add_template"></i>
+                </div>
+            </div>
+        </a>
+
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Pridat web</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <p>Odkaz: <a id="project-subdomain" href=""></a></p>
+                                <p id="active"></p>
+                                <p><a href="#" class="btn btn-u">Upravit stránky</a></p>
+                                <p><a id="settings" href="#" class="btn btn-u">Změnit nastaveni</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {*
+            <div class="case-study study4">
+                <figure>
+                    <img class="case-study__img" src="https://static.squarespace.com/static/51b79838e4b0b8b55c75cf91/t/51c4b688e4b03003ea9f1a63/1371846281755/Hexxis+Logo+White.png" alt="" />
+                </figure>
+
+                <div class="case-study__overlay">
+                    <h2 class="case-study__title">Imperial Template</h2>
+                    <a class="case-study__link" href="#">Preview</a><br>
+                    <a class="case-study__link" href="#">Choose</a>
+                </div>
+            </div>
+            *}
+        </div>
+    </div>
+{/block}

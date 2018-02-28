@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 7.2.2018
- * Time: 20:44
- */
 
 namespace App\Presenters;
 
 use Nette;
 
-class DashboardBasePresenter extends Nette\Application\UI\Presenter
+class AdminBasePresenter extends Nette\Application\UI\Presenter
 {
     public function beforeRender(){
         if(!$this->getUser()->isLoggedIn()) {
@@ -22,7 +16,7 @@ class DashboardBasePresenter extends Nette\Application\UI\Presenter
     {
         $layoutFiles = parent::formatLayoutTemplateFiles();
         $dir = dirname($this->getReflection()->getFileName()); # adresář aktuálního presenteru
-        $layoutFiles[] = "$dir/../../presenters/templates/@dashboard_layout.latte";
+        $layoutFiles[] = "$dir/../../presenters/templates/@admin_layout.latte";
         return $layoutFiles;
     }
 }

@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 24.1.2018
- * Time: 13:41
- */
-
 //TODO: Edit email template graphic
 
 namespace App\Presenters;
@@ -20,7 +13,7 @@ use App\Model\EmailNotification;
 use Latte;
 
 
-class AccountPresenter extends BasePresenter
+class AccountPresenter extends FrontBasePresenter
 {
     /** @var Users */
     private $users;

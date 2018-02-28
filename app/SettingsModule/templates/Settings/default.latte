@@ -21,7 +21,7 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapse1" class="panel-collapse collapse in">
+                <div id="collapse1" class="panel-collapse collapse">
                     {form resetPasswordForm, class => "well form-horizontal",  data-error-container => '#error'}
                         <div id="errorContainer" class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -136,6 +136,7 @@
                 </div>
 
             </div>
+            {if $presenter->getParameter('id')}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -146,15 +147,45 @@
                 </div>
                 <div id="collapse3" class="panel-collapse collapse">
                     <div class="panel-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
-                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
-                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
-                        of them accusamus labore sustainable VHS.
+                        {form projectSettingsForm , class => "well form-horizontal",  data-error-container => '#error'}
+                            <div id="errorContainer"
+                                 class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+                                <p n:foreach="$form->errors as $error">{$error}</p>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{label subdomain}</label>
+
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                                        {input subdomain, class => 'form-control'}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{label active}</label>
+
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        {input active, class => 'btn btn-u'}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">{label send}</label>
+
+                                <div class="col-md-4 inputGroupContainer">
+                                    <div class="input-group">
+                                        {input send, class => 'btn btn-u'}
+                                    </div>
+                                </div>
+                            </div>
+                        {/form}
                     </div>
                 </div>
+                {/if}
             </div>
         </div>
     </div>

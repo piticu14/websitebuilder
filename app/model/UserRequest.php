@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 10.2.2018
- * Time: 1:19
- */
 
 namespace App\Model;
 
@@ -22,7 +16,7 @@ class UserRequest extends BaseManager
      */
 
     public function checkToken($token){
-        if($this->getDatabase()->table('user_requests')->where('token',$token)->count()) {
+        if($this->getDatabase()->table('user_request')->where('token',$token)->count()) {
             return true;
         }
         return false;
@@ -42,7 +36,7 @@ class UserRequest extends BaseManager
             'token' => bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM)),
             'sent_at' => date("Y-m-d H:i:s")
         );
-        return $this->getDatabase()->table('user_requests')->insert($data);
+        return $this->getDatabase()->table('user_request')->insert($data);
     }
 
     /**
@@ -51,7 +45,7 @@ class UserRequest extends BaseManager
      * @return bool|mixed|Nette\Database\Table\IRow|null
      */
     public function getUserRequest($token, $type){
-        $request = $this->getDatabase()->table('user_requests')
+        $request = $this->getDatabase()->table('user_request')
             ->where('token',$token)
             ->where('type',$type);
 
@@ -68,16 +62,16 @@ class UserRequest extends BaseManager
      */
     public function deleteOldUserRequests($emailId, $type)
     {
-        $this->getDatabase()->table('user_requests')->where('user_email_id',$emailId)
+        $this->getDatabase()->table('user_request')->where('user_email_id',$emailId)
             ->where('type',$type)
             ->delete();
     }
 
     public function getUserEmail($token){
-        $userRequest = $this->getDatabase()->table('user_requests')
+        $userRequest = $this->getDatabase()->table('user_request')
             ->where('token',$token)->fetch();
-        return $this->getDatabase()->table('user_emails')
-            ->where(':user_requests.user_email_id',$userRequest->user_email_id)->fetch();
+        return $this->getDatabase()->table('user_email')
+            ->where(':user_request.user_email_id',$userRequest->user_email_id)->fetch();
     }
 
 }

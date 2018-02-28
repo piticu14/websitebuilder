@@ -6,7 +6,7 @@ namespace App\Presenters;
 use Nette;
 
 
-class BasePresenter extends Nette\Application\UI\Presenter
+class FrontBasePresenter extends Nette\Application\UI\Presenter
 {
 
 
@@ -14,7 +14,7 @@ class BasePresenter extends Nette\Application\UI\Presenter
     {
         $layoutFiles = parent::formatLayoutTemplateFiles();
         $dir = dirname($this->getReflection()->getFileName()); # adresář aktuálního presenteru
-        $layoutFiles[] = "$dir/../../presenters/templates/@layout.latte";
+        $layoutFiles[] = "$dir/../../presenters/templates/@front_layout.latte";
         return $layoutFiles;
     }
 

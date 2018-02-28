@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 24.1.2018
- * Time: 16:31
- */
 
 use Nette\Security;
 
@@ -22,7 +16,7 @@ class Authenticator implements Security\IAuthenticator
     public function authenticate(array $credentials)
     {
         list($username, $password) = $credentials;
-        $row = $this->database->table('users')
+        $row = $this->database->table('user')
             ->where('username',$username)->fetch();
         if (!$row) {
             throw new Security\AuthenticationException("Uživatelské jméno '$username' neexistuje",self::IDENTITY_NOT_FOUND);

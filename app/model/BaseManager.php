@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 24.1.2018
- * Time: 15:23
- */
 declare(strict_types=1);
 
 namespace App\Model;

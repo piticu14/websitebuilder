@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: Piticu
- * Date: 6.2.2018
- * Time: 19:19
- */
-
 use Nette\Application\UI\Form;
 
 use App\Model\Users;
@@ -55,7 +48,7 @@ class SigninFormFactory
                 $this->presenter->flashMessage('Váš účet není aktivován. Aktivujte ho pomoci emailu, který jste obdržel');
                 $this->presenter->redirect('Account:signin');
             }
-            $this->presenter->redirect('Dashboard:projects');
+            $this->presenter->redirect('Project:all');
         } catch (Nette\Security\AuthenticationException $e) {
             $this->presenter->flashMessage('Přihlášení bylo neúspěšné. Zkontrolujte své přihlašovací údaje.','danger');
         }
