@@ -53,10 +53,10 @@ class ProjectManager extends BaseManager
 
     public function patch($data)
     {
-        $this->getDatabase()->table('project')->update([
+
+        $this->getDatabase()->table('project')->where('id',$data->id)->update([
             'active' => $data->active,
-            'subdomain' => $data->subdomain
-        ],'WHERE id = ?',$data->id);
+            'subdomain' => $data->subdomain]);
     }
 
 

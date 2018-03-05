@@ -31,7 +31,12 @@ class ProjectSettingsForm
 
     public function projectSettingsFormSucceeded($form)
     {
-        $this->projectManager->patch($form->getValues());
+        $values = $form->getValues();
+        if($this->projectManager->subdomainDuplicate($values->subdomain)){
+            $values['subdomain'] = $values['subdomain'] . $values->id;
+        }
+        bdump($values);
+        $this->projectManager->patch($values);
     }
 
 }
