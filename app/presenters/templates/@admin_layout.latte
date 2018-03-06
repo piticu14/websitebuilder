@@ -3,12 +3,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="{$basePath}/vendor/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
+    {block stylesheets}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="{$basePath}/vendor/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <link rel="stylesheet" href="{$basePath}/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
+        <link rel="stylesheet" type="text/css" href="{$basePath}/css/editor.css">
+    {/block}
     <title>{ifset title}{include title|stripHtml} {/ifset} </title>
     <noscript>
         This website requires javascript to function properly
@@ -41,8 +46,8 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
                                    data-target="dropdown">{$user->getIdentity()->username} <b
                                             class="caret"></b></a>
-                                <ul class="dropdown-menu animated fadeInUp">
-                                        <li><a n:href="Project:all">Projekty</a></li>
+                                <ul class="dropdown-menu fadeInUp">
+                                    <li><a n:href="Project:all">Projekty</a></li>
                                     <li><a n:href="Settings:default">Nastaveni</a></li>
                                     {*<li><a href="#">Změna šablony</a></li>*}
                                     <li><a n:href='Account:out'>Logout</a></li>
@@ -81,6 +86,9 @@
         });
     </script>
     <script src="{$basePath}/js/custom.js"></script>
+    <script src="{$basePath}/js/editor.js"></script>
 {/block}
+
+
 </body>
 </html>

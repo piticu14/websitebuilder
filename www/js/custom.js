@@ -395,6 +395,7 @@ $(document).on('click', '.showProject', function() {
         $('#active').html('Stav: Neaktivní')
     }
     $('#settings').attr('href','/websitebuilder/www/settings/default/' + project.id);
+    $('#edit').attr('href','/websitebuilder/www/project/edit/' + project.id);
 
 });
 

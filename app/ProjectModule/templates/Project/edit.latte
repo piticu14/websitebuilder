@@ -1,0 +1,18 @@
+{block stylesheets}
+    {include #parent}
+{foreach $cssFiles as $cssFile}
+    <link rel="stylesheet" href="{$basePath}/templates/{$template_title}/css/{$cssFile}">
+{/foreach}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+{/block}
+{block content}
+    {include {$template_title}/index.latte}
+    {include modals.latte}
+{/block}
+{block scripts}
+    {include #parent}
+
+    {foreach $jsFiles as $jsFile}
+        <script src="{$basePath}/templates/{$template_title}/js/{$jsFile}"></script>
+    {/foreach}
+{/block}
