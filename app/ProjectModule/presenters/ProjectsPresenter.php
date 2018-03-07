@@ -109,6 +109,12 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->project = $this->projectManager->getProject($id);
     }
 
+    public function actionDelete($id)
+    {
+        $this->projectManager->deleteProject($id);
+        $this->redirect('Project:all');
+    }
+
 
 
 

@@ -18,7 +18,7 @@
                 <div class="case-study__overlay">
                     <h2 class="case-study__title">{$row->title}</h2>
                     <a class="case-study__link" target="_blank" href="#">Přehled</a> <br>
-                    <a class="case-study__link showProject" data-toggle="modal" data-project='{"id":"{$row->id}","title":"{$row->title}","subdomain":"{$row->subdomain}","active":"{$row->active}"}' data-target="#exampleModalCenter" href="#">Upravit</a>
+                    <a class="case-study__link showProject" data-toggle="modal" data-project='{"id":"{$row->id}","title":"{$row->title}","subdomain":"{$row->subdomain}","active":"{$row->active}"}' data-target="#editProjectModal" href="#">Upravit</a>
                 </div>
             </div>
         {/foreach}
@@ -30,7 +30,7 @@
             </div>
         </a>
 
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        <div class="modal fade" id="editProjectModal" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -41,11 +41,12 @@
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
+                            <div class="col-md-12 text-center">
                                 <p>Odkaz: <a id="project-subdomain" href=""></a></p>
                                 <p id="active"></p>
                                 <p><a id="edit" href="#" class="btn btn-u">Upravit stránky</a></p>
                                 <p><a id="settings" href="#" class="btn btn-u">Změnit nastaveni</a></p>
+                                <p><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#deleteProjectModal" class="btn btn-u">Odstranit</a></p>
                             </div>
                         </div>
                     </div>
@@ -64,6 +65,34 @@
                 </div>
             </div>
             *}
+        </div>
+        <div class="modal fade" id="deleteProjectModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Odstrani projekt</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <span class="glyphicon glyphicon-exclamation-sign" style="font-size: 75px;"></span>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <p style="font-size:20px">Opravdu chcete odstranit tento projekt?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-md-12 text-center">
+                            <a id="delete" href="#" class="btn btn-warning">Ano</a>
+                            <button type="button" class="btn btn-basic" data-dismiss="modal" data-toggle="modal" data-target="#editProjectModal">Ne</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {/block}

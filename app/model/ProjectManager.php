@@ -59,6 +59,12 @@ class ProjectManager extends BaseManager
             'subdomain' => $data->subdomain]);
     }
 
+    public function deleteProject($id)
+    {
+        return $this->getDatabase()->table('project')
+            ->where('id',$id)
+            ->delete();
+    }
 
 
 }

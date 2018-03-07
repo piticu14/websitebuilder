@@ -381,12 +381,12 @@ function emailVerificationFormValidator() {
         }
     })
 $(document).on('click', '.add-project-form', function() {
-    $('#exampleModalCenter input[id="template_id"]').val($(this).attr('id'))
+    $('#editProjectModal input[id="template_id"]').val($(this).attr('id'))
 });
 $(document).on('click', '.showProject', function() {
     var project = $(this).data('project');
     var projectLink = project.subdomain + '.fastweb.cz';
-    $('.modal-title').html(project.title);
+    $('#editProjectModal .modal-title').html(project.title);
     $('#project-subdomain').html(projectLink).attr(projectLink);
 
     if(parseInt(project.active)) {
@@ -396,6 +396,8 @@ $(document).on('click', '.showProject', function() {
     }
     $('#settings').attr('href','/websitebuilder/www/settings/default/' + project.id);
     $('#edit').attr('href','/websitebuilder/www/project/edit/' + project.id);
+    $('#delete').attr('href','/websitebuilder/www/project/delete/' + project.id);
+
 
 });
 
