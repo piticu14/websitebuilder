@@ -381,7 +381,7 @@ function emailVerificationFormValidator() {
         }
     })
 $(document).on('click', '.add-project-form', function() {
-    $('#editProjectModal input[id="template_id"]').val($(this).attr('id'))
+    $('#addProjectModal input[id="template_id"]').val($(this).attr('id'))
 });
 $(document).on('click', '.showProject', function() {
     var project = $(this).data('project');

@@ -11,13 +11,13 @@
                     <div class="case-study__overlay">
                         <h2 class="case-study__title">{$row->name} Template</h2>
                         <a class="case-study__link" target="_blank" href="{$basePath}/templates/{$row->title}/index.html">Přehled</a> <br>
-                        <a class="case-study__link add-project-form" data-toggle="modal" id="{$row->id}" data-target="#exampleModalCenter" href="#">Vybrat</a>
+                        <a class="case-study__link add-project-form" data-toggle="modal" id="{$row->id}" data-target="#addProjectModal" href="#">Vybrat</a>
                     </div>
                 </div>
             {/foreach}
             <!-- Modal Add Project Form -->
             {form siteForm, class => 'form-horizontal', data-error-container => '#error'}
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

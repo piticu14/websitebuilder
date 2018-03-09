@@ -13,12 +13,20 @@
                 <div class="row">
                     <div class="col-md-4 text-left">
                         <ul class="text-left">
+                            {*
+                            {foreach $nav_items as $nav_item}
+                            <li>
+                                <i class="glyphicon glyphicon-file"></i>
+                                <a data-id="{$nav_item->id}" data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}" class="modal-menu-links padding-left" href="#">{$nav_item->title}</a>
 
+                            </li>
+                            {/foreach}
+                            *}
                         </ul>
                     </div>
                     <div id="page_edit" class="col-md-8 text-center left-vline">
                         <div class="row">
-                            <div id="page_text" class="col-md-6">
+                            <div id="nav_title" class="col-md-6">
                             </div>
                             <div class="col-md-6">
                                 <div class="pull-right">
@@ -57,7 +65,7 @@
                                         <div class="input-group">
                                             <span class="mycolor input-group-addon"><i
                                                         class="glyphicon glyphicon-edit"></i></span>
-                                            <input name="content" type="text" class="form-control">
+                                            <input name="description" type="text" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -69,12 +77,7 @@
                                 <p><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit stránku v menu</span></p>
                             </div>
                             <div class="col-md-3 col-md-offset-3">
-                                <div class="btn-group btn-toggle" data-toggle="buttons">
-                                    <label class="btn btn-xs btn-info active">
-                                        <input type="radio" id="option-0" name="options" value="Yes" checked="checked">Ano</label>
-                                    <label class="btn btn-xs btn-default">
-                                        <input type="radio" id="option-1" name="options" value="No">Ne</label>
-                                </div>
+                                <input id="active" type="checkbox" checked data-toggle="toggle" data-size="small" data-on="Ano" data-off="Ne">
                             </div>
                             <div class="col-md-12">
                                 <div class="pull-left">
@@ -87,7 +90,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
-                <button id="save_pages" type="button" class="btn btn-primary">Uložit</button>
+                <button id="save_pages" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
             </div>
         </div>
     </div>

@@ -24,6 +24,8 @@ services:
 	router: App\RouterFactory::createRouter
 	- App\Model\Users
 	- App\Model\ProjectManager
+	- App\Model\PageManager
+	- App\Model\NavManager
 	- App\Model\UserRequest
 	- App\Model\EmailNotification(%appDir%/presenters/templates/Emails/)
 	authenticator: Authenticator

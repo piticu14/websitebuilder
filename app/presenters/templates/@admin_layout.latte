@@ -6,6 +6,7 @@
     {block stylesheets}
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
         <link href="{$basePath}/vendor/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
         <link rel="stylesheet"
@@ -14,7 +15,8 @@
 
         <link rel="stylesheet" href="{$basePath}/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
-        <link rel="stylesheet" type="text/css" href="{$basePath}/css/editor.css">
+        <link rel="stylesheet" type="text/css" href="{$basePath}/css/nav_editor.css">
+        <link rel="stylesheet" type="text/css" href="{$basePath}/css/logo_editor.css">
     {/block}
     <title>{ifset title}{include title|stripHtml} {/ifset} </title>
     <noscript>
@@ -82,6 +84,7 @@
     <script src="{$basePath}/vendor/nette.ajax.js"></script>
     <script src="{$basePath}/vendor/netteForms.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
     <script>
         $(function () {
@@ -89,7 +92,10 @@
         });
     </script>
     <script src="{$basePath}/js/custom.js"></script>
-    <script src="{$basePath}/js/editor.js"></script>
+    <script src="{$basePath}/js/nav_editor.js"></script>
+    <script src="{$basePath}/js/logo_editor.js"></script>
+
+
 {/block}
 
 

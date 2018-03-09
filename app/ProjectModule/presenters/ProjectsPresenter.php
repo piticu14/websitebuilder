@@ -2,6 +2,8 @@
 
 namespace App\Presenters;
 
+use App\Model\NavManager;
+use App\Model\PageManager;
 use Nette;
 use Nette\Application\UI\Form;
 use Nette\Utils\Finder;
@@ -17,12 +19,25 @@ class ProjectPresenter  extends AdminBasePresenter
     private $projectManager;
 
     /**
+     * @var NavManager;
+     */
+    private $navManager;
+
+    /**
+     * @var Pagemanager;
+     */
+    private $pageManager;
+    /**
      * DashboardPresenter constructor.
      * @param ProjectManager $projectManager
+     * @param NavManager $navManager
+     * @param PageManager $pageManager
      */
-    public function __construct(ProjectManager $projectManager)
+    public function __construct(ProjectManager $projectManager, NavManager $navManager, PageManager $pageManager)
     {
         $this->projectManager = $projectManager;
+        $this->navManager = $navManager;
+        $this->pageManager = $pageManager;
     }
     protected function createComponentSiteForm()
     {
@@ -61,6 +76,8 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->template_title = $project->template_title;
         $this->template->jsFiles = $jsFiles;
         $this->template->cssFiles = $cssFiles;
+        $this->template->nav_items = $this->navManager->getNav($id);
+        bdump($this->template->nav_items);
 
         $section = $this->getSession('project_pages');
 
@@ -114,9 +131,5 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->projectManager->deleteProject($id);
         $this->redirect('Project:all');
     }
-
-
-
-
 
 }

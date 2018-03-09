@@ -33,7 +33,7 @@
     margin-top:20px;
 }
 
-#page_text a {
+#nav_title a {
     width:100%;
     font-size: 2em; /* h3 tag font size */
     color:#777;
@@ -51,7 +51,7 @@
     visibility: hidden;
 }
 
-#page_text a:hover #edit_menu_icon {  visibility: visible;  }
+#nav_title a:hover #edit_menu_icon {  visibility: visible;  }
 
 #menu_edit {
     padding-left:20px;
@@ -68,3 +68,8 @@
     float:left;
     font-size:2em;
 }
+
+.hide {
+    display:none;
+}
+
