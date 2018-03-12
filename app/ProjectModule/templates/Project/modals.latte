@@ -1,4 +1,4 @@
-<!-- Pages Edit Modal -->
+<!-- Nav Edit Modal -->
 <div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
@@ -12,17 +12,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-4 text-left">
-                        <ul class="text-left">
-                            {*
-                            {foreach $nav_items as $nav_item}
-                            <li>
-                                <i class="glyphicon glyphicon-file"></i>
-                                <a data-id="{$nav_item->id}" data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}" class="modal-menu-links padding-left" href="#">{$nav_item->title}</a>
-
-                            </li>
-                            {/foreach}
-                            *}
-                        </ul>
+                        <ul class="text-left"></ul>
                     </div>
                     <div id="page_edit" class="col-md-8 text-center left-vline">
                         <div class="row">
@@ -74,16 +64,147 @@
                         </div>
                         <div id="page_options" class="row margin-top">
                             <div class="col-md-6">
-                                <p><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit stránku v menu</span></p>
+                                <p><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit stránku v menu</span>
+                                </p>
                             </div>
                             <div class="col-md-3 col-md-offset-3">
-                                <input id="active" type="checkbox" checked data-toggle="toggle" data-size="small" data-on="Ano" data-off="Ne">
+                                <input id="active" type="checkbox" checked data-toggle="toggle" data-size="small"
+                                       data-on="Ano" data-off="Ne">
                             </div>
                             <div class="col-md-12">
                                 <div class="pull-left">
 
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
+                <button id="save_pages" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Logo Edit Modal -->
+<div class="modal fade" id="logoModal" tabindex="-1" role="dialog" aria-labelledby="logoModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLongTitle">Editace logo</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="row margin-top" id="logo_edit_modal">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Titulek</label>
+
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                                <span class="mycolor input-group-addon"><i
+                                                            class="glyphicon glyphicon-edit"></i></span>
+                                        <input name="title" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class=" text-left col-md-3 control-label">Podtitulek</label>
+
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                                <span class="mycolor input-group-addon"><i
+                                                            class="glyphicon glyphicon-edit"></i></span>
+                                        <input name="subtitle" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Obrázek</label>
+
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        {*<input type="file" name="image" accept="image/*">*}
+                                        <a id="logo_image" class="btn btn-u" href="#" data-dismiss="modal"
+                                           data-toggle="modal" data-target="#logoImageModal">Zvolit obrázek</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Barva textu</label>
+
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+
+                                        <div class="bfh-colorpicker" data-name="nav_bgcolor"
+                                             data-color=""></div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
+                <button id="save_logo" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Logo Image Modal -->
+<div class="modal fade" id="logoImageModal" tabindex="-1" role="dialog" aria-labelledby="logoModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLongTitle">Zvolit obrázek</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <ul class="text-left">
+                            <li><a id="logo_images" href="#">Moje obrázky</a></li>
+                            <li><a id="logo_icons" href="#">Ikonky</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 text-center left-vline">
+                        <div class="row">
+                            <div class="bt-glyphicons">
+                                <ul class="bt-glyphicons-list">
+                                    {var glyphicons = ["asterisk", "plus", "euro", "minus", "cloud", "envelope", "pencil", "glass", "music", "search", "heart", "star", "star-empty", "user", "film", "th-large", "th", "th-list", "ok", "remove", "zoom-in", "zoom-out", "off", "signal", "cog", "trash", "home", "file", "time", "road", "download-alt", "download", "upload", "inbox", "play-circle", "repeat", "refresh", "list-alt", "lock", "flag", "headphones", "volume-off", "volume-down", "volume-up", "qrcode", "barcode", "tag", "tags", "book", "bookmark", "print", "camera", "font", "bold", "italic", "text-height", "text-width", "align-left", "align-center", "align-right", "align-justify", "list", "indent-left", "indent-right", "facetime-video", "picture", "map-marker", "adjust", "tint", "edit", "share", "check", "move", "step-backward", "fast-backward", "backward", "play", "pause", "stop", "forward", "fast-forward", "step-forward", "eject", "chevron-left", "chevron-right", "plus-sign", "minus-sign", "remove-sign", "ok-sign", "question-sign", "info-sign", "screenshot", "remove-circle", "ok-circle", "ban-circle", "arrow-left", "arrow-right", "arrow-up", "arrow-down", "share-alt", "resize-full", "resize-small", "exclamation-sign", "gift", "leaf", "fire", "eye-open", "eye-close", "warning-sign", "plane", "calendar", "random", "comment", "magnet", "chevron-up", "chevron-down", "retweet", "shopping-cart", "folder-close", "folder-open", "resize-vertical", "resize-horizontal", "hdd", "bullhorn", "bell", "certificate", "thumbs-up", "thumbs-down", "hand-right", "hand-left", "hand-up", "hand-down", "circle-arrow-right", "circle-arrow-left", "circle-arrow-up", "circle-arrow-down", "globe", "wrench", "tasks", "filter", "briefcase", "fullscreen", "dashboard", "paperclip", "heart-empty", "link", "phone", "pushpin", "usd", "gbp", "sort", "sort-by-alphabet", "sort-by-alphabet-alt", "sort-by-order", "sort-by-order-alt", "sort-by-attributes", "sort-by-attributes-alt", "unchecked", "expand", "collapse-down", "collapse-up", "log-in", "flash", "log-out", "new-window", "record", "save", "open", "saved", "import", "export", "send", "floppy-disk", "floppy-saved", "floppy-remove", "floppy-save", "floppy-open", "credit-card", "transfer", "cutlery", "header", "compressed", "earphone", "phone-alt", "tower", "stats", "sd-video", "hd-video", "subtitles", "sound-stereo", "sound-dolby", "sound-5-1", "sound-6-1", "sound-7-1", "copyright-mark", "registration-mark", "cloud-download", "cloud-upload", "tree-conifer", "tree-deciduous"]}
+                                    {foreach $glyphicons as $glyphicon}
+                                        <li>
+                                            <span class="glyphicon glyphicon-{$glyphicon}"></span>
+                                        </li>
+                                    {/foreach}
+                                </ul>
+                            </div>
+                            <form id="logo_form" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Obrazek</label>
+
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <input type="file" name="image" accept="image/*">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

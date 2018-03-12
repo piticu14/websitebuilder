@@ -13,10 +13,14 @@
               href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
         <link rel="stylesheet" href="{$basePath}/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/nav_editor.css">
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/logo_editor.css">
+
+        <!-- CKEditor -->
+        <script src="{$basePath}/vendor/ckeditor/ckeditor.js"></script>
     {/block}
     <title>{ifset title}{include title|stripHtml} {/ifset} </title>
     <noscript>
@@ -73,7 +77,6 @@
 </div>
 {block scripts}
 
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
     <!-- Bootstrap -->
@@ -83,6 +86,8 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{$basePath}/vendor/nette.ajax.js"></script>
     <script src="{$basePath}/vendor/netteForms.js"></script>
+    <script src="{$basePath}/vendor/form-helpers/js/bootstrap-formhelpers.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
