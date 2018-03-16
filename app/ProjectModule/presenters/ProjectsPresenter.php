@@ -48,7 +48,8 @@ class ProjectPresenter  extends AdminBasePresenter
                 $nextId = $this->projectManager->getLastInsertedId() + 1;
                 $form['subdomain']->value = $form['subdomain']->value . $nextId;
             }
-            $this->projectManager->addProject($form->getValues());
+            $project = $this->projectManager->addProject($form->getValues());
+            mkdir('user_images/' . $project->id,'077');
             $this->flashMessage('Váš projekt byl uložen', 'success');
             $this->redirect('Project:all');
         };
@@ -77,7 +78,11 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->jsFiles = $jsFiles;
         $this->template->cssFiles = $cssFiles;
         $this->template->nav_items = $this->navManager->getNav($id);
-        bdump($this->template->nav_items);
+        $this->template->user_images = $this->getUserImages($id);
+        if (!isset($this->template->text)) {
+            $this->template->text = 'AAAA';
+        }
+        //bdump($this->template->nav_items);
 
         $section = $this->getSession('project_pages');
 
@@ -132,4 +137,40 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->redirect('Project:all');
     }
 
+    private function getUserImages($id)
+    {
+        $masks =['*.jpg','*.png','*.gif','*.jpeg'];
+        $dir = '../www/user_images/' .$id .'/';
+        $images = array();
+        foreach (Finder::findFiles($masks)
+                     ->in($dir) as $file) {
+            $images[] = 'user_images/' . $id . '/' . $file->getBasename();
+
+        }
+        return $images;
+    }
+
+    public function handleAddImages()
+    {
+
+        if($this->isAjax()) {
+            $files = $this->getHttpRequest()->getFiles();
+            $filesNames = array();
+            foreach($files as $file) {
+                if( $file->isOk() and $file->isImage() ) {
+                    $imageName = $file->getSanitizedName();
+                    $file->move('user_images/' . $this->getParameter('id') . '/' . $imageName);
+                    $filesNames[] = $imageName;
+            }
+        }
+            $this->template->user_images = $this->getUserImages($this->getParameter('id'));
+
+
+            //$this->payload->images = $this->getUserImages($this->getParameter('id'));
+        }
+
+        $this->redrawControl('wrapper');
+        $this->redrawControl('userImages');
+
+    }
 }

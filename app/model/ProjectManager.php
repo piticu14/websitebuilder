@@ -45,6 +45,8 @@ class ProjectManager extends BaseManager
         $nav_titles = array('Item1','Item2','Item3','Item4');
         $this->init_project($nav_titles,$project->id);
 
+        return $project;
+
     }
 
     private function init_project($nav_titles, $project_id)

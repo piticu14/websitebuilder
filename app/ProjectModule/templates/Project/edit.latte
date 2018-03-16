@@ -7,8 +7,10 @@
 
 {/block}
 {block content}
-    {include {$template_title}/index.latte}
-    {include modals.latte}
+        {include {$template_title}/index.latte}
+    {snippetArea wrapper}
+        {include modals.latte}
+    {/snippetArea}
 {/block}
 {block scripts}
     {include #parent}

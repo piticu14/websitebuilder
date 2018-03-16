@@ -194,24 +194,37 @@
                                     {/foreach}
                                 </ul>
                             </div>
-                            <form id="logo_form" class="form-horizontal">
+                            <div class="row" id="user_images">
+                                {snippet userImages}
+                                        {foreach $user_images as $image}
+                                            <div class="image_box">
+                                                <div class="overlay"><input type="checkbox" checked></div>
+                                                <img src="{$basePath}/{$image}" alt="User Image">
+                                            </div>
+                                        {/foreach}
+                                {/snippet}
+                            <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-md-3 control-label">Obrazek</label>
-
-                                    <div class="col-md-8 inputGroupContainer">
+                                    <div class="col-md-8 inputGroupContainer" id="addImage">
                                         <div class="input-group">
-                                            <input type="file" name="image" accept="image/*">
+                                            <a class='btn btn-primary' href='javascript:;'>
+                                                Nahrat obrázek <span class="glyphicon glyphicon-upload"></span>
+                                                <input data-url="{link addImages!}" type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="images" size="40" accept="image/*" multiple>
+                                                &nbsp;
+                                            </a>
+
                                         </div>
                                     </div>
                                 </div>
                             </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
-                <button id="save_pages" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
+                <button type="button" class="btn btn-secondary"  data-dismiss="modal" data-toggle="modal" data-target="#logoModal">Zavřit</button>
+                <button id="save_pages" type="button" class="btn btn-primary"  data-dismiss="modal" data-toggle="modal" data-target="#logoModal">Uložit</button>
             </div>
         </div>
     </div>
