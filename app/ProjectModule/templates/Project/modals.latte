@@ -131,7 +131,7 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         {*<input type="file" name="image" accept="image/*">*}
-                                        <a id="logo_image" class="btn btn-u" href="#" data-dismiss="modal"
+                                        <a id="logo_image" class="btn btn-u" href="javascript:;" data-dismiss="modal"
                                            data-toggle="modal" data-target="#logoImageModal">Zvolit obrázek</a>
 
                                     </div>
@@ -195,6 +195,9 @@
                                 </ul>
                             </div>
                             <div class="row" id="user_images">
+                                <div id="upload_bar" class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
                                 {snippet userImages}
                                         {foreach $user_images as $image}
                                             <div class="image_box">
@@ -224,7 +227,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary"  data-dismiss="modal" data-toggle="modal" data-target="#logoModal">Zavřit</button>
-                <button id="save_pages" type="button" class="btn btn-primary"  data-dismiss="modal" data-toggle="modal" data-target="#logoModal">Uložit</button>
+                <button type="button" class="btn btn-primary"  data-dismiss="modal" data-toggle="modal" data-target="#logoModal">Uložit</button>
             </div>
         </div>
     </div>

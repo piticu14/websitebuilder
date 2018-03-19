@@ -8,13 +8,38 @@ $('#logoModal').on('shown.bs.modal', function (e) {
     e.preventDefault();
     var logo_edit = $('#logo_edit_modal');
     var logo_container = $('#logo_container');
+    var selected_logo = $('#selected');
     $('#save_logo').on('click', function () {
         var title = $(logo_edit).find('input[name="title"]').val();
         var subtitle = $(logo_edit).find('input[name="subtitle"]').val();
 
+        if(selected_logo.length){
+            var logo_image_container =  $('#logo_image_container');
+            logo_image_container.empty();
+            if(selected_logo.is('div')) {
+                var logo_image = $('<img>');
+                logo_image.attr('width','100px');
+                logo_image.attr('height','100px');
+                logo_image.attr('alt','User Image');
+                logo_image.attr('src',$(selected_logo).find('img').attr('src'));
+                logo_image_container.append(logo_image);
+            } else {
+                var logo_icon = $(selected_logo).children('span').clone();
+                logo_icon.css('font-size','5.6em'); // Base width: 18px, 100px = 5.6em
+                logo_image_container.append(logo_icon);
+            }
+        }
         logo_container.find('#title').text(title);
         logo_container.find('#subtitle').text(subtitle);
 
+
+
+        var text_color = logo_edit.find('.bfh-colorpicker').val();
+        if(text_color) {
+            logo_container.find('#title').css('color',text_color);
+            logo_container.find('#subtitle').css('color',text_color);
+
+        }
 
     });
 });
@@ -71,6 +96,7 @@ $('#logoImageModal').on('shown.bs.modal', function () {
 });
 
 $('#addImage').find('input[name="images"]').on('change',function(){
+    $('#upload_bar').show();
     files = $(this)[0].files;
     var data = new FormData();
     $.each(files, function(key, value)
@@ -89,18 +115,20 @@ $('#addImage').find('input[name="images"]').on('change',function(){
         processData: false,
         contentType: false,
         cache: false,
-        /*
+
         // Can use it for progess bar
         xhr: function() {
             var xhr = $.ajaxSettings.xhr();
             xhr.upload.onprogress = function(e) {
-                console.log(Math.floor(e.loaded / e.total *100) + '%');
+               var percent = (Math.floor(e.loaded / e.total *100) + '%');
+                $('#upload_bar div.progress-bar').css('width',percent).text(percent);
             };
             return xhr;
         },
-        */
+
         success: function (data) {
-            $('.ajax_loader').hide();
+            $('#upload_bar div.progress-bar').css('width',0).text("");
+            $('#upload_bar').hide();
         },
 
         error: function(jqXHR,status,error) {
@@ -116,17 +144,6 @@ $(document).ajaxStop(function(){
         logoImageModal();
     }
 });
-
-function readURL(input) {
-    var names = [];
-    for (var i = 0; i < input.files.length; ++i) {
-        console.log(input.files[i].name);
-
-        //names.push(input.files[i].name);
-    }
-    $("input[name=file]").val(names);
-
-}
 
 
 function getIconName(iconClass) {
