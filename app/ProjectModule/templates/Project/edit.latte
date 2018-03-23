@@ -1,13 +1,13 @@
 {block stylesheets}
     {include #parent}
-{foreach $cssFiles as $cssFile}
-    <link rel="stylesheet" href="{$basePath}/templates/{$template_title}/css/{$cssFile}">
-{/foreach}
+    {foreach $cssFiles as $cssFile}
+        <link rel="stylesheet" href="{$basePath}/templates/{$template_title}/css/{$cssFile}">
+    {/foreach}
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
 
 {/block}
 {block content}
-        {include {$template_title}/index.latte}
+    {include {$template_title}/index.latte}
     {snippetArea wrapper}
         {include modals.latte}
     {/snippetArea}
@@ -18,4 +18,19 @@
     {foreach $jsFiles as $jsFile}
         <script src="{$basePath}/templates/{$template_title}/js/{$jsFile}"></script>
     {/foreach}
+    <script type="text/javascript">
+        $(function () {
+            $('#editor').keditor({
+                contentAreasSelector: '#body, #footer',
+                snippetsUrl: {$basePath} +'/vendor/keditor/snippets/default/snippets.html',
+                tabContainersText: 'Obaly',
+                tabContainersTitle: 'Obaly',
+                tabComponentsText: 'Komponenty',
+                tabComponentsTitle: 'Komponenty',
+            });
+        });
+        $.keditor.debug = false;
+        var id = {$presenter->getParameter('id')}
+        $.keditor.components['text']['options']['filebrowserImageBrowseUrl'] = '/websitebuilder/www/vendor/ckfinder/ckfinder.html?Type=Image&id=' + id;
+    </script>
 {/block}

@@ -140,7 +140,7 @@ class ProjectPresenter  extends AdminBasePresenter
     private function getUserImages($id)
     {
         $masks =['*.jpg','*.png','*.gif','*.jpeg'];
-        $dir = '../www/user_images/' .$id .'/';
+        $dir = '../www/user_images/' . $id .'/';
         $images = array();
         foreach (Finder::findFiles($masks)
                      ->in($dir) as $file) {
@@ -173,4 +173,16 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->redrawControl('userImages');
 
     }
+/*
+    public function handleGetImageJsonList(){
+        $user_images = $this->getUserImages($this->getParameter('id'));
+        $json_Image_list = array();
+        foreach ($user_images as $id => $image) {
+            $json_Image_list[] = array(
+                'image' => $this->getHttpRequest()->getUrl()->getBasePath() . $image
+            );
+        }
+        $this->sendJson($json_Image_list);
+    }
+*/
 }

@@ -4,23 +4,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     {block stylesheets}
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-
-        <link href="{$basePath}/vendor/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+   <link href="{$basePath}/vendor/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
+
+        {*
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.css">
+*}
+
+<link rel="stylesheet" href="{$basePath}/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
+<link rel="stylesheet" type="text/css" href="{$basePath}/css/nav_editor.css">
+<link rel="stylesheet" type="text/css" href="{$basePath}/css/logo_editor.css">
+
+        <!-- Start of KEditor styles -->
+        <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/keditor/dist/css/keditor-1.1.5.css" />
+        <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/keditor/dist/css/keditor-components-1.1.5.css" />
+        <!-- End of KEditor styles -->
 
 
-        <link rel="stylesheet" href="{$basePath}/css/normalize.css">
-        <link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
-        <link rel="stylesheet" type="text/css" href="{$basePath}/css/nav_editor.css">
-        <link rel="stylesheet" type="text/css" href="{$basePath}/css/logo_editor.css">
-
-        <!-- CKEditor -->
-        <script src="{$basePath}/vendor/ckeditor/ckeditor.js"></script>
     {/block}
     <title>{ifset title}{include title|stripHtml} {/ifset} </title>
     <noscript>
@@ -82,7 +89,7 @@
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- jQuery UI -->
-    <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" src="{$basePath}/vendor/keditor/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{$basePath}/vendor/nette.ajax.js"></script>
     <script src="{$basePath}/vendor/netteForms.js"></script>
@@ -90,12 +97,32 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-    {*<script src="http://malsup.github.io/jquery.blockUI.js"></script>*}
 
+    {*<script src="http://malsup.github.io/jquery.blockUI.js"></script>*}
+    <script type="text/javascript" src="{$basePath}/vendor/keditor/plugins/jquery.nicescroll-3.6.6/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="{$basePath}/vendor/keditor/plugins/ckeditor-4.5.6/ckeditor.js"></script>
+    <script type="text/javascript" src="{$basePath}/vendor/ckfinder/ckfinder.js"></script>
+
+    <script type="text/javascript" src="{$basePath}/vendor/keditor/plugins/ckeditor-4.5.6/adapters/jquery.js"></script>
+    <script>CKEDITOR.dtd.$removeEmpty['span'] = false;</script>
+    {*
+    <script>
+        CKEDITOR.dtd.$removeEmpty['a'] = false;
+        $.each(CKEDITOR.dtd.$removeEmpty, function (i, value) {
+            CKEDITOR.dtd.$removeEmpty[i] = false;
+        });
+
+    </script>
+    *}
+    <!-- Start of KEditor scripts -->
+    <script type="text/javascript" src="{$basePath}/vendor/keditor/dist/js/keditor-1.1.5.js"></script>
+    <script type="text/javascript" src="{$basePath}/vendor/keditor/dist/js/keditor-components-1.1.5.js"></script>
+    <!-- End of KEditor scripts -->
 
     <script>
         $(function () {
             $.nette.init();
+
         });
     </script>
     <script src="{$basePath}/js/custom.js"></script>
