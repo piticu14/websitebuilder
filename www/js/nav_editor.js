@@ -13,7 +13,7 @@ function init() {
     modal_body.find('.col-md-4').trigger('change');
 
     $('#menuModalTitle').text('Editace stránek');
-    $('.modal-body').find('ul').sortable();
+    $('.modal-body').find('ul').sortable({ items: "> li:not(:last)" });
 
     $('#nav_title').html(
         '<a data-id="' + $(modal_menu_links).first().data('id') + '" class="text-left" href="#"><span id="edit_menu_icon" class="glyphicon glyphicon-edit"></span>' + modal_body.find('a.modal-menu-links').first().text() +'</a>'
@@ -104,10 +104,10 @@ $('#menuModal').on('shown.bs.modal', function (e) {
     var modal_body = $('.modal-body');
     var page_edit = $('#page_edit');
 
-    $('.modal-body ul').empty();
-    $('.modal-body ul').hide().fadeIn('slow');
+    $('#page_items').empty();
+    $('#page_items').hide().fadeIn('slow');
 
-    $('#menu a').not(':last').each(function(){
+    $('#menu a').not(':last,#dropdownMenu').each(function(){
          var modal_link = $('<a></a>');
         modal_link.addClass('modal-menu-links padding-left');
         modal_link.attr('href','#');
@@ -122,10 +122,10 @@ $('#menuModal').on('shown.bs.modal', function (e) {
         i.addClass('glyphicon glyphicon-file');
         parent.append(i);
         parent.append(modal_link);
-        $('.modal-body ul').append(parent);
+        $('#page_items').append(parent);
 
     });
-
+    $('#page_items').append('<li><a data-dismiss="modal" data-toggle="modal" data-target="#newPageModal" class="btn btn-primary"  href="javascript:;" >Pridat stranku</a></li>');
     init();
 
     modal_body.find('a.modal-menu-links').each(function () {
@@ -152,17 +152,16 @@ $('#menuModal').on('shown.bs.modal', function (e) {
 /* Hide modal content when modal is closed */
 
 $('#menuModal').on('hidden.bs.modal', function () {
-    $('.modal-body ul').hide();
+    $('#page_items').hide();
     $('#page_edit').hide();
 });
 
 
 /* If user press Save then change the Main Nav values */
 $(document).on('click','#save_pages',function(){
-    var menu = $('#menu a').not(':last');
+    var menu = $('#menu a').not(':last,#dropdownMenu');
     var modal_body = $('.modal-body');
     var modal_menu_links = $(modal_body).find('a.modal-menu-links');
-
     menu.each(function(index){
         //console.log($(modal_menu_links[index]).text());
         $(this).text($(modal_menu_links[index]).text());
@@ -177,7 +176,25 @@ $(document).on('click','#save_pages',function(){
             $(this).parent().addClass('hide');
         }
     });
+
+    hideDropDownMenu();
 });
+
+function hideDropDownMenu(state) {
+    var hide = true;
+    $('#page_drop_down li').each(function() {
+        if(!$(this).hasClass('hide')){
+            hide  = false;
+            return;
+        }
+    });
+
+if(hide){
+    $('#page_drop_down_container').addClass('hide');
+} else {
+    $('#page_drop_down_container').removeClass('hide');
+    }
+}
 
 $('.modal-body').on('change', '.col-md-4', function () {
     change_menuitem_text();
@@ -198,3 +215,42 @@ $('#active').change(function() {
         }
     });
 });
+
+$('#newPageModal').on('shown.bs.modal', function (e) {
+    $('#savePage').unbind().on('click',function() {
+        savePage();
+    });
+});
+
+$("#newPageModal").on("hidden.bs.modal", function(){
+    var pageForm = $('#pageForm');
+    pageForm.find('input[name="name"]').val('');
+    pageForm.find('input[name="title"]').val('');
+    pageForm.find('input[name="keywords"]').val('');
+    pageForm.find('input[name="description"]').val('');
+});
+
+function savePage() {
+    var pageForm = $('#pageForm');
+    var modal_link = $('<a></a>');
+    modal_link.attr('href','#');
+    modal_link.text(pageForm.find('input[name="name"]').val());
+    modal_link.data('id',guid());
+    modal_link.data('title',pageForm.find('input[name="title"]').val());
+    modal_link.data('keywords',pageForm.find('input[name="keywords"]').val());
+    modal_link.data('description', pageForm.find('input[name="description"]').val());
+    modal_link.data('active',1);
+    var parent = $('<li></li>');
+    parent.append(modal_link);
+    $('#page_drop_down').append(parent);
+    console.log(guid());
+}
+
+function guid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}

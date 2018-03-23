@@ -73,3 +73,11 @@
     display:none;
 }
 
+.show {
+    display:inline-block;
+}
+
+#page_items {
+    cursor: move;
+}
+

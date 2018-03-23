@@ -34,6 +34,14 @@
                         <a data-id="{$nav_item->id}" data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}" n:href="{$nav_item->url}">{$nav_item->title}</a>
                     </li>
                 {/foreach}
+                <li id="page_drop_down_container" class="dropdown hide">
+                    <a class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                        <span class="caret"></span>
+                    </a>
+                    <ul id="page_drop_down" class="dropdown-menu" aria-labelledby="dropdownMenu">
+                    </ul>
+                </li>
                 <li><a id="menu_edit" href="#" data-toggle="modal" data-target="#menuModal"> <span
                         class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></li>
             </ul>
