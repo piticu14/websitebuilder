@@ -13,12 +13,12 @@
             </div>
         {/snippet}
         <br>
-        {foreach $user_projects as $row}
+        {foreach $user_projects as $key => $row}
             <div class="case-study" style="background-image:url('{$basePath}/thubmnails/{$row->template_title}.jpg');">
                 <div class="case-study__overlay">
                     <h2 class="case-study__title">{$row->title}</h2>
                     <a class="case-study__link" target="_blank" href="#">Přehled</a> <br>
-                    <a class="case-study__link showProject" data-toggle="modal" data-project='{"id":"{$row->id}","title":"{$row->title}","subdomain":"{$row->subdomain}","active":"{$row->active}"}' data-target="#editProjectModal" href="#">Upravit</a>
+                    <a class="case-study__link showProject" data-toggle="modal" data-project='{"id":"{$row->id}","page_id":"{$first_projects_pages[$iterator->counter - 1]->id}","title":"{$row->title}","subdomain":"{$row->subdomain}","active":"{$row->active}"}' data-target="#editProjectModal" href="#">Upravit</a>
                 </div>
             </div>
         {/foreach}
@@ -37,7 +37,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Pridat web</h4>
+                        <h4 class="modal-title" id="myModalLabel"></h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">
@@ -73,7 +73,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title">Odstrani projekt</h4>
+                        <h4 class="modal-title">Odstranit projekt</h4>
                     </div>
                     <div class="modal-body">
                         <div class="row">

@@ -24,7 +24,7 @@ class PageManager extends BaseManager
         return $this->getDatabase()->table('page')
             ->insert([
                 'project_id' => $data->project_id,
-                'title' => $data->title,
+                'title' => $data->title
             ]);
     }
 
@@ -42,6 +42,11 @@ class PageManager extends BaseManager
             ->where('project_id',$project_id)
             ->limit(1)
             ->fetch();
+    }
+
+    public function get($id)
+    {
+        return $this->getDatabase()->table('page')->get($id);
     }
 
 }

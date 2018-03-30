@@ -8,18 +8,18 @@ class ProjectFormFactory
     public function create()
     {
         $form = new Form;
-        $form->addText('title','Název webu')
-            ->setRequired('Zadejte název webu')
-            ->setHtmlAttribute('placeholder','mujweb')
-            ->addRule(Form::MAX_LENGTH,'Název webu nesmi překročit %d znaků',45);
-        $form->addText('subtitle','Podnázev webu')
+        $form->addText('title','Titulek webu')
+            ->setRequired('Zadejte titulek webu')
+            ->setHtmlAttribute('placeholder','Fastweb')
+            ->addRule(Form::MAX_LENGTH,'Titulek nesmi překročit %d znaků',45);
+        $form->addText('subtitle','Podtitulek webu')
             ->setRequired(false)
-            ->setHtmlAttribute('placeholder','Můj nejlepší web')
-            ->addRule(Form::MAX_LENGTH,'Podnázev webu nesmi překročit %d znaků',45);
+            ->setHtmlAttribute('placeholder','Vaše aplikace pro tvorbu webobých stránek')
+            ->addRule(Form::MAX_LENGTH,'Potitulek nesmi překročit %d znaků',255);
         $form->addText('subdomain','Subdoména')
             ->setRequired('Zadejte název subdomény')
             ->setHtmlAttribute('placeholder','mojesubdomena')
-            ->addRule(Form::MAX_LENGTH,'Název webu nesmi překročit %d znaků',20);
+            ->addRule(Form::MAX_LENGTH,'Název subdomény nesmi překročit %d znaků',20);
         $form->addCheckbox('active');
         $form->addSubmit('add','Uložit');
 

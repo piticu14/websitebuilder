@@ -4,7 +4,7 @@ namespace App\Presenters;
 
 use App\Model\NavManager;
 use App\Model\PageManager;
-use App\Model\TempContentManager;
+use App\Model\ProjectTempDataManager;
 use Nette;
 use Nette\Application\UI\Form;
 use Nette\Utils\Finder;
@@ -32,16 +32,21 @@ class ProjectPresenter  extends AdminBasePresenter
     private $pageManager;
 
     /**
+     * @var ProjectTempDataManager
+     */
+    private $projectTempDataManager;
+    /**
      * DashboardPresenter constructor.
      * @param ProjectManager $projectManager
      * @param NavManager $navManager
      * @param PageManager $pageManager
      */
-    public function __construct(ProjectManager $projectManager, NavManager $navManager, PageManager $pageManager)
+    public function __construct(ProjectManager $projectManager, NavManager $navManager, PageManager $pageManager, ProjectTempDataManager $projectTempDataManager)
     {
         $this->projectManager = $projectManager;
         $this->navManager = $navManager;
         $this->pageManager = $pageManager;
+        $this->projectTempDataManager = $projectTempDataManager;
     }
     protected function createComponentSiteForm()
     {
@@ -52,9 +57,14 @@ class ProjectPresenter  extends AdminBasePresenter
                 $nextId = $this->projectManager->getLastInsertedId() + 1;
                 $form['subdomain']->value = $form['subdomain']->value . $nextId;
             }
-            $project = $this->projectManager->add($form->getValues());
+            $data = $form->getValues();
+            $data['logo'] = '/websitebuilder/www/img/blank_logo.gif';
+            $project = $this->projectManager->add($data);
+            $this->projectTempDataManager->add($data, $project->id);
+
             $path = 'user_images/' . $project->id . '/images/';
             if(!file_exists($path)) mkdir($path,'0777',true);
+
             $this->flashMessage('Váš projekt byl uložen', 'success');
             $this->redirect('Project:all');
         };
@@ -83,9 +93,9 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->jsFiles = $jsFiles;
         $this->template->cssFiles = $cssFiles;
         $this->template->nav_items = $this->navManager->get($id,0);
-        $this->template->current_page = $this->template->nav_items[$page_id];
+        $this->template->current_page = $this->pageManager->get($page_id);
         $this->template->user_images = $this->getUserImages($id);
-        //bdump($this->template->nav_items);
+        $this->template->projectTempData = $this->projectTempDataManager->get($id);
 
         $section = $this->getSession('project_pages');
 
@@ -139,7 +149,7 @@ class ProjectPresenter  extends AdminBasePresenter
             $first_projects_pages[] = $this->pageManager->first($user_project->id);
 
         }
-        bdump($first_projects_pages);
+        bdump($user_projects);
         $this->template->user_projects = $user_projects;
         $this->template->first_projects_pages = $first_projects_pages;
         //$this->template->first_page = $this->
@@ -152,11 +162,11 @@ class ProjectPresenter  extends AdminBasePresenter
     }
     */
 
-    /** TODO: Remove project images folder */
     public function actionDelete($id)
     {
         $path = 'user_images/' . $id;
         $this->projectManager->delete($id);
+        $this->projectTempDataManager->delete($id);
         $this->projectManager->deleteFolder($path);
         $this->redirect('Project:all');
     }
@@ -218,6 +228,14 @@ class ProjectPresenter  extends AdminBasePresenter
     public function handleSaveTemporary($nav, $logo, $body)
     {
         $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
-        $this->navManager->update($nav_array,$this->getParameter('id'),0);
+        foreach ($nav_array as $sort_order => $nav){
+            //$this->pageManager->update($nav, $nav['page_id'],0);
+
+            $nav['sort_order'] = $sort_order;
+            $this->navManager->update($nav,$nav['page_id'],0);
+        }
+        $logo_array = Json::decode($logo, Json::FORCE_ARRAY);
+        $this->projectTempDataManager->update($logo_array, $this->getParameter('id'));
+
     }
 }

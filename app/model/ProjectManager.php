@@ -50,11 +50,11 @@ class ProjectManager extends BaseManager
     {
         $data['user_id'] = $this->getUser()->id;
         $data['subdomain'] = Strings::trim($data['subdomain']);
+        $data['logo'] = '/websitebuilder/www/img/blank_logo.gif';
         $project = $this->getDatabase()->table('project')->insert($data);
 
         $nav_titles = array('Item1','Item2','Item3','Item4');
         $this->init($nav_titles,$project->id);
-
 
         return $project;
 
@@ -72,7 +72,6 @@ class ProjectManager extends BaseManager
 
 
             $nav_data = array(
-                'project_id' => $project_id,
                 'page_id' => $page->id,
                 'title' => $title,
                 'url' => Strings::lower($title),
@@ -111,9 +110,7 @@ class ProjectManager extends BaseManager
     public function patch($data)
     {
 
-        $this->getDatabase()->table('project')->where('id',$data->id)->update([
-            'active' => $data->active,
-            'subdomain' => $data->subdomain]);
+        $this->getDatabase()->table('project')->where('id',$data->id)->update($data);
     }
 
     public function delete($id)

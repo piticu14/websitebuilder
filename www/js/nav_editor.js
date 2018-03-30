@@ -256,26 +256,27 @@ function guid() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
+/** TODO: Logo img or glyphicon (use #selected) */
 function getLogoData()
 {
     var logo = {};
     logo.title = $('#title').text();
     logo.subtitle = $('#subtitle').text();
-    logo.image = $('#logo_image_container img').attr('src');
-    logo.text_color = $('#title').css('color');
+    logo.logo = $('#logo_image_container img').attr('src');
+    //logo.text_color = $('#title').css('color');
 
     return logo;
 }
 
 function getNavData() {
     var menu = $('#menu a').not(':last,#dropdownMenu');
-    var nav = {};
     var pages = [];
 
     menu.each(function(){
         var menu_item = {};
         menu_item.text = $(this).text();
         menu_item.id = $(this).data('id');
+        menu_item.page_id = $(this).data('page_id');
         menu_item.title = $(this).data('title');
         menu_item.keywords = $(this).data('keywords');
         menu_item.description = $(this).data('description');
@@ -283,7 +284,7 @@ function getNavData() {
         pages.push(menu_item);
     });
 
-    nav = pages;
+    var nav = pages;
 
     return nav;
 }

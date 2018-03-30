@@ -5,6 +5,11 @@ $('#logoModal').on('shown.bs.modal', function (e) {
     var logo_edit = $('#logo_edit_modal');
     var logo_container = $('#logo_container');
     var selected_logo = $('#selected');
+
+    $(logo_edit).find('input[name="title"]').val(logo_container.find('#title').text());
+    $(logo_edit).find('input[name="subtitle"]').val(logo_container.find('#subtitle').text());
+
+
     $('#save_logo').on('click', function () {
         var title = $(logo_edit).find('input[name="title"]').val();
         var subtitle = $(logo_edit).find('input[name="subtitle"]').val();
