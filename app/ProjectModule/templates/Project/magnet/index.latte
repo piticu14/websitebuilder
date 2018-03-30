@@ -1,103 +1,37 @@
+{block web}
 
+    <!-- PRE LOADER -->
 
-    {block title}Magnet - Minimal Portfolio Template{/block}
-
-
-
-<!-- PRE LOADER -->
-
-<div class="preloader">
-    <div class="sk-spinner sk-spinner-wordpress">
-        <span class="sk-inner-circle"></span>
-    </div>
-</div>
-
-<!-- Navigation section  -->
-
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container">
-
-        <div class="navbar-header">
-            <div id="logo_container" style="float:left">
-                {*<p><span class="glyphicon glyphicon-magnet"></span><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMVEX///8AAAB/f393d3fX19d8fHyfn5/Pz8/6+vphYWHp6enBwcGEhIT09PTg4OCoqKiOjo7t7e26urogICDc3NxoaGjGxsazs7MJCQltbW0zMzOLi4tGRkZQUFCYmJi+vr4ZGRksLCxZWVlISEg8PDwuLi5dXrV1AAADKklEQVR4nO3ca3eaQBSFYQ2iJF4xUYtJNLHp//+LTdOmuRT2OaDjTLre5ztnnS0wDAPS6wEAAAAAAAAAAAAAAAAAAAAAACCccjmssZn5KwzmdRXGRbieW1lnea1s762wq6+Q5Vch+3abVRcNsoGvwjxrKJDnSezFXd6UML91FZg2BXz+jdaBm3eZNPZ3kbl2wU1zwnweunsPlXDqKTAQCYehu/cgoYmE0ZHQRMLoSGgiYXQkNJEwOhKaSBgdCU0kjI6EJhJGl2eNKl/CqrnCLnT3HgPBtV46FQVaPPsAAAAhjQTXFb8UBZzPyYMq+oLrTYO9KHAI3b7D8QnHosBl6PYdSGgjYWwktJEwNhLaSBgbCW0kjI2ENhLGRkIbCWMjoY2EsZHQ9qUTlp4KJIyNhDYSRvdNNOgaS5eiwCp09x4PxybciAJV6O49rkWDrleahqJAHrp7j61o0PUI91YUWITu3uNeNDj2FMhEgST+B3x0g3eiwCZ09x4L0eDEU0Bs3x+F7t5jLhq8d2x/pRIm8VGFterQsb26WPRdr+CGNlMdOr6JcBCbX4dv30MltOckpdo8iUlbr/dd9WieSBdq6yRe8zZ6tPaCPMY9B/k5qJmzeUlUc75EBhpjuDf2g7ra9/vbc0Ww6P0g9mL5Q2/p+77NGUx0n/2n+gl4oabcL5KY0fwysjrt320+3+0X69zcyjNfOBN1m//XardcD2bPRuNhrs+/P7LYud5Yh2lHyRyk1kWtq0SmbL+5Drq2kvhn3it5f9FV7FAfqcWajhKZk74KsBOT+NzeO/IGo4sk1qDeO/Vw+hg70L/UglQHN7Hz1Hg8ZcAkVoI/k8sRLXnW6CI43Xj6kNo4+kqtnLaSxCpprRONNin8Ja/J7hQBUxxG38gFbJdr15PxiAZHBjykOsi8KdQqvSmpO6ZG3Y/U7Vf50MdUPTQVkptsC7NV+3y79M/AD0pzMfSDpyQeZ7e1d485k7QvgUKxr9T7RC/uFilPYTyulotDw4ONbTZcf7GTr1FRDpab4SSrVpeXqypbzDfjWepzFwAAAAAAAAAAAAAAAAAAAAAAgP/LT7IVN7wuJMxSAAAAAElFTkSuQmCC"></p>*}
-                    <a class="navbar-brand" id="logo_image_container"  href="#"><img style="vertical-align: middle" width="100" height="100" src="{$basePath}/img/blank_logo.gif" alt="your image"></a>
-                    <p id="title">Titulek</p>
-                    <p id="subtitle">Podtitulek</p>
-            </div>
-            <a id="logo_edit" class="navbar-brand" href="javascript:;"> <span
-                            class="glyphicon glyphicon-wrench" aria-hidden="true" data-toggle="modal" data-target="#logoModal"></span></a>
+    <div class="preloader">
+        <div class="sk-spinner sk-spinner-wordpress">
+            <span class="sk-inner-circle"></span>
         </div>
-        <div class="collapse navbar-collapse">
-            <ul id="menu" class="nav navbar-nav navbar-right">
-                {foreach $nav_items as $nav_item}
-                    <li n:class="!$nav_item->active ? hide, active">
-                        <a data-id="{$nav_item->id}" data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}" n:href="{$nav_item->url}">{$nav_item->title}</a>
-                    </li>
-                {/foreach}
-                <li id="page_drop_down_container" class="dropdown hide">
-                    <a class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-
-                        <span class="caret"></span>
-                    </a>
-                    <ul id="page_drop_down" class="dropdown-menu" aria-labelledby="dropdownMenu">
-                    </ul>
-                </li>
-                <li><a id="menu_edit" href="#" data-toggle="modal" data-target="#menuModal"> <span
-                        class="glyphicon glyphicon-wrench" aria-hidden="true"></span></a></li>
-            </ul>
-        </div>
-
     </div>
-</div>
 
-<!-- Home Section -->
+    <!-- Navigation section  -->
+
+    {include header.latte}
+
+    <!-- Home Section -->
     <div class="row">
         <div id="content-area">
             <div id="editor">
-                <section>
-                    <div data-type="container-content">
-                        <section data-type="component-text">
-                            <footer>
-                                <div class="container">
-                                    <div class="row">
-
-                                        <div class="col-md-3 col-sm-3">
-                                            <i class="fa fa-magnet">&nbsp;</i>
-                                        </div>
-
-                                        <div class="col-md-4 col-sm-4">
-                                            <p>124 Market Street, Suite 3570 San Francisco, CA 3042 United States</p>
-                                        </div>
-
-                                        <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-3">
-                                            <p><a href="mailto:youremail@gmail.com">hello@yourstudio.co</a></p>
-                                            <p>(+01) 2048937 / 02 203403</p>
-                                        </div>
-
-                                        <div class="clearfix col-md-12 col-sm-12">
-                                            <hr>
-                                        </div>
-
-                                        <div class="col-md-6 col-sm-6">
-                                            <div class="footer-copyright">
-                                                <p>© 2016 Magnet Studio | All Rights Reserved.</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6 col-sm-6">
-                                            <ul class="social-icon">
-                                                <li><a href="#" class="fa fa-facebook">&nbsp;</a></li>
-                                                <li><a href="#" class="fa fa-twitter">&nbsp;</a></li>
-                                                <li><a href="#" class="fa fa-linkedin">&nbsp;</a></li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </footer>
-                        </section>
-                    </div>
-                </section>
+                <div id="body">
+                    <section>
+                        <div data-type="container-content">
+                            {* {include pageContent} *}
+                        </div>
+                    </section>
+                </div>
+                <div id="footer">
+                    <section>
+                        <div data-type="container-content">
+                            <section data-type="component-text">
+                                {include footer.latte}
+                            </section>
+                        </div>
+                    </section>
+                </div>
             </div>
         </div>
     </div>
@@ -212,7 +146,8 @@
 
 *}
 
-<!-- Footer Section -->
+    <!-- Footer Section -->
 
 
 
+{/block}

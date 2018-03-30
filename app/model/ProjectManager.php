@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Nette;
 use Nette\Utils\Strings;
+use Nette\Utils\Json;
 
 
 class ProjectManager extends BaseManager
@@ -18,6 +19,15 @@ class ProjectManager extends BaseManager
     */
     private $navManager;
 
+
+    /**
+     * ProjectManager constructor.
+     * @param Nette\Database\Context $database
+     * @param Nette\Security\User $user
+     * @param PageManager $pageManager
+     * @param NavManager $navManager
+     */
+
     public function __construct(Nette\Database\Context $database, Nette\Security\User $user,PageManager $pageManager, NavManager $navManager)
     {
         parent::__construct($database,$user);
@@ -30,26 +40,27 @@ class ProjectManager extends BaseManager
     }
 
 
-    public function getUserProjects()
+    public function getAll()
     {
         return $this->getDatabase()->table('project')
             ->select('template.title AS template_title,project.*')
         ->where('user_id',$this->getUser()->id)->fetchAll();
     }
-    public function addProject($data)
+    public function add($data)
     {
         $data['user_id'] = $this->getUser()->id;
         $data['subdomain'] = Strings::trim($data['subdomain']);
         $project = $this->getDatabase()->table('project')->insert($data);
 
         $nav_titles = array('Item1','Item2','Item3','Item4');
-        $this->init_project($nav_titles,$project->id);
+        $this->init($nav_titles,$project->id);
+
 
         return $project;
 
     }
 
-    private function init_project($nav_titles, $project_id)
+    private function init($nav_titles, $project_id)
     {
         foreach($nav_titles as $key => $title) {
             $page_data = array(
@@ -57,7 +68,7 @@ class ProjectManager extends BaseManager
                 'title' => $title,
             );
             $page_hash = Nette\Utils\ArrayHash::from($page_data);
-            $page = $this->pageManager->addPage($page_hash);
+            $page = $this->pageManager->add($page_hash);
 
 
             $nav_data = array(
@@ -68,8 +79,8 @@ class ProjectManager extends BaseManager
                 'sort_order' => $key
             );
             $nav_hash = Nette\Utils\ArrayHash::from($nav_data);
-            $this->navManager->addNav($nav_hash);
-
+            $this->navManager->add($nav_hash,1);
+            $this->navManager->add($nav_hash,0); // Add temp nav (publish = 0)
         }
     }
 
@@ -89,7 +100,7 @@ class ProjectManager extends BaseManager
             ->fetch()->id;
     }
 
-    public function getProject($id)
+    public function get($id)
     {
         return $this->getDatabase()->table('project')
             ->select('project.*,template.title AS template_title')
@@ -105,11 +116,11 @@ class ProjectManager extends BaseManager
             'subdomain' => $data->subdomain]);
     }
 
-    public function deleteProject($id)
+    public function delete($id)
     {
 
-        $this->navManager->deleteNav($id);
-        $this->pageManager->deleteAllPages($id);
+        $this->navManager->delete($id);
+        $this->pageManager->deleteAll($id);
         $this->getDatabase()->table('project')
             ->where('id',$id)
             ->delete();

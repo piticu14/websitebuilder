@@ -40,7 +40,7 @@ class Users extends BaseManager
      * @param array $data
      * @return int
      */
-    public function updateUser($data)
+    public function update($data)
     {
         return $this->getDatabase()->table('user')->update($data);
     }
@@ -51,7 +51,7 @@ class Users extends BaseManager
      * @param string $value
      * @return bool|mixed|Nette\Database\Table\IRow|null
      */
-    public function getUserBy($column,$value)
+    public function getBy($column,$value)
     {
         $user = $this->getDatabase()->table('user')->where($column,$value);
         if($user->count()) {
@@ -66,7 +66,7 @@ class Users extends BaseManager
      * @param string $username
      * @return int
      */
-    public function usernameDuplicate($username)
+    public function checkUsername($username)
     {
        return $this->getDatabase()->table('user')
             ->where('username', $username)
@@ -78,19 +78,12 @@ class Users extends BaseManager
      * @return int
      */
 
-    public function emailDuplicate($email){
-        return $this->getDatabase()->table('user_email')
-            ->where('email',$email)
-            ->count();
-    }
-
     public function checkEmail($email)
     {
         return $this->getDatabase()->table('user_email')
             ->where('email',$email)
             ->count();
     }
-
 
     /**
      * @return array
@@ -115,7 +108,7 @@ class Users extends BaseManager
 
     /*---------------------------------User Activation Methods----------------------------------- */
 
-    public function activateUser($email)
+    public function activate($email)
     {
         $this->getDatabase()->table('user')->where('email',$email)
             ->update([
@@ -128,28 +121,30 @@ class Users extends BaseManager
 
     }
 
-    public function isUserActive($email)
+    public function isActive($email)
     {
-            return $this->getUserBy('email', $email)->active;
+            return $this->getBy('email', $email)->active;
     }
 
 
     /*----------------------------------------User Emails------------------------- */
-    public function getUserEmail($email){
+    public function getEmail($email){
         return $this->getDatabase()->table('user_email')->where('email',$email)->fetch();
     }
 
-    public function activateUserEmail($email){
+    public function activateEmail($email){
         return $this->getDatabase()->table('user_email')->where('email',$email)->update([
             'active' => 1
         ]);
     }
 
-    public function getUserEmailsList()
+    public function getAllEmails()
     {
         return $this->getDatabase()->table('user_email')->where('user_id',$this->getUser()->id)->fetchAll();
     }
 
+    /** TODO: Set to primary only if email is active*/
+    /** TODO: Maybe delete active column from user and use active from email */
     public function setPrimaryEmail($email)
     {
         $this->getDatabase()->table('user')

@@ -44,7 +44,7 @@ class SigninFormFactory
     {
         try {
             $this->users->getUser()->login($values->username, $values->password);
-            if(!$this->users->isUserActive($this->users->getUser()->getIdentity()->email)) {
+            if(!$this->users->isActive($this->users->getUser()->getIdentity()->email)) {
                 $this->presenter->flashMessage('Váš účet není aktivován. Aktivujte ho pomoci emailu, který jste obdržel');
                 $this->presenter->redirect('Account:signin');
             }

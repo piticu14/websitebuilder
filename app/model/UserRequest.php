@@ -28,7 +28,7 @@ class UserRequest extends BaseManager
      * @param string $type
      * @return bool|int|Nette\Database\Table\IRow
      */
-    public function addRequest($userEmailId, $type)
+    public function add($userEmailId, $type)
     {
         $data = array(
             'user_email_id' => $userEmailId,
@@ -44,7 +44,7 @@ class UserRequest extends BaseManager
      * @param string $type
      * @return bool|mixed|Nette\Database\Table\IRow|null
      */
-    public function getUserRequest($token, $type){
+    public function get($token, $type){
         $request = $this->getDatabase()->table('user_request')
             ->where('token',$token)
             ->where('type',$type);
@@ -60,14 +60,14 @@ class UserRequest extends BaseManager
      * @param int $emailId
      * @param string $type
      */
-    public function deleteOldUserRequests($emailId, $type)
+    public function deleteOld($emailId, $type)
     {
         $this->getDatabase()->table('user_request')->where('user_email_id',$emailId)
             ->where('type',$type)
             ->delete();
     }
 
-    public function getUserEmail($token){
+    public function getEmail($token){
         $userRequest = $this->getDatabase()->table('user_request')
             ->where('token',$token)->fetch();
         return $this->getDatabase()->table('user_email')

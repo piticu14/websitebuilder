@@ -1,11 +1,7 @@
-$(document).ready(function(){
-    if($('#logoImageModal').length){
-        logoImageModal();
-    }
-});
 
 $('#logoModal').on('shown.bs.modal', function (e) {
     e.preventDefault();
+
     var logo_edit = $('#logo_edit_modal');
     var logo_container = $('#logo_container');
     var selected_logo = $('#selected');
@@ -45,53 +41,23 @@ $('#logoModal').on('shown.bs.modal', function (e) {
 });
 
 function logoImageModal(){
-    var selected_icon;
-    var selected_image;
-
-    $('#user_images').hide().fadeIn('slow');
-    $('.bt-glyphicons').hide();
-    $('#logo_icons').on('click',function(){
+    $(document).on('click','#logo_icons',function(e){
+        e.preventDefault();
         $('#user_images').hide();
-        $('.bt-glyphicons').hide().fadeIn('slow');
+        $('.bt-glyphicons').fadeIn('slow');
     });
-    $('#logo_images').on('click',function(){
+    $(document).on('click','#logo_images',function(e){
+        e.preventDefault();
         $('.bt-glyphicons').hide();
-        $('#user_images').hide().fadeIn('slow');
+        $('#user_images').fadeIn('slow');
     });
 
+    logoSelection();
 
-    $('.bt-glyphicons-list').find('li').on('click',function(){
-        if(selected_icon) {
-            selected_icon.css('background-color', '#f1f1f1');
-            selected_icon.removeAttr('id');
-        }
-        if(selected_image){
-            selected_image.hide();
-            selected_image = null;
-        }
-        $(this).attr('id','selected');
-        $(this).css('background-color','#505050');
-        selected_icon = $(this);
-        //console.log(getIconName($(this).children('span').attr('class')));
-    });
-
-    $('.overlay').not('div#selected .overlay').hide();
-    $('.image_box').on('click',function(){
-        if(selected_image) {
-            selected_image.hide();
-        }
-        if(selected_icon){
-            selected_icon.css('background-color', '#f1f1f1');
-            selected_icon = null;
-        }
-        $(this).attr('id','selected');
-        $(this).children('.overlay').fadeIn('slow');
-
-        selected_image = $(this).children('.overlay');
-
-    })
 }
 $('#logoImageModal').on('shown.bs.modal', function () {
+    $('#user_images').hide().fadeIn('slow');
+    $('.bt-glyphicons').hide();
     logoImageModal();
 });
 
@@ -105,7 +71,7 @@ $('#addImage').find('input[name="images"]').on('change',function(){
     });
 
     // If you want to add an extra field for the FormData
-    data.append("CustomField", "This is some extra data, testing");
+    //data.append("CustomField", "This is some extra data, testing");
 
     $.nette.ajax({
         type: "POST",
@@ -139,12 +105,49 @@ $('#addImage').find('input[name="images"]').on('change',function(){
     });
 });
 
-$(document).ajaxStop(function(){
+$(document).ajaxStop(function() {
     if($('#logoImageModal').length){
-        logoImageModal();
+        logoSelection();
     }
 });
 
+function logoSelection() {
+
+    var selected_image;
+    var selected_icon;
+    $('.overlay').not('div#selected .overlay').hide();
+    $('.image_box').on('click',function() {
+        if (selected_image) {
+            selected_image.parent().removeAttr('id');
+            selected_image.hide();
+        }
+        if (selected_icon) {
+            selected_icon.css('background-color', '#f1f1f1');
+            selected_icon.removeAttr('id');
+            selected_icon = null;
+        }
+        $(this).attr('id', 'selected');
+        $(this).children('.overlay').fadeIn('slow');
+
+        selected_image = $(this).children('.overlay');
+    });
+
+    $('.bt-glyphicons-list').find('li').on('click',function(){
+        if(selected_icon) {
+            selected_icon.css('background-color', '#f1f1f1');
+            selected_icon.removeAttr('id');
+        }
+        if(selected_image){
+            selected_image.hide();
+            selected_image.parent().removeAttr('id');
+            selected_image = null;
+        }
+        $(this).attr('id','selected');
+        $(this).css('background-color','#505050');
+        selected_icon = $(this);
+        //console.log(getIconName($(this).children('span').attr('class')));
+    });
+}
 
 function getIconName(iconClass) {
     return  iconClass.split(" ")[1].replace('glyphicon-','');

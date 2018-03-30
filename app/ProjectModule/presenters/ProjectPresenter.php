@@ -4,9 +4,12 @@ namespace App\Presenters;
 
 use App\Model\NavManager;
 use App\Model\PageManager;
+use App\Model\TempContentManager;
 use Nette;
 use Nette\Application\UI\Form;
 use Nette\Utils\Finder;
+use Nette\Utils\Json;
+use Latte;
 
 use App\Model\projectManager;
 
@@ -24,9 +27,10 @@ class ProjectPresenter  extends AdminBasePresenter
     private $navManager;
 
     /**
-     * @var Pagemanager;
+     * @var PageManager;
      */
     private $pageManager;
+
     /**
      * DashboardPresenter constructor.
      * @param ProjectManager $projectManager
@@ -48,8 +52,9 @@ class ProjectPresenter  extends AdminBasePresenter
                 $nextId = $this->projectManager->getLastInsertedId() + 1;
                 $form['subdomain']->value = $form['subdomain']->value . $nextId;
             }
-            $project = $this->projectManager->addProject($form->getValues());
-            mkdir('user_images/' . $project->id,'077');
+            $project = $this->projectManager->add($form->getValues());
+            $path = 'user_images/' . $project->id . '/images/';
+            if(!file_exists($path)) mkdir($path,'0777',true);
             $this->flashMessage('Váš projekt byl uložen', 'success');
             $this->redirect('Project:all');
         };
@@ -61,10 +66,10 @@ class ProjectPresenter  extends AdminBasePresenter
 
     }
 
-    public function renderEdit($id)
+    public function renderEdit($id,$page_id)
     {
 
-        $project = $this->projectManager->getProject($id);
+        $project = $this->projectManager->get($id);
         $jsFiles = array();
         $cssFiles = array();
         $dir = '../www/templates/' .$project->template_title .'/';
@@ -77,11 +82,9 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->template_title = $project->template_title;
         $this->template->jsFiles = $jsFiles;
         $this->template->cssFiles = $cssFiles;
-        $this->template->nav_items = $this->navManager->getNav($id);
+        $this->template->nav_items = $this->navManager->get($id,0);
+        $this->template->current_page = $this->template->nav_items[$page_id];
         $this->template->user_images = $this->getUserImages($id);
-        if (!isset($this->template->text)) {
-            $this->template->text = 'AAAA';
-        }
         //bdump($this->template->nav_items);
 
         $section = $this->getSession('project_pages');
@@ -119,32 +122,53 @@ class ProjectPresenter  extends AdminBasePresenter
         $section->pages = $project_pages;
         $section->setExpiration(0);
 
+        /*
+        $latte = new Latte\Engine;
+
+        $html = $latte->renderToString(__DIR__ . '/../templates/Project/magnet/index.latte');
+        bdump($html);
+        */
+
     }
 
     public function renderAll()
     {
-        $this->template->user_projects = $this->projectManager->getUserprojects();
+        $user_projects = $this->projectManager->getAll();
+        $first_projects_pages = array();
+        foreach ($user_projects as $user_project) {
+            $first_projects_pages[] = $this->pageManager->first($user_project->id);
+
+        }
+        bdump($first_projects_pages);
+        $this->template->user_projects = $user_projects;
+        $this->template->first_projects_pages = $first_projects_pages;
+        //$this->template->first_page = $this->
     }
 
+    /*
     public function renderDefault($id)
     {
         $this->template->project = $this->projectManager->getProject($id);
     }
+    */
 
+    /** TODO: Remove project images folder */
     public function actionDelete($id)
     {
-        $this->projectManager->deleteProject($id);
+        $path = 'user_images/' . $id;
+        $this->projectManager->delete($id);
+        $this->projectManager->deleteFolder($path);
         $this->redirect('Project:all');
     }
 
     private function getUserImages($id)
     {
         $masks =['*.jpg','*.png','*.gif','*.jpeg'];
-        $dir = '../www/user_images/' . $id .'/';
+        $dir = '../www/user_images/' . $id .'/images/';
         $images = array();
         foreach (Finder::findFiles($masks)
                      ->in($dir) as $file) {
-            $images[] = 'user_images/' . $id . '/' . $file->getBasename();
+            $images[] = 'user_images/' . $id . '/images/' . $file->getBasename();
 
         }
         return $images;
@@ -159,7 +183,7 @@ class ProjectPresenter  extends AdminBasePresenter
             foreach($files as $file) {
                 if( $file->isOk() and $file->isImage() ) {
                     $imageName = $file->getSanitizedName();
-                    $file->move('user_images/' . $this->getParameter('id') . '/' . $imageName);
+                    $file->move('user_images/' . $this->getParameter('id') . '/images/' . $imageName);
                     $filesNames[] = $imageName;
             }
         }
@@ -185,4 +209,15 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->sendJson($json_Image_list);
     }
 */
+
+
+    public function handlePublish($data){
+
+    }
+
+    public function handleSaveTemporary($nav, $logo, $body)
+    {
+        $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
+        $this->navManager->update($nav_array,$this->getParameter('id'),0);
+    }
 }

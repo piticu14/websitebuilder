@@ -44,10 +44,10 @@ class AccountPresenter extends FrontBasePresenter
 
         $form->onValidate[] = function ($form) {
             $form['signup']->setDisabled();
-            if($this->users->usernameDuplicate($form['username']->value)){
+            if($this->users->checkUsername($form['username']->value)){
                 $form['username']->addError('Uživatelské jméno již existuje');
             }
-            if($this->users->emailDuplicate($form['email']->value)) {
+            if($this->users->checkEmail($form['email']->value)) {
                 $form['email']->addError('Emailová adresa již existuje');
             }
         };
@@ -97,10 +97,10 @@ class AccountPresenter extends FrontBasePresenter
     {
 
         if($this->isAjax()){
-            $user = $this->users->getUserBy('email',$emailAddress);
+            $user = $this->users->getBy('email',$emailAddress);
             if($user->user_security_question_answer === $user_question_answer) {
-                $userEmail = $this->users->getUserEmail($user->email);
-                $this->userRequest->deleteOldUserRequests($userEmail->id,'resetPassword');
+                $userEmail = $this->users->getEmail($user->email);
+                $this->userRequest->deleteOld($userEmail->id,'resetPassword');
                 $param = array(
                     'from' => 'FastWeb <support@fastweb.cz>',
                     'to' => $emailAddress,
@@ -108,7 +108,7 @@ class AccountPresenter extends FrontBasePresenter
                     'email_template' => 'resetPasswordEmail',
                     'body' => array(
                         'request' => 'account',
-                        'token' => $this->userRequest->addRequest($userEmail->id,'resetPassword')->token,
+                        'token' => $this->userRequest->add($userEmail->id,'resetPassword')->token,
                         'link' => $this->getHttpRequest()->getUrl()->getBaseUrl()
                     )
                 );
@@ -133,7 +133,7 @@ class AccountPresenter extends FrontBasePresenter
         //using $emailAddress instead of $email because $email is uset in actionReset and show email address in link
         if ($this->isAjax())
         {
-            $user = $this->users->getUserBy('email',$emailAddress);
+            $user = $this->users->getBy('email',$emailAddress);
             if($user){
                 $this->template->security_question = $this->users->getUserSecurityQuestion($user->user_security_question_id)->security_question;
                 $this->template->user_found= true;
@@ -157,7 +157,7 @@ class AccountPresenter extends FrontBasePresenter
         $this->template->user_found = false;
         if($token) {
             if($this->userRequest->checkToken($token) > 0){
-                $RPrequest = $this->userRequest->getUserRequest($token,'resetPassword');
+                $RPrequest = $this->userRequest->get($token,'resetPassword');
                 $now = DateTime::from(date("Y-m-d H:i:s"));
                 $RPRequestTime = DateTime::from($RPrequest->sent_at);
                 $RPRequestExpiredTime = $RPRequestTime->modifyClone('+10 minutes');
@@ -173,12 +173,12 @@ class AccountPresenter extends FrontBasePresenter
     public function actionActivation($token)
     {
         if($this->userRequest->checkToken($token)) {
-            $userEmail = $this->userRequest->getUserEmail($token);
-            if($this->users->isUserActive($userEmail->email)) {
+            $userEmail = $this->userRequest->getEmail($token);
+            if($this->users->isActive($userEmail->email)) {
                 $this->flashMessage('Váš účet je již aktivován.','info');
                 $this->redirect('Account:signin');
             }
-            $this->users->activateUser($userEmail->email);
+            $this->users->activate($userEmail->email);
             $this->flashMessage('Váš účet byl aktivován. Můžete se přihlásit');
             $this->redirect('Account:signin');
         } else {

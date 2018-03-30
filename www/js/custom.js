@@ -401,4 +401,32 @@ $(document).on('click', '.showProject', function() {
 
 });
 
+/*
+ * -----Publish project------
+ * Send the project data to PHP using Ajax
+ */
+/*ToDo: Change "menu" to  "nav" or "pages" */
 
+// Se
+
+
+
+$(document).on('click','#publish',function(e){
+    e.preventDefault();
+
+
+
+    /*
+    $.nette.ajax({
+        url: $(this).data('url'),
+        type: "POST",
+
+        data: { data: JSON.stringify(data)},
+        error: function(jqXHR,status,error) {
+            console.log(jqXHR);
+            console.log(status);
+            console.log(error);
+        }
+    });
+    */
+});

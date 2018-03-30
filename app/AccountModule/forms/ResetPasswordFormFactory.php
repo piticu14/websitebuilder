@@ -46,7 +46,7 @@ class ResetPasswordFormFactory
         $data['password'] = password_hash($values->password, PASSWORD_DEFAULT);
 
         if(isset($values->old_password)){
-            $user = $this->users->getUserBy('id',$this->presenter->getUser()->id);
+            $user = $this->users->getBy('id',$this->presenter->getUser()->id);
             if(!password_verify($values->old_password,$user->password)){
                 $this->presenter->flashMessage('Vaše staré heslo je neplatné','danger');
                 $this->presenter->redirect('this');
@@ -57,7 +57,7 @@ class ResetPasswordFormFactory
         }
 
 
-        if ($this->users->updateUser($data)) {
+        if ($this->users->update($data)) {
             $this->presenter->flashMessage('Vaše heslo bylo úspěšně změneno. Můžete se přihlásit novým heslem.', 'success');
         } else {
             $this->presenter->flashMessage('Nepodařilo se nastavit nové heslo', 'warning');

@@ -1,3 +1,4 @@
+{block title}  {$current_page->page_title} {/block}
 {block stylesheets}
     {include #parent}
     {foreach $cssFiles as $cssFile}
@@ -6,8 +7,15 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
 
 {/block}
+{define pageContent}
+    fdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdg
+    fdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdg
+    fdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdg
+{/define}
 {block content}
-    {include {$template_title}/index.latte}
+
+    {import {$template_title}/index.latte}
+    {include web}
     {snippetArea wrapper}
         {include modals.latte}
     {/snippetArea}
@@ -30,6 +38,14 @@
             });
         });
         $.keditor.debug = false;
+
+        $(function() {
+            $('#editor').keditor({
+                contentAreasSelector: '#body, #footer'
+            });
+        });
+
+
         var id = {$presenter->getParameter('id')}
         $.keditor.components['text']['options']['filebrowserImageBrowseUrl'] = '/websitebuilder/www/vendor/ckfinder/ckfinder.html?Type=Image&id=' + id;
     </script>

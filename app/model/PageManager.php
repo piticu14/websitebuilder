@@ -12,14 +12,14 @@ use Nette;
 
 class PageManager extends BaseManager
 {
-    public function getAllPages($project_id)
+    public function getAll($project_id)
     {
         return $this->getDatabase()->table('page')
             ->where('id',$project_id)
             ->fetchAll();
     }
 
-    public function addPage($data)
+    public function add($data)
     {
         return $this->getDatabase()->table('page')
             ->insert([
@@ -29,11 +29,19 @@ class PageManager extends BaseManager
     }
 
 
-    public function deleteAllPages($project_id)
+    public function deleteAll($project_id)
     {
         return $this->getDatabase()->table('page')
             ->where('project_id',$project_id)
             ->delete();
+    }
+
+    public function first($project_id)
+    {
+        return $this->getDatabase()->table('page')
+            ->where('project_id',$project_id)
+            ->limit(1)
+            ->fetch();
     }
 
 }

@@ -108,6 +108,7 @@ $('#menuModal').on('shown.bs.modal', function (e) {
     $('#page_items').hide().fadeIn('slow');
 
     $('#menu a').not(':last,#dropdownMenu').each(function(){
+
          var modal_link = $('<a></a>');
         modal_link.addClass('modal-menu-links padding-left');
         modal_link.attr('href','#');
@@ -254,3 +255,69 @@ function guid() {
     }
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
+
+function getLogoData()
+{
+    var logo = {};
+    logo.title = $('#title').text();
+    logo.subtitle = $('#subtitle').text();
+    logo.image = $('#logo_image_container img').attr('src');
+    logo.text_color = $('#title').css('color');
+
+    return logo;
+}
+
+function getNavData() {
+    var menu = $('#menu a').not(':last,#dropdownMenu');
+    var nav = {};
+    var pages = [];
+
+    menu.each(function(){
+        var menu_item = {};
+        menu_item.text = $(this).text();
+        menu_item.id = $(this).data('id');
+        menu_item.title = $(this).data('title');
+        menu_item.keywords = $(this).data('keywords');
+        menu_item.description = $(this).data('description');
+        menu_item.active = $(this).data('active');
+        pages.push(menu_item);
+    });
+
+    nav = pages;
+
+    return nav;
+}
+
+//  If user goes to another page save data to temporary db table
+
+function sendContent($link) {
+    var body = {};
+
+    var nav = getNavData();
+    var logo = getLogoData();
+    body.footer = $('#footer footer').html();
+
+    $.nette.ajax({
+        url: $link.data('url'),
+        type: "POST",
+
+        data: { nav: JSON.stringify(nav),
+                logo: JSON.stringify(logo),
+                body: JSON.stringify(body)},
+        error: function(jqXHR,status,error) {
+            console.log(jqXHR);
+            console.log(status);
+            console.log(error);
+        },
+        success: function(payload) {
+            //window.location.href = $link.attr('href');
+        }
+    });
+}
+
+    $('#menu a').not(':last,#dropdownMenu').each(function(){
+        $(this).off().on('click',function(e) {
+            e.preventDefault();
+            sendContent($(this));
+        });
+    });

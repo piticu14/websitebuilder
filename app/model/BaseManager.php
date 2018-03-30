@@ -46,4 +46,21 @@ abstract class BaseManager extends Nette\Object
     {
         return $this->user;
     }
+
+    public function deleteFolder($path)
+    {
+        if (is_dir($path) === true) {
+            $files = array_diff(scandir($path), array('.', '..'));
+
+            foreach ($files as $file) {
+                $this->deleteFolder(realpath($path) . '/' . $file);
+            }
+
+            return rmdir($path);
+        } else if (is_file($path) === true) {
+            return unlink($path);
+        }
+
+        return false;
+    }
 }

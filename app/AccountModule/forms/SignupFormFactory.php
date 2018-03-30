@@ -85,7 +85,7 @@ class SignupFormFactory
                         'email_template' => 'userActivation',
                         'body' => array(
                             'email' => $values->email,
-                            'token' => $this->userRequest->addRequest($userEmail->id, 'userActivation')->token,
+                            'token' => $this->userRequest->add($userEmail->id, 'userActivation')->token,
                             'link' => $this->baseUrl. 'activate/account'
                         )
                     );

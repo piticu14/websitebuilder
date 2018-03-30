@@ -60,7 +60,7 @@ class SettingsPresenter extends AdminBasePresenter
             'email_template' => 'emailActivation',
             'body' => array(
                 'request' => 'email',
-                'token' => $this->userRequest->addRequest($userEmail->id,'emailVerification')->token,
+                'token' => $this->userRequest->add($userEmail->id,'emailVerification')->token,
                 'link' => $this->getHttpRequest()->getUrl()->getBaseUrl() . 'activate/email'
             )
         );
@@ -69,11 +69,11 @@ class SettingsPresenter extends AdminBasePresenter
 
     public function actionEmailActivation($token){
         if($this->userRequest->checkToken($token)) {
-            $userEmail = $this->userRequest->getUserEmail($token);
+            $userEmail = $this->userRequest->getEmail($token);
             if($userEmail->active) {
                 $this->flashMessage('Vaše emailová adresa je již ověřená.');
             }else {
-                $this->users->activateUserEmail($userEmail->email);
+                $this->users->activateEmail($userEmail->email);
                 $this->flashMessage('Vaše emailová adresa byla úspěšně ověřená.');
             }
             $this->redirect('Settings:default');
@@ -83,7 +83,7 @@ class SettingsPresenter extends AdminBasePresenter
     public function handleActivateEmail($email)
     {
         if($this->isAjax()) {
-            $userEmail = $this->users->getUserEmail($email);
+            $userEmail = $this->users->getEmail($email);
             $this->sendEmailActivation($userEmail);
             $this->payload->boxId = 2;
             $this->flashMessage('Právě jsme Vám poslali email s ověřením emailové adresy.', 'success');
@@ -95,7 +95,7 @@ class SettingsPresenter extends AdminBasePresenter
     {
         if($this->isAjax()) {
             $this->users->setPrimaryEmail($email);
-            $this->template->userEmails = $this->users->getUserEmailsList();
+            $this->template->userEmails = $this->users->getAllEmails();
         }
         $this->redrawControl('emailSettings');
 
@@ -104,7 +104,7 @@ class SettingsPresenter extends AdminBasePresenter
     public function renderDefault($id)
     {
         if (!isset($this->template->userEmails)) {
-            $this->template->userEmails = $this->users->getUserEmailsList();
+            $this->template->userEmails = $this->users->getAllEmails();
         }
     }
 
