@@ -259,13 +259,29 @@ function guid() {
 /** TODO: Logo img or glyphicon (use #selected) */
 function getLogoData()
 {
+    var $logo_container = $('#logo_container');
     var logo = {};
     logo.title = $('#title').text();
     logo.subtitle = $('#subtitle').text();
-    logo.logo = $('#logo_image_container img').attr('src');
+
+    var image = {};
+    if($logo_container.find('img').length){
+        image.type = 'img'
+        image.src = $('#logo_image_container img').attr('src');
+    }else {
+        image.type = 'span';
+        image.src = getIconName($logo_container.find('span').attr('class'))
+    }
+
+    logo.logo = image;
     //logo.text_color = $('#title').css('color');
 
     return logo;
+}
+
+
+function getIconName(iconClass) {
+    return  iconClass.split(" ")[1].replace('glyphicon-','');
 }
 
 function getNavData() {

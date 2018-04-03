@@ -44,13 +44,15 @@ class SigninFormFactory
     {
         try {
             $this->users->getUser()->login($values->username, $values->password);
-            if(!$this->users->isActive($this->users->getUser()->getIdentity()->email)) {
-                $this->presenter->flashMessage('Váš účet není aktivován. Aktivujte ho pomoci emailu, který jste obdržel');
-                $this->presenter->redirect('Account:signin');
-            }
             $this->presenter->redirect('Project:all');
         } catch (Nette\Security\AuthenticationException $e) {
-            $this->presenter->flashMessage('Přihlášení bylo neúspěšné. Zkontrolujte své přihlašovací údaje.','danger');
+            if($e->getCode() == 4) {
+                    $this->presenter->flashMessage('Váš účet není aktivován. Aktivujte ho pomoci emailu, který jste obdržel');
+                    $this->presenter->redirect('Account:signin');
+            } else {
+                $this->presenter->flashMessage('Přihlášení bylo neúspěšné. Zkontrolujte své přihlašovací údaje.','danger');
+            }
+
         }
     }
 }

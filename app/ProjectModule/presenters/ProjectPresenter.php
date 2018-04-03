@@ -2,9 +2,9 @@
 
 namespace App\Presenters;
 
+use App\Model\HeaderManager;
 use App\Model\NavManager;
 use App\Model\PageManager;
-use App\Model\ProjectTempDataManager;
 use Nette;
 use Nette\Application\UI\Form;
 use Nette\Utils\Finder;
@@ -16,6 +16,7 @@ use App\Model\projectManager;
 class ProjectPresenter  extends AdminBasePresenter
 {
     // TODO: create Site Module and destroy ProjectModule?
+    /** TODO: Change glyphicons to font awesome because of facebook, instagram */
     /**
      * @var ProjectManager
      */
@@ -32,22 +33,28 @@ class ProjectPresenter  extends AdminBasePresenter
     private $pageManager;
 
     /**
-     * @var ProjectTempDataManager
+     * @var HeaderManager
      */
-    private $projectTempDataManager;
+    private $headerManager;
     /**
      * DashboardPresenter constructor.
      * @param ProjectManager $projectManager
      * @param NavManager $navManager
      * @param PageManager $pageManager
      */
-    public function __construct(ProjectManager $projectManager, NavManager $navManager, PageManager $pageManager, ProjectTempDataManager $projectTempDataManager)
+    public function __construct(ProjectManager $projectManager,
+                                NavManager $navManager,
+                                PageManager $pageManager,
+                                HeaderManager $headerManager)
     {
         $this->projectManager = $projectManager;
         $this->navManager = $navManager;
         $this->pageManager = $pageManager;
-        $this->projectTempDataManager = $projectTempDataManager;
+        $this->headerManager = $headerManager;
     }
+
+
+
     protected function createComponentSiteForm()
     {
         $form = (new \ProjectFormFactory())->create();
@@ -60,7 +67,6 @@ class ProjectPresenter  extends AdminBasePresenter
             $data = $form->getValues();
             $data['logo'] = '/websitebuilder/www/img/blank_logo.gif';
             $project = $this->projectManager->add($data);
-            $this->projectTempDataManager->add($data, $project->id);
 
             $path = 'user_images/' . $project->id . '/images/';
             if(!file_exists($path)) mkdir($path,'0777',true);
@@ -71,6 +77,8 @@ class ProjectPresenter  extends AdminBasePresenter
 
         return $form;
     }
+
+
     public function renderChooseTemplate(){
         $this->template->templates = $this->projectManager->getTemplates();
 
@@ -95,7 +103,8 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->nav_items = $this->navManager->get($id,0);
         $this->template->current_page = $this->pageManager->get($page_id);
         $this->template->user_images = $this->getUserImages($id);
-        $this->template->projectTempData = $this->projectTempDataManager->get($id);
+        $this->template->header = $this->headerManager->get($id,0);
+        $this->template->header_logo = JSON::decode($this->template->header->logo,Json::FORCE_ARRAY);
 
         $section = $this->getSession('project_pages');
 
@@ -146,27 +155,20 @@ class ProjectPresenter  extends AdminBasePresenter
         $user_projects = $this->projectManager->getAll();
         $first_projects_pages = array();
         foreach ($user_projects as $user_project) {
-            $first_projects_pages[] = $this->pageManager->first($user_project->id);
+            $first_projects_pages[] = $this->pageManager->first($user_project->project_id);
 
         }
-        bdump($user_projects);
         $this->template->user_projects = $user_projects;
         $this->template->first_projects_pages = $first_projects_pages;
         //$this->template->first_page = $this->
     }
 
-    /*
-    public function renderDefault($id)
-    {
-        $this->template->project = $this->projectManager->getProject($id);
-    }
-    */
 
     public function actionDelete($id)
     {
         $path = 'user_images/' . $id;
         $this->projectManager->delete($id);
-        $this->projectTempDataManager->delete($id);
+        //$this->projectTempDataManager->delete($id);
         $this->projectManager->deleteFolder($path);
         $this->redirect('Project:all');
     }
@@ -229,13 +231,14 @@ class ProjectPresenter  extends AdminBasePresenter
     {
         $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
         foreach ($nav_array as $sort_order => $nav){
-            //$this->pageManager->update($nav, $nav['page_id'],0);
 
             $nav['sort_order'] = $sort_order;
             $this->navManager->update($nav,$nav['page_id'],0);
+            //$this->projectTempDataManager->update($nav,$nav['page_id'],'nav');
         }
         $logo_array = Json::decode($logo, Json::FORCE_ARRAY);
-        $this->projectTempDataManager->update($logo_array, $this->getParameter('id'));
+        $this->headerManager->update($logo_array,$this->getParameter('id'),0);
+        //$this->projectTempDataManager->update($logo_array, $this->getParameter('id'), 'header');
 
     }
 }

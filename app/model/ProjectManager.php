@@ -19,6 +19,10 @@ class ProjectManager extends BaseManager
     */
     private $navManager;
 
+    /**
+     * @var HeaderManager
+     */
+    private $headerManager;
 
     /**
      * ProjectManager constructor.
@@ -26,13 +30,19 @@ class ProjectManager extends BaseManager
      * @param Nette\Security\User $user
      * @param PageManager $pageManager
      * @param NavManager $navManager
+     * @param HeaderManager $headerManager
      */
 
-    public function __construct(Nette\Database\Context $database, Nette\Security\User $user,PageManager $pageManager, NavManager $navManager)
+    public function __construct(Nette\Database\Context $database,
+                                Nette\Security\User $user,
+                                PageManager $pageManager,
+                                NavManager $navManager,
+                                HeaderManager $headerManager)
     {
         parent::__construct($database,$user);
         $this->pageManager = $pageManager;
         $this->navManager = $navManager;
+        $this->headerManager = $headerManager;
     }
 
     public function getTemplates(){
@@ -42,26 +52,52 @@ class ProjectManager extends BaseManager
 
     public function getAll()
     {
-        return $this->getDatabase()->table('project')
-            ->select('template.title AS template_title,project.*')
-        ->where('user_id',$this->getUser()->id)->fetchAll();
+        $projects = $this->getDatabase()->table('project')
+            ->select('project.*,template.title AS template_title')
+            ->where('project.user_id',$this->getUser()->id)->fetchAll();
+
+
+        /*
+        $data = array();
+
+        foreach($projects as $project) {
+            bdump($project->template->title);
+            $data[] = $project->related('header')
+                ->where('project_id',$project->id)->fetch();
+        }
+
+        bdump(array_merge($data));
+        die();
+        */
+
+        $data = $this->getDatabase()->table('header')
+            ->select('project.*,header.*')
+        ->where('header.project_id',$projects)
+            ->where('publish',0)->fetchAll();
+
+
+
+        return $data;
     }
     public function add($data)
     {
-        $data['user_id'] = $this->getUser()->id;
-        $data['subdomain'] = Strings::trim($data['subdomain']);
-        $data['logo'] = '/websitebuilder/www/img/blank_logo.gif';
-        $project = $this->getDatabase()->table('project')->insert($data);
+        $project = $this->getDatabase()->table('project')->insert([
+            'template_id' => $data->template_id,
+            'user_id' => $this->getUser()->id,
+            'subdomain' => Strings::trim($data->subdomain),
+            'active' => $data->active
+        ]);
 
-        $nav_titles = array('Item1','Item2','Item3','Item4');
-        $this->init($nav_titles,$project->id);
+        $this->init($data,$project->id);
 
         return $project;
 
     }
 
-    private function init($nav_titles, $project_id)
+    private function init($data, $project_id)
     {
+        $nav_titles = array('Item1','Item2','Item3','Item4');
+
         foreach($nav_titles as $key => $title) {
             $page_data = array(
                 'project_id' => $project_id,
@@ -78,9 +114,16 @@ class ProjectManager extends BaseManager
                 'sort_order' => $key
             );
             $nav_hash = Nette\Utils\ArrayHash::from($nav_data);
+
+            $this->navManager->add($nav_hash,0);
             $this->navManager->add($nav_hash,1);
-            $this->navManager->add($nav_hash,0); // Add temp nav (publish = 0)
+
         }
+
+        $this->headerManager->add($data,$project_id,0);
+        $this->headerManager->add($data,$project_id,1);
+
+        /** TODO: Footer */
     }
 
 

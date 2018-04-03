@@ -14,11 +14,11 @@
         {/snippet}
         <br>
         {foreach $user_projects as $key => $row}
-            <div class="case-study" style="background-image:url('{$basePath}/thubmnails/{$row->template_title}.jpg');">
+            <div class="case-study" style="background-image:url('{$basePath}/thubmnails/{$row->ref('template','template_id')->title}.jpg');">
                 <div class="case-study__overlay">
                     <h2 class="case-study__title">{$row->title}</h2>
                     <a class="case-study__link" target="_blank" href="#">Přehled</a> <br>
-                    <a class="case-study__link showProject" data-toggle="modal" data-project='{"id":"{$row->id}","page_id":"{$first_projects_pages[$iterator->counter - 1]->id}","title":"{$row->title}","subdomain":"{$row->subdomain}","active":"{$row->active}"}' data-target="#editProjectModal" href="#">Upravit</a>
+                    <a class="case-study__link showProject" data-toggle="modal" data-project='{"id":"{$row->project_id}","page_id":"{$first_projects_pages[$iterator->counter - 1]->id}","title":"{$row->title}","subdomain":"{$row->subdomain}","active":"{$row->active}"}' data-target="#editProjectModal" href="#">Upravit</a>
                 </div>
             </div>
         {/foreach}

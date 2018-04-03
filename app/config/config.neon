@@ -26,8 +26,8 @@ services:
 	- App\Model\ProjectManager
 	- App\Model\PageManager
 	- App\Model\NavManager
+	- App\Model\HeaderManager
 	- App\Model\UserRequest
-	- App\Model\ProjectTempDataManager
 	- App\Model\EmailNotification(%appDir%/presenters/templates/Emails/)
 	authenticator: Authenticator
 

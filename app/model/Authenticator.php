@@ -27,6 +27,10 @@ class Authenticator implements Security\IAuthenticator
             throw new Security\AuthenticationException("Vaše heslo je neplatné.",self::INVALID_CREDENTIAL);
         }
 
+        if(!$row->active) {
+            throw new Security\AuthenticationException("Vaše heslo je neplatné.",self::NOT_APPROVED);
+        }
+
         return new Security\Identity($row->id,'', ['username' => $row->username,'email' => $row->email]);
     }
 }

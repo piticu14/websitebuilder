@@ -59,11 +59,6 @@ class AccountPresenter extends FrontBasePresenter
 
     }
 
-    public function renderSignin(){
-        if ($this->getUser()->isLoggedIn()) {
-            $this->redirect('Project:all');
-        }
-    }
     protected function createComponentSigninForm()
     {
 

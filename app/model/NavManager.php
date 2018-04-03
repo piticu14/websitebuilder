@@ -14,9 +14,11 @@ use Nette\Utils\Strings;
 
 class NavManager extends BaseManager
 {
+    private static $table = 'nav';
+
     public function add($data, $publish)
     {
-        return $this->getDatabase()->table('nav')
+        return $this->getDatabase()->table(self::$table)
             ->insert([
                 'page_id' => $data->page_id,
                 'title' => $data->title,
@@ -30,22 +32,24 @@ class NavManager extends BaseManager
     public function delete($project_id)
     {
         $pages = $this->getDatabase()->table('page')->where('project_id',$project_id);
-        return $this->getDatabase()->table('nav')->where('page_id',$pages)->delete();
+        return $this->getDatabase()->table(self::$table)->where('page_id',$pages)->delete();
     }
 
     public function get($project_id, $publish)
     {
 
-        return $this->getDatabase()->table('nav')
+        return $this->getDatabase()->table(self::$table)
             ->select('page.id AS page_id,page.title AS page_title,page.description,page.keywords,nav.*')
             ->where('page.project_id', $project_id)
-            ->where('nav.publish',$publish)
+            ->where('publish',$publish)
             ->fetchAll();
     }
 
+    /** TODO: Check in Presenter if nav item exist. If not add new nav and temp nav */
+
     public function update($data, $page_id, $publish) {
 
-        $nav_item = $this->getDatabase()->table('nav')
+        $nav_item = $this->getDatabase()->table(self::$table)
             ->where('page_id',$page_id)
             ->where('publish',$publish);
         if($nav_item->count()) {
@@ -55,7 +59,7 @@ class NavManager extends BaseManager
                 'active' => $data['active']
             ));
         } else {
-            return $this->getDatabase()->table('nav')
+            return $this->getDatabase()->table(self::$table)
                 ->insert([
                     'title' => $data['text'],
                     'sort_order' => $data['sort_order'],

@@ -1,4 +1,5 @@
 
+/** TODO: After selecting image title,subtitle gets old text */
 $('#logoModal').on('shown.bs.modal', function (e) {
     e.preventDefault();
 
@@ -154,9 +155,7 @@ function logoSelection() {
     });
 }
 
-function getIconName(iconClass) {
-    return  iconClass.split(" ")[1].replace('glyphicon-','');
-}
+
 
 /*
 var glyphicons = '';
