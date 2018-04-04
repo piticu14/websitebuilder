@@ -25,24 +25,32 @@ class ProjectManager extends BaseManager
     private $headerManager;
 
     /**
+     * @var FooterManager
+     */
+    private $footerManager;
+
+    /**
      * ProjectManager constructor.
      * @param Nette\Database\Context $database
      * @param Nette\Security\User $user
      * @param PageManager $pageManager
      * @param NavManager $navManager
      * @param HeaderManager $headerManager
+     * @param FooterManager $footerManager
      */
 
     public function __construct(Nette\Database\Context $database,
                                 Nette\Security\User $user,
                                 PageManager $pageManager,
                                 NavManager $navManager,
-                                HeaderManager $headerManager)
+                                HeaderManager $headerManager,
+                                FooterManager $footerManager)
     {
         parent::__construct($database,$user);
         $this->pageManager = $pageManager;
         $this->navManager = $navManager;
         $this->headerManager = $headerManager;
+        $this->footerManager = $footerManager;
     }
 
     public function getTemplates(){
@@ -123,7 +131,35 @@ class ProjectManager extends BaseManager
         $this->headerManager->add($data,$project_id,0);
         $this->headerManager->add($data,$project_id,1);
 
-        /** TODO: Footer */
+        $social_media = array(
+            [
+                'media' => 'Facebook',
+                'active' => 1,
+                'href' => 'javascript:void(0)'
+            ],
+            [
+                'media' => 'Twitter',
+                'active' => 1,
+                'href' => 'javascript:void(0)'
+            ],
+            [
+                'media' => 'LinkedIn',
+                'active' => 1,
+                'href' => 'javascript:void(0)'
+            ],
+            [
+                'media' => 'Instagram',
+                'active' => 1,
+                'href' => 'javascript:void(0)'
+            ]);
+
+        $footer_data = array(
+            'content' => '© 2018 FastWeb | Všechna práva vyhrazena.',
+            'social_media' => Json::encode($social_media)
+        );
+
+        $this->footerManager->add($project_id,$footer_data,0);
+        $this->footerManager->add($project_id,$footer_data,1);
     }
 
 
@@ -160,6 +196,8 @@ class ProjectManager extends BaseManager
     {
 
         $this->navManager->delete($id);
+        $this->headerManager->delete($id);
+        $this->footerManager->delete($id);
         $this->pageManager->deleteAll($id);
         $this->getDatabase()->table('project')
             ->where('id',$id)

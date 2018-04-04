@@ -12,7 +12,7 @@ function init() {
     var page_edit = $('#page_edit');
     modal_body.find('.col-md-4').trigger('change');
 
-    $('#menuModalTitle').text('Editace stránek');
+    //$('#menuModalTitle').text('Editace stránek');
     $('.modal-body').find('ul').sortable({ items: "> li:not(:last)" });
 
     $('#nav_title').html(
@@ -160,6 +160,7 @@ $('#menuModal').on('hidden.bs.modal', function () {
 
 /* If user press Save then change the Main Nav values */
 $(document).on('click','#save_pages',function(){
+    temp_save();
     var menu = $('#menu a').not(':last,#dropdownMenu');
     var modal_body = $('.modal-body');
     var modal_menu_links = $(modal_body).find('a.modal-menu-links');
@@ -305,14 +306,43 @@ function getNavData() {
     return nav;
 }
 
+function getSocialMedia() {
+    var social_media = $('.social-icon a').not(':last');
+    var items = [];
+    social_media.each(function(){
+        var item = {};
+        item.media = $(this).data('media');
+        item.active = $(this).data('active');
+        item.href = $(this).attr('href');
+        items.push(item);
+    });
+
+    return items;
+}
+
+function getBodyContent() {
+    var items = [];
+    var body_content =  $('#body').keditor('getContent');
+    console.log('-----------------------------');
+    console.log(body_content);
+
+    $(body_content + 'section').each(function(){
+        items.push($(this).prop('outerHTML'));
+    })
+
+    return items;
+}
+
 //  If user goes to another page save data to temporary db table
 
 function sendContent($link) {
-    var body = {};
+    getBodyContent();
 
     var nav = getNavData();
     var logo = getLogoData();
-    body.footer = $('#footer footer').html();
+    var footer = {};
+    footer.content = $('.footer-copyright').html();
+    footer.social_media = getSocialMedia();
 
     $.nette.ajax({
         url: $link.data('url'),
@@ -320,7 +350,8 @@ function sendContent($link) {
 
         data: { nav: JSON.stringify(nav),
                 logo: JSON.stringify(logo),
-                body: JSON.stringify(body)},
+                body: JSON.stringify(getBodyContent()),
+                footer: JSON.stringify(footer)},
         error: function(jqXHR,status,error) {
             console.log(jqXHR);
             console.log(status);

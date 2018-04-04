@@ -1,0 +1,23 @@
+#social_media_icon {
+    padding-left:20px;
+    visibility: hidden;
+}
+
+.social-icon:hover #social_media_icon { visibility: visible}
+
+.padding-left {
+    padding-left: 5px;
+}
+
+.modal-social-media-links{
+
+    color:#007bff;
+    text-align:left;
+
+}
+
+.modal-social-media-links:hover {  color:red;  text-decoration:none;  }
+
+#social_media_edit {
+    display:none;
+}

@@ -1,5 +1,9 @@
 {block web}
-
+<style>
+    #body {
+        width:100%;
+    }
+</style>
     <!-- PRE LOADER -->
 
     <div class="preloader">
@@ -13,135 +17,22 @@
     {include header.latte}
 
     <!-- Home Section -->
-    <div class="row">
-        <div id="content-area">
-            <div id="editor">
-                <div id="body">
-                    <section>
-                        <div data-type="container-content">
-                            {* {include pageContent} *}
-                        </div>
-                    </section>
-                </div>
-                <div id="footer">
+    <div class="container">
+        <div class="row">
+            <div  id="content-area">
+                <div id="editor">
+                    <div id="body">
+                        <section>
+                            <div data-type="container-content">
+                                {* {include pageContent} *}
+                            </div>
+                        </section>
+                    </div>
                     {include footer.latte}
                 </div>
             </div>
-
         </div>
     </div>
-
-
-    {*
-<!-- Portfolio Section -->
-
-<section id="portfolio">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-4 col-sm-6">
-                <a href="single-project.html">
-                    <div class="portfolio-thumb">
-                        <img src="{$basePath}/templates/{$template_title}/images/portfolio-img1.jpg" class="img-responsive" alt="Portfolio">
-
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-item">
-                                <h3>Project Name</h3>
-                                <small>Brand Identity</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <a href="single-project.html">
-                    <div class="portfolio-thumb">
-                        <img src="{$basePath}/templates/{$template_title}/images/portfolio-img2.jpg" class="img-responsive" alt="Portfolio">
-
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-item">
-                                <h3>Project Name</h3>
-                                <small>Web Development</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <a href="single-project.html">
-                    <div class="portfolio-thumb">
-                        <img src="{$basePath}/templates/{$template_title}/images/portfolio-img3.jpg" class="img-responsive" alt="Portfolio">
-
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-item">
-                                <h3>Project Name</h3>
-                                <small>Mobile App</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <a href="single-project.html">
-                    <div class="portfolio-thumb">
-                        <img src="{$basePath}/templates/{$template_title}/images/portfolio-img4.jpg" class="img-responsive" alt="Portfolio">
-
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-item">
-                                <h3>Project Name</h3>
-                                <small>Logo Design</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <a href="single-project.html">
-                    <div class="portfolio-thumb">
-                        <img src="{$basePath}/templates/{$template_title}/images/portfolio-img5.jpg" class="img-responsive" alt="Portfolio">
-
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-item">
-                                <h3>Project Name</h3>
-                                <small>Social marketing</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <a href="single-project.html">
-                    <div class="portfolio-thumb">
-                        <img src="{$basePath}/templates/{$template_title}/images/portfolio-img6.jpg" class="img-responsive" alt="Portfolio">
-
-                        <div class="portfolio-overlay">
-                            <div class="portfolio-item">
-                                <h3>Project Name</h3>
-                                <small>Fyler Design</small>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-md-12 col-sm-12 text-center">
-                <h3>hello, if you interest working together. just send message <a href="contact.html">contact page</a>
-                </h3>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-*}
-
-    <!-- Footer Section -->
-
 
 
 {/block}

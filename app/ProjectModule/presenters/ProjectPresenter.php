@@ -3,6 +3,7 @@
 namespace App\Presenters;
 
 use App\Model\HeaderManager;
+use App\Model\FooterManager;
 use App\Model\NavManager;
 use App\Model\PageManager;
 use Nette;
@@ -36,21 +37,31 @@ class ProjectPresenter  extends AdminBasePresenter
      * @var HeaderManager
      */
     private $headerManager;
+
+    /**
+     * @var FooterManager
+     */
+    private $footerManager;
+
     /**
      * DashboardPresenter constructor.
      * @param ProjectManager $projectManager
      * @param NavManager $navManager
      * @param PageManager $pageManager
+     * @param HeaderManager $headerManager
+     * @param FooterManager $footerManager
      */
     public function __construct(ProjectManager $projectManager,
                                 NavManager $navManager,
                                 PageManager $pageManager,
-                                HeaderManager $headerManager)
+                                HeaderManager $headerManager,
+                                FooterManager $footerManager)
     {
         $this->projectManager = $projectManager;
         $this->navManager = $navManager;
         $this->pageManager = $pageManager;
         $this->headerManager = $headerManager;
+        $this->footerManager = $footerManager;
     }
 
 
@@ -65,7 +76,10 @@ class ProjectPresenter  extends AdminBasePresenter
                 $form['subdomain']->value = $form['subdomain']->value . $nextId;
             }
             $data = $form->getValues();
-            $data['logo'] = '/websitebuilder/www/img/blank_logo.gif';
+            $data['logo'] = JSON::encode([
+                'type' => 'img',
+                'src' => '/websitebuilder/www/img/blank_logo.gif'
+            ]);
             $project = $this->projectManager->add($data);
 
             $path = 'user_images/' . $project->id . '/images/';
@@ -105,8 +119,12 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->user_images = $this->getUserImages($id);
         $this->template->header = $this->headerManager->get($id,0);
         $this->template->header_logo = JSON::decode($this->template->header->logo,Json::FORCE_ARRAY);
+        $this->template->footer = $this->footerManager->get($id,0);
+        $this->template->social_media = JSON::decode($this->template->footer->social_media,JSON::FORCE_ARRAY);
 
+        /*
         $section = $this->getSession('project_pages');
+
 
         $project_pages = [
             array(
@@ -140,6 +158,7 @@ class ProjectPresenter  extends AdminBasePresenter
         ];
         $section->pages = $project_pages;
         $section->setExpiration(0);
+        */
 
         /*
         $latte = new Latte\Engine;
@@ -227,8 +246,9 @@ class ProjectPresenter  extends AdminBasePresenter
 
     }
 
-    public function handleSaveTemporary($nav, $logo, $body)
+    public function handleSaveTemporary($nav, $logo, $body, $footer)
     {
+        bdump(Json::decode($body,Json::FORCE_ARRAY));
         $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
         foreach ($nav_array as $sort_order => $nav){
 
@@ -238,7 +258,8 @@ class ProjectPresenter  extends AdminBasePresenter
         }
         $logo_array = Json::decode($logo, Json::FORCE_ARRAY);
         $this->headerManager->update($logo_array,$this->getParameter('id'),0);
-        //$this->projectTempDataManager->update($logo_array, $this->getParameter('id'), 'header');
+        $footer_array =  Json::decode($footer, Json::FORCE_ARRAY);
+        $this->footerManager->update($this->getParameter('id'),$footer_array,0);
 
     }
 }

@@ -2,20 +2,25 @@
     <div class="container">
         <div class="row">
 
-            <div id="footer1" contenteditable="true" class="col-md-6 col-sm-6">
-                <div class="footer-copyright">
-                    <p>© 2016 Magnet Studio | All Rights Reserved.</p>
+            <div class="col-md-6 col-sm-6">
+                <div contenteditable="true" class="footer-copyright">
+                    {$footer->content|noescape}
                 </div>
             </div>
 
             <div class="col-md-6 col-sm-6">
                 <ul class="social-icon">
-                    <li><a href="#" class="fa fa-facebook">&nbsp;</a></li>
-                    <li><a href="#" class="fa fa-twitter">&nbsp;</a></li>
-                    <li><a href="#" class="fa fa-linkedin">&nbsp;</a></li>
+                    {foreach $social_media AS $item}
+                        <li n:class="!$item['active'] ? hide, active">
+                            <a href="{$item['href']|noescape}" data-media="{$item['media']}" data-active="{$item['active']}" class="fa fa-{$item['media']|lower}">&nbsp;</a>
+                        </li>
+                    {/foreach}
+                    <li><a class="glyphicon glyphicon-wrench" id="social_media_icon" href="#" data-toggle="modal" data-target="#socialMediaModal">
+                            &nbsp;
+                        </a>
+                    </li>
                 </ul>
             </div>
-
         </div>
     </div>
 </footer>

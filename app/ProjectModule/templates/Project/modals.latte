@@ -301,5 +301,68 @@
                 <button id="savePage" type="button" class="btn btn-primary"  data-dismiss="modal" data-toggle="modal" data-target="#menuModal">Uložit</button>
             </div>
         </div>
+
+    </div>
+</div>
+
+<!-- Nav Edit Modal -->
+
+<div class="modal fade" id="socialMediaModal" tabindex="-1" role="dialog" aria-labelledby="socialMediaModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLongTitle">Sociální sítě</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <ul id="social_media_items" class="text-left"></ul>
+                    </div>
+                    <div id="social_media_edit" class="col-md-8 text-center left-vline">
+                        <div class="row">
+                            <div id="social_media_title" class="col-md-6">
+                            </div>
+                        </div>
+                        <div class="row margin-top">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Odkaz</label>
+
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+                                            <span class="mycolor input-group-addon">https://</span>
+                                            <input name="href" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div id="social_media_options" class="row margin-top">
+                            <div class="col-md-6">
+                                <p><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit stránku v menu</span>
+                                </p>
+                            </div>
+                            <div class="col-md-3 col-md-offset-3">
+                                <input id="active" type="checkbox" checked data-toggle="toggle" data-size="small"
+                                       data-on="Ano" data-off="Ne">
+                            </div>
+                            <div class="col-md-12">
+                                <div class="pull-left">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
+                <button id="save_social_media" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
+            </div>
+        </div>
     </div>
 </div>
