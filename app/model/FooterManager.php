@@ -41,7 +41,6 @@ class FooterManager extends BaseManager
 
     public function update($project_id, $data, $publish)
     {
-        bdump($data);
         return $this->getDatabase()->table(self::$table)
             ->where('project_id',$project_id)
             ->where('publish',$publish)

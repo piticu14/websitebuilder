@@ -42,6 +42,7 @@ class NavManager extends BaseManager
             ->select('page.id AS page_id,page.title AS page_title,page.description,page.keywords,nav.*')
             ->where('page.project_id', $project_id)
             ->where('publish',$publish)
+            ->order('sort_order','ASC')
             ->fetchAll();
     }
 

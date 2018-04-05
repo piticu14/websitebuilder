@@ -69,32 +69,32 @@ $('#logoImageModal').on('shown.bs.modal', function () {
 
 $('#addImage').find('input[name="images"]').on('change',function(){
     $('#upload_bar').show();
-    files = $(this)[0].files;
-    var data = new FormData();
-    $.each(files, function(key, value)
-    {
-        data.append(key, value);
-    });
+    var files = $(this)[0].files;
+            var data = new FormData();
+            $.each(files, function(key, value)
+            {
+                data.append(key, value);
+            });
 
-    // If you want to add an extra field for the FormData
-    //data.append("CustomField", "This is some extra data, testing");
+            // If you want to add an extra field for the FormData
+            //data.append("CustomField", "This is some extra data, testing");
 
-    $.nette.ajax({
-        type: "POST",
-        enctype: 'multipart/form-data',
-        url: $(this).data('url'),
-        data: data,
-        processData: false,
-        contentType: false,
-        cache: false,
+            $.nette.ajax({
+                type: "POST",
+                enctype: 'multipart/form-data',
+                url: $(this).data('url'),
+                data: data,
+                processData: false,
+                contentType: false,
+                cache: false,
 
-        // Can use it for progess bar
-        xhr: function() {
-            var xhr = $.ajaxSettings.xhr();
-            xhr.upload.onprogress = function(e) {
-               var percent = (Math.floor(e.loaded / e.total *100) + '%');
-                $('#upload_bar div.progress-bar').css('width',percent).text(percent);
-            };
+                // Can use it for progess bar
+                xhr: function() {
+                    var xhr = $.ajaxSettings.xhr();
+                    xhr.upload.onprogress = function(e) {
+                        var percent = (Math.floor(e.loaded / e.total *100) + '%');
+                        $('#upload_bar div.progress-bar').css('width',percent).text(percent);
+                    };
             return xhr;
         },
 

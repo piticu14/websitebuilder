@@ -23,7 +23,7 @@ $('#socialMediaModal').on('shown.bs.modal', function (e) {
         parent.append(modal_link);
         $('#social_media_items').append(parent);
 
-        init();
+        social_media_init();
 
         modal_body.find('a.modal-social-media-links').each(function (index) {
             $(this).unbind().on('click', function (e) {
@@ -69,7 +69,7 @@ $(document).on('click', '#save_social_media', function () {
         }
     });
 });
-function init() {
+function social_media_init() {
     //var modal_body = $('.modal-body');
     var modal_social_media_links = $('a.modal-social-media-links');
     var href = modal_social_media_links.attr('href');

@@ -50,4 +50,12 @@
         $.keditor.components['text']['options']['filebrowserImageBrowseUrl'] = '/websitebuilder/www/vendor/ckfinder/ckfinder.html?Type=Image&id=' + id;
 
     </script>
+    <script>
+        {foreach $page_items as $page_item}
+        var item = $($.parseHTML('{$page_item->content|noescape|strip}'));
+        $(item).attr('data-id',{$page_item->id});
+        console.log({$page_item->id});
+        $('#body').append($(item));
+        {/foreach}
+    </script>
 {/block}

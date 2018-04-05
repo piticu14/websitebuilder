@@ -323,12 +323,19 @@ function getSocialMedia() {
 function getBodyContent() {
     var items = [];
     var body_content =  $('#body').keditor('getContent');
-    console.log('-----------------------------');
-    console.log(body_content);
 
-    $(body_content + 'section').each(function(){
-        items.push($(this).prop('outerHTML'));
-    })
+    //console.log($('#body section').attr('data-id'));
+
+    $(body_content + 'section').each(function(index){
+        console.log($(this).data('id'));
+        var item = {};
+        if($(this).data('id')){
+            item.id = $(this).data('id');
+        }
+        $(this).removeAttr('data-id');
+        item.content = $(this).prop('outerHTML');
+        items.push(item);
+    });
 
     return items;
 }
@@ -336,11 +343,12 @@ function getBodyContent() {
 //  If user goes to another page save data to temporary db table
 
 function sendContent($link) {
-    getBodyContent();
 
     var nav = getNavData();
     var logo = getLogoData();
+    var body = getBodyContent();
     var footer = {};
+
     footer.content = $('.footer-copyright').html();
     footer.social_media = getSocialMedia();
 
@@ -350,7 +358,7 @@ function sendContent($link) {
 
         data: { nav: JSON.stringify(nav),
                 logo: JSON.stringify(logo),
-                body: JSON.stringify(getBodyContent()),
+                body: JSON.stringify(body),
                 footer: JSON.stringify(footer)},
         error: function(jqXHR,status,error) {
             console.log(jqXHR);

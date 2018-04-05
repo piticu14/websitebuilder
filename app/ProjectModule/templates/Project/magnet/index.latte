@@ -21,18 +21,13 @@
         <div class="row">
             <div  id="content-area">
                 <div id="editor">
-                    <div id="body">
-                        <section>
-                            <div data-type="container-content">
-                                {* {include pageContent} *}
-                            </div>
-                        </section>
-                    </div>
-                    {include footer.latte}
+                    <div id="body" data-url="{link deletePageItem!}">
+
                 </div>
             </div>
         </div>
+        </div>
     </div>
-
+    {include footer.latte}
 
 {/block}

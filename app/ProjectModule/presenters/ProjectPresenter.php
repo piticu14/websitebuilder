@@ -3,6 +3,7 @@
 namespace App\Presenters;
 
 use App\Model\HeaderManager;
+use App\Model\PageItemManager;
 use App\Model\FooterManager;
 use App\Model\NavManager;
 use App\Model\PageManager;
@@ -44,24 +45,32 @@ class ProjectPresenter  extends AdminBasePresenter
     private $footerManager;
 
     /**
+     * @var PageItemManager
+     */
+    private $pageItemManager;
+
+    /**
      * DashboardPresenter constructor.
      * @param ProjectManager $projectManager
      * @param NavManager $navManager
      * @param PageManager $pageManager
      * @param HeaderManager $headerManager
      * @param FooterManager $footerManager
+     * @param PageItemManager $pageItemManager
      */
     public function __construct(ProjectManager $projectManager,
                                 NavManager $navManager,
                                 PageManager $pageManager,
                                 HeaderManager $headerManager,
-                                FooterManager $footerManager)
+                                FooterManager $footerManager,
+                                PageItemManager $pageItemManager)
     {
         $this->projectManager = $projectManager;
         $this->navManager = $navManager;
         $this->pageManager = $pageManager;
         $this->headerManager = $headerManager;
         $this->footerManager = $footerManager;
+        $this->pageItemManager = $pageItemManager;
     }
 
 
@@ -112,15 +121,22 @@ class ProjectPresenter  extends AdminBasePresenter
             $cssFiles[] = $file->getBasename();
         }
         $this->template->template_title = $project->template_title;
+
         $this->template->jsFiles = $jsFiles;
         $this->template->cssFiles = $cssFiles;
+
         $this->template->nav_items = $this->navManager->get($id,0);
         $this->template->current_page = $this->pageManager->get($page_id);
+
         $this->template->user_images = $this->getUserImages($id);
+
         $this->template->header = $this->headerManager->get($id,0);
         $this->template->header_logo = JSON::decode($this->template->header->logo,Json::FORCE_ARRAY);
+
         $this->template->footer = $this->footerManager->get($id,0);
         $this->template->social_media = JSON::decode($this->template->footer->social_media,JSON::FORCE_ARRAY);
+
+        $this->template->page_items = $this->pageItemManager->getAll($page_id,0);
 
         /*
         $section = $this->getSession('project_pages');
@@ -210,6 +226,7 @@ class ProjectPresenter  extends AdminBasePresenter
 
         if($this->isAjax()) {
             $files = $this->getHttpRequest()->getFiles();
+            bdump($files);
             $filesNames = array();
             foreach($files as $file) {
                 if( $file->isOk() and $file->isImage() ) {
@@ -221,6 +238,7 @@ class ProjectPresenter  extends AdminBasePresenter
             $this->template->user_images = $this->getUserImages($this->getParameter('id'));
 
 
+            $this->payload->src = $this->getHttpRequest()->getUrl()->basePath . 'user_images/' . $this->getParameter('id') . '/images/' . $filesNames[0];
             //$this->payload->images = $this->getUserImages($this->getParameter('id'));
         }
 
@@ -248,7 +266,19 @@ class ProjectPresenter  extends AdminBasePresenter
 
     public function handleSaveTemporary($nav, $logo, $body, $footer)
     {
-        bdump(Json::decode($body,Json::FORCE_ARRAY));
+       $body_array = Json::decode($body,Json::FORCE_ARRAY);
+        foreach($body_array as $order_on_page => $body) {
+            $body['order_on_page'] = $order_on_page;
+            if(isset($body['id'])){
+                $this->pageItemManager->update($body['id'],$body,0);
+            }else{
+                $this->pageItemManager->add($this->getParameter('page_id'),$body,0);
+            }
+
+            //$this->pageItemManager->add($this->getParameter('page_id'),$body,1);
+        }
+
+
         $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
         foreach ($nav_array as $sort_order => $nav){
 
@@ -256,10 +286,17 @@ class ProjectPresenter  extends AdminBasePresenter
             $this->navManager->update($nav,$nav['page_id'],0);
             //$this->projectTempDataManager->update($nav,$nav['page_id'],'nav');
         }
+
         $logo_array = Json::decode($logo, Json::FORCE_ARRAY);
         $this->headerManager->update($logo_array,$this->getParameter('id'),0);
+
         $footer_array =  Json::decode($footer, Json::FORCE_ARRAY);
         $this->footerManager->update($this->getParameter('id'),$footer_array,0);
 
+    }
+
+    public function handleDeletePageItem($item_id)
+    {
+        $this->pageItemManager->delete($item_id);
     }
 }
