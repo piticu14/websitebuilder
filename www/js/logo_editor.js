@@ -75,7 +75,7 @@ $('#addImage').find('input[name="images"]').on('change',function(){
             {
                 data.append(key, value);
             });
-
+            data.append('type','images');
             // If you want to add an extra field for the FormData
             //data.append("CustomField", "This is some extra data, testing");
 

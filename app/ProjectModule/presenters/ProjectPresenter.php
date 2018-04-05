@@ -225,20 +225,23 @@ class ProjectPresenter  extends AdminBasePresenter
     {
 
         if($this->isAjax()) {
+            $path = 'user_images/' . $this->getParameter('id') . '/' . $this->getHttpRequest()->getPost('type') . '/';
+            if(!file_exists($path)) mkdir($path,'0777',true);
+
             $files = $this->getHttpRequest()->getFiles();
-            bdump($files);
             $filesNames = array();
             foreach($files as $file) {
-                if( $file->isOk() and $file->isImage() ) {
-                    $imageName = $file->getSanitizedName();
-                    $file->move('user_images/' . $this->getParameter('id') . '/images/' . $imageName);
-                    $filesNames[] = $imageName;
+                if( $file->isOk()) {
+                    $fileName = $file->getSanitizedName();
+                    $file->move($path . $fileName);
+                    $filesNames[] = $fileName;
             }
         }
             $this->template->user_images = $this->getUserImages($this->getParameter('id'));
 
 
-            $this->payload->src = $this->getHttpRequest()->getUrl()->basePath . 'user_images/' . $this->getParameter('id') . '/images/' . $filesNames[0];
+
+            $this->payload->src = $this->getHttpRequest()->getUrl()->basePath . $path . $filesNames[0];
             //$this->payload->images = $this->getUserImages($this->getParameter('id'));
         }
 
