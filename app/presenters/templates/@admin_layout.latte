@@ -45,7 +45,8 @@
         <p>{$flash->message}</p>
     </div>
 {/snippet}
-<div class="container-fluid">
+<div id="cover"></div>
+
     <div class="header navbar-fixed-top">
         <div class="row">
             <div class="col-sm-2 col-sm-offset-1">
@@ -54,13 +55,13 @@
                     <h1><a n:href="Homepage:default">FastWeb</a></h1>
                 </div>
             </div>
-            <div class="col-sm-2 col-sm-offset-6">
+            <div class="col-sm-4 col-sm-offset-4">
                 <div class="navbar navbar-inverse" role="banner">
                     <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                         <ul class="nav navbar-nav">
                             {if $presenter->isLinkCurrent("Project:edit")}
-                            <li><a data-url = "{link Project:edit, id => $presenter->getParameter('id'),
-                            page_id => $presenter->getParameter('page_id'), do => publish}" id="publish" href="#" class="btn btn-u">Publikovat</a></li>
+                                <li><a id="publish" n:href="Project:publish, project_id => $presenter->getParameter('id'),page_id => $presenter->getParameter('page_id')" class="btn btn-success">Publikovat</a></li>
+                                <li><a data-url="{link saveTemporary!}" id="temp_save" href="#" class="btn btn-warning">Uložit</a></li>
                             {/if}
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"
@@ -81,11 +82,10 @@
         </div>
     </div>
 
-    <div class="row">
+
 
         {include content}
-    </div>
-</div>
+
 {block scripts}
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

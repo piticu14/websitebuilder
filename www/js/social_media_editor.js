@@ -1,7 +1,7 @@
 $('#socialMediaModal').on('shown.bs.modal', function (e) {
     e.preventDefault();
 
-    var modal_body = $('.modal-body');
+    var modal_body = $('#social_media_body');
     var social_media_edit = $('#social_media_edit');
 
     $('#social_media_items').empty();
@@ -29,7 +29,7 @@ $('#socialMediaModal').on('shown.bs.modal', function (e) {
             $(this).unbind().on('click', function (e) {
                 e.preventDefault();
 
-                temp_save();
+                social_temp_save();
 
                 social_media_edit.find('#social_media_title').html('<p class="text-left" data-id="' + $(this).data('id') + '">' + $('.social-icon a').eq(index).data('media') + '</p>');
                 social_media_edit.find('input[name="href"]').val($(this).attr('href'));
@@ -55,9 +55,9 @@ function remove_protocol_url(href) {
     return href;
 }
 $(document).on('click', '#save_social_media', function () {
-    temp_save();
+    social_temp_save();
     var social_media = $('.social-icon a').not(':last');
-    var modal_body = $('.modal-body');
+    var modal_body = $('#social_media_body');
     var modal_social_media_links = modal_body.find('a.modal-social-media-links');
     social_media.each(function (index) {
         $(this).attr('href', 'https://' + $(modal_social_media_links[index]).attr('href'));
@@ -70,7 +70,7 @@ $(document).on('click', '#save_social_media', function () {
     });
 });
 function social_media_init() {
-    //var modal_body = $('.modal-body');
+    //var modal_body = $('#social_media_body');
     var modal_social_media_links = $('a.modal-social-media-links');
     var href = modal_social_media_links.attr('href');
     var active = modal_social_media_links.data('active');
@@ -92,14 +92,14 @@ function social_media_init() {
 
 
 }
-function temp_save() {
+function social_temp_save() {
     var index = $('#social_media_title p').data('id');
     var social_media_edit = $('#social_media_edit');
     var href = remove_protocol_url(social_media_edit.find('input[name="href"]').val());
 
     console.log(href);
 
-    var social_media_link = $(".modal-body a.modal-social-media-links").eq(index);
+    var social_media_link = $("#social_media_body a.modal-social-media-links").eq(index);
     social_media_link.attr('href',href);
 }
 
@@ -111,7 +111,7 @@ $('#socialMediaModal').on('hidden.bs.modal', function () {
 $('#social_media_options').find('#active').change(function() {
 
     var index = $('#social_media_title p').data('id');
-    var link = $(".modal-body a.modal-social-media-links").eq(index);
+    var link = $("#social_media_body a.modal-social-media-links").eq(index);
             if ($('#social_media_options').find('#active').prop('checked')) {
                 $(link).data('active', 1);
             } else {

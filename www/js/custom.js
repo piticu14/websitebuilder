@@ -407,16 +407,12 @@ $(document).on('click', '.showProject', function() {
  */
 /*ToDo: Change "menu" to  "nav" or "pages" */
 
-// Se
 
 
-
+/*
 $(document).on('click','#publish',function(e){
     e.preventDefault();
 
-
-
-    /*
     $.nette.ajax({
         url: $(this).data('url'),
         type: "POST",
@@ -428,5 +424,11 @@ $(document).on('click','#publish',function(e){
             console.log(error);
         }
     });
-    */
+});
+*/
+
+$(document).on('click','#temp_save',function(e){
+    e.preventDefault();
+
+    sendContent($(this));
 });

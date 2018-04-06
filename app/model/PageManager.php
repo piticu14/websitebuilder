@@ -10,6 +10,7 @@ namespace App\Model;
 
 use Nette;
 
+/* TODO: make temporary data title,description,keywords (new JSON column "temporary_data" */
 class PageManager extends BaseManager
 {
     public function getAll($project_id)
@@ -47,6 +48,17 @@ class PageManager extends BaseManager
     public function get($id)
     {
         return $this->getDatabase()->table('page')->get($id);
+    }
+
+    public function update($data, $id)
+    {
+        return $this->getDatabase()->table('page')
+            ->where('id',$id)
+            ->update([
+                'title' => $data['title'],
+                'description' => $data['description'],
+                'keywords' => $data['keywords']
+            ]);
     }
 
 }

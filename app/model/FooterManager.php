@@ -27,10 +27,11 @@ class FooterManager extends BaseManager
             ]);
     }
 
-    public function get($project_id)
+    public function get($project_id,$publish)
     {
         return $this->getDatabase()->table(self::$table)
             ->where('project_id',$project_id)
+            ->where('publish',$publish)
             ->fetch();
     }
 
@@ -50,4 +51,16 @@ class FooterManager extends BaseManager
             ]);
     }
 
+    public function publish($project_id)
+    {
+        $temp_data = $this->get($project_id,0);
+
+        $this->getDatabase()->table(self::$table)
+            ->where('project_id',$project_id)
+            ->where('publish',1)
+            ->update([
+                'content' => $temp_data->content,
+                'social_media' => $temp_data->social_media
+            ]);
+    }
 }

@@ -109,34 +109,8 @@ class ProjectPresenter  extends AdminBasePresenter
 
     public function renderEdit($id,$page_id)
     {
+        $this->initTemplateVariables($id,$page_id,0);
 
-        $project = $this->projectManager->get($id);
-        $jsFiles = array();
-        $cssFiles = array();
-        $dir = '../www/templates/' .$project->template_title .'/';
-        foreach (Finder::findFiles('*.js')->exclude('*jquery.min*','*bootstrap.min*','jquery.js')->from($dir . 'js/') as $key => $file) {
-            $jsFiles[] = $file->getBasename();
-        }
-        foreach (Finder::findFiles('*.css')->exclude('*jquery.min*','*bootstrap.min*')->from($dir . 'css/') as $key => $file) {
-            $cssFiles[] = $file->getBasename();
-        }
-        $this->template->template_title = $project->template_title;
-
-        $this->template->jsFiles = $jsFiles;
-        $this->template->cssFiles = $cssFiles;
-
-        $this->template->nav_items = $this->navManager->get($id,0);
-        $this->template->current_page = $this->pageManager->get($page_id);
-
-        $this->template->user_images = $this->getUserImages($id);
-
-        $this->template->header = $this->headerManager->get($id,0);
-        $this->template->header_logo = JSON::decode($this->template->header->logo,Json::FORCE_ARRAY);
-
-        $this->template->footer = $this->footerManager->get($id,0);
-        $this->template->social_media = JSON::decode($this->template->footer->social_media,JSON::FORCE_ARRAY);
-
-        $this->template->page_items = $this->pageItemManager->getAll($page_id,0);
 
         /*
         $section = $this->getSession('project_pages');
@@ -183,6 +157,37 @@ class ProjectPresenter  extends AdminBasePresenter
         bdump($html);
         */
 
+    }
+
+    private function initTemplateVariables($id,$page_id,$publish)
+    {
+        $project = $this->projectManager->get($id);
+        $jsFiles = array();
+        $cssFiles = array();
+        $dir = '../www/templates/' .$project->template_title .'/';
+        foreach (Finder::findFiles('*.js')->exclude('*jquery.min*','*bootstrap.min*','jquery.js')->from($dir . 'js/') as $key => $file) {
+            $jsFiles[] = $file->getBasename();
+        }
+        foreach (Finder::findFiles('*.css')->exclude('*jquery.min*','*bootstrap.min*')->from($dir . 'css/') as $key => $file) {
+            $cssFiles[] = $file->getBasename();
+        }
+        $this->template->template_title = $project->template_title;
+
+        $this->template->jsFiles = $jsFiles;
+        $this->template->cssFiles = $cssFiles;
+
+        $this->template->nav_items = $this->navManager->get($id,$publish);
+        $this->template->current_page = $this->pageManager->get($page_id);
+
+        $this->template->user_images = $this->getUserImages($id);
+
+        $this->template->header = $this->headerManager->get($id,$publish);
+        $this->template->header_logo = JSON::decode($this->template->header->logo,Json::FORCE_ARRAY);
+
+        $this->template->footer = $this->footerManager->get($id,$publish);
+        $this->template->social_media = JSON::decode($this->template->footer->social_media,JSON::FORCE_ARRAY);
+
+        $this->template->page_items = $this->pageItemManager->getAll($page_id,$publish);
     }
 
     public function renderAll()
@@ -263,7 +268,17 @@ class ProjectPresenter  extends AdminBasePresenter
 */
 
 
-    public function handlePublish($data){
+    public function actionPublish($project_id,$pid)
+    {
+        /* TODO: publish page seo (title,description,keywords) */
+        $this->headerManager->publish($project_id);
+        $this->navManager->publish($project_id);
+        $this->pageItemManager->publish($project_id);
+        $this->footerManager->publish($project_id);
+
+
+
+        $this->redirect('Project:edit', array("id" => $project_id, 'page_id' => $pid));
 
     }
 
@@ -283,10 +298,12 @@ class ProjectPresenter  extends AdminBasePresenter
 
 
         $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
+        bdump($nav_array);
         foreach ($nav_array as $sort_order => $nav){
 
             $nav['sort_order'] = $sort_order;
             $this->navManager->update($nav,$nav['page_id'],0);
+            $this->pageManager->update($nav,$nav['page_id']);
             //$this->projectTempDataManager->update($nav,$nav['page_id'],'nav');
         }
 
@@ -302,4 +319,11 @@ class ProjectPresenter  extends AdminBasePresenter
     {
         $this->pageItemManager->delete($item_id);
     }
+
+    public function renderShow($id,$page_id)
+    {
+        $this->initTemplateVariables($id,$page_id,1);
+    }
+
+
 }

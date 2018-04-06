@@ -55,4 +55,18 @@ class HeaderManager extends BaseManager
                 'logo' => Json::encode($data['logo'], Json::PRETTY)
             ]);
     }
+
+    public function publish($project_id)
+    {
+        $temp_data = $this->get($project_id,0);
+        return $this->getDatabase()->table(self::$table)
+            ->where('project_id',$project_id)
+            ->where('publish',1)
+            ->update([
+                'title' => $temp_data->title,
+                'subtitle' => $temp_data->subtitle,
+                'logo' => $temp_data->logo
+            ]);
+
+    }
 }

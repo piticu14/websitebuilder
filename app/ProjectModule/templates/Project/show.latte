@@ -1,0 +1,32 @@
+{layout '../../../presenters/templates/@publish_layout.latte'}
+{block title}  {$current_page->title} {/block}
+{block stylesheets}
+    {include #parent}
+    {foreach $cssFiles as $cssFile}
+        <link rel="stylesheet" href="{$basePath}/templates/{$template_title}/css/{$cssFile}">
+    {/foreach}
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
+
+{/block}
+{block content}
+
+    {import {$template_title}/index.latte}
+    {include web}
+{/block}
+
+
+{block scripts}
+    {include #parent}
+
+    {foreach $jsFiles as $jsFile}
+        <script src="{$basePath}/templates/{$template_title}/js/{$jsFile}"></script>
+    {/foreach}
+    <script>
+        {foreach $page_items as $page_item}
+        var item = $($.parseHTML('{$page_item->content|noescape|strip}'));
+        $(item).attr('data-id',{$page_item->id});
+        console.log({$page_item->id});
+        $('#body').append($(item));
+        {/foreach}
+    </script>
+{/block}

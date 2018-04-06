@@ -57,4 +57,34 @@ class PageItemManager extends BaseManager
             ]);
     }
 
+    public function publish($project_id)
+    {
+        $pages = $this->getDatabase()->table('page')
+                ->where('project_id',$project_id)->fetchAll();
+
+        foreach ($pages as $page) {
+            $page_items = $this->getAll($page->id,0);
+            foreach ($page_items as  $page_item) {
+                $item_relationship = $this->getDatabase()->table('page_item_relationships')
+                    ->where('temp_id',$page_item->id);
+
+                if($item_relationship->count()) {
+                    $row = $item_relationship->fetch();
+                    $this->getDatabase()->table(self::$table)
+                        ->where('id',$row->publish_id)
+                        ->update([
+                            'content' => $page_item->content,
+                            'order_on_page' => $page_item->order_on_page
+                        ]);
+                } else {
+                    $published_page_item = $this->add($page_item->page_id,$page_item,1);
+                    $this->getDatabase()->table('page_item_relationships')->insert([
+                        'temp_id' => $page_item->id,
+                        'publish_id' => $published_page_item->id
+                    ]);
+                }
+            }
+        }
+    }
+
 }

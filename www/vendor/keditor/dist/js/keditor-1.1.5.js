@@ -1749,9 +1749,9 @@
         });
 
         if(container.data('id')){
-            return '<section data-id='+ container.data('id') +'>' + containerInner.html() + '</section>';
+            return '<section id="page_item" data-id='+ container.data('id') +'>' + containerInner.html() + '</section>';
         } else {
-            return '<section>' + containerInner.html() + '</section>';
+            return '<section id="page_item">' + containerInner.html() + '</section>';
         }
 
     };

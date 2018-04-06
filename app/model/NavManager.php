@@ -70,4 +70,21 @@ class NavManager extends BaseManager
         }
     }
 
+    public function publish($project_id)
+    {
+     $temp_navs = $this->get($project_id,0);
+
+        foreach($temp_navs as $temp_nav) {
+            $this->getDatabase()->table(self::$table)
+                ->where('page_id',$temp_nav->page_id)
+                ->where('publish',1)
+                ->update([
+                    'url' => $temp_nav->url,
+                    'sort_order' => $temp_nav->sort_order,
+                    'active' => $temp_nav->active,
+                    'title' => $temp_nav->title
+                ]);
+        }
+    }
+
 }
