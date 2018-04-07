@@ -38,13 +38,6 @@
 
 
 <body>
-{snippet flashMessage}
-    <div n:foreach="$flashes as $flash" class="alert-message {$flash->type}">
-        <a class="close" data-dismiss="alert">×</a>
-
-        <p>{$flash->message}</p>
-    </div>
-{/snippet}
 <div id="cover"></div>
 
     <div class="header navbar-fixed-top">
@@ -60,7 +53,7 @@
                     <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                         <ul class="nav navbar-nav">
                             {if $presenter->isLinkCurrent("Project:edit")}
-                                <li><a id="publish" n:href="Project:publish, project_id => $presenter->getParameter('id'),page_id => $presenter->getParameter('page_id')" class="btn btn-success">Publikovat</a></li>
+                                <li><a id="publish" n:href="Project:publish, project_id => $presenter->getParameter('id'),pid => $presenter->getParameter('page_id')" class="btn btn-success">Publikovat</a></li>
                                 <li><a data-url="{link saveTemporary!}" id="temp_save" href="#" class="btn btn-warning">Uložit</a></li>
                             {/if}
                             <li class="dropdown">

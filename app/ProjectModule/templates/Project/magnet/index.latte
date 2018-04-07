@@ -1,7 +1,13 @@
 {block web}
 <style>
     #body {
-        width:100%;
+        width: 100%;
+        padding: 0;
+    }
+    #editFlashMessages {
+        width:50%;
+        margin:0 auto;
+        margin-top:100px;
     }
 </style>
     <!-- PRE LOADER -->
@@ -11,6 +17,13 @@
             <span class="sk-inner-circle"></span>
         </div>
     </div>
+    {snippet flashMessage}
+        <div id="editFlashMessages" n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+            <p class="text-center">{$flash->message}</p>
+        </div>
+    {/snippet}
 
     <!-- Navigation section  -->
 
