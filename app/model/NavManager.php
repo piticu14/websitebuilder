@@ -41,7 +41,7 @@ class NavManager extends BaseManager
         return $this->getDatabase()->table(self::$table)
             ->select('page.id AS page_id,page.title AS page_title,page.description,page.keywords,nav.*')
             ->where('page.project_id', $project_id)
-            ->where('publish',$publish)
+            ->where('nav.publish',$publish)
             ->order('sort_order','ASC')
             ->fetchAll();
     }
@@ -75,8 +75,11 @@ class NavManager extends BaseManager
      $temp_navs = $this->get($project_id,0);
 
         foreach($temp_navs as $temp_nav) {
+            $page_relationship = $this->getDatabase()->table('page_relationships')
+                ->where('temp_id', $temp_nav->page_id)
+                ->fetch();
             $this->getDatabase()->table(self::$table)
-                ->where('page_id',$temp_nav->page_id)
+                ->where('page_id',$page_relationship->publish_id)
                 ->where('publish',1)
                 ->update([
                     'url' => $temp_nav->url,

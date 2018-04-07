@@ -30,11 +30,22 @@ class PageItemManager extends BaseManager
             ->where('id',$id)
             ->delete();
     }
-    public function deleteAll($page_id)
+    public function deleteAll($project_id)
     {
-        return $this->getDatabase()->table(self::$table)
-            ->where('page_id',$page_id)
-            ->delete();
+        $pages = $this->getDatabase()->table('page')
+            ->where('project_id',$project_id)->fetchAll();
+
+        foreach ($pages as $page) {
+            $page_items = $this->getDatabase()->table(self::$table)
+                ->where('page_id',$page->id)->fetchAll();
+            foreach ($page_items as  $page_item) {
+                $this->getDatabase()->table('page_item_relationships')
+                    ->where('temp_id',$page_item->id)->delete();
+
+                    $this->getDatabase()->table(self::$table)
+                        ->where('page_id',$page_item->id);
+            }
+        }
     }
 
     public function getAll($page_id,$publish)
@@ -77,11 +88,15 @@ class PageItemManager extends BaseManager
                             'order_on_page' => $page_item->order_on_page
                         ]);
                 } else {
-                    $published_page_item = $this->add($page_item->page_id,$page_item,1);
+                    $page_relationship = $this->getDatabase()->table('page_relationships')
+                        ->where('temp_id',$page_item->page_id)
+                        ->fetch();
+                    $published_page_item = $this->add($page_relationship->publish_id,$page_item,1);
                     $this->getDatabase()->table('page_item_relationships')->insert([
                         'temp_id' => $page_item->id,
                         'publish_id' => $published_page_item->id
                     ]);
+
                 }
             }
         }

@@ -13,25 +13,50 @@ use Nette;
 /* TODO: make temporary data title,description,keywords (new JSON column "temporary_data" */
 class PageManager extends BaseManager
 {
-    public function getAll($project_id)
+    private function getAll($project_id,$publish)
     {
         return $this->getDatabase()->table('page')
-            ->where('id',$project_id)
+            ->where('project_id',$project_id)
+            ->where('publish',$publish)
             ->fetchAll();
     }
 
     public function add($data)
     {
-        return $this->getDatabase()->table('page')
+        $temp_page = $this->getDatabase()->table('page')
             ->insert([
                 'project_id' => $data->project_id,
-                'title' => $data->title
+                'title' => $data->title,
+                'publish' => 0
+            ]);
+
+        $publish_page = $this->getDatabase()->table('page')
+            ->insert([
+                'project_id' => $data->project_id,
+                'title' => $data->title,
+                'publish' => 1
+            ]);
+
+        return $this->getDatabase()->table('page_relationships')
+            ->insert([
+                'temp_id' => $temp_page->id,
+                'publish_id' => $publish_page->id
             ]);
     }
 
 
     public function deleteAll($project_id)
     {
+
+        $pages = $this->getDatabase()->table('page')
+            ->where('project_id',$project_id)->fetchAll();
+
+        foreach ($pages as $page) {
+            $this->getDatabase()->table('page_relationships')
+                ->where('temp_id',$page->id)
+                ->delete();
+        }
+
         return $this->getDatabase()->table('page')
             ->where('project_id',$project_id)
             ->delete();
@@ -39,10 +64,26 @@ class PageManager extends BaseManager
 
     public function first($project_id)
     {
-        return $this->getDatabase()->table('page')
-            ->where('project_id',$project_id)
-            ->limit(1)
+        $pages = $this->getDatabase()->table('page')
+                ->where('project_id',$project_id)->fetchAll();
+        $page_temp_nav = null;
+
+        foreach($pages as $page){
+            $page_temp_nav = $this->getDatabase()->table('nav')
+                ->where('page_id',$page->id)
+                ->where('sort_order',0)
+                ->where('publish',0)
+                ->fetch();
+            if($page_temp_nav) {
+                break;
+            }
+        }
+        $page_relationship = $this->getDatabase()->table('page_relationships')
+            ->where('temp_id',$page_temp_nav->page_id)
             ->fetch();
+        return array(
+            'temp_id' => $page_relationship->temp_id,
+            'publish_id' => $page_relationship->publish_id);
     }
 
     public function get($id)
@@ -59,6 +100,20 @@ class PageManager extends BaseManager
                 'description' => $data['description'],
                 'keywords' => $data['keywords']
             ]);
+    }
+
+    public function publish($project_id)
+    {
+        $temp_pages = $this->getAll($project_id,0);
+
+        foreach($temp_pages as $temp_page) {
+            $page_relationship = $this->getDatabase()->table('page_relationships')
+                ->where('temp_id',$temp_page->id)
+                ->fetch();
+            bdump($page_relationship);
+
+            $this->update($temp_page,$page_relationship->publish_id);
+        }
     }
 
 }

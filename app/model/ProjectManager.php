@@ -30,6 +30,10 @@ class ProjectManager extends BaseManager
     private $footerManager;
 
     /**
+     * @var PageItemManager
+     */
+    private $pageItemManager;
+    /**
      * ProjectManager constructor.
      * @param Nette\Database\Context $database
      * @param Nette\Security\User $user
@@ -37,6 +41,7 @@ class ProjectManager extends BaseManager
      * @param NavManager $navManager
      * @param HeaderManager $headerManager
      * @param FooterManager $footerManager
+     * @param PageItemManager $pageItemManager
      */
 
     public function __construct(Nette\Database\Context $database,
@@ -44,13 +49,15 @@ class ProjectManager extends BaseManager
                                 PageManager $pageManager,
                                 NavManager $navManager,
                                 HeaderManager $headerManager,
-                                FooterManager $footerManager)
+                                FooterManager $footerManager,
+                                PageItemManager $pageItemManager)
     {
         parent::__construct($database,$user);
         $this->pageManager = $pageManager;
         $this->navManager = $navManager;
         $this->headerManager = $headerManager;
         $this->footerManager = $footerManager;
+        $this->pageItemManager = $pageItemManager;
     }
 
     public function getTemplates(){
@@ -112,18 +119,26 @@ class ProjectManager extends BaseManager
                 'title' => $title,
             );
             $page_hash = Nette\Utils\ArrayHash::from($page_data);
-            $page = $this->pageManager->add($page_hash);
+            $page_relationship = $this->pageManager->add($page_hash);
 
 
             $nav_data = array(
-                'page_id' => $page->id,
+                'page_id' => $page_relationship->publish_id,
                 'title' => $title,
                 'url' => Strings::lower($title),
                 'sort_order' => $key
             );
             $nav_hash = Nette\Utils\ArrayHash::from($nav_data);
 
-            $this->navManager->add($nav_hash,0);
+
+            $nav_temp_data = array(
+                'page_id' => $page_relationship->temp_id,
+                'title' => $title,
+                'url' => Strings::lower($title),
+                'sort_order' => $key
+            );
+            $nav_temp_hash = Nette\Utils\ArrayHash::from($nav_temp_data);
+            $this->navManager->add($nav_temp_hash,0);
             $this->navManager->add($nav_hash,1);
 
         }
@@ -195,9 +210,11 @@ class ProjectManager extends BaseManager
     public function delete($id)
     {
 
+
         $this->navManager->delete($id);
         $this->headerManager->delete($id);
         $this->footerManager->delete($id);
+        $this->pageItemManager->deleteAll($id);
         $this->pageManager->deleteAll($id);
         $this->getDatabase()->table('project')
             ->where('id',$id)

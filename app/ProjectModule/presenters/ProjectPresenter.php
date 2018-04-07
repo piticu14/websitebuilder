@@ -90,7 +90,6 @@ class ProjectPresenter  extends AdminBasePresenter
                 'src' => '/websitebuilder/www/img/blank_logo.gif'
             ]);
             $project = $this->projectManager->add($data);
-
             $path = 'user_images/' . $project->id . '/images/';
             if(!file_exists($path)) mkdir($path,'0777',true);
 
@@ -197,9 +196,11 @@ class ProjectPresenter  extends AdminBasePresenter
         foreach ($user_projects as $user_project) {
             $first_projects_pages[] = $this->pageManager->first($user_project->project_id);
 
+
         }
         $this->template->user_projects = $user_projects;
         $this->template->first_projects_pages = $first_projects_pages;
+        bdump($first_projects_pages);
         //$this->template->first_page = $this->
     }
 
@@ -270,7 +271,7 @@ class ProjectPresenter  extends AdminBasePresenter
 
     public function actionPublish($project_id,$pid)
     {
-        /* TODO: publish page seo (title,description,keywords) */
+        $this->pageManager->publish($project_id);
         $this->headerManager->publish($project_id);
         $this->navManager->publish($project_id);
         $this->pageItemManager->publish($project_id);
@@ -278,6 +279,7 @@ class ProjectPresenter  extends AdminBasePresenter
 
 
 
+        $this->flashMessage('Váš účet byl úspěšně založen. Ověřte svůj účet pomoci emailu, který jsme Vám právě odeslali.', 'success');
         $this->redirect('Project:edit', array("id" => $project_id, 'page_id' => $pid));
 
     }
