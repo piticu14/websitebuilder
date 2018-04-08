@@ -1,5 +1,19 @@
 
 /** TODO: After selecting image title,subtitle gets old text */
+$('#logo_edit').on('click',function(){
+    var logo_edit = $('#logo_edit_modal');
+    var logo_container = $('#logo_container');
+
+    var title_input = $(logo_edit).find('input[name="title"]');
+    var subtitle_input = $(logo_edit).find('input[name="subtitle"]');
+
+    title_input.val(logo_container.find('#title').text());
+    subtitle_input.val(logo_container.find('#subtitle').text());
+
+    logo_container.find('#title').removeData('temp');
+    logo_container.find('#subtitle').removeData('temp');
+});
+
 $('#logoModal').on('shown.bs.modal', function (e) {
     e.preventDefault();
 
@@ -7,8 +21,20 @@ $('#logoModal').on('shown.bs.modal', function (e) {
     var logo_container = $('#logo_container');
     var selected_logo = $('#selected');
 
-    $(logo_edit).find('input[name="title"]').val(logo_container.find('#title').text());
-    $(logo_edit).find('input[name="subtitle"]').val(logo_container.find('#subtitle').text());
+
+    var title_container = logo_container.find('#title');
+    var subtitle_container = logo_container.find('#subtitle');
+
+    console.log(title_container.data('temp'));
+    console.log(subtitle_container.data('temp'));
+
+    if(title_container.data('temp') && subtitle_container.data('temp')) {
+
+        $(logo_edit).find('input[name="title"]').val(title_container.data('temp'));
+        $(logo_edit).find('input[name="subtitle"]').val(subtitle_container.data('temp'));
+
+    }
+
 
 
     $('#save_logo').on('click', function () {
@@ -54,6 +80,7 @@ function logoImageModal(){
     });
     $(document).on('click','#logo_images',function(e){
         e.preventDefault();
+
         $('.bt-glyphicons').hide();
         $('#user_images').fadeIn('slow');
     });
@@ -62,6 +89,23 @@ function logoImageModal(){
 
 }
 $('#logoImageModal').on('shown.bs.modal', function () {
+
+    var logo_edit = $('#logo_edit_modal');
+    var logo_container = $('#logo_container');
+
+    var title_input = $(logo_edit).find('input[name="title"]');
+    var subtitle_input = $(logo_edit).find('input[name="subtitle"]');
+
+    var title_container = logo_container.find('#title');
+    var subtitle_container = logo_container.find('#subtitle');
+
+
+    title_container.data('temp',title_input.val());
+    subtitle_container.data('temp',subtitle_input.val());
+
+    console.log(title_container.data('temp'));
+    console.log(subtitle_container.data('temp'));
+
     $('#user_images').hide().fadeIn('slow');
     $('.bt-glyphicons').hide();
     logoImageModal();
