@@ -1,5 +1,4 @@
 
-/** TODO: After selecting image title,subtitle gets old text */
 $('#logo_edit').on('click',function(){
     var logo_edit = $('#logo_edit_modal');
     var logo_container = $('#logo_container');

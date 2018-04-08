@@ -398,7 +398,7 @@ $(document).on('click', '.showProject', function() {
     }
     $('#settings').attr('href','/websitebuilder/www/settings/default/' + project.id);
     $('#edit').attr('href','/websitebuilder/www/project/edit/' + project.id + '/' + project.page_temp_id);
-    $('#delete').attr('href','/websitebuilder/www/project/delete/' + project.id);
+    $('#devare').attr('href','/websitebuilder/www/project/devare/' + project.id);
 
 
 });
@@ -411,26 +411,20 @@ $(document).on('click', '.showProject', function() {
 
 
 
-/*
-$(document).on('click','#publish',function(e){
-    e.preventDefault();
-
-    $.nette.ajax({
-        url: $(this).data('url'),
-        type: "POST",
-
-        data: { data: JSON.stringify(data)},
-        error: function(jqXHR,status,error) {
-            console.log(jqXHR);
-            console.log(status);
-            console.log(error);
-        }
-    });
-});
-*/
-
 $(document).on('click','#temp_save',function(e){
     e.preventDefault();
 
     sendContent($(this));
 });
+
+$(document).on('click','#publish',function(e){
+
+    sendContent($('#temp_save'));
+});
+
+
+
+
+
+
+

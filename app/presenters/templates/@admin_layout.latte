@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="{$basePath}/css/nav_editor.css">
     <link rel="stylesheet" type="text/css" href="{$basePath}/css/logo_editor.css">
     <link rel="stylesheet" type="text/css" href="{$basePath}/css/social_media_editor.css">
+        <link rel="stylesheet" type="text/css" href="{$basePath}/css/photogallery_component.css">
 
         <!-- Start of KEditor styles -->
         <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/keditor/dist/css/keditor-1.1.5.css" />
@@ -80,6 +81,10 @@
         {include content}
 
 {block scripts}
+    <!-- Start of PhotoGallery components scripts -->
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/material-photo-gallery.min.js"></script>
+
+    <!-- End of PhotoGallery components scripts -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
@@ -111,11 +116,14 @@
 
     </script>
     *}
+
+
     <!-- Start of KEditor scripts -->
 
     <script type="text/javascript" src="{$basePath}/vendor/keditor/dist/js/keditor-1.1.5.js"></script>
     <script type="text/javascript" src="{$basePath}/vendor/keditor/dist/js/keditor-components-1.1.5.js"></script>
     <!-- End of KEditor scripts -->
+
 
     <script>
         $(function () {
@@ -128,7 +136,7 @@
     <script src="{$basePath}/js/logo_editor.js"></script>
     <script src="{$basePath}/js/social_media_editor.js"></script>
 
-
+*}
 {/block}
 
 

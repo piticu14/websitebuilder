@@ -141,7 +141,6 @@ function guid() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
-/** TODO: Logo img or glyphicon (use #selected) */
 function getLogoData()
 {
     var $logo_container = $('#logo_container');

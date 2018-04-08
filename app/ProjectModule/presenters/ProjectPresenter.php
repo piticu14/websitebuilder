@@ -17,8 +17,6 @@ use App\Model\projectManager;
 
 class ProjectPresenter  extends AdminBasePresenter
 {
-    // TODO: create Site Module and destroy ProjectModule?
-    /** TODO: Change glyphicons to font awesome because of facebook, instagram */
     /**
      * @var ProjectManager
      */

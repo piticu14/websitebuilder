@@ -206,6 +206,175 @@
 
 })(jQuery);
 
+
+(function ($) {
+    var KEditor = $.keditor;
+    var flog = KEditor.log;
+
+    KEditor.components['photogallery'] = {
+
+
+        init: function (contentArea, container, component, keditor) {
+            //flog('init "photo" component', component);
+
+            var gallery = component.find('.gallery');
+            var galleryItems = component.find('.gallery-item');
+            var numOfItems = gallery.children().length;
+            var itemWidth = 23; // percent: as set in css
+
+            var featured = component.find('.featured-item');
+
+            var leftBtn = component.find('.move-btn.left');
+            var rightBtn = component.find('.move-btn.right');
+
+            var leftInterval;
+            var rightInterval;
+
+            var scrollRate = 0.2;
+            var left;
+
+            var images = [
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/food.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg'
+            ];
+
+            function selectItem(e) {
+                if (e.hasClass('active')) return;
+
+                featured.css('background-image', e.css('background-image'));
+
+                galleryItems.each(function(){
+                   if($(this).hasClass('active')) {
+                       $(this).removeClass('active');
+                   }
+                });
+
+                e.addClass('active');
+
+            }
+
+            function galleryWrapLeft() {
+                var first = gallery.children().first();
+                gallery.find(first).remove();
+                gallery.css('left',(-itemWidth + '%'));
+                gallery.append(first);
+                gallery.css('left','0%');
+            }
+
+            function galleryWrapRight() {
+                var last = gallery.children().eq(gallery.children().length - 1);
+                gallery.find(last).remove();
+                gallery.prepend(last);
+                gallery.css('left','23%');
+            }
+            function moveLeft() {
+                left = left || 0;
+
+                leftInterval = setInterval(function() {
+                    gallery.css('left',(left + '%'));
+
+                    if (left > -itemWidth) {
+                        left -= scrollRate;
+                    } else {
+                        left = 0;
+                        galleryWrapLeft();
+                    }
+                }, 1);
+            }
+
+            function moveRight() {
+                //Make sure there is element to the leftd
+                if (left > -itemWidth && left < 0) {
+                    left = left  - itemWidth;
+
+                    var last = gallery.children().eq(gallery.children().length - 1);
+                    gallery.find(last).remove();
+                    gallery.css('left',(left + '%'));
+                    gallery.prepend(last);
+                }
+
+                left = left || 0;
+
+                leftInterval = setInterval(function() {
+                    gallery.css('left',(left + '%'));
+
+                    if (left < 0) {
+                        left += scrollRate;
+                    } else {
+                        left = -itemWidth;
+                        galleryWrapRight();
+                    }
+                }, 1);
+            }
+
+
+
+            function stopMovement() {
+                clearInterval(leftInterval);
+                clearInterval(rightInterval);
+            }
+
+
+            $(leftBtn).on('mouseenter',function(){
+                moveLeft();
+                addEventListeners();
+            });
+            $(leftBtn).on('mouseleave',function(){
+                stopMovement();
+            });
+            $(rightBtn).on('mouseenter',function(){
+                moveRight();
+                addEventListeners();
+            });
+            $(rightBtn).on('mouseleave',function(){
+                stopMovement();
+            });
+
+
+            function addEventListeners()
+            {
+                galleryItems.each(function(index){
+                    $(this).css('background-image','url(' + images[index] + ')');
+                    $(this).on('click',function(){
+                        selectItem($(this));
+                    });
+                });
+            }
+//Start this baby up
+
+
+                //Set Initial Featured Image
+                featured.css('background-image','url(' + images[0] + ')');
+
+                //Set Images for Gallery and Add Event Listeners
+
+               addEventListeners();
+
+        },
+
+        settingEnabled: true,
+
+        varsettingTitle: 'Nastavení Obrázku',
+
+        initSettingForm: function (form, keditor) {
+
+        },
+
+        showSettingForm: function (form, component, keditor) {
+        }
+    };
+
+})(jQuery);
+
+
 (function ($) {
     var KEditor = $.keditor;
     var flog = KEditor.log;
