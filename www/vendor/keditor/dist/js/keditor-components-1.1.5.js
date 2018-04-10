@@ -140,6 +140,7 @@
     var KEditor = $.keditor;
     var flog = KEditor.log;
 
+
     KEditor.components['googlemap'] = {
         getContent: function (component, keditor) {
             flog('getContent "googlemap" component', component);
@@ -210,15 +211,27 @@
 (function ($) {
     var KEditor = $.keditor;
     var flog = KEditor.log;
+    var images = [
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg',
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg',
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg',
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg',
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/food.jpg',
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg',
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg',
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg',
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg',
+        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg'
+    ];
+    var galleryItems;
 
     KEditor.components['photogallery'] = {
-
 
         init: function (contentArea, container, component, keditor) {
             //flog('init "photo" component', component);
 
             var gallery = component.find('.gallery');
-            var galleryItems = component.find('.gallery-item');
+            galleryItems = component.find('.gallery-item');
             var numOfItems = gallery.children().length;
             var itemWidth = 23; // percent: as set in css
 
@@ -233,53 +246,27 @@
             var scrollRate = 0.2;
             var left;
 
-            var images = [
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg',
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg',
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg',
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg',
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/food.jpg',
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg',
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg',
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg',
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg',
-                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg'
-            ];
-
-            function selectItem(e) {
-                if (e.hasClass('active')) return;
-
-                featured.css('background-image', e.css('background-image'));
-
-                galleryItems.each(function(){
-                   if($(this).hasClass('active')) {
-                       $(this).removeClass('active');
-                   }
-                });
-
-                e.addClass('active');
-
-            }
 
             function galleryWrapLeft() {
                 var first = gallery.children().first();
                 gallery.find(first).remove();
-                gallery.css('left',(-itemWidth + '%'));
+                gallery.css('left', (-itemWidth + '%'));
                 gallery.append(first);
-                gallery.css('left','0%');
+                gallery.css('left', '0%');
             }
 
             function galleryWrapRight() {
                 var last = gallery.children().eq(gallery.children().length - 1);
                 gallery.find(last).remove();
                 gallery.prepend(last);
-                gallery.css('left','23%');
+                gallery.css('left', '23%');
             }
+
             function moveLeft() {
                 left = left || 0;
 
-                leftInterval = setInterval(function() {
-                    gallery.css('left',(left + '%'));
+                leftInterval = setInterval(function () {
+                    gallery.css('left', (left + '%'));
 
                     if (left > -itemWidth) {
                         left -= scrollRate;
@@ -293,18 +280,18 @@
             function moveRight() {
                 //Make sure there is element to the leftd
                 if (left > -itemWidth && left < 0) {
-                    left = left  - itemWidth;
+                    left = left - itemWidth;
 
                     var last = gallery.children().eq(gallery.children().length - 1);
                     gallery.find(last).remove();
-                    gallery.css('left',(left + '%'));
+                    gallery.css('left', (left + '%'));
                     gallery.prepend(last);
                 }
 
                 left = left || 0;
 
-                leftInterval = setInterval(function() {
-                    gallery.css('left',(left + '%'));
+                leftInterval = setInterval(function () {
+                    gallery.css('left', (left + '%'));
 
                     if (left < 0) {
                         left += scrollRate;
@@ -316,59 +303,140 @@
             }
 
 
-
             function stopMovement() {
                 clearInterval(leftInterval);
                 clearInterval(rightInterval);
             }
 
 
-            $(leftBtn).on('mouseenter',function(){
+            leftBtn.on('mouseenter', function () {
                 moveLeft();
-                addEventListeners();
             });
-            $(leftBtn).on('mouseleave',function(){
+            leftBtn.on('mouseleave', function () {
                 stopMovement();
             });
-            $(rightBtn).on('mouseenter',function(){
+            rightBtn.on('mouseenter', function () {
                 moveRight();
-                addEventListeners();
             });
-            $(rightBtn).on('mouseleave',function(){
+            rightBtn.on('mouseleave', function () {
                 stopMovement();
             });
 
 
-            function addEventListeners()
-            {
-                galleryItems.each(function(index){
-                    $(this).css('background-image','url(' + images[index] + ')');
-                    $(this).on('click',function(){
-                        selectItem($(this));
-                    });
-                });
+            //Set Initial Featured Image
+            featured.css('background-image', 'url(' + images[0] + ')');
+
+            //Set random data-id if Gallery doesn't have one
+            if (!component.find('.photogallery-container').attr('data-id')) {
+                component.find('.photogallery-container').attr('data-id', guid());
             }
-//Start this baby up
+
+            //Set Images for Gallery and Add Event Listeners
 
 
-                //Set Initial Featured Image
-                featured.css('background-image','url(' + images[0] + ')');
+            featured.css('background-image', 'url(' + images[0] + ')');
+            galleryItems.first().addClass('active');
 
-                //Set Images for Gallery and Add Event Listeners
+            //Set random data-id if Gallery doesn't have one
+            if (!component.find('.photogallery-container').attr('data-id')) {
+                component.find('.photogallery-container').attr('data-id', guid());
+            } else {
+                //getPhotoGalleryImages(component.find('.photogallery-container').attr('data-id'));
+            }
 
-               addEventListeners();
 
+            $(document).on('click','#rmv',function(e) {
+                //handler code here
+            });
+            galleryItems.each(function (index) {
+                $(this).css('background-image', 'url(' + images[index] + ')');
+            });
+            $(document).on('click','.gallery-item',function(e) {
+                console.log(e);
+                if ($(e.target).hasClass('active')) return;
+
+                featured.css('background-image', $(e.target).css('background-image'));
+                    galleryItems.each(function () {
+                        if ($(this).hasClass('active')) {
+                            $(this).removeClass('active');
+                        }
+                    });
+
+                $(e.target).addClass('active');
+            });
         },
 
         settingEnabled: true,
 
-        varsettingTitle: 'Nastavení Obrázku',
+        settingTitle: 'Nastavení Fotogalerii',
 
         initSettingForm: function (form, keditor) {
+
+            form.append(
+                '<form class="form-horizontal">' +
+                '   <div class="form-group">' +
+                '       <div class="col-sm-12">' +
+                '           <button type="button" aria-hidden="true" data-toggle="modal" data-target="#photogalleryModal" class="btn btn-block btn-primary" id="photo-edit">Upravit</button>' +
+                '       </div>' +
+                '   </div>' +
+                '</form>'
+            );
 
         },
 
         showSettingForm: function (form, component, keditor) {
+            var pg_container_id = component.find('.photogallery-container').attr('data-id');
+
+            $('#photogalleryModal').off('show').on('show.bs.modal', function(){
+
+                var url = $('#photogalleryModal').data('url');
+                $.nette.ajax({
+                    type: "POST",
+                    url: url,
+                    data: {pgPath: 'photogallery/' + pg_container_id},
+
+                    success: function (payload) {
+                    },
+
+                    error: function(jqXHR,status,error) {
+                        console.log(jqXHR);
+                        console.log(status);
+                        console.log(error);
+                    }
+                });
+
+                $('#photogallery_images').sortable({ items: ".image_box" });
+                $(this).find('input[name="images"]').off().on('change',function(){
+                    uploadImages($('#photogalleryModal').find('#upload_bar'),$(this),'photogallery/' + pg_container_id);
+                });
+
+                $(this).find('#save_photogallery').on('click',function(){
+                    var gallery = component.find('.gallery');
+                    gallery.html('');
+
+                    images = [];
+                    $('#photogallery_images').find('.image_box').each(function(){
+                        var image =
+                            $('<div class="item-wrapper">' +
+                                '<figure class="gallery-item image-holder r-3-2 transition"></figure>' +
+                            '</div>');
+                        //image.find('.gallery-item').css('background-image','url(' +  $(this).find('img').attr('src') + ')');
+                        images.push($(this).find('img').attr('src'))
+                       gallery.append(image);
+                        gallery.find('.gallery-item').each(function (index) {
+                            $(this).css('background-image', 'url(' + images[index] + ')');
+                        });
+
+                        galleryItems = component.find('.gallery-item');
+                        galleryItems.first().addClass('active');
+                        component.find('.featured-item').css('background-image', 'url(' + images[0] + ')');
+                    });
+
+                });
+
+            });
+
+
         }
     };
 

@@ -184,9 +184,7 @@ function getNavData() {
         pages.push(menu_item);
     });
 
-    var nav = pages;
-
-    return nav;
+    return pages;
 }
 
 function getSocialMedia() {
@@ -246,7 +244,6 @@ function sendContent($link) {
             console.log(jqXHR);
             console.log(status);
             console.log(error);
-            return;
         },
         success: function(payload) {
             window.location.href = $link.attr('href');
@@ -264,7 +261,7 @@ $('#menu a').not(':last,#dropdownMenu').each(function(){
 
 /*-------------------------------------START OF EVENTS------------------------------------------------- */
 
-$('#menuModal').on('shown.bs.modal', function (e) {
+$('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
     e.preventDefault();
 
     var modal_body = $('#nav_body');

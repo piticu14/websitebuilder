@@ -104,6 +104,10 @@ class ProjectPresenter  extends AdminBasePresenter
 
     }
 
+    public function actionEdit($id,$page_id)
+    {
+        $this->template->gallery_images = [];
+    }
     public function renderEdit($id,$page_id)
     {
         $this->initTemplateVariables($id,$page_id,0);
@@ -225,6 +229,30 @@ class ProjectPresenter  extends AdminBasePresenter
         return $images;
     }
 
+    private function getPhotogalleryImages($id,$pg_path)
+    {
+        $masks =['*.jpg','*.png','*.gif','*.jpeg'];
+        $dir = '../www/user_images/' . $id . '/' . $pg_path . '/';
+        $images = array();
+        $path = 'user_images/' . $id . '/'. $pg_path  . '/';
+        if(!file_exists($path)) mkdir($path,'0777',true);
+        foreach (Finder::findFiles($masks)
+                     ->in($dir) as $file) {
+            $images[] = $path . $file->getBasename();
+
+        }
+        return $images;
+    }
+
+    public function handleLoadPhotogalleryImages($pgPath) {
+        if($this->isAjax()){
+            $this->template->gallery_images = $this->getPhotogalleryImages($this->getParameter('id'),$pgPath);
+            //bdump($this->template->gallery_images);
+        }
+        $this->redrawControl('wrapper');
+        $this->redrawControl('photogalleryImages');
+    }
+
     public function handleAddImages()
     {
 
@@ -242,6 +270,7 @@ class ProjectPresenter  extends AdminBasePresenter
             }
         }
             $this->template->user_images = $this->getUserImages($this->getParameter('id'));
+            $this->template->gallery_images = $this->getPhotogalleryImages($this->getParameter('id'),$this->getHttpRequest()->getPost('type'));
 
 
 
@@ -251,6 +280,7 @@ class ProjectPresenter  extends AdminBasePresenter
 
         $this->redrawControl('wrapper');
         $this->redrawControl('userImages');
+        $this->redrawControl('photogalleryImages');
 
     }
 /*
@@ -277,7 +307,7 @@ class ProjectPresenter  extends AdminBasePresenter
 
 
 
-        $this->flashMessage('Váš účet byl úspěšně založen. Ověřte svůj účet pomoci emailu, který jsme Vám právě odeslali.', 'success');
+        $this->flashMessage('Publikování proběhlo úspěšně.', 'success');
         $this->redirect('Project:edit', array("id" => $project_id, 'page_id' => $pid));
 
     }

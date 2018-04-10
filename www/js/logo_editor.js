@@ -102,57 +102,69 @@ $('#logoImageModal').on('shown.bs.modal', function () {
     title_container.data('temp',title_input.val());
     subtitle_container.data('temp',subtitle_input.val());
 
+
     console.log(title_container.data('temp'));
     console.log(subtitle_container.data('temp'));
 
     $('#user_images').hide().fadeIn('slow');
     $('.bt-glyphicons').hide();
     logoImageModal();
-});
-
-$('#addImage').find('input[name="images"]').on('change',function(){
-    $('#upload_bar').show();
-    var files = $(this)[0].files;
-            var data = new FormData();
-            $.each(files, function(key, value)
-            {
-                data.append(key, value);
-            });
-            data.append('type','images');
-            // If you want to add an extra field for the FormData
-            //data.append("CustomField", "This is some extra data, testing");
-
-            $.nette.ajax({
-                type: "POST",
-                enctype: 'multipart/form-data',
-                url: $(this).data('url'),
-                data: data,
-                processData: false,
-                contentType: false,
-                cache: false,
-
-                // Can use it for progess bar
-                xhr: function() {
-                    var xhr = $.ajaxSettings.xhr();
-                    xhr.upload.onprogress = function(e) {
-                        var percent = (Math.floor(e.loaded / e.total *100) + '%');
-                        $('#upload_bar div.progress-bar').css('width',percent).text(percent);
-                    };
-            return xhr;
-        },
-
-        success: function (data) {
-            $('#upload_bar div.progress-bar').css('width',0).text("");
-            $('#upload_bar').hide();
-        },
-
-        error: function(jqXHR,status,error) {
-            console.log(jqXHR);
-            console.log(status);
-            console.log(error);
-        }
+    $(this).find('input[name="images"]').off().on('change',function(){
+        uploadImages($('#logoImageModal').find('#upload_bar'), $(this),'images');
     });
+
+
+
 });
+
+
+function uploadImages(uploadbar,input,type){
+
+    uploadbar.show();
+    var files = input[0].files
+
+    if(files.length){
+        var data = new FormData();
+        $.each(files, function(key, value)
+        {
+            data.append(key, value);
+        });
+        data.append('type',type);
+        // If you want to add an extra field for the FormData
+        //data.append("CustomField", "This is some extra data, testing");
+
+        $.nette.ajax({
+            type: "POST",
+            enctype: 'multipart/form-data',
+            url: input.data('url'),
+            data: data,
+            processData: false,
+            contentType: false,
+            cache: false,
+
+            // Can use it for progess bar
+            xhr: function() {
+                var xhr = $.ajaxSettings.xhr();
+                xhr.upload.onprogress = function(e) {
+                    var percent = (Math.floor(e.loaded / e.total *100) + '%');
+                    uploadbar.find('div.progress-bar').css('width',percent).text(percent);
+                };
+                return xhr;
+            },
+
+            success: function (data) {
+                uploadbar.find('div.progress-bar').css('width',0).text("");
+                uploadbar.hide();
+            },
+
+            error: function(jqXHR,status,error) {
+                console.log(jqXHR);
+                console.log(status);
+                console.log(error);
+            }
+        });
+    }
+}
 
 $(document).ajaxStop(function() {
     if($('#logoImageModal').length){

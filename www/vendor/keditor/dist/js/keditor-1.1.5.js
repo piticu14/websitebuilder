@@ -100,7 +100,6 @@
         },
         onContainerDeleted: function (event, selectedContainer, contentArea) {
 
-            console.log(selectedContainer.data('id'));
             $.nette.ajax({
                 url: $('#body').data('url'),
                 type: "POST",

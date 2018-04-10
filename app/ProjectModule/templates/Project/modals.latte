@@ -196,38 +196,45 @@
                             </div>
                             <div class="row" id="user_images">
                                 <div id="upload_bar" class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 {snippet userImages}
-                                        {foreach $user_images as $image}
-                                            <div class="image_box">
-                                                <div class="overlay"><input type="checkbox" checked></div>
-                                                <img src="{$basePath}/{$image}" alt="User Image">
-                                            </div>
-                                        {/foreach}
+                                    {foreach $user_images as $image}
+                                        <div class="image_box">
+                                            <div class="overlay"><input type="checkbox" checked></div>
+                                            <img src="{$basePath}/{$image}" alt="User Image">
+                                        </div>
+                                    {/foreach}
                                 {/snippet}
-                            <form class="form-horizontal">
-                                <div class="form-group">
-                                    <div class="col-md-8 inputGroupContainer" id="addImage">
-                                        <div class="input-group">
-                                            <a class='btn btn-primary' href='javascript:;'>
-                                                Nahrat obrázek <span class="glyphicon glyphicon-upload"></span>
-                                                <input data-url="{link addImages!}" type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="images" size="40" accept="image/*" multiple>
-                                                &nbsp;
-                                            </a>
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <div class="col-md-8 inputGroupContainer" id="addImage">
+                                            <div class="input-group">
+                                                <a class='btn btn-primary' href='javascript:;'>
+                                                    Nahrat obrázek <span class="glyphicon glyphicon-upload"></span>
+                                                    <input data-url="{link addImages!}" type="file"
+                                                           style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
+                                                           name="images" size="40" accept="image/*" multiple>
+                                                    &nbsp;
+                                                </a>
 
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"  data-dismiss="modal" data-toggle="modal" data-target="#logoModal">Zavřit</button>
-                <button type="button" class="btn btn-primary"  data-dismiss="modal" data-toggle="modal" data-target="#logoModal">Uložit</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#logoModal">Zavřit
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#logoModal">Uložit
+                </button>
             </div>
         </div>
     </div>
@@ -297,8 +304,12 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary"  data-dismiss="modal" data-toggle="modal" data-target="#menuModal">Zavřit</button>
-                <button id="savePage" type="button" class="btn btn-primary"  data-dismiss="modal" data-toggle="modal" data-target="#menuModal">Uložit</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#menuModal">Zavřit
+                </button>
+                <button id="savePage" type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#menuModal">Uložit
+                </button>
             </div>
         </div>
 
@@ -307,7 +318,8 @@
 
 <!-- Nav Edit Modal -->
 
-<div class="modal fade" id="socialMediaModal" tabindex="-1" role="dialog" aria-labelledby="socialMediaModal" aria-hidden="true">
+<div class="modal fade" id="socialMediaModal" tabindex="-1" role="dialog" aria-labelledby="socialMediaModal"
+     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -361,8 +373,64 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
-                <button id="save_social_media" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
+                <button id="save_social_media" type="button" class="btn btn-primary" data-dismiss="modal">Uložit
+                </button>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Photogallery Snippet Modal -->
+<div class="modal fade" id="photogalleryModal" tabindex="-1" role="dialog" aria-labelledby="photogalleryModal"
+     aria-hidden="true" data-url="{link LoadPhotogalleryImages!}">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLongTitle">Fotogalerie</h5>
+
+            </div>
+            <div class="modal-body">
+
+                <div class="row" id="photogallery_images">
+                    <div id="upload_bar" class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    {snippet photogalleryImages}
+                        {foreach $gallery_images as $image}
+                            <div class="image_box">
+                                <div class="overlay"><input type="checkbox" checked></div>
+                                <img src="{$basePath}/{$image}" alt="User Image">
+                            </div>
+                        {/foreach}
+                    {/snippet}
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-12 inputGroupContainer" id="addImage">
+                                <div class="input-group">
+                                    <a class='btn btn-primary' href='javascript:;'>
+                                        Nahrat obrázek <span class="glyphicon glyphicon-upload"></span>
+                                        <input data-url="{link addImages!}" type="file"
+                                               style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
+                                               name="images" size="40" accept="image/*" multiple>
+                                        &nbsp;
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
+                <button id="save_photogallery" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
+            </div>
+
+        </div>
+    </div>
+
+
