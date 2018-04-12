@@ -59,5 +59,17 @@
         $('#body').append($(item));
         {/foreach}
 
+        function getPhotogalleryImages(id) {
+            {foreach $photogalleryIds as $pg_id}
+            var pg_id = {$pg_id};
+            if(pg_id === id){
+                var images = {$presenter->getPhotogalleryImages($presenter->getParameter('id'),'photogallery/'. $pg_id)};
+                return images;
+            }
+            {/foreach}
+
+            return [];
+        }
+
     </script>
 {/block}

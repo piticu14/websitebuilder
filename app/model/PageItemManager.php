@@ -8,6 +8,8 @@
 
 namespace App\Model;
 
+use Nette\Utils\Json;
+
 
 class PageItemManager extends BaseManager
 {
@@ -15,12 +17,19 @@ class PageItemManager extends BaseManager
 
     public function add($page_id, $data, $publish)
     {
+        $additional = array();
+        if(isset($data['photogallery_ids'])){
+
+            $additional['photogallery_ids'] = $data['photogallery_ids'];
+        }
+
         return $this->getDatabase()->table(self::$table)
             ->insert([
                 'page_id' => $page_id,
                 'content' => $data['content'],
                 'order_on_page' => $data['order_on_page'],
-                'publish' => $publish
+                'publish' => $publish,
+                'additional' => empty(array_filter($additional)) ? '' : JSON::encode($additional,Json::PRETTY)
             ]);
     }
 
@@ -51,20 +60,30 @@ class PageItemManager extends BaseManager
     public function getAll($page_id,$publish)
     {
         return $this->getDatabase()->table(self::$table)
+            ->select('id,content,order_on_page,additional')
             ->where('page_id',$page_id)
             ->where('publish',$publish)
+            ->where('delete_at NOT',null)
             ->order('order_on_page','ASC')
             ->fetchAll();
     }
 
     public function update($id,$data,$publish)
     {
+        $additional = array();
+        if(isset($data['photogallery_ids'])){
+
+            $additional['photogallery_ids'] = $data['photogallery_ids'];
+        }
+
         $this->getDatabase()->table(self::$table)
             ->where('id',$id)
             ->where('publish',$publish)
             ->update([
                 'content' => $data['content'],
-                'order_on_page' => $data['order_on_page']
+                'order_on_page' => $data['order_on_page'],
+                'additional' => empty(array_filter($additional)) ? '' : JSON::encode($additional,Json::PRETTY),
+                'update_at' => date("Y-m-d H:i:s")
             ]);
     }
 
@@ -85,7 +104,9 @@ class PageItemManager extends BaseManager
                         ->where('id',$row->publish_id)
                         ->update([
                             'content' => $page_item->content,
-                            'order_on_page' => $page_item->order_on_page
+                            'order_on_page' => $page_item->order_on_page,
+                            'additional' => $page_item->additional,
+                            'update_at' => date("Y-m-d H:i:s")
                         ]);
                 } else {
                     $page_relationship = $this->getDatabase()->table('page_relationships')

@@ -189,6 +189,26 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->social_media = JSON::decode($this->template->footer->social_media,JSON::FORCE_ARRAY);
 
         $this->template->page_items = $this->pageItemManager->getAll($page_id,$publish);
+
+        //$photogalleryImages = array();
+        $ids = array();
+        foreach($this->template->page_items as $page_item){
+            if($page_item->additional != ''){
+                $photogalleryIds = JSON::decode($page_item->additional,JSON::FORCE_ARRAY);
+
+                foreach($photogalleryIds as $pg_ids) {
+                    foreach($pg_ids as $pg_id){
+                        //$photogalleryImages[] = $this->getPhotogalleryImages($id,'photogallery/' . $pg_id);
+                        $ids[] = $pg_id;
+
+                    }
+                }
+            }
+        }
+
+        $this->template->photogalleryIds = $ids;
+
+        bdump($this->template->photogalleryIds);
     }
 
     public function renderAll()
@@ -229,7 +249,7 @@ class ProjectPresenter  extends AdminBasePresenter
         return $images;
     }
 
-    private function getPhotogalleryImages($id,$pg_path)
+    public function getPhotogalleryImages($id,$pg_path)
     {
         $masks =['*.jpg','*.png','*.gif','*.jpeg'];
         $dir = '../www/user_images/' . $id . '/' . $pg_path . '/';
@@ -238,7 +258,7 @@ class ProjectPresenter  extends AdminBasePresenter
         if(!file_exists($path)) mkdir($path,'0777',true);
         foreach (Finder::findFiles($masks)
                      ->in($dir) as $file) {
-            $images[] = $path . $file->getBasename();
+            $images[] = $this->getHttpRequest()->getUrl()->basePath. $path . $file->getBasename();
 
         }
         return $images;

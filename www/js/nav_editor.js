@@ -208,11 +208,21 @@ function getBodyContent() {
     //console.log($('#body section').attr('data-id'));
     $(body_content + '#page_item').each(function(index){
 
+        var photogallery_ids = [];
         var item = {};
         if($(this).data('id')){
             item.id = $(this).data('id');
         }
+        var photoGalleryItem = $(this).find('.photogallery-container');
+
+        if(photoGalleryItem.length) {
+            photoGalleryItem.each(function(){
+                photogallery_ids.push($(this).attr('data-id'));
+            });
+        }
+
         $(this).removeAttr('data-id');
+        item.photogallery_ids = photogallery_ids;
         item.content = $(this).prop('outerHTML');
         items.push(item);
     });

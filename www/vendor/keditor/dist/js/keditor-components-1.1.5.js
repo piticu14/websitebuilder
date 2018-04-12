@@ -211,27 +211,25 @@
 (function ($) {
     var KEditor = $.keditor;
     var flog = KEditor.log;
-    var images = [
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg',
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg',
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg',
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg',
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/food.jpg',
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg',
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg',
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg',
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg',
-        'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg'
-    ];
-    var galleryItems;
 
     KEditor.components['photogallery'] = {
-
         init: function (contentArea, container, component, keditor) {
+            var images = [
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/city.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/deer.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/flowers.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/food.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/guy.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/landscape.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/lips.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/night.jpg',
+                'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg'
+            ];
             //flog('init "photo" component', component);
-
+            console.log(component);
             var gallery = component.find('.gallery');
-            galleryItems = component.find('.gallery-item');
+            var galleryItems = component.find('.gallery-item');
             var numOfItems = gallery.children().length;
             var itemWidth = 23; // percent: as set in css
 
@@ -253,13 +251,15 @@
                 gallery.css('left', (-itemWidth + '%'));
                 gallery.append(first);
                 gallery.css('left', '0%');
+                addEvents();
             }
 
             function galleryWrapRight() {
                 var last = gallery.children().eq(gallery.children().length - 1);
-                gallery.find(last).remove();
+                last.bind('click');
                 gallery.prepend(last);
                 gallery.css('left', '23%');
+                addEvents();
             }
 
             function moveLeft() {
@@ -308,6 +308,28 @@
                 clearInterval(rightInterval);
             }
 
+            function selectItem(e) {
+                if (e.hasClass('active')) return;
+
+                featured.css('background-image', e.css('background-image'));
+                gallery.find('.gallery-item').each(function () {
+                    if ($(this).hasClass('active')) {
+                        $(this).removeClass('active');
+                    }
+                });
+
+                e.addClass('active');
+            }
+
+            function addEvents(){
+                gallery.find('.gallery-item').each(function (index) {
+                    $(this).on('click',function(e) {
+                        selectItem($(this));
+                    });
+                });
+            }
+
+
 
             leftBtn.on('mouseenter', function () {
                 moveLeft();
@@ -323,8 +345,6 @@
             });
 
 
-            //Set Initial Featured Image
-            featured.css('background-image', 'url(' + images[0] + ')');
 
             //Set random data-id if Gallery doesn't have one
             if (!component.find('.photogallery-container').attr('data-id')) {
@@ -334,36 +354,32 @@
             //Set Images for Gallery and Add Event Listeners
 
 
-            featured.css('background-image', 'url(' + images[0] + ')');
-            galleryItems.first().addClass('active');
+
 
             //Set random data-id if Gallery doesn't have one
             if (!component.find('.photogallery-container').attr('data-id')) {
                 component.find('.photogallery-container').attr('data-id', guid());
             } else {
-                //getPhotoGalleryImages(component.find('.photogallery-container').attr('data-id'));
+                if(getPhotogalleryImages(component.find('.photogallery-container').attr('data-id')).length > 0) {
+                    images = getPhotogalleryImages(component.find('.photogallery-container').attr('data-id'));
+                }
             }
 
-
-            $(document).on('click','#rmv',function(e) {
-                //handler code here
-            });
-            galleryItems.each(function (index) {
+            //Set Initial Featured Image
+            featured.css('background-image', 'url(' + images[0] + ')');
+            gallery.find('.gallery-item').each(function (index) {
+                $(this).removeClass('active');
                 $(this).css('background-image', 'url(' + images[index] + ')');
             });
-            $(document).on('click','.gallery-item',function(e) {
-                console.log(e);
-                if ($(e.target).hasClass('active')) return;
 
-                featured.css('background-image', $(e.target).css('background-image'));
-                    galleryItems.each(function () {
-                        if ($(this).hasClass('active')) {
-                            $(this).removeClass('active');
-                        }
-                    });
+            galleryItems.first().addClass('active');
 
-                $(e.target).addClass('active');
-            });
+
+
+
+
+
+            addEvents();
         },
 
         settingEnabled: true,
@@ -386,6 +402,73 @@
 
         showSettingForm: function (form, component, keditor) {
             var pg_container_id = component.find('.photogallery-container').attr('data-id');
+            var galleryItems = [];
+            var images = [];
+            var featured = component.find('.featured-item');
+
+
+            var gallery = component.find('.gallery');
+            var numOfItems = gallery.children().length;
+            var itemWidth = 23; // percent: as set in css
+
+
+            var leftBtn = component.find('.move-btn.left');
+            var rightBtn = component.find('.move-btn.right');
+
+            var leftInterval;
+            var rightInterval;
+
+            var scrollRate = 0.2;
+            var left;
+
+
+
+
+
+            leftBtn.bind('mouseenter');
+            leftBtn.bind('mouseleave');
+            rightBtn.bind('mouseenter');
+            rightBtn.bind('mouseleave');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            function addEvents(){
+                galleryItems.each(function (index) {
+                    $(this).css('background-image', 'url(' + images[index] + ')');
+                    $(this).on('click',function(e) {
+                        selectItem($(this));
+                    });
+                });
+            }
+
+            function selectItem(e) {
+                console.log(component);
+                if (e.hasClass('active')) return;
+
+                featured.css('background-image', e.css('background-image'));
+                galleryItems.each(function () {
+                    if ($(this).hasClass('active')) {
+                        $(this).removeClass('active');
+                    }
+                });
+
+                e.addClass('active');
+            }
+
+
 
             $('#photogalleryModal').off('show').on('show.bs.modal', function(){
 
@@ -410,25 +493,34 @@
                     uploadImages($('#photogalleryModal').find('#upload_bar'),$(this),'photogallery/' + pg_container_id);
                 });
 
-                $(this).find('#save_photogallery').on('click',function(){
+                $(this).find('#save_photogallery').off().on('click',function(){
                     var gallery = component.find('.gallery');
                     gallery.html('');
-
-                    images = [];
                     $('#photogallery_images').find('.image_box').each(function(){
                         var image =
                             $('<div class="item-wrapper">' +
                                 '<figure class="gallery-item image-holder r-3-2 transition"></figure>' +
                             '</div>');
                         //image.find('.gallery-item').css('background-image','url(' +  $(this).find('img').attr('src') + ')');
-                        images.push($(this).find('img').attr('src'))
+                        images.push($(this).find('img').attr('src'));
                        gallery.append(image);
                         gallery.find('.gallery-item').each(function (index) {
                             $(this).css('background-image', 'url(' + images[index] + ')');
                         });
 
+
                         galleryItems = component.find('.gallery-item');
+
+
+                        galleryItems.each(function (index) {
+                            $(this).css('background-image', 'url(' + images[index] + ')');
+                        });
+
+
                         galleryItems.first().addClass('active');
+
+                        addEvents();
+
                         component.find('.featured-item').css('background-image', 'url(' + images[0] + ')');
                     });
 
