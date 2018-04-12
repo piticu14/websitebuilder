@@ -190,7 +190,6 @@ class ProjectPresenter  extends AdminBasePresenter
 
         $this->template->page_items = $this->pageItemManager->getAll($page_id,$publish);
 
-        //$photogalleryImages = array();
         $ids = array();
         foreach($this->template->page_items as $page_item){
             if($page_item->additional != ''){
@@ -198,7 +197,6 @@ class ProjectPresenter  extends AdminBasePresenter
 
                 foreach($photogalleryIds as $pg_ids) {
                     foreach($pg_ids as $pg_id){
-                        //$photogalleryImages[] = $this->getPhotogalleryImages($id,'photogallery/' . $pg_id);
                         $ids[] = $pg_id;
 
                     }
@@ -208,7 +206,6 @@ class ProjectPresenter  extends AdminBasePresenter
 
         $this->template->photogalleryIds = $ids;
 
-        bdump($this->template->photogalleryIds);
     }
 
     public function renderAll()
@@ -222,8 +219,6 @@ class ProjectPresenter  extends AdminBasePresenter
         }
         $this->template->user_projects = $user_projects;
         $this->template->first_projects_pages = $first_projects_pages;
-        bdump($first_projects_pages);
-        //$this->template->first_page = $this->
     }
 
 
@@ -350,10 +345,23 @@ class ProjectPresenter  extends AdminBasePresenter
         $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
         bdump($nav_array);
         foreach ($nav_array as $sort_order => $nav){
-
             $nav['sort_order'] = $sort_order;
-            $this->navManager->update($nav,$nav['page_id'],0);
-            $this->pageManager->update($nav,$nav['page_id']);
+            if(is_numeric($nav['id'])){
+                $this->navManager->update($nav,$nav['page_id'],0);
+                $this->pageManager->update($nav,$nav['page_id']);
+            }else{
+                $nav['project_id'] = $this->getParameter('id');
+                $nav['new'] = true;
+
+                $newPage = $this->pageManager->add(Nette\Utils\ArrayHash::from($nav));
+                $nav['page_id'] = $newPage->temp_id;
+                $this->navManager->add(Nette\Utils\ArrayHash::from($nav),0);
+
+                $nav['page_id'] = $newPage->publish_id;
+                $this->navManager->add(Nette\Utils\ArrayHash::from($nav),1);
+            }
+
+
             //$this->projectTempDataManager->update($nav,$nav['page_id'],'nav');
         }
 

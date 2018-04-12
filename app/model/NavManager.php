@@ -24,6 +24,7 @@ class NavManager extends BaseManager
                 'title' => $data->title,
                 'url' => Strings::lower($data->title),
                 'sort_order' => $data->sort_order,
+                'new' => isset($data->new) ? 1 : 0,
                 'publish' => $publish
             ]);
 

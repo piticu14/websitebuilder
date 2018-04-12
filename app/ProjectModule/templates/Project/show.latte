@@ -15,6 +15,7 @@
 {/block}
 
 
+
 {block scripts}
     {include #parent}
 
@@ -22,6 +23,12 @@
         <script src="{$basePath}/templates/{$template_title}/js/{$jsFile}"></script>
     {/foreach}
     <script>
+
+        if($('#page_drop_down').children().length) {
+            console.log('Yes');
+            $('#page_drop_down_container').removeClass('hide');
+        }
+
         {foreach $page_items as $page_item}
         var item = $($.parseHTML('{$page_item->content|noescape|strip}'));
         $('#body').append($(item));

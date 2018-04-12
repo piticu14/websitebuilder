@@ -37,7 +37,9 @@ class PageItemManager extends BaseManager
     {
         return $this->getDatabase()->table(self::$table)
             ->where('id',$id)
-            ->delete();
+            ->update([
+                'deleted_at' => date("Y-m-d H:i:s")
+            ]);
     }
     public function deleteAll($project_id)
     {
@@ -63,7 +65,7 @@ class PageItemManager extends BaseManager
             ->select('id,content,order_on_page,additional')
             ->where('page_id',$page_id)
             ->where('publish',$publish)
-            ->where('delete_at NOT',null)
+            ->where('deleted_at',null)
             ->order('order_on_page','ASC')
             ->fetchAll();
     }

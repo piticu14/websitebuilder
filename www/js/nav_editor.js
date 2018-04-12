@@ -394,3 +394,9 @@ $('#cover').bind('ajaxStart', function(){
 }).bind('ajaxStop', function(){
     $(this).hide();
 });
+
+
+if($('#page_drop_down').children().length) {
+    console.log('Yes');
+    $('#page_drop_down_container').removeClass('hide');
+}

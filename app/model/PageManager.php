@@ -10,7 +10,6 @@ namespace App\Model;
 
 use Nette;
 
-/* TODO: make temporary data title,description,keywords (new JSON column "temporary_data" */
 class PageManager extends BaseManager
 {
     private function getAll($project_id,$publish)
@@ -27,6 +26,8 @@ class PageManager extends BaseManager
             ->insert([
                 'project_id' => $data->project_id,
                 'title' => $data->title,
+                'keywords' => isset($data->keywords) ? $data->keywords : '',
+                'description' => isset($data->description) ? $data->description : '',
                 'publish' => 0
             ]);
 
@@ -34,6 +35,8 @@ class PageManager extends BaseManager
             ->insert([
                 'project_id' => $data->project_id,
                 'title' => $data->title,
+                'keywords' => isset($data->keywords) ? $data->keywords : '',
+                'description' => isset($data->description) ? $data->description : '',
                 'publish' => 1
             ]);
 

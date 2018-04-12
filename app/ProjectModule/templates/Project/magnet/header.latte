@@ -23,9 +23,11 @@
             {if $presenter->isLinkCurrent("Project:edit")}
             <ul id="menu" class="nav navbar-nav navbar-right">
                 {foreach $nav_items as $nav_item}
+                    {if (!$nav_item->new)}
                     <li n:class="!$nav_item->active ? hide">
                         <a n:href="Project:edit id => $presenter->getParameter('id'), page_id => $nav_item->page_id" data-id="{$nav_item->id}" data-page_id = "{$nav_item->page_id}" data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}" data-url="{link saveTemporary!}">{$nav_item->title}</a>
                     </li>
+                    {/if}
                 {/foreach}
                 <li id="page_drop_down_container" class="dropdown hide">
                     <a class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -33,6 +35,13 @@
                         <span class="caret"></span>
                     </a>
                     <ul id="page_drop_down" class="dropdown-menu" aria-labelledby="dropdownMenu">
+                        {foreach $nav_items as $nav_item}
+                            {if ($nav_item->new)}
+                                <li n:class="!$nav_item->active ? hide">
+                                    <a n:href="Project:edit id => $presenter->getParameter('id'), page_id => $nav_item->page_id" data-id="{$nav_item->id}" data-page_id = "{$nav_item->page_id}" data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}" data-url="{link saveTemporary!}">{$nav_item->title}</a>
+                                </li>
+                            {/if}
+                        {/foreach}
                     </ul>
                 </li>
                 <li><a id="menu_edit" href="#" data-toggle="modal" data-target="#menuModal"> <span
@@ -41,9 +50,11 @@
             {else}
                 <ul class="nav navbar-nav navbar-right">
                     {foreach $nav_items as $nav_item}
-                        <li n:class="!$nav_item->active ? hide">
-                            <a n:href="Project:show id => $presenter->getParameter('id'), page_id => $nav_item->page_id">{$nav_item->title}</a>
-                        </li>
+                        {if (!$nav_item->new)}
+                            <li n:class="!$nav_item->active ? hide">
+                                <a n:href="Project:edit id => $presenter->getParameter('id'), page_id => $nav_item->page_id" data-id="{$nav_item->id}" data-page_id = "{$nav_item->page_id}" data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}" data-url="{link saveTemporary!}">{$nav_item->title}</a>
+                            </li>
+                        {/if}
                     {/foreach}
                     <li id="page_drop_down_container" class="dropdown hide">
                         <a class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -51,6 +62,13 @@
                             <span class="caret"></span>
                         </a>
                         <ul id="page_drop_down" class="dropdown-menu" aria-labelledby="dropdownMenu">
+                            {foreach $nav_items as $nav_item}
+                                {if ($nav_item->new)}
+                                    <li n:class="!$nav_item->active ? hide">
+                                        <a n:href="Project:edit id => $presenter->getParameter('id'), page_id => $nav_item->page_id" data-id="{$nav_item->id}" data-page_id = "{$nav_item->page_id}" data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}" data-url="{link saveTemporary!}">{$nav_item->title}</a>
+                                    </li>
+                                {/if}
+                            {/foreach}
                         </ul>
                     </li>
                 </ul>
