@@ -450,3 +450,7 @@ a:focus {
     overflow-x:hidden;
     overflow-y:scroll;
 }
+
+#addEmail:active,#addEmail:link,#addEmail:visited{
+    color:#337ab7;
+}

@@ -47,47 +47,53 @@ class NavManager extends BaseManager
             ->fetchAll();
     }
 
-    /** TODO: Check in Presenter if nav item exist. If not add new nav and temp nav */
 
     public function update($data, $page_id, $publish) {
 
-        $nav_item = $this->getDatabase()->table(self::$table)
+        return $this->getDatabase()->table(self::$table)
             ->where('page_id',$page_id)
-            ->where('publish',$publish);
-        if($nav_item->count()) {
-            return $nav_item->update(array(
+            ->where('publish',$publish)
+            ->update(array(
                 'title' => $data['text'],
                 'sort_order' => $data['sort_order'],
                 'active' => $data['active']
             ));
-        } else {
-            return $this->getDatabase()->table(self::$table)
-                ->insert([
-                    'title' => $data['text'],
-                    'sort_order' => $data['sort_order'],
-                    'active' => $data['active'],
-                    'new' => 1
-                ]);
-        }
+
     }
 
     public function publish($project_id)
     {
      $temp_navs = $this->get($project_id,0);
 
+
         foreach($temp_navs as $temp_nav) {
             $page_relationship = $this->getDatabase()->table('page_relationships')
                 ->where('temp_id', $temp_nav->page_id)
                 ->fetch();
-            $this->getDatabase()->table(self::$table)
+            $publish_nav = $this->getDatabase()->table(self::$table)
                 ->where('page_id',$page_relationship->publish_id)
-                ->where('publish',1)
-                ->update([
+                ->where('publish',1);
+
+            if($publish_nav->count()){
+                bdump('Found');
+            } else {
+                bdump('Not found');
+            }
+
+            if($publish_nav->count()){
+                $publish_nav->update([
                     'url' => $temp_nav->url,
                     'sort_order' => $temp_nav->sort_order,
                     'active' => $temp_nav->active,
                     'title' => $temp_nav->title
                 ]);
+            } else {
+                $new_publish_nav = $temp_nav->toArray();
+                $new_publish_nav['page_id'] = $page_relationship->publish_id;
+
+                $this->add(Nette\Utils\ArrayHash::from($new_publish_nav),1);
+            }
+
         }
     }
 

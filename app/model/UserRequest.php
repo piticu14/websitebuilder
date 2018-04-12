@@ -4,11 +4,12 @@ namespace App\Model;
 
 use Nette;
 
-//TODO: If user used the request set it in DB
-//TODO: Settings -> EmailVerification - If user ask for resending EmailVerification request, delete the old one
 
 class UserRequest extends BaseManager
 {
+
+    private static $table = 'user_request';
+    
     /**
      * Check if the request token exists to be sure that user doesn't change the token in link
      * @param string $token
@@ -16,7 +17,7 @@ class UserRequest extends BaseManager
      */
 
     public function checkToken($token){
-        if($this->getDatabase()->table('user_request')->where('token',$token)->count()) {
+        if($this->getDatabase()->table(self::$table)->where('token',$token)->count()) {
             return true;
         }
         return false;
@@ -36,7 +37,7 @@ class UserRequest extends BaseManager
             'token' => bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM)),
             'sent_at' => date("Y-m-d H:i:s")
         );
-        return $this->getDatabase()->table('user_request')->insert($data);
+        return $this->getDatabase()->table(self::$table)->insert($data);
     }
 
     /**
@@ -45,7 +46,7 @@ class UserRequest extends BaseManager
      * @return bool|mixed|Nette\Database\Table\IRow|null
      */
     public function get($token, $type){
-        $request = $this->getDatabase()->table('user_request')
+        $request = $this->getDatabase()->table(self::$table)
             ->where('token',$token)
             ->where('type',$type);
 
@@ -62,16 +63,26 @@ class UserRequest extends BaseManager
      */
     public function deleteOld($emailId, $type)
     {
-        $this->getDatabase()->table('user_request')->where('user_email_id',$emailId)
+        $this->getDatabase()->table(self::$table)->where('user_email_id',$emailId)
             ->where('type',$type)
             ->delete();
     }
 
     public function getEmail($token){
-        $userRequest = $this->getDatabase()->table('user_request')
+        $userRequest = $this->getDatabase()->table(self::$table)
             ->where('token',$token)->fetch();
         return $this->getDatabase()->table('user_email')
             ->where(':user_request.user_email_id',$userRequest->user_email_id)->fetch();
+    }
+
+    public function used($token)
+    {
+
+        return $this->getDatabase()->table(self::$table)
+            ->where('token',$token)
+            ->update([
+                'used' => 1
+            ]);
     }
 
 }

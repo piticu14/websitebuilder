@@ -12,9 +12,11 @@ use Nette;
 
 class PageManager extends BaseManager
 {
+    private static $table = 'page';
+
     private function getAll($project_id,$publish)
     {
-        return $this->getDatabase()->table('page')
+        return $this->getDatabase()->table(self::$table)
             ->where('project_id',$project_id)
             ->where('publish',$publish)
             ->fetchAll();
@@ -22,7 +24,7 @@ class PageManager extends BaseManager
 
     public function add($data)
     {
-        $temp_page = $this->getDatabase()->table('page')
+        $temp_page = $this->getDatabase()->table(self::$table)
             ->insert([
                 'project_id' => $data->project_id,
                 'title' => $data->title,
@@ -31,7 +33,7 @@ class PageManager extends BaseManager
                 'publish' => 0
             ]);
 
-        $publish_page = $this->getDatabase()->table('page')
+        $publish_page = $this->getDatabase()->table(self::$table)
             ->insert([
                 'project_id' => $data->project_id,
                 'title' => $data->title,
@@ -51,7 +53,7 @@ class PageManager extends BaseManager
     public function deleteAll($project_id)
     {
 
-        $pages = $this->getDatabase()->table('page')
+        $pages = $this->getDatabase()->table(self::$table)
             ->where('project_id',$project_id)->fetchAll();
 
         foreach ($pages as $page) {
@@ -60,14 +62,14 @@ class PageManager extends BaseManager
                 ->delete();
         }
 
-        return $this->getDatabase()->table('page')
+        return $this->getDatabase()->table(self::$table)
             ->where('project_id',$project_id)
             ->delete();
     }
 
     public function first($project_id)
     {
-        $pages = $this->getDatabase()->table('page')
+        $pages = $this->getDatabase()->table(self::$table)
                 ->where('project_id',$project_id)->fetchAll();
         $page_temp_nav = null;
 
@@ -91,12 +93,12 @@ class PageManager extends BaseManager
 
     public function get($id)
     {
-        return $this->getDatabase()->table('page')->get($id);
+        return $this->getDatabase()->table(self::$table)->get($id);
     }
 
     public function update($data, $id)
     {
-        return $this->getDatabase()->table('page')
+        return $this->getDatabase()->table(self::$table)
             ->where('id',$id)
             ->update([
                 'title' => $data['title'],
@@ -113,7 +115,6 @@ class PageManager extends BaseManager
             $page_relationship = $this->getDatabase()->table('page_relationships')
                 ->where('temp_id',$temp_page->id)
                 ->fetch();
-            bdump($page_relationship);
 
             $this->update($temp_page,$page_relationship->publish_id);
         }

@@ -7,13 +7,15 @@ use Nette;
 class Users extends BaseManager
 {
 
+    private static $table = 'user';
+
     /**
      * @param array $data
      * @return bool|int|Nette\Database\Table\IRow
      */
     public function register($data)
     {
-        return$this->getDatabase()->table('user')->insert(
+        return$this->getDatabase()->table(self::$table)->insert(
             [
                 'username' => $data->username,
                 'password' => password_hash($data->password, PASSWORD_DEFAULT),
@@ -42,7 +44,7 @@ class Users extends BaseManager
      */
     public function update($data)
     {
-        return $this->getDatabase()->table('user')->update($data);
+        return $this->getDatabase()->table(self::$table)->update($data);
     }
 
     /**
@@ -53,7 +55,7 @@ class Users extends BaseManager
      */
     public function getBy($column,$value)
     {
-        $user = $this->getDatabase()->table('user')->where($column,$value);
+        $user = $this->getDatabase()->table(self::$table)->where($column,$value);
         if($user->count()) {
             return $user->fetch();
         }
@@ -68,7 +70,7 @@ class Users extends BaseManager
      */
     public function checkUsername($username)
     {
-       return $this->getDatabase()->table('user')
+       return $this->getDatabase()->table(self::$table)
             ->where('username', $username)
             ->count();
     }
@@ -110,15 +112,16 @@ class Users extends BaseManager
 
     public function activate($email)
     {
-        $this->getDatabase()->table('user')->where('email',$email)
+        $this->getDatabase()->table(self::$table)
+            ->where('email',$email)
             ->update([
                 'active' => 1
             ]);
-        $this->getDatabase()->table('user_email')->where('email',$email)
+        $this->getDatabase()->table('user_email')
+            ->where('email',$email)
             ->update([
                 'active' => 1
             ]);
-
     }
 
     public function isActive($email)
@@ -145,9 +148,11 @@ class Users extends BaseManager
 
     /** TODO: Set to primary only if email is active*/
     /** TODO: Maybe delete active column from user and use active from email */
+    /** TODO: If email address already exists throw error */
+    /** TODO: Create new class for UserEmail */
     public function setPrimaryEmail($email)
     {
-        $this->getDatabase()->table('user')
+        $this->getDatabase()->table(self::$table)
             ->where('id',$this->getUser()->id)
             ->update([
                 'email' => $email

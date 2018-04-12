@@ -53,6 +53,8 @@ class SettingsPresenter extends AdminBasePresenter
 
     private function sendEmailActivation($userEmail)
     {
+
+        $this->userRequest->deleteOld($userEmail->id,'emailVerification');
         $param = array(
             'from' => 'FastWeb <support@fastweb.cz>',
             'to' => $userEmail->email,

@@ -343,7 +343,6 @@ class ProjectPresenter  extends AdminBasePresenter
 
 
         $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
-        bdump($nav_array);
         foreach ($nav_array as $sort_order => $nav){
             $nav['sort_order'] = $sort_order;
             if(is_numeric($nav['id'])){
@@ -357,12 +356,12 @@ class ProjectPresenter  extends AdminBasePresenter
                 $nav['page_id'] = $newPage->temp_id;
                 $this->navManager->add(Nette\Utils\ArrayHash::from($nav),0);
 
+                /*
                 $nav['page_id'] = $newPage->publish_id;
                 $this->navManager->add(Nette\Utils\ArrayHash::from($nav),1);
+                */
             }
 
-
-            //$this->projectTempDataManager->update($nav,$nav['page_id'],'nav');
         }
 
         $logo_array = Json::decode($logo, Json::FORCE_ARRAY);

@@ -8,6 +8,8 @@ use Nette;
 
 abstract class BaseManager extends Nette\Object
 {
+
+
     /**
      * @var Nette\Database\Context
      */

@@ -158,6 +158,8 @@ class AccountPresenter extends FrontBasePresenter
                 $RPRequestExpiredTime = $RPRequestTime->modifyClone('+10 minutes');
                 if($now > $RPRequestExpiredTime) {
                     $this->setView('../../../../app/presenters/templates/Error/410');
+                } else {
+                    $this->userRequest->used($token);
                 }
             } else {
                 $this->setView('../../../../app/presenters/templates/Error/410');
@@ -169,11 +171,13 @@ class AccountPresenter extends FrontBasePresenter
     {
         if($this->userRequest->checkToken($token)) {
             $userEmail = $this->userRequest->getEmail($token);
+
             if($this->users->isActive($userEmail->email)) {
                 $this->flashMessage('Váš účet je již aktivován.','info');
                 $this->redirect('Account:signin');
             }
             $this->users->activate($userEmail->email);
+            $this->userRequest->used($token);
             $this->flashMessage('Váš účet byl aktivován. Můžete se přihlásit');
             $this->redirect('Account:signin');
         } else {

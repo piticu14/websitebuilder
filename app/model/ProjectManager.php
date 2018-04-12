@@ -9,6 +9,9 @@ use Nette\Utils\Json;
 
 class ProjectManager extends BaseManager
 {
+
+    private static $table = 'project';
+
     /**
      * @var PageManager
      */
@@ -67,7 +70,7 @@ class ProjectManager extends BaseManager
 
     public function getAll()
     {
-        $projects = $this->getDatabase()->table('project')
+        $projects = $this->getDatabase()->table(self::$table)
             ->select('project.*,template.title AS template_title')
             ->where('project.user_id',$this->getUser()->id)->fetchAll();
 
@@ -96,7 +99,7 @@ class ProjectManager extends BaseManager
     }
     public function add($data)
     {
-        $project = $this->getDatabase()->table('project')->insert([
+        $project = $this->getDatabase()->table(self::$table)->insert([
             'template_id' => $data->template_id,
             'user_id' => $this->getUser()->id,
             'subdomain' => Strings::trim($data->subdomain),
@@ -180,14 +183,14 @@ class ProjectManager extends BaseManager
 
     public function subdomainDuplicate($subdomain)
     {
-        return $this->getDatabase()->table('project')
+        return $this->getDatabase()->table(self::$table)
             ->where('subdomain',$subdomain)
             ->count();
     }
 
     public function getLastInsertedId()
     {
-        return $this->getDatabase()->table('project')
+        return $this->getDatabase()->table(self::$table)
             ->order('id DESC')
             ->limit(1)
             ->fetch()->id;
@@ -195,7 +198,7 @@ class ProjectManager extends BaseManager
 
     public function get($id)
     {
-        return $this->getDatabase()->table('project')
+        return $this->getDatabase()->table(self::$table)
             ->select('project.*,template.title AS template_title')
             ->where('project.id',$id)
             ->fetch();
@@ -204,7 +207,7 @@ class ProjectManager extends BaseManager
     public function patch($data)
     {
 
-        $this->getDatabase()->table('project')->where('id',$data->id)->update($data);
+        $this->getDatabase()->table(self::$table)->where('id',$data->id)->update($data);
     }
 
     public function delete($id)
@@ -216,7 +219,7 @@ class ProjectManager extends BaseManager
         $this->footerManager->delete($id);
         $this->pageItemManager->deleteAll($id);
         $this->pageManager->deleteAll($id);
-        $this->getDatabase()->table('project')
+        $this->getDatabase()->table(self::$table)
             ->where('id',$id)
             ->delete();
     }
