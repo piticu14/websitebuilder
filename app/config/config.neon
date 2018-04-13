@@ -30,6 +30,7 @@ services:
 	- App\Model\PageItemManager
 	- App\Model\FooterManager
 	- App\Model\UserRequest
+	- App\Model\UserEmail
 	- App\Model\EmailNotification(%appDir%/presenters/templates/Emails/)
 	authenticator: Authenticator
 

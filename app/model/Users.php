@@ -10,6 +10,19 @@ class Users extends BaseManager
     private static $table = 'user';
 
     /**
+     * @var UserEmail
+     */
+    private $userEmail;
+
+
+    public function __construct(UserEmail $userEmail,Nette\Database\Context $database, Nette\Security\User $user)
+    {
+        parent::__construct($database,$user);
+        $this->userEmail = $userEmail;
+    }
+
+
+    /**
      * @param array $data
      * @return bool|int|Nette\Database\Table\IRow
      */
@@ -26,16 +39,7 @@ class Users extends BaseManager
         );
     }
 
-    public function addEmail($userId, $email, $isPrimary = 0)
-    {
-        return $this->getDatabase()->table('user_email')->insert(
-            [
-                'user_id' => $userId,
-                'email' => $email,
-                'is_primary' => $isPrimary
-            ]
-        );
-    }
+
 
     /**
      * Updates user's informations
@@ -74,18 +78,7 @@ class Users extends BaseManager
             ->where('username', $username)
             ->count();
     }
-    /**
-     * Check if email already exists
-     * @param string $email
-     * @return int
-     */
 
-    public function checkEmail($email)
-    {
-        return $this->getDatabase()->table('user_email')
-            ->where('email',$email)
-            ->count();
-    }
 
     /**
      * @return array
@@ -112,16 +105,13 @@ class Users extends BaseManager
 
     public function activate($email)
     {
+        $this->userEmail->activate($email);
         $this->getDatabase()->table(self::$table)
             ->where('email',$email)
             ->update([
                 'active' => 1
             ]);
-        $this->getDatabase()->table('user_email')
-            ->where('email',$email)
-            ->update([
-                'active' => 1
-            ]);
+
     }
 
     public function isActive($email)
@@ -130,47 +120,18 @@ class Users extends BaseManager
     }
 
 
-    /*----------------------------------------User Emails------------------------- */
-    public function getEmail($email){
-        return $this->getDatabase()->table('user_email')->where('email',$email)->fetch();
-    }
-
-    public function activateEmail($email){
-        return $this->getDatabase()->table('user_email')->where('email',$email)->update([
-            'active' => 1
-        ]);
-    }
-
-    public function getAllEmails()
-    {
-        return $this->getDatabase()->table('user_email')->where('user_id',$this->getUser()->id)->fetchAll();
-    }
-
     /** TODO: Maybe delete active column from user and use active from email */
-    /** TODO: If email address already exists throw error */
-    /** TODO: Create new class for UserEmail */
     public function setPrimaryEmail($email)
     {
 
-        $userEmail = $this->getDatabase()->table('user_email')
-            ->where('email',$email)
-            ->fetch();
+        $userEmail = $this->userEmail->get($email);
         if($userEmail->active){
             $this->getDatabase()->table(self::$table)
                 ->where('id',$this->getUser()->id)
                 ->update([
                     'email' => $email
                 ]);
-            $this->getDatabase()->table('user_email')
-                ->where('is_primary',1)
-                ->update([
-                    'is_primary' => 0
-                ]);
-            $this->getDatabase()->table('user_email')
-                ->where('email',$email)
-                ->update([
-                    'is_primary' => 1
-                ]);
+            $this->userEmail->setPrimary($email);
             return true;
         }
 

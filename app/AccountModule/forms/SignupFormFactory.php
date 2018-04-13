@@ -5,6 +5,7 @@ use Nette\Application\UI\Form;
 use App\Model\Users;
 use App\Model\EmailNotification;
 use App\Model\UserRequest;
+use App\Model\UserEmail;
 
 class SignupFormFactory
 {
@@ -17,6 +18,9 @@ class SignupFormFactory
     /** @var UserRequest */
     private $userRequest;
 
+    /** @var UserEmail */
+     private $userEmail;
+
     /** @var string */
     private $baseUrl;
 
@@ -25,14 +29,16 @@ class SignupFormFactory
      * @param Users $users
      * @param EmailNotification $emailNotification
      * @param UserRequest $userRequest
+     * @param UserEmail $userEmail
      * @param string $baseUrl
      */
 
-    public function __construct(Users $users, EmailNotification $emailNotification, UserRequest $userRequest, $baseUrl)
+    public function __construct(Users $users, EmailNotification $emailNotification, UserRequest $userRequest, \App\Model\UserEmail $userEmail, $baseUrl)
     {
         $this->users = $users;
         $this->emailNotification = $emailNotification;
         $this->userRequest = $userRequest;
+        $this->userEmail = $userEmail;
         $this->baseUrl = $baseUrl;
     }
 
@@ -77,7 +83,7 @@ class SignupFormFactory
     public function signupFormSucceeded($form, $values)
     {
                 if(($new_user = $this->users->register($values)) !== false) {
-                    $userEmail = $this->users->addEmail($new_user->id,$values->email,1);
+                    $userEmail = $this->userEmail->add($new_user->id,$values->email,1);
                     $param = array(
                         'from' => 'FastWeb <support@fastweb.cz>',
                         'to' => $values->email,
