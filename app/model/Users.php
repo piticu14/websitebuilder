@@ -146,28 +146,35 @@ class Users extends BaseManager
         return $this->getDatabase()->table('user_email')->where('user_id',$this->getUser()->id)->fetchAll();
     }
 
-    /** TODO: Set to primary only if email is active*/
     /** TODO: Maybe delete active column from user and use active from email */
     /** TODO: If email address already exists throw error */
     /** TODO: Create new class for UserEmail */
     public function setPrimaryEmail($email)
     {
-        $this->getDatabase()->table(self::$table)
-            ->where('id',$this->getUser()->id)
-            ->update([
-                'email' => $email
-            ]);
-        $this->getDatabase()->table('user_email')
-            ->where('is_primary',1)
-            ->update([
-                'is_primary' => 0
-            ]);
-        $this->getDatabase()->table('user_email')
-            ->where('email',$email)
-            ->update([
-                'is_primary' => 1
-            ]);
 
+        $userEmail = $this->getDatabase()->table('user_email')
+            ->where('email',$email)
+            ->fetch();
+        if($userEmail->active){
+            $this->getDatabase()->table(self::$table)
+                ->where('id',$this->getUser()->id)
+                ->update([
+                    'email' => $email
+                ]);
+            $this->getDatabase()->table('user_email')
+                ->where('is_primary',1)
+                ->update([
+                    'is_primary' => 0
+                ]);
+            $this->getDatabase()->table('user_email')
+                ->where('email',$email)
+                ->update([
+                    'is_primary' => 1
+                ]);
+            return true;
+        }
+
+        return false;
     }
 
 }

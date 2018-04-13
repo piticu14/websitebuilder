@@ -451,6 +451,6 @@ a:focus {
     overflow-y:scroll;
 }
 
-#addEmail:active,#addEmail:link,#addEmail:visited{
+#collapse2 a:active,#collapse2 a:link,#collapse2 a:visited{
     color:#337ab7;
 }

@@ -44,10 +44,16 @@ class SettingsPresenter extends AdminBasePresenter
 
     public function addEmailFormSucceeded($form, $values)
     {
-        $userEmail = $this->users->addEmail($this->getUser()->id,$values->email);
-        $this->sendEmailActivation($userEmail);
-        $this->flashMessage('Právě jsme Vám poslali email s ověřením emailové adresy.', 'success');
-        $this->redirect('this');
+
+        if($this->users->checkEmail($values['email'])){
+            $this->flashMessage('Emailová adresa již v databázi existuje.', 'danger');
+            $this->redrawControl('flashes');
+        }else {
+            $userEmail = $this->users->addEmail($this->getUser()->id,$values->email);
+            $this->sendEmailActivation($userEmail);
+            $this->flashMessage('Právě jsme Vám poslali email s ověřením emailové adresy.', 'success');
+            $this->redirect('this');
+        }
 
     }
 
@@ -96,8 +102,13 @@ class SettingsPresenter extends AdminBasePresenter
     public function handleSetPrimary($email)
     {
         if($this->isAjax()) {
-            $this->users->setPrimaryEmail($email);
-            $this->template->userEmails = $this->users->getAllEmails();
+            if($this->users->setPrimaryEmail($email)){
+                $this->template->userEmails = $this->users->getAllEmails();
+            } else {
+                $this->flashMessage('Váš email není aktivován. Nelze nastavit jako primární', 'danger');
+                $this->redrawControl('flashes');
+            }
+
         }
         $this->redrawControl('emailSettings');
 
