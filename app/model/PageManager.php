@@ -117,14 +117,23 @@ class PageManager extends BaseManager
 
     public function publish($project_id)
     {
-        $temp_pages = $this->getAll($project_id,0);
+        $temp_pages = $this->getDatabase()->table(self::$table)
+            ->where('project_id',$project_id)
+            ->where('publish',0)
+            ->fetchAll();
+
 
         foreach($temp_pages as $temp_page) {
             $page_relationship = $this->getDatabase()->table('page_relationships')
                 ->where('temp_id',$temp_page->id)
                 ->fetch();
 
-            $this->update($temp_page,$page_relationship->publish_id);
+            if($temp_page->deleted_at === NULL){
+                $this->update($temp_page,$page_relationship->publish_id);
+
+            }else{
+                $this->delete($page_relationship->publish_id);
+            }
         }
     }
 

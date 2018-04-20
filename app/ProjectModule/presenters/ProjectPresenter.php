@@ -354,7 +354,6 @@ class ProjectPresenter  extends AdminBasePresenter
                 $this->pageManager->update($nav,$nav['page_id']);
             }else{
                 $nav['project_id'] = $this->getParameter('id');
-                $nav['new'] = true;
 
                 $newPage = $this->pageManager->add(Nette\Utils\ArrayHash::from($nav));
                 $nav['page_id'] = $newPage->temp_id;

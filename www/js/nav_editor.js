@@ -3,6 +3,7 @@
 /* Initialize modal box by adding nav items and show first item for editation */
 
 function init() {
+
     var modal_body = $('#nav_body');
     var modal_menu_links = $('.modal-menu-links');
     var title = $(modal_menu_links).first().data('title');
@@ -96,7 +97,7 @@ function change_menuitem_text() {
     });
 }
 
-function hideDropDownMenu(state) {
+function hideDropDownMenu() {
     var hide = true;
     $('#page_drop_down li').each(function() {
         if(!$(this).hasClass('hide')){
@@ -128,8 +129,14 @@ function savePage() {
     modal_link.data('active',1);
     var parent = $('<li></li>');
     parent.append(modal_link);
-    $('#page_drop_down').append(parent);
-    console.log(guid());
+    console.log($('#menu a').not(':last,#dropdownMenu').length);
+    if($('#menu a').not(':last,#dropdownMenu').length < 4){
+        parent.addClass('hide');
+        parent.insertBefore('#page_drop_down_container')
+    }else {
+        $('#page_drop_down').append(parent);
+    }
+
 }
 
 function guid() {

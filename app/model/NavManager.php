@@ -18,15 +18,36 @@ class NavManager extends BaseManager
 
     public function add($data, $publish)
     {
-        return $this->getDatabase()->table(self::$table)
-            ->insert([
-                'page_id' => $data->page_id,
-                'title' => $data->title,
-                'url' => Strings::lower($data->title),
-                'sort_order' => $data->sort_order,
-                'new' => isset($data->new) ? 1 : 0,
-                'publish' => $publish
-            ]);
+        $page_count = $this->getDatabase()->table('page')
+            ->where('project_id',$data->project_id)
+            ->where('publish',$publish)
+            ->where('deleted_at',null)
+            ->count();
+
+        bdump($page_count);
+        if($page_count <= 4) {
+            return $this->getDatabase()->table(self::$table)
+                ->insert([
+                    'page_id' => $data->page_id,
+                    'title' => $data->title,
+                    'url' => Strings::lower($data->title),
+                    'sort_order' => $data->sort_order,
+                    'new' => 0,
+                    'publish' => $publish
+                ]);
+        } else {
+            return $this->getDatabase()->table(self::$table)
+                ->insert([
+                    'page_id' => $data->page_id,
+                    'title' => $data->title,
+                    'url' => Strings::lower($data->title),
+                    'sort_order' => $data->sort_order,
+                    'new' => 1,
+                    'publish' => $publish
+                ]);
+        }
+
+
 
     }
 
@@ -81,24 +102,29 @@ class NavManager extends BaseManager
                 ->where('page_id',$page_relationship->publish_id)
                 ->where('publish',1);
 
-            if($publish_nav->count()){
-                bdump('Found');
-            } else {
-                bdump('Not found');
-            }
+            if($publish_nav->count()) {
 
-            if($publish_nav->count()){
                 $publish_nav->update([
                     'url' => $temp_nav->url,
                     'sort_order' => $temp_nav->sort_order,
                     'active' => $temp_nav->active,
-                    'title' => $temp_nav->title
+                    'title' => $temp_nav->title,
                 ]);
+
             } else {
                 $new_publish_nav = $temp_nav->toArray();
                 $new_publish_nav['page_id'] = $page_relationship->publish_id;
+                $new_publish_nav['project_id'] = $project_id;
 
-                $this->add(Nette\Utils\ArrayHash::from($new_publish_nav),1);
+                $this->getDatabase()->table(self::$table)
+                    ->insert([
+                        'page_id' => $new_publish_nav['page_id'],
+                        'title' => $new_publish_nav['title'],
+                        'url' => Strings::lower($new_publish_nav['title']),
+                        'sort_order' => $new_publish_nav['sort_order'],
+                        'new' => $new_publish_nav['new'],
+                        'publish' => 1
+                    ]);
             }
 
         }
