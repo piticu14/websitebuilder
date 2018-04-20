@@ -77,13 +77,14 @@ class PageManager extends BaseManager
                 ->where('deleted_at',NULL)
                 ->fetchAll();
         $page_temp_nav = null;
-
         foreach($pages as $page){
             $page_temp_nav = $this->getDatabase()->table('nav')
+                ->select('*')
                 ->where('page_id',$page->id)
                 ->where('sort_order',0)
                 ->where('publish',0)
                 ->fetch();
+            bdump($page_temp_nav);
             if($page_temp_nav) {
                 break;
             }
@@ -127,4 +128,12 @@ class PageManager extends BaseManager
         }
     }
 
+    public function delete($id)
+    {
+        return $this->getDatabase()->table(self::$table)
+            ->where('id',$id)
+            ->update([
+                'deleted_at' => date("Y-m-d H:i:s")
+            ]);
+    }
 }

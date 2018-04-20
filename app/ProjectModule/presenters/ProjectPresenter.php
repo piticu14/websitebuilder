@@ -187,7 +187,7 @@ class ProjectPresenter  extends AdminBasePresenter
 
         $this->template->footer = $this->footerManager->get($id,$publish);
         $this->template->social_media = JSON::decode($this->template->footer->social_media,JSON::FORCE_ARRAY);
-        bdump($this->template->social_media);
+
 
 
         $this->template->page_items = $this->pageItemManager->getAll($page_id,$publish);
@@ -384,6 +384,13 @@ class ProjectPresenter  extends AdminBasePresenter
 
     }
 
+    public function handleDeletePage($pid)
+    {
+        $this->pageManager->delete($pid);
+
+
+    }
+
     public function renderShow($id,$page_id)
     {
         $project = $this->projectManager->get($id);
@@ -392,6 +399,7 @@ class ProjectPresenter  extends AdminBasePresenter
         }
         $this->initTemplateVariables($id,$page_id,1);
     }
+
 
 
 

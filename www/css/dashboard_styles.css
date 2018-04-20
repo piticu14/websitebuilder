@@ -445,3 +445,7 @@ a:focus {
 #collapse2 a:active,#collapse2 a:link,#collapse2 a:visited{
     color:#337ab7;
 }
+
+.deletePage{
+    float:right;
+}

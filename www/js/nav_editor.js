@@ -13,7 +13,7 @@ function init() {
     modal_body.find('.col-md-4').trigger('change');
 
     //$('#menuModalTitle').text('Editace stránek');
-    $('#nav_body').find('ul').sortable({ items: "> li:not(:last)" });
+    $('#nav_body').find('ul').sortable({ items: "> li:not(:first,:last)" });
 
     $('#nav_title').html(
         '<a data-id="' + $(modal_menu_links).first().data('id') + '" class="text-left" href="#"><span id="edit_menu_icon" class="glyphicon glyphicon-edit"></span>' + modal_body.find('a.modal-menu-links').first().text() +'</a>'
@@ -281,7 +281,7 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
     $('#page_items').empty();
     $('#page_items').hide().fadeIn('slow');
 
-    $('#menu a').not(':last,#dropdownMenu').each(function(){
+    $('#menu a').not(':last,#dropdownMenu').each(function(index){
 
          var modal_link = $('<a></a>');
         modal_link.addClass('modal-menu-links padding-left');
@@ -297,6 +297,9 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
         i.addClass('glyphicon glyphicon-file');
         parent.append(i);
         parent.append(modal_link);
+        if(index != 0){
+            parent.append('<a class="deletePage" href="javascript:;" data-id="'+ $(this).data('page_id') + '" ><i class="glyphicon glyphicon-trash"></i></a>');
+        }
         $('#page_items').append(parent);
 
     });
@@ -322,8 +325,31 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
             change_menuitem_text();
         });
     });
-});
 
+    $('.deletePage').each(function(){
+        $(this).off().on('click',function(){
+
+            var button = $(this);
+
+            $.nette.ajax({
+                url: $('#page_items').data('url'),
+                type: "POST",
+                data: { pid: $(this).data('id')},
+                error: function(jqXHR,status,error) {
+                    console.log(jqXHR);
+                    console.log(status);
+                    console.log(error);
+                },
+                success: function(payload) {
+                    button.parent().remove();
+                    $('#menu a[data-page_id = ' + button.data('id') +']').parent().remove();
+                }
+            });
+
+        });
+
+    });
+});
 /* Hide modal content when modal is closed */
 
 $('#menuModal').on('hidden.bs.modal', function () {
