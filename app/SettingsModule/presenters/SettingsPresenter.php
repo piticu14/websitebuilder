@@ -60,9 +60,9 @@ class SettingsPresenter extends AdminBasePresenter
             $this->flashMessage('Emailová adresa již v databázi existuje.', 'danger');
             $this->redrawControl('flashes');
         } else {
-            $userEmail = $this->userEmail->add($this->getUser()->id, $values->email);
-            $this->sendEmailActivation($userEmail);
-            $this->flashMessage('Právě jsme Vám poslali email s ověřením emailové adresy.', 'success');
+            //$userEmail = $this->userEmail->add($this->getUser()->id, $values->email);
+            //$this->sendEmailActivation($userEmail);
+            $this->flashMessage('Vaš email byl úspěšně přidan.', 'success');
             $this->redirect('this');
         }
 
@@ -83,7 +83,7 @@ class SettingsPresenter extends AdminBasePresenter
                 'link' => $this->getHttpRequest()->getUrl()->getBaseUrl() . 'activate/email'
             )
         );
-        //$this->emailNotification->send($param);
+        $this->emailNotification->send($param);
     }
 
     public function actionEmailActivation($token)
