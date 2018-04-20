@@ -29,11 +29,13 @@ class HeaderManager extends BaseManager
 
     }
 
+    /*
     public function delete($project_id)
     {
         return $this->getDatabase()->table(self::$table)->where('project_id', $project_id)->delete();
     }
 
+    */
     public function get($project_id, $publish)
     {
 
@@ -52,7 +54,8 @@ class HeaderManager extends BaseManager
             ->update([
                 'title' => $data['title'],
                 'subtitle' => $data['subtitle'],
-                'logo' => Json::encode($data['logo'], Json::PRETTY)
+                'logo' => Json::encode($data['logo'], Json::PRETTY),
+                'updated_at' => date("Y-m-d H:i:s")
             ]);
     }
 

@@ -35,10 +35,12 @@ class FooterManager extends BaseManager
             ->fetch();
     }
 
+    /*
     public function delete($project_id)
     {
         return $this->getDatabase()->table(self::$table)->where('project_id', $project_id)->delete();
     }
+    */
 
     public function update($project_id, $data, $publish)
     {
@@ -47,7 +49,8 @@ class FooterManager extends BaseManager
             ->where('publish',$publish)
             ->update([
                 'content' => $data['content'],
-                'social_media' =>  Json::encode($data['social_media'], Json::PRETTY)
+                'social_media' =>  Json::encode($data['social_media'], Json::PRETTY),
+                'updated_at' => date("Y-m-d H:i:s")
             ]);
     }
 

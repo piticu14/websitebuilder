@@ -30,11 +30,17 @@ class NavManager extends BaseManager
 
     }
 
+    /*
     public function delete($project_id)
     {
         $pages = $this->getDatabase()->table('page')->where('project_id',$project_id);
-        return $this->getDatabase()->table(self::$table)->where('page_id',$pages)->delete();
+        return $this->getDatabase()->table(self::$table)
+            ->where('page_id',$pages)
+            ->update([
+                'deleted_at' => date("Y-m-d H:i:s")
+            ]);
     }
+    */
 
     public function get($project_id, $publish)
     {
@@ -43,6 +49,7 @@ class NavManager extends BaseManager
             ->select('page.id AS page_id,page.title AS page_title,page.description,page.keywords,nav.*')
             ->where('page.project_id', $project_id)
             ->where('nav.publish',$publish)
+            ->where('page.deleted_at',NULL)
             ->order('sort_order','ASC')
             ->fetchAll();
     }

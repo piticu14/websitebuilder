@@ -72,6 +72,7 @@ class ProjectManager extends BaseManager
     {
         $projects = $this->getDatabase()->table(self::$table)
             ->select('project.*,template.title AS template_title')
+            ->where('deleted_at',NULL)
             ->where('project.user_id',$this->getUser()->id)->fetchAll();
 
 
@@ -172,7 +173,7 @@ class ProjectManager extends BaseManager
             ]);
 
         $footer_data = array(
-            'content' => '© 2018 FastWeb | Všechna práva vyhrazena.',
+            'content' => '<p>© 2018 FastWeb | Všechna práva vyhrazena.</p>',
             'social_media' => Json::encode($social_media)
         );
 
@@ -207,21 +208,34 @@ class ProjectManager extends BaseManager
     public function patch($data)
     {
 
-        $this->getDatabase()->table(self::$table)->where('id',$data->id)->update($data);
+        $this->getDatabase()->table(self::$table)
+            ->where('id',$data->id)
+            ->update($data);
     }
 
     public function delete($id)
     {
 
 
-        $this->navManager->delete($id);
-        $this->headerManager->delete($id);
-        $this->footerManager->delete($id);
-        $this->pageItemManager->deleteAll($id);
-        $this->pageManager->deleteAll($id);
+        //$this->navManager->delete($id);
+        //$this->headerManager->delete($id);
+        //$this->footerManager->delete($id);
+        //$this->pageItemManager->deleteAll($id);
+        //$this->pageManager->deleteAll($id);
         $this->getDatabase()->table(self::$table)
             ->where('id',$id)
-            ->delete();
+            ->update([
+                'deleted_at' => date("Y-m-d H:i:s"),
+            ]);
+    }
+
+    public function updateTime($id)
+    {
+        $this->getDatabase()->table(self::$table)
+            ->where('id',$id)
+            ->update([
+                'updated_at' => date("Y-m-d H:i:s")
+            ]);
     }
 
 

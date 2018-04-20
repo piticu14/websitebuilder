@@ -126,7 +126,7 @@ class Users extends BaseManager
 
         $userEmail = $this->userEmail->get($email);
         if($userEmail->active){
-            $this->getDatabase()->table(self::$table)
+            $this->getDatabase()->table('user')
                 ->where('id',$this->getUser()->id)
                 ->update([
                     'email' => $email

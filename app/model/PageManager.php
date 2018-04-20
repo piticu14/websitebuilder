@@ -19,6 +19,7 @@ class PageManager extends BaseManager
         return $this->getDatabase()->table(self::$table)
             ->where('project_id',$project_id)
             ->where('publish',$publish)
+            ->where('deleted_at',NULL)
             ->fetchAll();
     }
 
@@ -50,6 +51,7 @@ class PageManager extends BaseManager
     }
 
 
+    /*
     public function deleteAll($project_id)
     {
 
@@ -66,11 +68,14 @@ class PageManager extends BaseManager
             ->where('project_id',$project_id)
             ->delete();
     }
+    */
 
     public function first($project_id)
     {
         $pages = $this->getDatabase()->table(self::$table)
-                ->where('project_id',$project_id)->fetchAll();
+                ->where('project_id',$project_id)
+                ->where('deleted_at',NULL)
+                ->fetchAll();
         $page_temp_nav = null;
 
         foreach($pages as $page){
@@ -96,6 +101,7 @@ class PageManager extends BaseManager
         return $this->getDatabase()->table(self::$table)->get($id);
     }
 
+    /** TODO: Update only if change exists */
     public function update($data, $id)
     {
         return $this->getDatabase()->table(self::$table)
@@ -103,7 +109,8 @@ class PageManager extends BaseManager
             ->update([
                 'title' => $data['title'],
                 'description' => $data['description'],
-                'keywords' => $data['keywords']
+                'keywords' => $data['keywords'],
+                'updated_at' => date("Y-m-d H:i:s")
             ]);
     }
 

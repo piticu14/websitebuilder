@@ -35,12 +35,21 @@ class PageItemManager extends BaseManager
 
     public function delete($id)
     {
-        return $this->getDatabase()->table(self::$table)
+        $relationship = $this->getDatabase()->table('page_item_relationships')
+            ->where('temp_id',$id)->fetch();
+
+        $this->getDatabase()->table(self::$table)
             ->where('id',$id)
             ->update([
                 'deleted_at' => date("Y-m-d H:i:s")
             ]);
+        $this->getDatabase()->table(self::$table)
+            ->where('id',$relationship->publish_id)
+            ->update([
+                'deleted_at' => date("Y-m-d H:i:s")
+            ]);
     }
+    /*
     public function deleteAll($project_id)
     {
         $pages = $this->getDatabase()->table('page')
@@ -58,11 +67,11 @@ class PageItemManager extends BaseManager
             }
         }
     }
-
+    */
     public function getAll($page_id,$publish)
     {
         return $this->getDatabase()->table(self::$table)
-            ->select('id,content,order_on_page,additional')
+            ->select('id,content,order_on_page,additional,page_id')
             ->where('page_id',$page_id)
             ->where('publish',$publish)
             ->where('deleted_at',null)
@@ -85,7 +94,7 @@ class PageItemManager extends BaseManager
                 'content' => $data['content'],
                 'order_on_page' => $data['order_on_page'],
                 'additional' => empty(array_filter($additional)) ? '' : JSON::encode($additional,Json::PRETTY),
-                'update_at' => date("Y-m-d H:i:s")
+                'updated_at' => date("Y-m-d H:i:s")
             ]);
     }
 
@@ -97,6 +106,8 @@ class PageItemManager extends BaseManager
         foreach ($pages as $page) {
             $page_items = $this->getAll($page->id,0);
             foreach ($page_items as  $page_item) {
+                bdump($page_item);
+
                 $item_relationship = $this->getDatabase()->table('page_item_relationships')
                     ->where('temp_id',$page_item->id);
 
@@ -108,7 +119,7 @@ class PageItemManager extends BaseManager
                             'content' => $page_item->content,
                             'order_on_page' => $page_item->order_on_page,
                             'additional' => $page_item->additional,
-                            'update_at' => date("Y-m-d H:i:s")
+                            'updated_at' => date("Y-m-d H:i:s")
                         ]);
                 } else {
                     $page_relationship = $this->getDatabase()->table('page_relationships')
