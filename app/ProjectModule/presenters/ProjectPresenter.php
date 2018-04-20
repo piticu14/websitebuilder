@@ -166,10 +166,10 @@ class ProjectPresenter  extends AdminBasePresenter
         $jsFiles = array();
         $cssFiles = array();
         $dir = '../www/templates/' .$project->template_title .'/';
-        foreach (Finder::findFiles('*.js')->exclude('*jquery.min*','*bootstrap.min*','jquery.js')->from($dir . 'js/') as $key => $file) {
+        foreach (Finder::findFiles('*.js')->exclude('*jquery.min*','*bootstrap.min*','jquery.js','bootstrap.js','jquery*','google_map.js')->from($dir . 'js/') as $key => $file) {
             $jsFiles[] = $file->getBasename();
         }
-        foreach (Finder::findFiles('*.css')->exclude('*jquery.min*','*bootstrap.min*')->from($dir . 'css/') as $key => $file) {
+        foreach (Finder::findFiles('*.css')->exclude('*jquery.min*','*bootstrap.min*','bootstrap.css')->from($dir . 'css/') as $key => $file) {
             $cssFiles[] = $file->getBasename();
         }
         $this->template->template_title = $project->template_title;
@@ -187,8 +187,12 @@ class ProjectPresenter  extends AdminBasePresenter
 
         $this->template->footer = $this->footerManager->get($id,$publish);
         $this->template->social_media = JSON::decode($this->template->footer->social_media,JSON::FORCE_ARRAY);
+        bdump($this->template->social_media);
+
 
         $this->template->page_items = $this->pageItemManager->getAll($page_id,$publish);
+
+        $this->template->first_page = $this->pageManager->first($id);
 
         $ids = array();
         foreach($this->template->page_items as $page_item){
@@ -227,7 +231,7 @@ class ProjectPresenter  extends AdminBasePresenter
         $path = 'user_images/' . $id;
         $this->projectManager->delete($id);
         //$this->projectTempDataManager->delete($id);
-        $this->projectManager->deleteFolder($path);
+        //$this->projectManager->deleteFolder($path);
         $this->redirect('Project:all');
     }
 
@@ -370,17 +374,25 @@ class ProjectPresenter  extends AdminBasePresenter
         $footer_array =  Json::decode($footer, Json::FORCE_ARRAY);
         $this->footerManager->update($this->getParameter('id'),$footer_array,0);
 
+        $this->projectManager->updateTime($this->getParameter('id'));
+
     }
 
     public function handleDeletePageItem($item_id)
     {
         $this->pageItemManager->delete($item_id);
+
     }
 
     public function renderShow($id,$page_id)
     {
+        $project = $this->projectManager->get($id);
+        if(!$project->active){
+            $this->setView('../../../../app/presenters/templates/Error/notActive');
+        }
         $this->initTemplateVariables($id,$page_id,1);
     }
+
 
 
 }

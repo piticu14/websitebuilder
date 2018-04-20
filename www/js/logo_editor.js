@@ -6,11 +6,11 @@ $('#logo_edit').on('click',function(){
     var title_input = $(logo_edit).find('input[name="title"]');
     var subtitle_input = $(logo_edit).find('input[name="subtitle"]');
 
-    title_input.val(logo_container.find('#title').text());
-    subtitle_input.val(logo_container.find('#subtitle').text());
+    title_input.val($('#title').text());
+    subtitle_input.val($('#subtitle').text());
 
-    logo_container.find('#title').removeData('temp');
-    logo_container.find('#subtitle').removeData('temp');
+    $('#title').removeData('temp');
+    $('#subtitle').removeData('temp');
 });
 
 $('#logoModal').on('shown.bs.modal', function (e) {
@@ -21,11 +21,10 @@ $('#logoModal').on('shown.bs.modal', function (e) {
     var selected_logo = $('#selected');
 
 
-    var title_container = logo_container.find('#title');
-    var subtitle_container = logo_container.find('#subtitle');
+    var title_container = $('#title');
+    var subtitle_container = $('#subtitle');
+    console.log(subtitle_container);
 
-    console.log(title_container.data('temp'));
-    console.log(subtitle_container.data('temp'));
 
     if(title_container.data('temp') && subtitle_container.data('temp')) {
 
@@ -40,35 +39,71 @@ $('#logoModal').on('shown.bs.modal', function (e) {
         var title = $(logo_edit).find('input[name="title"]').val();
         var subtitle = $(logo_edit).find('input[name="subtitle"]').val();
 
+
         if(selected_logo.length){
             var logo_image_container =  $('#logo_image_container');
-            logo_image_container.empty();
+            logo_image_container.children().first().remove();
             if(selected_logo.is('div')) {
                 var logo_image = $('<img>');
                 logo_image.attr('width','100px');
                 logo_image.attr('height','100px');
                 logo_image.attr('alt','User Image');
                 logo_image.attr('src',$(selected_logo).find('img').attr('src'));
-                logo_image_container.append(logo_image);
+                logo_image_container.prepend(logo_image);
+                $('#menu').attr('style','padding-top:35px !important');
             } else {
                 var logo_icon = $(selected_logo).children('span').clone();
-                logo_icon.css('font-size','5.6em'); // Base width: 18px, 100px = 5.6em
-                logo_image_container.append(logo_icon);
+                var icon = "<i class='" + logo_icon.attr('class') + "'></i>";
+                logo_image_container.prepend(icon);
+                $('#menu').attr('style','padding-top:0 !important');
             }
         }
-        logo_container.find('#title').text(title);
-        logo_container.find('#subtitle').text(subtitle);
+        $('#title').text(title);
+        $('#subtitle').text(subtitle);
 
 
 
         var text_color = logo_edit.find('.bfh-colorpicker').val();
         if(text_color) {
-            logo_container.find('#title').css('color',text_color);
-            logo_container.find('#subtitle').css('color',text_color);
+            $('#title').css('color',text_color);
+            $('#subtitle').css('color',text_color);
 
         }
 
     });
+});
+
+$.extend({
+    replaceTag: function (currentElem, newTagObj, keepProps) {
+        var $currentElem = $(currentElem);
+        var i, $newTag = $(newTagObj).clone();
+        if (keepProps) {//{{{
+            newTag = $newTag[0];
+            newTag.className = currentElem.className;
+            $.extend(newTag.classList, currentElem.classList);
+            $.extend(newTag.attributes, currentElem.attributes);
+        }//}}}
+        $currentElem.wrapAll($newTag);
+        $currentElem.contents().unwrap();
+        // return node; (Error spotted by Frank van Luijn)
+        return this; // Suggested by ColeLawrence
+    }
+});
+
+$.fn.extend({
+    replaceTag: function (newTagObj, keepProps) {
+        // "return" suggested by ColeLawrence
+        return this.each(function() {
+            jQuery.replaceTag(this, newTagObj, keepProps);
+        });
+    }
+});
+
+$('#logo_container').mouseover(function(){
+   $('#logo_edit').css("visibility","visible");
+});
+$('#logo_container').mouseout(function(){
+    $('#logo_edit').css("visibility","hidden");
 });
 
 function logoImageModal(){
@@ -95,16 +130,14 @@ $('#logoImageModal').on('shown.bs.modal', function () {
     var title_input = $(logo_edit).find('input[name="title"]');
     var subtitle_input = $(logo_edit).find('input[name="subtitle"]');
 
-    var title_container = logo_container.find('#title');
-    var subtitle_container = logo_container.find('#subtitle');
+    var title_container = $('#title');
+    var subtitle_container = $('#subtitle');
 
 
     title_container.data('temp',title_input.val());
     subtitle_container.data('temp',subtitle_input.val());
 
 
-    console.log(title_container.data('temp'));
-    console.log(subtitle_container.data('temp'));
 
     $('#user_images').hide().fadeIn('slow');
     $('.bt-glyphicons').hide();

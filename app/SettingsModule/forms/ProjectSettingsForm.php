@@ -36,6 +36,7 @@ class ProjectSettingsForm
             $values['subdomain'] = $values['subdomain'] . $values->id;
         }
         bdump($values);
+        $values['updated_at'] = date("Y-m-d H:i:s");
         $this->projectManager->patch($values);
     }
 

@@ -400,7 +400,7 @@ $(document).on('click', '.showProject', function () {
     }
     $('#settings').attr('href', '/websitebuilder/www/settings/default/' + project.id);
     $('#edit').attr('href', '/websitebuilder/www/project/edit/' + project.id + '/' + project.page_temp_id);
-    $('#devare').attr('href', '/websitebuilder/www/project/devare/' + project.id);
+    $('#delete').attr('href', '/websitebuilder/www/project/delete/' + project.id);
 
 
 });
@@ -419,8 +419,9 @@ $(document).on('click', '#temp_save', function (e) {
 });
 
 $(document).on('click', '#publish', function (e) {
-
+    e.preventDefault();
     sendContent($('#temp_save'));
+    window.location.href = $(this).attr('href');
 });
 
 function initPhotogallery(comp, imgs) {

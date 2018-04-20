@@ -3,9 +3,11 @@
     visibility: hidden;
 }
 
-.navbar-header:hover #logo_edit {
+/*
+#logo_container:hover #logo_edit {
     visibility: visible;
 }
+*/
 
 #logo_editor {
     border:1px solid black;

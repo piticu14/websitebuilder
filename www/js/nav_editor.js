@@ -153,8 +153,8 @@ function getLogoData()
         image.type = 'img'
         image.src = $('#logo_image_container img').attr('src');
     }else {
-        image.type = 'span';
-        image.src = getIconName($logo_container.find('span').attr('class'))
+        image.type = 'i';
+        image.src = getIconName($logo_container.find('i').attr('class'))
     }
 
     logo.logo = image;
@@ -188,7 +188,7 @@ function getNavData() {
 }
 
 function getSocialMedia() {
-    var social_media = $('.social-icon a').not(':last');
+    var social_media = $('#social_media a').not('#social_media_icon');
     var items = [];
     social_media.each(function(){
         var item = {};
@@ -224,6 +224,7 @@ function getBodyContent() {
         $(this).removeAttr('data-id');
         item.photogallery_ids = photogallery_ids;
         item.content = $(this).prop('outerHTML');
+        console.log(item.content);
         items.push(item);
     });
 
@@ -240,7 +241,7 @@ function sendContent($link) {
     var body = getBodyContent();
     var footer = {};
 
-    footer.content = $('.footer-copyright').html();
+    footer.content = $('#footer_content').html();
     footer.social_media = getSocialMedia();
     $.nette.ajax({
         url: $link.data('url'),

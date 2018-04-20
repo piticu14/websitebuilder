@@ -6,6 +6,7 @@
 
 body {
     background-image: url("https://subtlepatterns.com/patterns/sativa.png");
+    font-family: 'Work Sans', sans-serif;
 }
 #cover {
     background: url("../img/loader.gif") no-repeat scroll center center #fcfefc;
@@ -428,16 +429,6 @@ a:focus {
     text-align: center;
 }
 
-#title{
-    font-size:18px;
-    padding-left:10px;
-    float:left;
-    padding-top:40px;
-}
-#subtitle {
-    font-size:14px;
-    padding-top:120px;
-}
 
 #photogalleryModal .image_box {
     cursor: move;

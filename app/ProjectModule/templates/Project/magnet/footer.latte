@@ -3,13 +3,17 @@
         <div class="row">
 
             <div class="col-md-6 col-sm-6">
-                <div contenteditable="true" class="footer-copyright">
+                {if $presenter->isLinkCurrent("Project:edit")}
+                    <div id="footer_content" contenteditable="true" class="footer-copyright">
+                {else}
+                    <div id="footer_content" class="footer-copyright">
+                {/if}
                     {$footer->content|noescape}
                 </div>
             </div>
 
-            <div class="col-md-6 col-sm-6">
-                <ul class="social-icon">
+            <div id="social_container" class="col-md-6 col-sm-6">
+                <ul id="social_media" class="social-icon">
                     {foreach $social_media AS $item}
                         <li n:class="!$item['active'] ? hide, active">
                             <a href="{$item['href']|noescape}" data-media="{$item['media']}" data-active="{$item['active']}" class="fa fa-{$item['media']|lower}">&nbsp;</a>

@@ -7,8 +7,7 @@ $('#socialMediaModal').on('shown.bs.modal', function (e) {
     $('#social_media_items').empty();
     $('#social_media_items').hide().fadeIn('slow');
 
-    $('.social-icon a').not(':last').each(function (index) {
-
+    $('#social_media a').not('#social_media_icon').each(function (index) {
 
         var modal_link = $('<a></a>');
         modal_link.addClass('modal-social-media-links padding-left');
@@ -18,7 +17,11 @@ $('#socialMediaModal').on('shown.bs.modal', function (e) {
         modal_link.data('active', $(this).data('active'));
         var parent = $('<li></li>');
         var i = $('<i></i>');
-        i.addClass(this.className);
+        if($(this).has('i')){
+            i.addClass($(this).find('i').attr('class'));
+        }else {
+            i.addClass(this.className);
+        }
         parent.append(i);
         parent.append(modal_link);
         $('#social_media_items').append(parent);
@@ -31,8 +34,8 @@ $('#socialMediaModal').on('shown.bs.modal', function (e) {
 
                 social_temp_save();
 
-                social_media_edit.find('#social_media_title').html('<p class="text-left" data-id="' + $(this).data('id') + '">' + $('.social-icon a').eq(index).data('media') + '</p>');
-                social_media_edit.find('input[name="href"]').val($(this).attr('href'));
+                social_media_edit.find('#social_media_title').html('<p class="text-left" data-id="' + $(this).data('id') + '">' + $('#social_media a').eq(index).data('media') + '</p>');
+                social_media_edit.find('input[name="href"]').val(remove_protocol_url($(this).attr('href')));
                 if (!$(this).data('active')) {
                     $('#social_media_options').find('#active').bootstrapToggle('off');
                 } else {
@@ -56,7 +59,7 @@ function remove_protocol_url(href) {
 }
 $(document).on('click', '#save_social_media', function () {
     social_temp_save();
-    var social_media = $('.social-icon a').not(':last');
+    var social_media = $('#social_media a').not('#social_media_icon');
     var modal_body = $('#social_media_body');
     var modal_social_media_links = modal_body.find('a.modal-social-media-links');
     social_media.each(function (index) {
@@ -76,7 +79,7 @@ function social_media_init() {
     var active = modal_social_media_links.data('active');
     var social_media_edit = $('#social_media_edit');
     $('#social_media_title').html(
-        '<p class="text-left" data-id="' + modal_social_media_links.first().data('id') + '">' + $('.social-icon a').first().data('media') + '</p>'
+        '<p class="text-left" data-id="' + modal_social_media_links.first().data('id') + '">' + $('#social_media a').first().data('media') + '</p>'
     );
     //modal_body.find('.col-md-4').trigger('change');
 
@@ -117,5 +120,12 @@ $('#social_media_options').find('#active').change(function() {
             } else {
                 $(link).data('active', 0);
             }
+});
+
+$('#social_container').mouseover(function(){
+    $('#social_media_icon').css("visibility","visible");
+});
+$('#social_container').mouseout(function(){
+    $('#social_media_icon').css("visibility","hidden");
 });
 
