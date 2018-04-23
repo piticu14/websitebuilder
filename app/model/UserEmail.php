@@ -58,6 +58,7 @@ class UserEmail extends BaseManager
     {
         return $this->getDatabase()->table(self::$table)
             ->where('user_id', $this->getUser()->id)
+            ->where('deleted_at',NULL)
             ->fetchAll();
     }
 
@@ -72,6 +73,15 @@ class UserEmail extends BaseManager
             ->where('email', $email)
             ->update([
                 'is_primary' => 1
+            ]);
+    }
+
+    public function delete($id)
+    {
+        return $this->getDatabase()->table(self::$table)
+            ->where('id',$id)
+            ->update([
+                'deleted_at' => date("Y-m-d H:i:s")
             ]);
     }
 

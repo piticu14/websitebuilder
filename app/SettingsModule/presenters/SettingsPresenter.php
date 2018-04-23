@@ -140,7 +140,7 @@ class SettingsPresenter extends AdminBasePresenter
             }
 
         }
-        $this->redrawControl('emailSettings');
+        $this->redrawControl('userEmailsList');
 
     }
 
@@ -149,6 +149,7 @@ class SettingsPresenter extends AdminBasePresenter
         if (!isset($this->template->userEmails)) {
             $this->template->userEmails = $this->userEmail->getAll();
         }
+
     }
 
     protected function createComponentResetPasswordForm()
@@ -179,5 +180,11 @@ class SettingsPresenter extends AdminBasePresenter
             $this->redirect('Project:all');
         };
         return $form;
+    }
+
+    public function actionDeleteEmail($id)
+    {
+        $this->userEmail->delete($id);
+        $this->redirect('Settings:');
     }
 }

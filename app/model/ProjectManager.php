@@ -127,6 +127,7 @@ class ProjectManager extends BaseManager
 
 
             $nav_data = array(
+                'project_id' => $project_id,
                 'page_id' => $page_relationship->publish_id,
                 'title' => $title,
                 'url' => Strings::lower($title),
@@ -136,6 +137,7 @@ class ProjectManager extends BaseManager
 
 
             $nav_temp_data = array(
+                'project_id' => $project_id,
                 'page_id' => $page_relationship->temp_id,
                 'title' => $title,
                 'url' => Strings::lower($title),

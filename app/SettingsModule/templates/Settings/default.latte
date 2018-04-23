@@ -52,7 +52,6 @@
                 </div>
             </div>
 
-
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -72,6 +71,7 @@
                                         <th>Email</th>
                                         <th>Aktivní</th>
                                         <th>Primární</th>
+                                        <th>&nbsp;</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -98,6 +98,7 @@
                                                     {/if}
                                                 {/snippet}
                                             </td>
+                                            <td><a n:href="Settings:deleteEmail, id => $userEmail->id"><i class="glyphicon glyphicon-trash"></i></a></td>
                                         </tr>
                                     {/snippet}
                                     </tbody>
