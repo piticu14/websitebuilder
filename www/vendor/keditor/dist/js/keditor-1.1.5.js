@@ -74,9 +74,95 @@
         contentStyles: [],
         contentAreasSelector: null,
         contentAreasWrapper: '<div class="keditor-ui keditor-content-areas-wrapper"></div>',
-        containerSettingEnabled: false,
-        containerSettingInitFunction: null,
-        containerSettingShowFunction: null,
+        containerSettingEnabled: true,
+        containerSettingInitFunction: function(self, form, self){
+
+        },
+        containerSettingShowFunction: function(containerSetting, container, target, self){
+            containerSetting.append('<a id="container_background" class="btn btn-u" href="javascript:;" data-dismiss="modal" ' +
+                'data-toggle="modal" data-target="#containerBackgroundModal">Zvolit pozadí</a>');
+
+            function containerBackgroundModal(){
+                $(document).on('click','#container_background_color',function(e){
+                    e.preventDefault();
+                    $('#background_images_wrapper').hide();
+                    $('#background_color_wrapper').fadeIn('slow');
+                });
+                $(document).on('click','#container_background_images',function(e){
+                    e.preventDefault();
+
+                    $('#background_color_wrapper').hide();
+                    $('#background_images_wrapper').fadeIn('slow');
+                });
+
+                containerBackgroundSelection();
+
+            }
+            $('#containerBackgroundModal').on('shown.bs.modal', function (e) {
+                //console.log(e.relatedTarget.id);
+
+
+                $('#background_images_wrapper').hide().fadeIn('slow');
+                $('#background_color_wrapper').hide();
+                containerBackgroundModal();
+                $(this).find('input[name="images"]').off().on('change', function () {
+                    uploadImages($('#containerBackgroundModal').find('#upload_bar'), $(this), 'images');
+                });
+
+
+            });
+            $(document).ajaxStop(function() {
+                if($('#containerBackgroundModal').length){
+                    containerBackgroundSelection();
+                }
+            });
+
+            function containerBackgroundSelection() {
+
+                var selected_image;
+                var container_background_modal = $('#containerBackgroundModal');
+                container_background_modal.find('.overlay').not('#selected .overlay').hide();
+                container_background_modal.find('.image_box').on('click',function() {
+                    if (selected_image) {
+                        selected_image.parent().removeAttr('id');
+                        selected_image.hide();
+
+                    }
+
+                    $(this).attr('id', 'selected');
+                    $(this).children('.overlay').fadeIn('slow');
+                    $('#selected_color').val("");
+
+                    selected_image = $(this).children('.overlay');
+                });
+
+
+                $('#selected_color').on('change.bfhcolorpicker',function(){
+                    if(selected_image){
+                        selected_image.hide();
+                        selected_image.parent().removeAttr('id');
+                        selected_image = null;
+                    }
+                })
+
+            }
+
+            $('#save_container_background').off().on('click', function (e) {
+                e.preventDefault();
+
+                var selected_background = $('#containerBackgroundModal').find('#selected');
+                if(selected_background.length){
+                    container.css('background','url("' + $(selected_background).find('img').attr('src') +'")no-repeat center center fixed');
+                    container.css('background-size','cover');
+                }else {
+                    var background_color = $('#containerBackgroundModal').find('#container_selected_color').val();
+                    container.css('background','');
+                    container.css('background-color',background_color);
+                }
+
+            });
+
+        },
         containerSettingHideFunction: null,
         onReady: function () {
         },
@@ -1748,9 +1834,9 @@
         });
 
         if(container.data('id')){
-            return '<section id="page_item" data-id='+ container.data('id') +'>' + containerInner.html() + '</section>';
+            return '<section id="page_item" data-id="'+ container.data('id') +'" style="' + container.attr('style') + '">' + containerInner.html() + '</section>';
         } else {
-            return '<section id="page_item">' + containerInner.html() + '</section>';
+            return '<section id="page_item" style="' + container.attr('style') + '">' + containerInner.html() + '</section>';
         }
 
     };

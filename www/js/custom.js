@@ -386,17 +386,20 @@ $(document).on('click', '.add-project-form', function () {
     $('#addProjectModal input[id="template_id"]').val($(this).attr('id'))
 });
 $(document).on('click', '.showProject', function () {
+
     var project = $(this).data('project');
-    console.log(project);
+
     //var projectLink = project.subdomain + '.fastweb.cz';
     var projectLink = '/websitebuilder/www/project/show/' + project.id + '/' + project.page_publish_id;
-    $('#editProjectModal .modal-title').html(project.title);
-    $('#project-subdomain').html(projectLink).attr('href', projectLink);
+    $('#editProjectModal .modal-title').html(project.subdomain);
+    $('#public-link').html(projectLink).attr('href', projectLink);
 
     if (parseInt(project.active)) {
-        $('#active').html('Stav: Aktivní')
+        $('#active').html('Aktivní');
+        $('#active').css('background','rgb(47,182,106)');
     } else {
-        $('#active').html('Stav: Neaktivní')
+        $('#active').html('Neaktivní');
+        $('#active').css('background','#FF3232');
     }
     $('#settings').attr('href', '/websitebuilder/www/settings/default/' + project.id);
     $('#edit').attr('href', '/websitebuilder/www/project/edit/' + project.id + '/' + project.page_temp_id);

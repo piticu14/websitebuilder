@@ -14,11 +14,14 @@
         {/snippet}
         <br>
         {foreach $user_projects as $key => $row}
-            <div class="case-study" style="background-image:url('{$basePath}/thubmnails/{$row->ref('template','template_id')->title}.jpg');">
+            <div class="case-study"
+                 style="background-image:url('{$basePath}/thubmnails/{$row->ref('template','template_id')->title}.jpg');">
                 <div class="case-study__overlay">
-                    <h2 class="case-study__title">{$row->title}</h2>
+                    <h2 class="case-study__title">{$row->subdomain}</h2>
                     <a class="case-study__link" target="_blank" href="#">Přehled</a> <br>
-                    <a class="case-study__link showProject" data-toggle="modal" data-project='{"id":"{$row->project_id}","page_temp_id":"{$first_projects_pages[$iterator->counter - 1]['temp_id']}","page_publish_id":"{$first_projects_pages[$iterator->counter - 1]['publish_id']}","title":"{$row->title}","subdomain":"{$row->subdomain}","active":"{$row->active}"}' data-target="#editProjectModal" href="#">Upravit</a>
+                    <a class="case-study__link showProject" data-toggle="modal"
+                       data-project='{"id":"{$row->project_id}","page_temp_id":"{$first_projects_pages[$iterator->counter - 1]['temp_id']}","page_publish_id":"{$first_projects_pages[$iterator->counter - 1]['publish_id']}","subdomain":"{$row->subdomain}","active":"{$row->active}"}'
+                       data-target="#editProjectModal" href="#">Upravit</a>
                 </div>
             </div>
         {/foreach}
@@ -37,16 +40,26 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel"></h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h4 class="modal-title" id="myModalLabel"></h4>
+                            </div>
+                            <div class="col-md-4 col-md-offset-2">
+                                <p id="active"></p>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12 text-center">
-                                <p>Odkaz: <a id="project-subdomain" href=""></a></p>
-                                <p id="active"></p>
+                                <p><a id="public-link" href=""></a></p>
+
                                 <p><a id="edit" href="#" class="btn btn-u">Upravit stránky</a></p>
+
                                 <p><a id="settings" href="#" class="btn btn-u">Změnit nastaveni</a></p>
-                                <p><a href="#" data-dismiss="modal" data-toggle="modal" data-target="#deleteProjectModal" class="btn btn-u">Odstranit</a></p>
+
+                                <p><a href="#" data-dismiss="modal" data-toggle="modal"
+                                      data-target="#deleteProjectModal" class="btn btn-u">Odstranit</a></p>
                             </div>
                         </div>
                     </div>
@@ -88,7 +101,9 @@
                     <div class="modal-footer">
                         <div class="col-md-12 text-center">
                             <a id="delete" href="#" class="btn btn-warning">Ano</a>
-                            <button type="button" class="btn btn-basic" data-dismiss="modal" data-toggle="modal" data-target="#editProjectModal">Ne</button>
+                            <button type="button" class="btn btn-basic" data-dismiss="modal" data-toggle="modal"
+                                    data-target="#editProjectModal">Ne
+                            </button>
                         </div>
                     </div>
                 </div>

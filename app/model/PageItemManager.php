@@ -38,16 +38,20 @@ class PageItemManager extends BaseManager
         $relationship = $this->getDatabase()->table('page_item_relationships')
             ->where('temp_id',$id)->fetch();
 
-        $this->getDatabase()->table(self::$table)
-            ->where('id',$id)
-            ->update([
-                'deleted_at' => date("Y-m-d H:i:s")
-            ]);
-        $this->getDatabase()->table(self::$table)
-            ->where('id',$relationship->publish_id)
-            ->update([
-                'deleted_at' => date("Y-m-d H:i:s")
-            ]);
+        if($relationship){
+            $this->getDatabase()->table(self::$table)
+                ->where('id',$id)
+                ->update([
+                    'deleted_at' => date("Y-m-d H:i:s")
+                ]);
+            $this->getDatabase()->table(self::$table)
+                ->where('id',$relationship->publish_id)
+                ->update([
+                    'deleted_at' => date("Y-m-d H:i:s")
+                ]);
+        }
+
+
     }
     /*
     public function deleteAll($project_id)

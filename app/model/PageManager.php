@@ -84,7 +84,7 @@ class PageManager extends BaseManager
                 ->where('sort_order',0)
                 ->where('publish',0)
                 ->fetch();
-            bdump($page_temp_nav);
+
             if($page_temp_nav) {
                 break;
             }

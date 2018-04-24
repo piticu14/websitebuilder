@@ -7,26 +7,27 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-   <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
-   <link href="{$basePath}/vendor/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
+        <link href="{$basePath}/vendor/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
 
         {*
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.css">
 *}
 
-    <link rel="stylesheet" href="{$basePath}/css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
-    <link rel="stylesheet" type="text/css" href="{$basePath}/css/nav_editor.css">
-    <link rel="stylesheet" type="text/css" href="{$basePath}/css/logo_editor.css">
-    <link rel="stylesheet" type="text/css" href="{$basePath}/css/social_media_editor.css">
+        <link rel="stylesheet" href="{$basePath}/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
+        <link rel="stylesheet" type="text/css" href="{$basePath}/css/nav_editor.css">
+        <link rel="stylesheet" type="text/css" href="{$basePath}/css/header_editor.css">
+        <link rel="stylesheet" type="text/css" href="{$basePath}/css/social_media_editor.css">
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/photogallery_component.css">
 
         <!-- Start of KEditor styles -->
-        <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/keditor/dist/css/keditor-1.1.5.css" />
-        <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/keditor/dist/css/keditor-components-1.1.5.css" />
+        <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/keditor/dist/css/keditor-1.1.5.css"/>
+        <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/keditor/dist/css/keditor-components-1.1.5.css"/>
         <!-- End of KEditor styles -->
 
 
@@ -41,44 +42,48 @@
 <body>
 <div id="cover"></div>
 
-    <div class="header navbar-fixed-top">
-        <div class="row">
-            <div class="col-sm-2 col-sm-offset-1">
-                <!-- Logo -->
-                <div class="logo">
-                    <h1><a n:href="Homepage:default">FastWeb</a></h1>
-                </div>
+<div class="header navbar-fixed-top">
+    <div class="row">
+        <div class="col-sm-2 col-sm-offset-1">
+            <!-- Logo -->
+            <div class="logo">
+                <h1><a n:href="Homepage:default">FastWeb</a></h1>
             </div>
-            <div class="col-sm-4 col-sm-offset-4">
-                <div class="navbar navbar-inverse" role="banner">
-                    <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
-                        <ul class="nav navbar-nav">
-                            {if $presenter->isLinkCurrent("Project:edit")}
-                                <li><a id="publish" n:href="Project:publish, project_id => $presenter->getParameter('id'),pid => $presenter->getParameter('page_id')" class="btn btn-success">Publikovat</a></li>
-                                <li><a data-url="{link saveTemporary!}" id="temp_save" href="#" class="btn btn-warning">Uložit</a></li>
-                            {/if}
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                                   data-target="dropdown">{$user->getIdentity()->username} <b
-                                            class="caret"></b></a>
-                                <ul class="dropdown-menu fadeInUp">
-                                    <li><a n:href="Project:all">Projekty</a></li>
-                                    <li><a n:href="Settings:default">Nastaveni</a></li>
-                                    {*<li><a href="#">Změna šablony</a></li>*}
-                                    <li><a n:href='Account:out'>Logout</a></li>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="navbar navbar-inverse" role="banner">
+                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
+                    <ul class="nav navbar-nav">
+                        {if $presenter->isLinkCurrent("Project:edit")}
+                            <li>
+                                <a id="publish" n:href="Project:publish, project_id => $presenter->getParameter('id'),pid => $presenter->getParameter('page_id')" class="navbar-btn btn btn-success">Publikovat</a></li>
 
-                                </ul>
+                            <li>
+                                <a data-url="{link saveTemporary!}" id="temp_save" href="#" class="btn btn-warning navbar-btn">Uložit</a>
                             </li>
-                        </ul>
-                    </nav>
-                </div>
+
+                        {/if}
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                               data-target="dropdown">{$user->getIdentity()->username} <b
+                                        class="caret"></b></a>
+                            <ul class="dropdown-menu fadeInUp">
+                                <li><a n:href="Project:all">Projekty</a></li>
+                                <li><a n:href="Settings:default">Nastaveni</a></li>
+                                {*<li><a href="#">Změna šablony</a></li>*}
+                                <li><a n:href='Account:out'>Logout</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
+</div>
 
 
-
-        {include content}
+{include content}
 
 {block scripts}
     <!-- Start of PhotoGallery components scripts -->
@@ -91,7 +96,8 @@
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- jQuery UI -->
-    <script type="text/javascript" src="{$basePath}/vendor/keditor/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript"
+            src="{$basePath}/vendor/keditor/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{$basePath}/vendor/nette.ajax.js"></script>
     <script src="{$basePath}/vendor/netteForms.js"></script>
@@ -101,7 +107,8 @@
     <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
     {*<script src="http://malsup.github.io/jquery.blockUI.js"></script>*}
-    <script type="text/javascript" src="{$basePath}/vendor/keditor/plugins/jquery.nicescroll-3.6.6/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript"
+            src="{$basePath}/vendor/keditor/plugins/jquery.nicescroll-3.6.6/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="{$basePath}/vendor/keditor/plugins/ckeditor-4.5.6/ckeditor.js"></script>
     <script type="text/javascript" src="{$basePath}/vendor/ckfinder/ckfinder.js"></script>
 
@@ -133,7 +140,7 @@
     </script>
     <script src="{$basePath}/js/custom.js"></script>
     <script src="{$basePath}/js/nav_editor.js"></script>
-    <script src="{$basePath}/js/logo_editor.js"></script>
+    <script src="{$basePath}/js/header_editor.js"></script>
     <script src="{$basePath}/js/social_media_editor.js"></script>
 
 {/block}

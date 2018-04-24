@@ -55,6 +55,7 @@ class HeaderManager extends BaseManager
                 'title' => $data['title'],
                 'subtitle' => $data['subtitle'],
                 'logo' => Json::encode($data['logo'], Json::PRETTY),
+                'background' => $data['background'],
                 'updated_at' => date("Y-m-d H:i:s")
             ]);
     }
@@ -68,7 +69,8 @@ class HeaderManager extends BaseManager
             ->update([
                 'title' => $temp_data->title,
                 'subtitle' => $temp_data->subtitle,
-                'logo' => $temp_data->logo
+                'logo' => $temp_data->logo,
+                'background' => $temp_data->background
             ]);
 
     }

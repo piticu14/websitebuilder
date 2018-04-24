@@ -148,12 +148,15 @@ function guid() {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
-function getLogoData()
+function getHeaderData()
 {
     var $logo_container = $('#logo_container');
-    var logo = {};
-    logo.title = $('#title').text();
-    logo.subtitle = $('#subtitle').text();
+    var header = {};
+    header.title = $('#title').html();
+    header.subtitle = $('#subtitle').html();
+
+    console.log(header.title);
+    console.log(header.subtitle);
 
     var image = {};
     if($logo_container.find('img').length){
@@ -164,11 +167,25 @@ function getLogoData()
         image.src = getIconName($logo_container.find('i').attr('class'))
     }
 
-    logo.logo = image;
-    //logo.text_color = $('#title').css('color');
+    header.logo = image;
+    header.background = getHeaderBackgroundData();
 
-    return logo;
+    return header;
 }
+
+function getHeaderBackgroundData()
+{
+    var $header = $('#header-wrapper');
+
+    if (typeof $header.attr('style') !== typeof undefined && $header.attr('style') !== false) {
+        return $header.attr('style');
+    }else{
+        return 'default';
+    }
+
+
+}
+
 
 
 function getIconName(iconClass) {
@@ -244,7 +261,7 @@ function getBodyContent() {
 function sendContent($link) {
 
     var nav = getNavData();
-    var logo = getLogoData();
+    var header = getHeaderData();
     var body = getBodyContent();
     var footer = {};
 
@@ -255,7 +272,7 @@ function sendContent($link) {
         type: "POST",
 
         data: { nav: JSON.stringify(nav),
-            logo: JSON.stringify(logo),
+            header: JSON.stringify(header),
             body: JSON.stringify(body),
             footer: JSON.stringify(footer)},
         error: function(jqXHR,status,error) {

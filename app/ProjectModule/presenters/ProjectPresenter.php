@@ -183,6 +183,7 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->user_images = $this->getUserImages($id);
 
         $this->template->header = $this->headerManager->get($id,$publish);
+        bdump($this->template->header->background);
         $this->template->header_logo = JSON::decode($this->template->header->logo,Json::FORCE_ARRAY);
 
         $this->template->footer = $this->footerManager->get($id,$publish);
@@ -299,6 +300,8 @@ class ProjectPresenter  extends AdminBasePresenter
 
         $this->redrawControl('wrapper');
         $this->redrawControl('userImages');
+        $this->redrawControl('userImages1');
+        $this->redrawControl('userImages2');
         $this->redrawControl('photogalleryImages');
 
     }
@@ -331,7 +334,7 @@ class ProjectPresenter  extends AdminBasePresenter
 
     }
 
-    public function handleSaveTemporary($nav, $logo, $body, $footer)
+    public function handleSaveTemporary($nav, $header, $body, $footer)
     {
        $body_array = Json::decode($body,Json::FORCE_ARRAY);
         foreach($body_array as $order_on_page => $body) {
@@ -367,8 +370,9 @@ class ProjectPresenter  extends AdminBasePresenter
 
         }
 
-        $logo_array = Json::decode($logo, Json::FORCE_ARRAY);
-        $this->headerManager->update($logo_array,$this->getParameter('id'),0);
+        $header_array = Json::decode($header, Json::FORCE_ARRAY);
+        $this->headerManager->update($header_array,$this->getParameter('id'),0);
+
 
         $footer_array =  Json::decode($footer, Json::FORCE_ARRAY);
         $this->footerManager->update($this->getParameter('id'),$footer_array,0);

@@ -21,7 +21,7 @@ CKEDITOR.editorConfig = function( config ) {
                 {name: 'others', groups: ['others']},
     ];
     config.allowedContent = true;
-    config.extraAllowedContent = '*[*]{*}(*)';
+    config.extraAllowedContent = '*(*);*{*}';
 	config.format_tags = 'p;h1;h2;h3;h4;h5;h6';
 	config.removePlugins = 'table,magicline,tabletools';
 	config.removeButtons =  'Save,NewPage,Preview,Print,Templates,PasteText,PasteFromWord,Find,Replace,SelectAll,Scayt,Form,HiddenField,ImageButton,Button,Select,Textarea,TextField,Radio,Checkbox,Outdent,Indent,Blockquote,CreateDiv,Language,Table,HorizontalRule,Smiley,SpecialChar,PageBreak,Iframe,Styles,BGColor,Maximize,About,ShowBlocks,BidiLtr,BidiRtl,Flash,Subscript,Superscript,Anchor';

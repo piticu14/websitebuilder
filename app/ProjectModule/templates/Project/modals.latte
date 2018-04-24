@@ -89,15 +89,15 @@
     </div>
 </div>
 
-<!-- Logo Edit Modal -->
-<div class="modal fade" id="logoModal" tabindex="-1" role="dialog" aria-labelledby="logoModal" aria-hidden="true">
+<!-- Header Edit Modal -->
+<div class="modal fade" id="headerModal" tabindex="-1" role="dialog" aria-labelledby="headerModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h5 class="modal-title" id="exampleModalLongTitle">Editace logo</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Editace záhlaví</h5>
 
             </div>
             <div class="modal-body">
@@ -105,29 +105,7 @@
                     <div class="col-md-12">
                         <form class="form-horizontal">
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Titulek</label>
-
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                                <span class="mycolor input-group-addon"><i
-                                                            class="glyphicon glyphicon-edit"></i></span>
-                                        <input name="title" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class=" text-left col-md-3 control-label">Podtitulek</label>
-
-                                <div class="col-md-8 inputGroupContainer">
-                                    <div class="input-group">
-                                                <span class="mycolor input-group-addon"><i
-                                                            class="glyphicon glyphicon-edit"></i></span>
-                                        <input name="subtitle" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Obrázek</label>
+                                <label class="col-md-3 control-label">Logo obrázek</label>
 
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
@@ -138,14 +116,16 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Barva textu</label>
+                                <label class="col-md-3 control-label">Pozadí</label>
 
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
+                                        {*<input type="file" name="image" accept="image/*">*}
+                                        <a id="logo_image" class="btn btn-u" href="javascript:;" data-dismiss="modal"
+                                           data-toggle="modal" data-target="#headerBackgroundModal">Zvolit pozadí</a>
 
-                                        <div class="bfh-colorpicker" data-name="nav_bgcolor"
-                                             data-color=""></div>
                                     </div>
                                 </div>
                             </div>
@@ -158,6 +138,82 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
                 <button id="save_logo" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Container Background Modal -->
+<div class="modal fade" id="containerBackgroundModal" tabindex="-1" role="dialog" aria-labelledby="containerBackgroundModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLongTitle">Pozadí obalu</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <ul class="text-left">
+                            <li><a id="container_background_images" href="#">Moje obrázky</a></li>
+                            <li><a id="container_background_color" href="#">Barva</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 text-center left-vline">
+                        <div class="row">
+                            <div id="background_color_wrapper" class="form-group">
+                                <label class="col-md-3 control-label">Barva pozadí</label>
+
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+
+                                        <div id="container_selected_color" class="bfh-colorpicker" data-name="nav_bgcolor"
+                                             data-color=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="background_images_wrapper">
+                                <div id="upload_bar" class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                {snippet userImages2}
+                                    {foreach $user_images as $image}
+                                        <div class="image_box">
+                                            <div class="overlay"><input type="checkbox" checked></div>
+                                            <img src="{$basePath}/{$image}" alt="User Image">
+                                        </div>
+                                    {/foreach}
+                                {/snippet}
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <div class="col-md-8 inputGroupContainer" id="addImage">
+                                            <div class="input-group">
+                                                <a class='btn btn-primary' href='javascript:;'>
+                                                    Nahrat obrázek <span class="glyphicon glyphicon-upload"></span>
+                                                    <input data-url="{link addImages!}" type="file"
+                                                           style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
+                                                           name="images" size="40" accept="image/*" multiple>
+                                                    &nbsp;
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit
+                </button>
+                <button id="save_container_background" type="button" class="btn btn-primary" data-dismiss="modal">Uložit
+                </button>
             </div>
         </div>
     </div>
@@ -231,10 +287,89 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
-                        data-target="#logoModal">Zavřit
+                        data-target="#headerModal">Zavřit
                 </button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
-                        data-target="#logoModal">Uložit
+                        data-target="#headerModal">Uložit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Header Background Modal -->
+<div class="modal fade" id="headerBackgroundModal" tabindex="-1" role="dialog" aria-labelledby="headerBackgroundModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLongTitle">Pozadí záhlaví</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4 text-left">
+                        <ul class="text-left">
+                            <li><a id="header_background_images" href="#">Moje obrázky</a></li>
+                            <li><a id="header_background_color" href="#">Barva</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8 text-center left-vline">
+                        <div class="row">
+                            <div id="background_color" class="form-group">
+                                <label class="col-md-3 control-label">Barva pozadí</label>
+
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+
+                                        <div id="selected_color" class="bfh-colorpicker" data-name="nav_bgcolor"
+                                             data-color=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="background_images">
+                                <div id="upload_bar" class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                {snippet userImages1}
+                                    {foreach $user_images as $image}
+                                        <div class="image_box">
+                                            <div class="overlay"><input type="checkbox" checked></div>
+                                            <img src="{$basePath}/{$image}" alt="User Image">
+                                        </div>
+                                    {/foreach}
+                                {/snippet}
+                                <form class="form-horizontal">
+                                    <div class="form-group">
+                                        <div class="col-md-8 inputGroupContainer" id="addImage">
+                                            <div class="input-group">
+                                                <a class='btn btn-primary' href='javascript:;'>
+                                                    Nahrat obrázek <span class="glyphicon glyphicon-upload"></span>
+                                                    <input data-url="{link addImages!}" type="file"
+                                                           style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;'
+                                                           name="images" size="40" accept="image/*" multiple>
+                                                    &nbsp;
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#headerModal">Zavřit
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
+                        data-target="#headerModal">Uložit
                 </button>
             </div>
         </div>

@@ -7,11 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
 
 {/block}
-{define pageContent}
-    fdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdg
-    fdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdg
-    fdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdgfdsfsdfsdgdsgsdg
-{/define}
+
 {block content}
 
     {import {$template_title}/index.latte}
@@ -70,6 +66,9 @@
 
             return [];
         }
+
+        var background = {$header->background}
+        $('#header-wrapper').attr('style',background);
 
     </script>
 {/block}

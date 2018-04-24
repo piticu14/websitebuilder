@@ -221,8 +221,10 @@ a:focus {
     font-weight:bold;
 }
 
-.header .navbar-nav>.open>a,.header  .navbar-nav>.open>a:hover,.header  .navbar-nav>.open>a:focus {
-    background:none !important;
+.header .navbar-nav>.open>a,
+.header .navbar-nav>.open>a:hover,
+.header .navbar-nav>.open>a:focus {
+    background:none;
 }
 
 .header .navbar-collapse{
@@ -381,11 +383,9 @@ a:focus {
 
 
 
-.btn-u:hover {
-    background: #f8d94a;
-}
+
 .btn-u:hover, .btn-u:focus, .btn-u:active, .btn-u.active, .open .dropdown-toggle.btn-u {
-    background: #f8d94a;
+    opacity:0.8;
 }
 .btn-u:hover {
     color: #fff;
@@ -395,9 +395,7 @@ a:focus {
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
-.btn-u {
-    background: #0099cc;
-}
+
 .btn-u {
     width:200px;
     white-space: nowrap;
@@ -408,7 +406,7 @@ a:focus {
     font-weight: 400;
     padding: 6px 13px;
     position: relative;
-    background: #0099cc;
+    background: #2c3742;
     display: inline-block;
     text-decoration: none;
 }
@@ -448,4 +446,40 @@ a:focus {
 
 .deletePage{
     float:right;
+}
+
+#active{
+    color:white;
+    line-height: 1.8;
+    font-size:16px;
+    text-align:center;
+
+}
+
+#public-link{
+    color: #797979;
+    font-size:1.5rem
+}
+#public-link:hover,#public-link:focus{
+    color: #2177d0;
+    border-bottom-color: rgba(33,119,208,.6);
+    font-size:1.5rem;
+}
+
+.btn-warning:hover {
+    color: #fff !important;
+    background-color: #ec971f !important;
+    border-color: #d58512;
+}
+
+.btn-success:hover {
+    color: #fff !important;
+    background-color: #449d44 !important;
+    border-color: #398439;
+}
+
+#toolbox-container{
+    background-color: rgba(255,255,255,.2);
+    border: 1px solid rgba(255,255,255,.35);
+    transition: background-color .1s ease-in-out,border-color .1s ease-in-out;
 }

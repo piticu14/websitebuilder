@@ -1,43 +1,19 @@
 
-$('#logo_edit').on('click',function(){
-    var logo_edit = $('#logo_edit_modal');
-    var logo_container = $('#logo_container');
 
-    var title_input = $(logo_edit).find('input[name="title"]');
-    var subtitle_input = $(logo_edit).find('input[name="subtitle"]');
 
-    title_input.val($('#title').text());
-    subtitle_input.val($('#subtitle').text());
-
-    $('#title').removeData('temp');
-    $('#subtitle').removeData('temp');
-});
-
-$('#logoModal').on('shown.bs.modal', function (e) {
+$('#headerModal').on('shown.bs.modal', function (e) {
     e.preventDefault();
 
-    var logo_edit = $('#logo_edit_modal');
     var logo_container = $('#logo_container');
-    var selected_logo = $('#selected');
-
-
-    var title_container = $('#title');
-    var subtitle_container = $('#subtitle');
-    console.log(subtitle_container);
-
-
-    if(title_container.data('temp') && subtitle_container.data('temp')) {
-
-        $(logo_edit).find('input[name="title"]').val(title_container.data('temp'));
-        $(logo_edit).find('input[name="subtitle"]').val(subtitle_container.data('temp'));
-
-    }
+    var selected_logo = $('#logoImageModal').find('#selected');
+    var selected_background = $('#headerBackgroundModal').find('#selected');
 
 
 
-    $('#save_logo').on('click', function () {
-        var title = $(logo_edit).find('input[name="title"]').val();
-        var subtitle = $(logo_edit).find('input[name="subtitle"]').val();
+
+    $('#save_logo').off().on('click', function (e) {
+
+
 
 
         if(selected_logo.length){
@@ -58,21 +34,23 @@ $('#logoModal').on('shown.bs.modal', function (e) {
                 $('#menu').attr('style','padding-top:0 !important');
             }
         }
-        $('#title').text(title);
-        $('#subtitle').text(subtitle);
 
 
-
-        var text_color = logo_edit.find('.bfh-colorpicker').val();
-        if(text_color) {
-            $('#title').css('color',text_color);
-            $('#subtitle').css('color',text_color);
-
+        if(selected_background.length){
+            $('#header-wrapper').css('background','url("' + $(selected_background).find('img').attr('src') +'")no-repeat center center fixed');
+            $('#header-wrapper').css('background-size','cover');
+        }else if($('#headerBackgroundModal').find('#selected_color').val() !== '') {
+            var background_color = $('#headerBackgroundModal').find('#selected_color').val();
+            console.log(background_color);
+            $('#header-wrapper').css('background','');
+            $('#header-wrapper').css('background-color',background_color);
         }
 
     });
 });
 
+// Do I use this?.....
+/*
 $.extend({
     replaceTag: function (currentElem, newTagObj, keepProps) {
         var $currentElem = $(currentElem);
@@ -98,6 +76,7 @@ $.fn.extend({
         });
     }
 });
+*/
 
 $('#logo_container').mouseover(function(){
    $('#logo_edit').css("visibility","visible");
@@ -124,21 +103,6 @@ function logoImageModal(){
 }
 $('#logoImageModal').on('shown.bs.modal', function () {
 
-    var logo_edit = $('#logo_edit_modal');
-    var logo_container = $('#logo_container');
-
-    var title_input = $(logo_edit).find('input[name="title"]');
-    var subtitle_input = $(logo_edit).find('input[name="subtitle"]');
-
-    var title_container = $('#title');
-    var subtitle_container = $('#subtitle');
-
-
-    title_container.data('temp',title_input.val());
-    subtitle_container.data('temp',subtitle_input.val());
-
-
-
     $('#user_images').hide().fadeIn('slow');
     $('.bt-glyphicons').hide();
     logoImageModal();
@@ -149,6 +113,39 @@ $('#logoImageModal').on('shown.bs.modal', function () {
 
 
 });
+
+function headerBackgroundModal(){
+    $(document).on('click','#header_background_color',function(e){
+        e.preventDefault();
+        $('#background_images').hide();
+        $('#background_color').fadeIn('slow');
+    });
+    $(document).on('click','#header_background_images',function(e){
+        e.preventDefault();
+
+        $('#background_color').hide();
+        $('#background_images').fadeIn('slow');
+    });
+
+    headerBackgroundSelection();
+
+}
+$('#headerBackgroundModal').on('shown.bs.modal', function (e) {
+    //console.log(e.relatedTarget.id);
+
+
+
+    $('#background_images').hide().fadeIn('slow');
+    $('#background_color').hide();
+    headerBackgroundModal();
+    $(this).find('input[name="images"]').off().on('change',function(){
+        uploadImages($('#logoImageModal').find('#upload_bar'), $(this),'images');
+    });
+
+
+
+});
+
 
 
 function uploadImages(uploadbar,input,type){
@@ -203,14 +200,18 @@ $(document).ajaxStop(function() {
     if($('#logoImageModal').length){
         logoSelection();
     }
+    if($('#headerBackgroundModal').length){
+        headerBackgroundSelection();
+    }
 });
 
 function logoSelection() {
 
     var selected_image;
     var selected_icon;
-    $('.overlay').not('div#selected .overlay').hide();
-    $('.image_box').on('click',function() {
+    var logo_image_modal = $('#logoImageModal');
+    logo_image_modal.find('.overlay').not('#selected .overlay').hide();
+    logo_image_modal.find('.image_box').on('click',function() {
         if (selected_image) {
             selected_image.parent().removeAttr('id');
             selected_image.hide();
@@ -226,7 +227,7 @@ function logoSelection() {
         selected_image = $(this).children('.overlay');
     });
 
-    $('.bt-glyphicons-list').find('li').on('click',function(){
+    logo_image_modal.find('.bt-glyphicons-list').find('li').on('click',function(){
         if(selected_icon) {
             selected_icon.css('background-color', '#f1f1f1');
             selected_icon.removeAttr('id');
@@ -243,14 +244,32 @@ function logoSelection() {
     });
 }
 
+function headerBackgroundSelection() {
+
+    var selected_image;
+    var header_background_modal = $('#headerBackgroundModal');
+    header_background_modal.find('.overlay').not('#selected .overlay').hide();
+    header_background_modal.find('.image_box').on('click',function() {
+        if (selected_image) {
+            selected_image.parent().removeAttr('id');
+            selected_image.hide();
+
+        }
+
+        $(this).attr('id', 'selected');
+        $(this).children('.overlay').fadeIn('slow');
+        $('#selected_color').val("");
+
+        selected_image = $(this).children('.overlay');
+    });
 
 
-/*
-var glyphicons = '';
-$('.glyphicon-class').each(function(){
+    $('#selected_color').on('change.bfhcolorpicker',function(){
+        if(selected_image){
+            selected_image.hide();
+            selected_image.parent().removeAttr('id');
+            selected_image = null;
+        }
+    })
 
-    glyphicons += (', "' + text + '"');
-});
-console.log(glyphicons);
-*/
-
+}
