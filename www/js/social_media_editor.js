@@ -122,10 +122,3 @@ $('#social_media_options').find('#active').change(function() {
             }
 });
 
-$('#social_container').mouseover(function(){
-    $('#social_media_icon').css("visibility","visible");
-});
-$('#social_container').mouseout(function(){
-    $('#social_media_icon').css("visibility","hidden");
-});
-

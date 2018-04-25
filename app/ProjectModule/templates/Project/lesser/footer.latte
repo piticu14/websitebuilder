@@ -1,0 +1,45 @@
+<style>
+    .fh5co-copyright{
+        color: rgba(255, 255, 255, 0.4);
+    }
+</style>
+<script>
+
+</script>
+<footer id="fh5co-footer" role="contentinfo">
+
+    <div class="container">
+
+        <div id="social_container" class="col-md-12 col-md-push-5 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">
+            <h3>Follow Us
+                {if $presenter->isLinkCurrent("Project:edit")}
+                <a class="fa fa-cog" id="social_media_icon" href="#" data-toggle="modal" data-target="#socialMediaModal"></a>
+                {/if}
+            </h3>
+
+            <ul id="social_media" class="fh5co-social">
+
+                {foreach $social_media AS $item}
+                    <li n:class="!$item['active'] ? hide, active">
+                        <a href="{$item['href']|noescape}" data-media="{$item['media']}" data-active="{$item['active']}">
+                            <i class="fa fa-{$item['media']|lower}"></i>
+                            {$item['media']|firstUpper}
+                        </a>
+                    </li>
+                {/foreach}
+
+            </ul>
+        </div>
+
+        <div class="col-md-12 fh5co-copyright text-center">
+            {if $presenter->isLinkCurrent("Project:edit")}
+                <div id="footer_content" contenteditable="true" class="footer-copyright">
+            {else}
+                <div id="footer_content"  class="footer-copyright">
+            {/if}
+                    {$footer->content|noescape}
+            </div>
+        </div>
+    </div>
+
+</footer>

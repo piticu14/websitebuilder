@@ -1,0 +1,41 @@
+{block web}
+<style>
+
+	#body {
+		width: 95%;
+		margin:0 auto;
+		padding: 0;
+		height: 100%;
+	}
+
+	.keditor-container-content{
+		width:70%;
+		margin: auto;
+		float: none;
+	}
+
+	#editFlashMessages {
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 100px;
+	}
+
+
+</style>
+
+
+{include header.latte}
+<div id="wrapper">
+	<div class="row">
+		<div id="content-area">
+			<div id="editor">
+				<div id="body" data-url="{link deletePageItem!}">
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{include footer.latte}
+{/block}

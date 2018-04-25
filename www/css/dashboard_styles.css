@@ -251,33 +251,33 @@ a:focus {
     border:1px solid #0fa6bc !important;
 }
 
-.header .dropdown-menu{
+.dropdown-menu{
     border-radius:6px !important;
     background:#fff !important;
 }
 
-.header .dropdown-menu li{
+.dropdown-menu li{
     font-size:13px;
     padding:6px 15px;
     border-bottom:1px dashed #f3f3f3;
 }
 
-.header .dropdown-menu li a {
-    color:#888;
+.dropdown-menu li a {
+    color:#888 !important;
     padding-left:0px !important;
 }
 
-.header .dropdown-menu li:last-child{
+.dropdown-menu li:last-child{
     border:0px;
 }
 
-.header .dropdown-menu li a:hover{
+.dropdown-menu li a:hover{
     background:none !important;
     color:#666 !important;
     border:0px !important;
 }
 
-.header .dropdown-menu {
+.dropdown-menu {
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     -ms-transition: all 0.3s;
@@ -290,7 +290,7 @@ a:focus {
     opacity: 0;
 }
 
-.header .dropdown.open .dropdown-menu {
+.dropdown.open .dropdown-menu {
     max-height: 300px;
     opacity: 1;
 }
@@ -477,9 +477,43 @@ a:focus {
     background-color: #449d44 !important;
     border-color: #398439;
 }
+.edit-icon {
+    width: 90px; /* Set a specific width */
+    margin: auto;
+    margin-bottom: 20px;
 
-#toolbox-container{
-    background-color: rgba(255,255,255,.2);
-    border: 1px solid rgba(255,255,255,.35);
+}
+
+#logo_edit,#menu_edit,#social_media_icon {
+    background-color: rgba(211,211,211,.2);
+    border: 1px solid rgba(211,211,211,.35);
     transition: background-color .1s ease-in-out,border-color .1s ease-in-out;
+    font-size:25px;
+    border-radius:10px;
+    padding: 4px 12px;
+    color:#A9A9A9 !important;
+    height:auto;
+    text-decoration:none;
+}
+
+#logo_edit:hover,#menu_edit:hover,#social_media_icon:hover{
+    background-color: rgba(211,211,211,.5);
+    border: 1px solid rgba(211,211,211,.45);
+    text-decoration:none;
+}
+
+
+/*
+#logo_container a {
+    padding: 10px;
+    text-decoration: none;
+    color: #FFF;
+    border-radius:10px;
+}
+*/
+
+
+#menu_edit span,#logo_edit span,#social_media_icon span{
+    font-size: 25px;
+    color:#A9A9A9 !important;
 }

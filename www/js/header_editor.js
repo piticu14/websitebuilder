@@ -26,12 +26,12 @@ $('#headerModal').on('shown.bs.modal', function (e) {
                 logo_image.attr('alt','User Image');
                 logo_image.attr('src',$(selected_logo).find('img').attr('src'));
                 logo_image_container.prepend(logo_image);
-                $('#menu').attr('style','padding-top:35px !important');
+                $('#menu').attr('style','padding-top:25px');
             } else {
                 var logo_icon = $(selected_logo).children('span').clone();
                 var icon = "<i class='" + logo_icon.attr('class') + "'></i>";
                 logo_image_container.prepend(icon);
-                $('#menu').attr('style','padding-top:0 !important');
+                $('#menu').attr('style','padding-top:0');
             }
         }
 
@@ -41,8 +41,9 @@ $('#headerModal').on('shown.bs.modal', function (e) {
             $('#header-wrapper').css('background-size','cover');
         }else if($('#headerBackgroundModal').find('#selected_color').val() !== '') {
             var background_color = $('#headerBackgroundModal').find('#selected_color').val();
-            console.log(background_color);
             $('#header-wrapper').css('background','');
+            console.log(            $('#header-wrapper').css('background-image'));
+            $('#header-wrapper').css('background-image','none');
             $('#header-wrapper').css('background-color',background_color);
         }
 
@@ -78,12 +79,14 @@ $.fn.extend({
 });
 */
 
+/*
 $('#logo_container').mouseover(function(){
    $('#logo_edit').css("visibility","visible");
 });
 $('#logo_container').mouseout(function(){
     $('#logo_edit').css("visibility","hidden");
 });
+*/
 
 function logoImageModal(){
     $(document).on('click','#logo_icons',function(e){

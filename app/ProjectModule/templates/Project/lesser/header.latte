@@ -1,0 +1,127 @@
+<script>
+    $('#save_logo').off().on('click', function (e) {
+        $('#menu').attr('style','padding-top:25px !important');
+    });
+</script>
+<style>
+    #logo_edit{
+        margin-right:20px;
+    }
+    #title{
+        width: 300px;
+        display:inline-block;
+    }
+{if $header_logo['type'] === 'img'}
+
+        #nav ul:not(#page_drop_down) {
+            padding-top: 20px;
+        }
+
+{/if}
+</style>
+<header id="header-wrapper" role="banner">
+
+    <div class="container">
+        <div class="header-inner">
+                <div id="logo_container">
+                    <h1 id="logo_image_container">
+
+                        {if $header_logo['type'] == 'img'}
+                            <img width="100" height="100" src="{$header_logo['src']}" alt="your image">
+                        {else}
+                            <i class="glyphicon glyphicon-{$header_logo['src']}"></i>
+                        {/if}
+                            <p id="title" {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->title|noescape}</p>
+                        {if $presenter->isLinkCurrent("Project:edit")}
+
+                            <a id="logo_edit" class="navbar-brand" href="javascript:;"> <span
+                                        class="fa fa-cog" aria-hidden="true" data-toggle="modal"
+                                        data-target="#headerModal"></span></a>
+                        {/if}
+                    </h1>
+
+                </div>
+
+            <nav id="nav" role="navigation">
+                {if $presenter->isLinkCurrent("Project:edit")}
+                    <ul id="menu">
+                        {foreach $nav_items as $nav_item}
+                            {if (!$nav_item->new)}
+                                <li n:class="!$nav_item->active ? hide,$nav_item->page_id == $presenter->getParameter('page_id') ? active">
+                                    <a n:class="$nav_item->page_id == $presenter->getParameter('page_id') ? active" n:href="Project:edit id => $presenter->getParameter('id'), page_id => $nav_item->page_id"
+                                            data-id="{$nav_item->id}" data-page_id="{$nav_item->page_id}"
+                                            data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}"
+                                            data-description="{$nav_item->description}"
+                                            data-active="{$nav_item->active}"
+                                            data-url="{link saveTemporary!}">{$nav_item->title}</a>
+                                </li>
+                            {/if}
+                        {/foreach}
+                        <li id="page_drop_down_container" class="dropdown hide">
+                            <a class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="true">
+
+                                <span class="caret"></span>
+                            </a>
+                            <ul id="page_drop_down" class="dropdown-menu pull-right" aria-labelledby="dropdownMenu">
+                                {foreach $nav_items as $nav_item}
+                                    {if ($nav_item->new)}
+                                        <li n:class="!$nav_item->active ? hide">
+                                            <a n:class="$nav_item->page_id == $presenter->getParameter('page_id') ? active" n:href="Project:edit id => $presenter->getParameter('id'), page_id => $nav_item->page_id"
+                                                    data-id="{$nav_item->id}" data-page_id="{$nav_item->page_id}"
+                                                    data-title="{$nav_item->page_title}"
+                                                    data-keywords="{$nav_item->keywords}"
+                                                    data-description="{$nav_item->description}"
+                                                    data-active="{$nav_item->active}"
+                                                    data-url="{link saveTemporary!}">{$nav_item->title}</a>
+                                        </li>
+                                    {/if}
+                                {/foreach}
+                            </ul>
+                        </li>
+                        <li><a id="menu_edit" href="#" data-toggle="modal" data-target="#menuModal"> <span
+                                        class="fa fa-cog" aria-hidden="true"></span></a></li>
+                    </ul>
+                {else}
+                    <ul>
+                        {foreach $nav_items as $nav_item}
+                            {if (!$nav_item->new)}
+                                <li n:class="!$nav_item->active ? hide">
+                                    <a n:class="$nav_item->page_id == $presenter->getParameter('page_id') ? active" n:href="Project:show id => $presenter->getParameter('id'), page_id => $nav_item->page_id"
+                                            data-id="{$nav_item->id}" data-page_id="{$nav_item->page_id}"
+                                            data-title="{$nav_item->page_title}"
+                                            data-keywords="{$nav_item->keywords}"
+                                            data-description="{$nav_item->description}"
+                                            data-active="{$nav_item->active}"
+                                            data-url="{link saveTemporary!}">{$nav_item->title}</a>
+                                </li>
+                            {/if}
+                        {/foreach}
+                        <li id="page_drop_down_container" class="dropdown hide">
+                            <a class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true"
+                               aria-expanded="true">
+
+                                <span class="caret"></span>
+                            </a>
+                            <ul id="page_drop_down" class="dropdown-menu pull-right" aria-labelledby="dropdownMenu">
+                                {foreach $nav_items as $nav_item}
+                                    {if ($nav_item->new)}
+                                        <li n:class="!$nav_item->active ? hide">
+                                            <a n:class="$nav_item->page_id == $presenter->getParameter('page_id') ? active" n:href="Project:show id => $presenter->getParameter('id'), page_id => $nav_item->page_id"
+                                                    data-id="{$nav_item->id}" data-page_id="{$nav_item->page_id}"
+                                                    data-title="{$nav_item->page_title}"
+                                                    data-keywords="{$nav_item->keywords}"
+                                                    data-description="{$nav_item->description}"
+                                                    data-active="{$nav_item->active}"
+                                                    data-url="{link saveTemporary!}">{$nav_item->title}</a>
+                                        </li>
+                                    {/if}
+                                {/foreach}
+                            </ul>
+                        </li>
+                    </ul>
+                {/if}
+            </nav>
+        </div>
+    </div>
+</header>

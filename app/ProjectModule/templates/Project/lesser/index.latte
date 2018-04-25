@@ -1,0 +1,61 @@
+{block web}
+<style>
+    #body {
+        width: 95%;
+        margin:0 auto;
+        padding: 0;
+        height: 100%;
+    }
+
+    .keditor-container-content{
+        width:70%;
+        margin: auto;
+        float: none;
+    }
+
+    #editFlashMessages {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 100px;
+        height:60px;
+    }
+
+    #page_item{
+        width:70%;
+        margin: auto;
+        float: none;
+    }
+
+</style>
+{if $presenter->isLinkCurrent("Project:edit")}
+    <div id="fh5co-page" style="margin-top:50px">
+{else}
+    <div id="fh5co-page">
+{/if}
+        {include header.latte}
+        <div n:class="($first_page['temp_id'] == $presenter->getParameter('page_id') || $first_page['publish_id'] == $presenter->getParameter('page_id')) ? active : hide" id="fh5co-intro-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center">
+                        <h2 id="subtitle" {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->subtitle|noescape}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <div class="row">
+                <div  id="content-area">
+                    <div id="editor">
+                        <div id="body" data-url="{link deletePageItem!}">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {include footer.latte}
+
+    </div>
+    {/block}
+
+

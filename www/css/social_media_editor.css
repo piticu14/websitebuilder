@@ -1,7 +1,4 @@
-#social_media_icon {
-    padding-left:20px;
-    visibility: hidden;
-}
+
 
 .social-icon:hover #social_media_icon { visibility: visible}
 

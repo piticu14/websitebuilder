@@ -192,10 +192,6 @@ a:hover, a:active, a:focus {
   padding-top: 6px;
 }
 
-.navbar-default .navbar-brand .fa {
-  color: #000;
-  font-size: 42px;
-}
 
 .navbar-default .navbar-nav li a {
     color: #777;
@@ -207,7 +203,7 @@ a:hover, a:active, a:focus {
     padding-left: 22px;
 }
 
-.navbar-default .navbar-nav > li a:hover {
+.navbar-default .navbar-nav > li a:not(#menu_edit):hover {
     color: #333 !important;
 }
 
@@ -656,7 +652,7 @@ footer .footer-copyright {
     margin: 22px 12px 10px 12px;
 }
 
-.social-icon li a:hover {
+.social-icon li a:not(#social_media_icon):hover {
     color: #000;
     transform: scale(1.1);
 }

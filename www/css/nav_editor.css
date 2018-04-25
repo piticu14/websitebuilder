@@ -53,10 +53,6 @@
 
 #nav_title a:hover #edit_menu_icon {  visibility: visible;  }
 
-#menu_edit {
-    padding-left:20px;
-    visibility: hidden;
-}
 
 #menu:hover #menu_edit { visibility: visible}
 
