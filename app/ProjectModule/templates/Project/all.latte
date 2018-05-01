@@ -4,7 +4,7 @@
     <link href='https://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
     <div class="col-sm-12">
     <div class="case-study-gallery">
-        <h1 class="title">MOJE PROJEKTY</h1>
+        <h1 class="title">MOJE WEBY</h1>
         {snippet flashMessage}
             <div n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -18,7 +18,7 @@
                  style="background-image:url('{$basePath}/thubmnails/{$row->ref('template','template_id')->title}.jpg');">
                 <div class="case-study__overlay">
                     <h2 class="case-study__title">{$row->subdomain}</h2>
-                    <a class="case-study__link" target="_blank" href="#">Přehled</a> <br>
+                    <a class="case-study__link" n:href = "Project:show id => $row->project_id, page_id => $first_projects_pages[$iterator->counter - 1]['publish_id']" target="_blank">Přehled</a> <br>
                     <a class="case-study__link showProject" data-toggle="modal"
                        data-project='{"id":"{$row->project_id}","page_temp_id":"{$first_projects_pages[$iterator->counter - 1]['temp_id']}","page_publish_id":"{$first_projects_pages[$iterator->counter - 1]['publish_id']}","subdomain":"{$row->subdomain}","active":"{$row->active}"}'
                        data-target="#editProjectModal" href="#">Upravit</a>

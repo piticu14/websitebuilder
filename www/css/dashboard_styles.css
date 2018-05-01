@@ -386,6 +386,7 @@ a:focus {
 
 .btn-u:hover, .btn-u:focus, .btn-u:active, .btn-u.active, .open .dropdown-toggle.btn-u {
     opacity:0.8;
+    color:#fff;
 }
 .btn-u:hover {
     color: #fff;
@@ -484,19 +485,20 @@ a:focus {
 
 }
 
-#logo_edit,#menu_edit,#social_media_icon {
+#logo_edit,#menu_edit,#social_media_icon, #footer_edit {
     background-color: rgba(211,211,211,.2);
     border: 1px solid rgba(211,211,211,.35);
     transition: background-color .1s ease-in-out,border-color .1s ease-in-out;
     font-size:25px;
     border-radius:10px;
-    padding: 4px 12px;
+    padding: 3px 12px;
     color:#A9A9A9 !important;
     height:auto;
     text-decoration:none;
+
 }
 
-#logo_edit:hover,#menu_edit:hover,#social_media_icon:hover{
+#logo_edit:hover,#menu_edit:hover,#social_media_icon:hover, #footer_edit:hover{
     background-color: rgba(211,211,211,.5);
     border: 1px solid rgba(211,211,211,.45);
     text-decoration:none;
@@ -513,7 +515,18 @@ a:focus {
 */
 
 
-#menu_edit span,#logo_edit span,#social_media_icon span{
+#menu_edit span,#logo_edit span,#social_media_icon span, #footer_edit span{
     font-size: 25px;
     color:#A9A9A9 !important;
+}
+
+#footer_container{
+    position:relative;
+}
+
+#footer_edit{
+    position:absolute;
+    top:0;
+    left:0;
+
 }

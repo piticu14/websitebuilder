@@ -327,7 +327,7 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
         $('#page_items').append(parent);
 
     });
-    $('#page_items').append('<li><a data-dismiss="modal" data-toggle="modal" data-target="#newPageModal" class="btn btn-primary"  href="javascript:;" >Pridat stranku</a></li>');
+    $('#page_items').append('<li><a data-dismiss="modal" data-toggle="modal" data-target="#newPageModal" class="btn btn-primary"  href="javascript:;" >Přidat stránku</a></li>');
     init();
 
     modal_body.find('a.modal-menu-links').each(function () {

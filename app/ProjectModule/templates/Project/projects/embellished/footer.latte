@@ -1,4 +1,15 @@
+<style>
+    #footer_edit{
+        line-height: 1.1;
+    }
+</style>
 <div id="footer_container">
+    {if $presenter->isLinkCurrent("Project:edit")}
+        <a id="footer_edit" href="javascript:;"> <span
+                    class="fa fa-cog" aria-hidden="true" data-toggle="modal"
+                    data-target="#footerModal"></span></a>
+    {/if}
+
     <div id="social_container" class="container">
         <div class="footer-title">
             <h2>Sledujte nás</h2>
@@ -21,10 +32,13 @@
         </ul>
     </div>
     {if $presenter->isLinkCurrent("Project:edit")}
-        <div id="footer_content" class="container" contenteditable="true">
-    {else}
+    <div id="footer_content" class="container" contenteditable="true">
+        {else}
         <div id="footer_content" class="container">
-    {/if}
+            {/if}
             {$footer->content|noescape}
         </div>
+
     </div>
+</div
+

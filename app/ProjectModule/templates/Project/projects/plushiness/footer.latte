@@ -1,0 +1,41 @@
+<style>
+    #footer_edit{
+        line-height: 1.15;
+    }
+</style>
+<div id="footer_container">
+    {if $presenter->isLinkCurrent("Project:edit")}
+        <a id="footer_edit" href="javascript:;"> <span
+                    class="fa fa-cog" aria-hidden="true" data-toggle="modal"
+                    data-target="#footerModal"></span></a>
+    {/if}
+    <div id="social_container" class="container">
+        <ul id="social_media">
+            {foreach $social_media AS $item}
+                <li n:class="!$item['active'] ? hide ">
+                    <a class="hexagon" href="{$item['href']|noescape}" data-media="{$item['media']}"
+                       data-active="{$item['active']}">
+                        <i class="fa fa-{$item['media']|lower}"></i>
+                        {$item['media']|firstUpper}
+                    </a>
+                </li>
+            {/foreach}
+            {if $presenter->isLinkCurrent("Project:edit")}
+                <li>
+
+                    <a id="social_media_icon" href="#" data-toggle="modal" data-target="#socialMediaModal">
+                        <span class="fa fa-cog"></span>
+                    </a>
+
+                </li>
+            {/if}
+        </ul>
+    </div>
+    {if $presenter->isLinkCurrent("Project:edit")}
+    <div id="footer_content" class="container" contenteditable="true">
+        {else}
+        <div id="footer_content" class="container">
+            {/if}
+            {$footer->content|noescape}
+        </div>
+    </div>

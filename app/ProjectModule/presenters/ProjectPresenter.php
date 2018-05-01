@@ -85,7 +85,7 @@ class ProjectPresenter  extends AdminBasePresenter
             $data = $form->getValues();
             $data['logo'] = JSON::encode([
                 'type' => 'img',
-                'src' => '/websitebuilder/www/img/blank_logo.gif'
+                'src' => '/websitebuilder/www/img/blank_logo.jpg'
             ]);
             $project = $this->projectManager->add($data);
             $path = 'user_images/' . $project->id . '/images/';
@@ -162,6 +162,7 @@ class ProjectPresenter  extends AdminBasePresenter
 
     private function initTemplateVariables($id,$page_id,$publish)
     {
+
         $project = $this->projectManager->get($id);
         $jsFiles = array();
         $cssFiles = array();
@@ -169,7 +170,7 @@ class ProjectPresenter  extends AdminBasePresenter
         foreach (Finder::findFiles('*.js')->exclude('*jquery.min*','*bootstrap.min*','jquery.js','bootstrap.js','jquery*','google_map.js')->from($dir . 'js/') as $key => $file) {
             $jsFiles[] = $file->getBasename();
         }
-        foreach (Finder::findFiles('*.css')->exclude('*jquery.min*','*bootstrap.min*','bootstrap.css')->from($dir . 'css/') as $key => $file) {
+        foreach (Finder::findFiles('*.css')->exclude('*jquery.min*','*bootstrap.min*','bootstrap.css','default.css')->from($dir . 'css/') as $key => $file) {
             $cssFiles[] = $file->getBasename();
         }
         $this->template->template_title = $project->template_title;
@@ -177,13 +178,13 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->jsFiles = $jsFiles;
         $this->template->cssFiles = $cssFiles;
 
+
         $this->template->nav_items = $this->navManager->get($id,$publish);
         $this->template->current_page = $this->pageManager->get($page_id);
 
         $this->template->user_images = $this->getUserImages($id);
 
         $this->template->header = $this->headerManager->get($id,$publish);
-        bdump($this->template->header->background);
         $this->template->header_logo = JSON::decode($this->template->header->logo,Json::FORCE_ARRAY);
 
         $this->template->footer = $this->footerManager->get($id,$publish);

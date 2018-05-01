@@ -1,21 +1,21 @@
 
 
 
-$('#headerModal').on('shown.bs.modal', function (e) {
-    e.preventDefault();
+$('#headerModal').on('shown.bs.modal', function () {
 
     var logo_container = $('#logo_container');
     var selected_logo = $('#logoImageModal').find('#selected');
     var selected_background = $('#headerBackgroundModal').find('#selected');
+    var header_wrapper = $('#header-wrapper');
+
+    var modalFooterButtons = $('#headerBackgroundModal').find('.modal-footer button');
+
+    modalFooterButtons.each(function(){
+        $(this).attr('data-target','#headerModal');
+    });
 
 
-
-
-    $('#save_logo').off().on('click', function (e) {
-
-
-
-
+    $('#save_logo').off().on('click', function () {
         if(selected_logo.length){
             var logo_image_container =  $('#logo_image_container');
             logo_image_container.children().first().remove();
@@ -35,20 +35,44 @@ $('#headerModal').on('shown.bs.modal', function (e) {
             }
         }
 
+        setBackground(selected_background,header_wrapper);
 
-        if(selected_background.length){
-            $('#header-wrapper').css('background','url("' + $(selected_background).find('img').attr('src') +'")no-repeat center center fixed');
-            $('#header-wrapper').css('background-size','cover');
-        }else if($('#headerBackgroundModal').find('#selected_color').val() !== '') {
-            var background_color = $('#headerBackgroundModal').find('#selected_color').val();
-            $('#header-wrapper').css('background','');
-            console.log(            $('#header-wrapper').css('background-image'));
-            $('#header-wrapper').css('background-image','none');
-            $('#header-wrapper').css('background-color',background_color);
-        }
 
     });
 });
+
+$('#footerModal').on('shown.bs.modal', function () {
+
+
+    var modalFooterButtons = $('#headerBackgroundModal').find('.modal-footer button');
+
+    modalFooterButtons.each(function(){
+       $(this).attr('data-target','#footerModal');
+    });
+
+    var selected_background = $('#headerBackgroundModal').find('#selected');
+    var container = $('#footer_container');
+
+
+
+    $('#save_footer').off().on('click', function () {
+        setBackground(selected_background,container);
+    });
+});
+
+
+
+function setBackground(selected_background,container){
+    if(selected_background.length){
+        container.css('background','url("' + $(selected_background).find('img').attr('src') +'")no-repeat center center fixed');
+        container.css('background-size','cover');
+    }else if($('#headerBackgroundModal').find('#selected_color').val() !== '') {
+        var background_color = $('#headerBackgroundModal').find('#selected_color').val();
+        container.css('background','');
+        container.css('background-image','none');
+        container.css('background-color',background_color);
+    }
+}
 
 // Do I use this?.....
 /*

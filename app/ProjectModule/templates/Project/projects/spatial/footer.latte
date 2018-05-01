@@ -1,12 +1,21 @@
 <!-- Footer -->
 {if $presenter->isLinkCurrent("Project:edit")}
     <style>
+        #logo_edit,#social_media_icon,#footer_edit{
+            line-height: 1.1;
+        }
+
         #social_media{ padding-left:100px;}
     </style>
 
 {/if}
 
-<footer id="footer">
+<footer id="footer_container">
+    {if $presenter->isLinkCurrent("Project:edit")}
+        <a id="footer_edit" href="javascript:;"> <span
+                    class="fa fa-cog" aria-hidden="true" data-toggle="modal"
+                    data-target="#footerModal"></span></a>
+    {/if}
     <div id="social_container" class="container">
         <ul id="social_media" class="icons">
             {foreach $social_media AS $item}

@@ -387,24 +387,24 @@ ul.contact li a.icon-rss:before
 /* Logo                                                                          */
 /*********************************************************************************/
 
-	#logo
+	#logo_container
 	{
 		padding: 5em 0em;
 		text-align: center;
 	}
-	
-	#logo h1
+
+	#logo_container h1
 	{
 		font-size: 3.5em;
 	}
-	
-	#logo a
+
+	#logo_container a
 	{
 		text-decoration: none;
 		color: #FFF;
 	}
-	
-	#logo span
+
+	#logo_container p
 	{
 		letter-spacing: 0.10em;
 		text-transform: uppercase;
@@ -412,12 +412,12 @@ ul.contact li a.icon-rss:before
 		color: rgba(255,255,255,0.5);
 	}
 
-	#logo span a
+	#logo_container p a
 	{
 		color: rgba(255,255,255,0.8);
 	}
-	
-	#logo .icon
+
+	#logo_image_container i
 	{
 		font-size: 4em;
 		color: rgba(255,255,255,1);
@@ -434,25 +434,29 @@ ul.contact li a.icon-rss:before
 		background: #3D3D3D;
 	}
 
-	#menu
+	#menu-inner
 	{
 		margin: 0px auto;
 	}
-	
-	#menu ul
+
+	#menu-inner > ul:not(#page_drop_down)
 	{
 		text-align: center;
+
 	}
-	
-	#menu li
+
+	#menu-inner > ul > li
+	{
+		display: inline;
+	}
+
+
+
+
+	#menu-inner > ul > li > a:not(#menu_edit)
 	{
 		display: inline-block;
-	}
-	
-	#menu li a, #menu li span
-	{
-		display: inline-block;
-		margin-left: 0.50em;
+		margin-left: 0.70em;
 		padding: 2em 1.5em 1em 1.5em;
 		letter-spacing: 0.20em;
 		text-decoration: none;
@@ -462,16 +466,20 @@ ul.contact li a.icon-rss:before
 		outline: 0;
 		color: #FFF;
 	}
-	
-	#menu li:hover a, #menu li.active a, #menu li.active span
+
+	#menu-inner li:hover a, #menu-inner li.active a, #menu-inner li.active span
 	{
-	}
-	
-	#menu .current_page_item a
-	{
-		color: #FFF;
 	}
 
+	#menu-inner .active
+	{
+		text-decoration: underline !important;
+		color: #FFF !important;
+	}
+
+	#page_drop_down{
+		margin-top:25px;
+	}
 /*********************************************************************************/
 /* Banner                                                                        */
 /*********************************************************************************/
@@ -532,6 +540,7 @@ ul.contact li a.icon-rss:before
 #wrapper
 {
 	background: #FFF;
+	padding:40px 0;
 }
 
 #page
@@ -598,14 +607,15 @@ ul.contact li a.icon-rss:before
 /* Copyright                                                                     */
 /*********************************************************************************/
 
-#copyright
+#footer_content
 {
 	overflow: hidden;
 	padding: 5em 0em;
 	border-top: 1px solid rgba(255,255,255,0.08);
+	text-align: center;
 }
 
-#copyright p
+#footer_content p
 {
 	letter-spacing: 0.20em;
 	text-align: center;
@@ -614,24 +624,26 @@ ul.contact li a.icon-rss:before
 	color: rgba(255,255,255,0.3);
 }
 
-#copyright a
+#footer_content a
 {
 	text-decoration: none;
 	color: rgba(255,255,255,0.6);
 }
 
-#stamp .hexagon
+#social_container .hexagon
 {
-	background: #3D3D3D;
+	margin-left: 140px;
+
+	float: left;
 }
 
-#stamp .hexagon:before {
-	border-left: 60px solid transparent;
-	border-right: 60px solid transparent;
-	border-bottom: 30px solid #3D3D3D;
-}
-#stamp .hexagon:after {
+#social_container .hexagon:after {
 	border-color: #3D3D3D;
+	display:inline-block;
+}
+
+#social_container .hexagon:hover{
+	color:#FFC000;
 }
 
 
@@ -960,34 +972,14 @@ ul.contact li a.icon-rss:before
 	width: 120px;
 	height: 80px;
 	line-height: 80px;
-	background: #FFC000;
+	//background: #FFC000;
 	position: relative;
 	text-align: center;
 	color: #FFF;
 	font-size: 2em;
 }
-.hexagon:before {
-	content: "";
-	position: absolute;
-	top: -30px;
-	left: 0;
-	width: 0;
-	height: 0;
-	border-left: 60px solid transparent;
-	border-right: 60px solid transparent;
-	border-bottom: 30px solid #FFC000;
-}
-.hexagon:after {
-	content: "";
-	position: absolute;
-	bottom: -30px;
-	left: 0;
-	width: 0;
-	height: 0;
-	border-left: 60px solid transparent;
-	border-right: 60px solid transparent;
-	border-top: 30px solid #FFC000;
-}
+
+
 
 #portfolio
 {
@@ -1010,3 +1002,11 @@ ul.contact li a.icon-rss:before
 {
 	text-align: center;
 }
+
+#social_media li{
+	margin: 0 auto;
+	text-align:center;
+}
+
+
+

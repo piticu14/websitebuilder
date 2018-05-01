@@ -144,7 +144,8 @@
 </div>
 
 <!-- Container Background Modal -->
-<div class="modal fade" id="containerBackgroundModal" tabindex="-1" role="dialog" aria-labelledby="containerBackgroundModal" aria-hidden="true">
+<div class="modal fade" id="containerBackgroundModal" tabindex="-1" role="dialog"
+     aria-labelledby="containerBackgroundModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -170,7 +171,8 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
 
-                                        <div id="container_selected_color" class="bfh-colorpicker" data-name="nav_bgcolor"
+                                        <div id="container_selected_color" class="bfh-colorpicker"
+                                             data-name="nav_bgcolor"
                                              data-color=""></div>
                                     </div>
                                 </div>
@@ -299,7 +301,8 @@
 
 
 <!-- Header Background Modal -->
-<div class="modal fade" id="headerBackgroundModal" tabindex="-1" role="dialog" aria-labelledby="headerBackgroundModal" aria-hidden="true">
+<div class="modal fade" id="headerBackgroundModal" tabindex="-1" role="dialog" aria-labelledby="headerBackgroundModal"
+     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -365,11 +368,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal"
-                        data-target="#headerModal">Zavřit
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal">Zavřit
                 </button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal"
-                        data-target="#headerModal">Uložit
+                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal">Uložit
                 </button>
             </div>
         </div>
@@ -399,17 +400,6 @@
                                             <span class="mycolor input-group-addon"><i
                                                         class="glyphicon glyphicon-edit"></i></span>
                                     <input name="name" type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Titulek</label>
-
-                            <div class="col-md-8 inputGroupContainer">
-                                <div class="input-group">
-                                            <span class="mycolor input-group-addon"><i
-                                                        class="glyphicon glyphicon-edit"></i></span>
-                                    <input name="title" type="text" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -563,10 +553,52 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
-                <button id="save_photogallery" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
+                <button id="save_photogallery" type="button" class="btn btn-primary" data-dismiss="modal">Uložit
+                </button>
             </div>
 
         </div>
     </div>
+</div>
+
+<!-- Footer Edit Modal -->
+<div class="modal fade" id="footerModal" tabindex="-1" role="dialog" aria-labelledby="footerModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title" id="exampleModalLongTitle">Editace zápatí</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="row margin-top" id="logo_edit_modal">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Pozadí</label>
+
+                                <div class="col-md-8 inputGroupContainer">
+                                    <div class="input-group">
+                                        {*<input type="file" name="image" accept="image/*">*}
+                                        <a id="logo_image" class="btn btn-u" href="javascript:;" data-dismiss="modal"
+                                           data-toggle="modal" data-target="#headerBackgroundModal">Zvolit pozadí</a>
+
+                                    </div>
+                                </div>
+                            </div>
 
 
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavřit</button>
+                <button id="save_footer" type="button" class="btn btn-primary" data-dismiss="modal">Uložit</button>
+            </div>
+        </div>
+    </div>
+</div>

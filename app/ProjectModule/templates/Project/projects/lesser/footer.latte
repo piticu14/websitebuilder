@@ -1,4 +1,10 @@
 <style>
+    #social_media_icon, #logo_edit{
+        padding: 4px 11.5px;
+    }
+    #footer_edit{
+        line-height: 1.1;
+    }
     .fh5co-copyright{
         color: rgba(255, 255, 255, 0.4);
     }
@@ -6,8 +12,12 @@
 <script>
 
 </script>
-<footer id="fh5co-footer" role="contentinfo">
-
+<footer id="footer_container" role="contentinfo">
+    {if $presenter->isLinkCurrent("Project:edit")}
+        <a id="footer_edit" href="javascript:;"> <span
+                    class="fa fa-cog" aria-hidden="true" data-toggle="modal"
+                    data-target="#footerModal"></span></a>
+    {/if}
     <div class="container">
 
         <div id="social_container" class="col-md-12 col-md-push-5 col-sm-12 col-sm-push-0 col-xs-12 col-xs-push-0">

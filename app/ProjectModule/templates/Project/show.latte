@@ -5,12 +5,13 @@
     {foreach $cssFiles as $cssFile}
         <link rel="stylesheet" href="{$basePath}/templates/{$template_title}/css/{$cssFile}">
     {/foreach}
+    <link rel="stylesheet" href="{$presenter->getParameter('appDir')}/ProjectModule/templates/Project/projects/{$template_title}/style.css">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
 
 {/block}
 {block content}
 
-    {import {$template_title}/index.latte}
+    {import projects/{$template_title}/index.latte}
     {include web}
 {/block}
 

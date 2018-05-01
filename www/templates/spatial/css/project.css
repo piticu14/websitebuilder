@@ -1,4 +1,4 @@
-@import url(font-awesome.min.css);
+@import url(../../../../../www/templates/spatial/css/font-awesome.min.css);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
 
 /*
@@ -1353,7 +1353,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
         .landing .wrapper.style3 {
 			background-attachment: fixed;
-			background-image: url("images/overlay.png"), url("../images/banner.jpg");
+			background-image: url("../../../../../www/templates/spatial/css/images/overlay.png"), url("../../../../../www/templates/spatial/images/banner.jpg");
 			background-position: center center;
 			background-size: cover;
 		}
@@ -1707,7 +1707,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     #header-wrapper {
 		padding: 16em 0 13em 0;
 		background-attachment: fixed;
-		background-image: url("images/overlay.png"), url("../images/banner.jpg");
+		background-image: url("../../../../../www/templates/spatial/css/images/overlay.png"), url("../../../../../www/templates/spatial/images/banner.jpg");
 		background-position: center top;
 		background-size: cover;
 		line-height: 1.75;
@@ -1797,14 +1797,15 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 /* Footer */
 
-    #footer {
+    #footer_container {
+		position:relative;
 		padding: 8em 0 6em 0;
 		background: #f6f6f6;
 		color: #aaa;
 		text-align: center;
 	}
 
-        #footer a {
+        #footer_container a {
 			-moz-transition: color 0.2s ease-in-out;
 			-webkit-transition: color 0.2s ease-in-out;
 			-ms-transition: color 0.2s ease-in-out;
@@ -1813,29 +1814,29 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 			text-decoration: none;
 		}
 
-            #footer a:active,.landing #footer a:hover {
+            #footer_container a:active,.landing #footer_container a:hover {
 				color: #666;
 			}
 
-        #footer .icons {
+        #footer_container .icons {
 			font-size: 1.5em;
 		}
 
-            #footer .icons li {
+            #footer_container .icons li {
 				padding-right: 2.5em;
 			}
 
-                #footer .icons li:last-child {
+                #footer_container .icons li:last-child {
 					padding-right: 0;
 				}
 
-        #footer .copyright {
+        #footer_container .copyright {
 			margin: 2em 0;
 			padding: 0;
 			text-align: center;
 		}
 
-            #footer .copyright li {
+            #footer_container .copyright li {
 				border-left: solid 1px rgba(144, 144, 144, 0.25);
 				display: inline-block;
 				list-style: none;
@@ -1843,7 +1844,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 				padding-left: 1.5em;
 			}
 
-                #footer .copyright li:first-child {
+                #footer_container .copyright li:first-child {
 					border-left: 0;
 					margin-left: 0;
 					padding-left: 0;
@@ -1851,7 +1852,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 		@media screen and (max-width: 980px) {
 
-            #footer {
+            #footer_container {
 				padding: 6em 0 4em 0;
 			}
 
@@ -1859,11 +1860,11 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 		@media screen and (max-width: 736px) {
 
-            #footer {
+            #footer_container {
 				padding: 3em 0 2em 0;
 			}
 
-                #footer .icons {
+                #footer_container .icons {
 					font-size: 1em;
 				}
 
@@ -1871,11 +1872,11 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
 		@media screen and (max-width: 480px) {
 
-            #footer {
+            #footer_container {
 				padding: 3em 0 1em 0;
 			}
 
-                #footer .copyright li {
+                #footer_container .copyright li {
 					border-left: 0;
 					display: block;
 					margin: 0;

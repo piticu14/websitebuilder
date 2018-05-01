@@ -944,7 +944,7 @@
             self.setSettingContainer(target);
             self.setSettingComponent(null);
             
-            body.find('#keditor-setting-title').html("Container Settings");
+            body.find('#keditor-setting-title').html("Nastavení obalu");
             
             var settingForm = body.find('#keditor-container-setting');
             if (typeof options.containerSettingShowFunction === 'function') {

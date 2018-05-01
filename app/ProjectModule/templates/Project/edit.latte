@@ -5,13 +5,21 @@
     {foreach $cssFiles as $cssFile}
         <link rel="stylesheet" href="{$basePath}/templates/{$template_title}/css/{$cssFile}">
     {/foreach}
+    <link rel="stylesheet" href="../{$basePath}">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
 
 {/block}
 
 {block content}
+<style>
+    .keditor-container-inner{
+        width:70%;
+        margin: auto;
+        float: none;
+    }
+</style>
 
-    {import {$template_title}/index.latte}
+    {import projects/{$template_title}/index.latte}
 
     {include web}
 

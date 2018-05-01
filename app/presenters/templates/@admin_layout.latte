@@ -25,6 +25,14 @@
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/social_media_editor.css">
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/photogallery_component.css">
 
+        {if $presenter->isLinkCurrent("Documentation:*")}
+            <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" type="text/css" href="{$basePath}/doc/css/style.css">
+            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+            <link rel="stylesheet" type="text/css" href="{$basePath}/doc/css/prettify.css">
+            <link rel="stylesheet" type="text/css" href="{$basePath}/doc/css/normalize.css" >
+        {/if}
+
         <!-- Start of KEditor styles -->
         <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/keditor/dist/css/keditor-1.1.5.css"/>
         <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/keditor/dist/css/keditor-components-1.1.5.css"/>
@@ -68,9 +76,10 @@
                                data-target="dropdown">{$user->getIdentity()->username} <b
                                         class="caret"></b></a>
                             <ul class="dropdown-menu fadeInUp">
-                                <li><a n:href="Project:all">Projekty</a></li>
+                                <li><a n:href="Project:all">Moje weby</a></li>
                                 <li><a n:href="Settings:default">Nastaveni</a></li>
                                 {*<li><a href="#">Změna šablony</a></li>*}
+                                <li><a n:href="Documentation:default">Nápověda</a></li>
                                 <li><a n:href='Account:out'>Logout</a></li>
 
                             </ul>
@@ -142,6 +151,19 @@
     <script src="{$basePath}/js/nav_editor.js"></script>
     <script src="{$basePath}/js/header_editor.js"></script>
     <script src="{$basePath}/js/social_media_editor.js"></script>
+
+    {if $presenter->isLinkCurrent("Documentation:*")}
+        <script src="{$basePath}/doc/js/prettify.min.js"></script>
+        <script src="{$basePath}/doc/js/scripts.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+    {/if}
+    <script>
+        $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+    </script>
+
 
 {/block}
 
