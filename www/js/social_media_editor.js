@@ -17,7 +17,7 @@ $('#socialMediaModal').on('shown.bs.modal', function (e) {
         modal_link.data('active', $(this).data('active'));
         var parent = $('<li></li>');
         var i = $('<i></i>');
-        if($(this).has('i')){
+        if($(this).has('i').length){
             i.addClass($(this).find('i').attr('class'));
         }else {
             i.addClass(this.className);

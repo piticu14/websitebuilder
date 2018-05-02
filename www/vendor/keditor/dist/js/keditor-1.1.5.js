@@ -79,7 +79,7 @@
 
         },
         containerSettingShowFunction: function(containerSetting, container, target, self){
-            containerSetting.append('<a id="container_background" class="btn btn-u" href="javascript:;" data-dismiss="modal" ' +
+            containerSetting.html('<a id="container_background" class="btn btn-u" href="javascript:;" data-dismiss="modal" ' +
                 'data-toggle="modal" data-target="#containerBackgroundModal">Zvolit pozadí</a>');
 
             function containerBackgroundModal(){
@@ -98,7 +98,7 @@
                 containerBackgroundSelection();
 
             }
-            $('#containerBackgroundModal').on('shown.bs.modal', function (e) {
+            $('#containerBackgroundModal').on('shown.bs.modal', function () {
                 //console.log(e.relatedTarget.id);
 
 
@@ -137,7 +137,7 @@
                 });
 
 
-                $('#selected_color').on('change.bfhcolorpicker',function(){
+                $('#container_selected_color').on('change.bfhcolorpicker',function(){
                     if(selected_image){
                         selected_image.hide();
                         selected_image.parent().removeAttr('id');
@@ -154,9 +154,10 @@
                 if(selected_background.length){
                     container.css('background','url("' + $(selected_background).find('img').attr('src') +'")no-repeat center center fixed');
                     container.css('background-size','cover');
-                }else {
+                }else if($('#containerBackgroundModal').find('#selected_color').val() !== '') {
                     var background_color = $('#containerBackgroundModal').find('#container_selected_color').val();
                     container.css('background','');
+                    container.css('background-image','none');
                     container.css('background-color',background_color);
                 }
 

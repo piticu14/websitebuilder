@@ -1,0 +1,887 @@
+{block title}Fastweb - Nápověda{/block}
+{block content}
+    <style>
+        .content-wrap span {
+            font-weight: bold;
+        }
+
+        .menu-box nav > ul > li > ul > li {
+            margin-left: 1em
+        }
+
+        .menu-box nav > ul > li > ul > li > ul > li {
+            margin-left: 2em
+        }
+
+        .mySlides img {
+            width: 100%;
+        }
+        .note{
+            color:#00FF00;
+            font-size:18px;
+        }
+    </style>
+    <section class="content">
+        <div class="container">
+            <div class="content-wrap">
+                <div class="row">
+                    <aside>
+                        <div class="menu-box">
+                            <h4>Navigace</h4>
+                            <nav>
+                                <ul>
+                                    <li><a href="#start" class="current">Jak začit</a></li>
+                                    <li><a href="#registerWeb">Registrace webu</a></li>
+                                    <li><a href="#publicWeb">Přehled webu</a></li>
+                                    <li>
+                                        <a href="#webEdit">Úprava webu</a>
+                                        <ul>
+                                            <li><a href="#headerEdit">Úprava záhlaví</a>
+                                                <ul>
+                                                    <li><a href="#navEdit">Úprava stránek</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#contentEdit">Úprava obsahu</a>
+                                                <ul>
+                                                    <li><a href="#contentContainer">Obaly</a></li>
+                                                    <li><a href="#contentComponent">Komponenty</a></li>
+                                                </ul>
+                                            </li>
+
+                                            <li><a href="#footerEdit">Úprava zápatí</a>
+                                                <ul>
+                                                    <li><a href="#socialMediaEdit">Úprava socialních médií</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#saveWeb">Uložit změny</a></li>
+                                            <li><a href="#publicateWeb">Publikovat</a></li>
+
+                                        </ul>
+
+                                    </li>
+                                    <li><a href="#webSettings">Nastavení webu</a></li>
+                                    <li><a href="#webDelete">Odstránění webu</a></li>
+                                    <li><a href="#userSettings">Nastavení uživatelského účtu</a>
+                                        <ul>
+                                            <li><a href="#changePassword">Změnit heslo</a></li>
+                                            <li><a href="#emailSettings">Nastavení emailových adres</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </aside>
+                    <div class="content-info">
+                        <div class="section-txt" id="start">
+                            <h3>Začínáme</h3>
+
+                            <p>Po přihlášení do Vašého účtu, zobrazi se Vám stránka <span>Moje weby</span>.</p>
+                            <a href="{$basePath}/doc/images/1.jpg" data-toggle="lightbox" data-gallery="documentation">
+                                <img src="{$basePath}/doc/images/1.jpg" class="hover-shadow" alt="Moje weby">
+                            </a>
+
+                            <p>Zde uvidíte všechny weby, které existují na Vašem účtu. Můžete zde <a href="#registerWeb">vytvořit</a>, <a href="#webEdit">spravovat
+                                    </a> nebo <a href="#webDelete">odstranit</a> Vaše weby.</p>
+                            <hr>
+                            <p>V pravém horním rohu najdete možnosti uživatele.</p>
+                            <a href="{$basePath}/doc/images/2.jpg" data-toggle="lightbox" data-gallery="documentation">
+                                <img src="{$basePath}/doc/images/2.jpg" class="hover-shadow" alt="Možností uživatele">
+                            </a>
+
+                            <p>Můžete zobrazit své weby, <a href="#userSettings">změnit nastavení účtu</a>,
+                                projít nápovědu nebo odhlásit se z účtu.</p>
+
+                        </div>
+                        <div class="section-txt" id="registerWeb">
+                            <h3>Registrace webu</h3>
+                            <ol>
+                                <li>
+                                    <p>Klikněte na <span>Moje weby</span>,
+                                        nacházející se v možností uživatele.</p>
+                                    <a href="{$basePath}/doc/images/3.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/3.jpg" class="hover-shadow" alt="Moje weby">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Klikněte na obrázek obsahující znak
+                                        <img src="{$basePath}/doc/images/69.jpg" style="display:inline"
+                                             class="hover-shadow" alt="Tlačítko pro editace">.</p>
+                                    <a href="{$basePath}/doc/images/4.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/4.jpg" class="hover-shadow"
+                                             alt="Vložení novýho webu">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Po kliknutí vyberte šablonu, kterou chcete použit pro tvorbu Vašého webu.</p>
+                                    <a href="{$basePath}/doc/images/5.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/5.jpg" class="hover-shadow"
+                                             alt="Výběr šablony">
+                                    </a>
+                                    <ol>
+                                        <li><p>Při kliknutí na tlačítko <span>Přehled</span>
+                                                zobrazite šablonu.</p></li>
+                                        <li><p>Při kliknutí na tlačítko <span>Vybrat</span> bude šablona
+                                                použita pro úpravu webu.</p>
+                                        <a href="{$basePath}/doc/images/6.jpg" data-toggle="lightbox"
+                                           data-gallery="documentation">
+                                            <img src="{$basePath}/doc/images/6.jpg" class="hover-shadow"
+                                                 alt="Možností šablony">
+                                        </a>
+                                        </li>
+                                    </ol>
+                                </li>
+                                <li>
+                                    <p>
+                                        Po kliknutí na tlačítko <span>Vybrat</span> zadejte
+                                        <span>titulek</span>, <span> podtitulek a
+                                        <span>subdomenu</span> </span> webu,
+                                        a vyberte zda web bude <span>aktivní</span> nebo <span>neaktivní.</span>
+                                    </p>
+                                    <a href="{$basePath}/doc/images/7.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/7.jpg" class="hover-shadow"
+                                             alt="Formulář pro nový web">
+                                    </a>
+
+                                </li>
+                                <li>
+                                    <p>
+                                        <span>Uložte</span> nový web.
+                                    </p>
+                                    <a href="{$basePath}/doc/images/71.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/71.jpg" class="hover-shadow"
+                                             alt="Uložit nový web">
+                                    </a>
+                                    <p>Váš nový web je připraven ke spravování.</p>
+                                </li>
+                            </ol>
+
+                        </div>
+                        <div class="section-txt" id="publicWeb">
+                            <h3>Přehled webu (Publikovaný web)</h3>
+                            <ol>
+                                <li>
+                                    <p>Na stránce <span>Moje weby</span>,
+                                        <span>najeďte myší</span> na web, který chcete spravovat.</p>
+                                    <a href="{$basePath}/doc/images/8.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/8.jpg" class="hover-shadow"
+                                             alt="Moje weby">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Klikněte na tlačítko <span>Přehled</span>. Po kliknutí se Vám zobrazi
+                                    <a href="#publicateWeb">publikovaný web</a>.</p>
+                                    <p><span class="note">Poznámka: </span>Publikovaný web je web,
+                                        který uvidí bězní uživatele.</p>
+                                    <a href="{$basePath}/doc/images/70.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/70.jpg" class="hover-shadow"
+                                             alt="Tlačítko Přehled">
+                                    </a>
+                            </ol>
+                        </div>
+                        <div class="section-txt" id="webEdit">
+                            <h3>Úprava webu</h3>
+                            <ol>
+                                <li>
+                                    <p>Na stránce <span>Moje weby</span>,
+                                        <span>najeďte myší</span> na web, který chcete spravovat.</p>
+                                    <a href="{$basePath}/doc/images/8.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/8.jpg" class="hover-shadow"
+                                             alt="Moje weby">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Klikněte na tlačítko <span>Upravit</span>.</p>
+                                    <a href="{$basePath}/doc/images/9.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/9.jpg" class="hover-shadow"
+                                             alt="Tlačítko Upravit">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte možnost <span>Upravit stránky</span>.</p>
+                                    <a href="{$basePath}/doc/images/10.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/10.jpg" class="hover-shadow"
+                                             alt="Tlačítko: Upravit stránky">
+                                    </a>
+                                </li>
+                            </ol>
+                            <p><span class="note">Poznámka: </span>Pro úpravu <a href="#headerEdit">záhlaví</a>,
+                                <a href="#navEdit">navigačního menu</a>,
+                                <a href="#socialMediaEdit">sociálních médií</a> a <a href="footerEdit">zápatí</a>
+                                slouži tlačítko <img src="{$basePath}/doc/images/11.jpg" style="display:inline"
+                                                     class="hover-shadow" alt="Tlačítko pro editace">.
+                            </p>
+                        </div>
+
+                        <div class="section-txt" id="headerEdit">
+                            <h3>Úprava záhlaví</h3>
+                            <ol>
+                                <li>
+                                    <p>Klikněte na tlačítko <img src="{$basePath}/doc/images/11.jpg"
+                                                                 style="display:inline" class="hover-shadow"
+                                                                 alt="Tlačítko pro editace">
+                                        nacházející se v části záhlaví (obvykle poblíž logo obrázku).
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Klikněte na tlačítko <span>Zvolit obrázek</span> pro výběr logo obrázku/ikonky.
+                                    </p>
+                                    <a href="{$basePath}/doc/images/19.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/19.jpg" class="hover-shadow"
+                                             alt="Zvolit obrázek">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte <span>obrázek</span> nebo <span>ikonku</span>, kterou chcete
+                                        použit kliknutím na něj. </p>
+                                    <a href="{$basePath}/doc/images/14.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/14.jpg" class="hover-shadow"
+                                             alt="Upravit logo">
+                                    </a>
+                                    <a href="{$basePath}/doc/images/16.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/16.jpg" class="hover-shadow"
+                                             alt="Logo obrázek">
+                                    </a>
+                                    <a href="{$basePath}/doc/images/17.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/17.jpg" class="hover-shadow" alt="Logo ikonka">
+                                    </a>
+
+                                    <p><span class="note">Poznámka: </span>Můžete nahrát vlastní fotky tlačítkem
+                                        <span>Nahrát obrázek</span>. Můžete také vybrat více obrázků najednou.</p>
+                                    <a href="{$basePath}/doc/images/15.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/15.jpg" class="hover-shadow"
+                                             alt="Nahrát obrázek">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Uložte změny loga kliknutím na tlačítko <span>Uložit</span></p>
+                                    <a href="{$basePath}/doc/images/18.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/18.jpg" class="hover-shadow" alt="Uložit logo">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Klkněte na tlačítko <span>Zvolit pozadí</span>.</p>
+                                    <a href="{$basePath}/doc/images/20.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/20.jpg" class="hover-shadow"
+                                             alt="Zvolit pozadí">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte zda chcete jako pozadí použit <span>obrázek</span> nebo <span>barvu</span>.</p>
+                                    <a href="{$basePath}/doc/images/21.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/21.jpg" class="hover-shadow"
+                                             alt="Výběr pozadí">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte <span>obrázek</span>kliknutím na něj. Vyberte
+                                        <span>barvu</span> kliknutím na prvku formuláře
+                                        <span>Barva pozadí</span>.</p>
+                                    <a href="{$basePath}/doc/images/16.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/16.jpg" class="hover-shadow"
+                                             alt="Obrázek pozadí">
+                                    </a>
+                                    <a href="{$basePath}/doc/images/22.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/22.jpg" class="hover-shadow"
+                                             alt="Barva pozadí">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Uložte změny pozadí kliknutím na tlačítko <span>Uložit</span>.</p>
+                                    <a href="{$basePath}/doc/images/23.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/23.jpg" class="hover-shadow"
+                                             alt="Uložit pozadí">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Uložte změny záhlaví kliknutím na tlačítko <span>Uložit</span>.</p>
+                                    <a href="{$basePath}/doc/images/24.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/24.jpg" class="hover-shadow"
+                                             alt="Uložit záhlaví">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Upravte <span>Titulek</span> a <span>Podtitulek</span> záhlaví, kliknutím na nej.
+                                    </p>
+
+                                    <a href="{$basePath}/doc/images/25.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/25.jpg" class="hover-shadow"
+                                             alt="Úprava titulku">
+                                    </a>
+
+                                    <p><span class="note">Poznámka: </span> Pomocí textového editoru můžete změnit vzhled textu.</p>
+                                    <a href="{$basePath}/doc/images/26.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/26.jpg" class="hover-shadow"
+                                             alt="Textový Editor">
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="section-txt" id="navEdit">
+                            <h3>Úprava stránek</h3>
+                            <ol>
+                                <li>
+                                    <p>Klikněte na tlačítko <img src="{$basePath}/doc/images/11.jpg"
+                                                                 style="display:inline" class="hover-shadow"
+                                                                 alt="Tlačítko pro editace">
+                                        nacházející se u navigačního menu.
+                                    </p>
+                                    <a href="{$basePath}/doc/images/27.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/27.jpg" class="hover-shadow"
+                                             alt="Navigační menu">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte <span>stránku</span>, kterou chcete spravovat.</p>
+                                    <a href="{$basePath}/doc/images/28.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/28.jpg" class="hover-shadow"
+                                             alt="Výběr stránky">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Kliknutím na <span>název stránky</span> (název se zobrazuje se v navigačním menu)
+                                        upravujete jeho text.</p>
+                                    <a href="{$basePath}/doc/images/29.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/29.jpg" class="hover-shadow"
+                                             alt="Upravit text stránky">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Upravte <span>Titulek</span>, <span>Kličová slova</span>, <span>Popisek </span>
+                                        stránky a vyberte zda, chcete stránku v navigačním menu
+                                        <span>zobrazit, či ne</span>.</p>
+                                    <a href="{$basePath}/doc/images/30.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/30.jpg" class="hover-shadow"
+                                             alt="Upravit stránku">
+                                    </a>
+
+                                    <p><span class="note">Poznámka: </span><span>Titulek</span>, <span>Kličová slova</span> a <span>Popisek stránky</span>
+                                        slouží pro
+                                        <span>SEO Optimalizace</span>.</p>
+                                </li>
+                                <li>
+                                    <p>Kliknutím na <span>Upravit stránku</span> přejdete k úpravě obsahu vybrané
+                                        stránky</p>
+                                    <a href="{$basePath}/doc/images/31.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/31.jpg" class="hover-shadow"
+                                             alt="Upravit obsah stránky">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Odstraňte stránku kliknutím na <img src="{$basePath}/doc/images/32.jpg"
+                                                                                  style="display:inline"
+                                                                                  class="hover-shadow"
+                                                                                  alt="Tlačítko pro odstránění">.</p>
+                                </li>
+                                <li>
+                                    <p>Novou stránku přidáte kliknutím na tlačítko <span>Přidat stránku</span>.</p>
+                                    <a href="{$basePath}/doc/images/33.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/33.jpg" class="hover-shadow"
+                                             alt="Přidat stránky">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Zadejte <span>Titulek</span>, <span>Kličová slova</span>, <span>Popisek</span>
+                                        stránky a <span>Uložte</span>.</p>
+                                    <a href="{$basePath}/doc/images/34.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/34.jpg" class="hover-shadow"
+                                             alt="Titulek, Kličová slova a Popisek nové stránky">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Změňte pořadí stránek v navigačním menu, přetažením stránek.</p>
+                                    <a href="{$basePath}/doc/images/35.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/35.jpg" class="hover-shadow"
+                                             alt="Titulek, Kličová slova a Popisek nové stránky">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Uložte změny kliknutím na tlačítko <span>Uložit</span>.</p>
+                                    <a href="{$basePath}/doc/images/36.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/36.jpg" class="hover-shadow"
+                                             alt="Uložit stránky">
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="section-txt" id="contentEdit">
+                            <h3>Úprava obsahu</h3>
+
+                            <p>Na pravé stráne webu najdete <span>boční panel</span>, který
+                                slouží pro úpravu obsahu webu.</p>
+                            <a href="{$basePath}/doc/images/38.jpg" data-toggle="lightbox"
+                               data-gallery="documentation">
+                                <img src="{$basePath}/doc/images/38.jpg" class="hover-shadow"
+                                     alt="Boční panel pro úpravu obsahu">
+                            </a>
+                        </div>
+                        <div class="section-txt" id="contentContainer">
+                            <h3>Obaly</h3>
+                            <ol>
+                                <li>
+                                    <p><span>Obaly </span> slouží pro modelování Vašého obsahu
+                                        (např. 3 sloupce stejne velikosti, 2 sloupce atd.).</p>
+                                    <a href="{$basePath}/doc/images/37.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/37.jpg" class="hover-shadow"
+                                             alt="Obaly pro modelování obsahu">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vložte obal přetažením obalu do částí obsahu webu.</p>
+                                    <a href="{$basePath}/doc/images/39.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/39.jpg" class="hover-shadow"
+                                             alt="Vložení obalu">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Obal můžete <span>přesunout</span>, <span>změnit jeho nastavení</span>,
+                                        <span>duplikovat</span> a <span>odstranit</span>. K tomu slouží panel na pravé
+                                        stráně obalu, který se zobrazuje při kliknutím na obalu.</p>
+                                    <a href="{$basePath}/doc/images/40.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/40.jpg" class="hover-shadow"
+                                             alt="Panel s možností k obalu">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Změnte pozadí obalu kliknutím na ikonku <img src="{$basePath}/doc/images/41.jpg"
+                                                                                    style="display:inline"
+                                                                                    class="hover-shadow"
+                                                                                    alt="Tlačítko pro nastavení obalu">.
+                                    </p>
+                                <li>
+                                    <p>V bočním panelu klikněte na tlačítko <span>Vybrat pozadí</span>.</p>
+
+                                    <a href="{$basePath}/doc/images/42.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/42.jpg" class="hover-shadow"
+                                             alt="Tlačítko pozadí obalu">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte <span>Obrázek pozadí</span> nebo <span>Barvu pozadí</span> a uložte změny.
+                                    </p>
+
+                                    <a href="{$basePath}/doc/images/47.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/47.jpg" class="hover-shadow"
+                                             alt="Výběr pozadí obalu">
+                                    </a>
+
+                                    <p><span class="note">Poznamka: </span>Výběr pozadí je stejný jako výběr pozadí u <a
+                                                href="#headerEdit">záhlaví</a>.</p>
+                                </li>
+
+                            </ol>
+                        </div>
+                        <div class="section-txt" id="contentComponent">
+                            <h3>Obaly</h3>
+                            <ol>
+                                <li>
+                                    <p><span>Komponenty </span> jsou prvky Vašého obsahu
+                                        (např. fotogalerie,video,blok s textem atd.).</p>
+                                    <a href="{$basePath}/doc/images/43.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/43.jpg" class="hover-shadow"
+                                             alt="Komponenty pro vložení obsahu">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vložte komponentu přetažením komponenty do částí obsahu webu. (Přesněji do
+                                        vloženého obalu).</p>
+                                    <a href="{$basePath}/doc/images/44.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/44.jpg" class="hover-shadow"
+                                             alt="Vložení komponenty">
+                                    </a>
+
+                                    <p><span class="important">Důležíté: </span>Před vložením komponenty je nutné mít
+                                        vložený <a href="#contentContainer">obal</a> (komponenty se vkládájí do obalů).
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Komponentu můžete <span>přesunout</span>, <span>změnit jeji nastavení</span>,
+                                        <span>duplikovat</span> a <span>odstranit</span>. K tomu slouží panel v levém
+                                        rohu komponenty, který se zobrazuje při kliknutím na komponentu.</p>
+                                    <a href="{$basePath}/doc/images/45.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/45.jpg" class="hover-shadow"
+                                             alt="Panel s možností ke komponentě">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Změnte nastavení komponenty kliknutím na ikonku <img
+                                                src="{$basePath}/doc/images/41.jpg"
+                                                style="display:inline"
+                                                class="hover-shadow"
+                                                alt="Tlačítko pro nastavení komponenty">
+                                    </p>
+
+                                    <p>V bočním panelu najdete nastavení komponenty. Na obrázku můžete vidět
+                                        <span>Nastavení obrázku</span></p>
+
+                                    <p><span class="note">Poznamka: </span>Každá komponenta má své nastavení.</p>
+
+                                    <a href="{$basePath}/doc/images/46.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/46.jpg" class="hover-shadow"
+                                             alt="Nastavení obázku">
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="section-txt" id="footerEdit">
+                            <h3>Úprava zápatí</h3>
+                            <ol>
+                                <li>
+                                    <p>Klikněte na tlačítko <img src="{$basePath}/doc/images/11.jpg"
+                                                                 style="display:inline" class="hover-shadow"
+                                                                 alt="Tlačítko pro editace">
+                                        nacházející se v části zápatí (v levém horním rohu).
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>Klkněte na tlačítko <span>Zvolit pozadí</span>.</p>
+                                    <a href="{$basePath}/doc/images/20.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/20.jpg" class="hover-shadow"
+                                             alt="Zvolit pozadí">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte zda, pro úpravu pozadí chcete použit <span>obrázek</span> nebo <span>barvu</span>.</p>
+                                    <a href="{$basePath}/doc/images/21.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/21.jpg" class="hover-shadow"
+                                             alt="Výběr pozadí">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p><span>Obrázek</span> vyberete kliknutím na něj.
+                                        <span>Barvu</span> vyberte kliknutím na prvku formuláře
+                                        <span>Barva pozadí</span>.</p>
+                                    <a href="{$basePath}/doc/images/16.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/16.jpg" class="hover-shadow"
+                                             alt="Obrázek pozadí">
+                                    </a>
+                                    <a href="{$basePath}/doc/images/22.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/22.jpg" class="hover-shadow"
+                                             alt="Barva pozadí">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Uložte změny pozadí kliknutím na tlačítko <span>Uložit</span>.</p>
+                                    <a href="{$basePath}/doc/images/23.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/23.jpg" class="hover-shadow"
+                                             alt="Uložit pozadí">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Uložte změny zápatí kliknutím na tlačítko <span>Uložit</span>.</p>
+                                    <a href="{$basePath}/doc/images/53.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/53.jpg" class="hover-shadow"
+                                             alt="Uložit zápatí">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Upravte <span>text zápatí</span>, kliknutím na nej.
+                                    </p>
+
+                                    <a href="{$basePath}/doc/images/48.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/48.jpg" class="hover-shadow"
+                                             alt="Úprava textu zápatí">
+                                    </a>
+
+                                    <p><span class="note">Poznámka: </span> Pomocí textového editoru můžete změnit vzhled textu.</p>
+                                    <a href="{$basePath}/doc/images/26.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/26.jpg" class="hover-shadow"
+                                             alt="Textový Editor">
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="section-txt" id="socialMediaEdit">
+                            <h3>Úprava socialních médií</h3>
+
+                            <ol>
+                                <li>
+                                    <p>Klikněte na tlačítko <img src="{$basePath}/doc/images/11.jpg"
+                                                                 style="display:inline" class="hover-shadow"
+                                                                 alt="Tlačítko pro editace">
+                                        nacházející se u socialních médií.
+                                    </p>
+                                    <a href="{$basePath}/doc/images/49.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/49.jpg" class="hover-shadow"
+                                             alt="Socialní média">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte <span>sociální síť</span>, kterou chcete upravit.</p>
+                                    <a href="{$basePath}/doc/images/50.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/50.jpg" class="hover-shadow"
+                                             alt="Výběr sociální sítě">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Upravte <span>Odkaz</span> sociální sití a vyberte zda chcete sociální síť
+                                        v zápatí <span>zobrazit, či ne</span>.</p>
+                                    <a href="{$basePath}/doc/images/51.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/51.jpg" class="hover-shadow"
+                                             alt="Upravit sociální síť">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Uložte změny stránek kliknutím na tlačítko <span>Uložit</span>.</p>
+                                    <a href="{$basePath}/doc/images/52.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/52.jpg" class="hover-shadow"
+                                             alt="Uložit sociální medií">
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="section-txt" id="webSettings">
+                            <h3>Nastavení webu</h3>
+                            <ol>
+                                <li>
+                                    <p>Klikněte na <span>Moje weby</span> nacházející se v možností uživatele.
+                                    </p>
+                                    <a href="{$basePath}/doc/images/54.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/54.jpg" class="hover-shadow"
+                                             alt="Moje weby">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte web, kterému chcete <span>změnit nastavení</span>
+                                        a klikněte na tlačítko <span>Upravit</span>.</p>
+                                    <a href="{$basePath}/doc/images/55.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/55.jpg" class="hover-shadow"
+                                             alt="Upravit web">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte možnost <span>Změnit nastavení</span>.</p>
+                                    <a href="{$basePath}/doc/images/56.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/56.jpg" class="hover-shadow"
+                                             alt="Změnit nastavení">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Změnte název <span>subdomeny</span> webu a vyberte zda chcete,
+                                        aby Váš web byl <span>aktivní, čí ne</span>.</p>
+
+                                    <a href="{$basePath}/doc/images/57.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/57.jpg" class="hover-shadow"
+                                             alt="Nastavení webu">
+                                    </a>
+
+                                    <p><span class="note">Poznamka: </span>Můžete také <a href="#changePassword">změnit
+                                            heslo</a> Vašého účtu
+                                        a <a href="#emailSettings">nastavit emailové adresy účtu</a>.</p>
+                                </li>
+                                <li>
+                                    <p>Uložte změny kliknutím na tlačítko <span>Uložit</span>.</p>
+                                    <a href="{$basePath}/doc/images/58.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/58.jpg" class="hover-shadow"
+                                             alt="Uložit nastavení">
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="section-txt" id="webDelete">
+                            <h3>Odstránění webu</h3>
+                            <ol>
+                                <li>
+                                    <p>Klikněte na <span>Moje weby</span> nacházející se v možnosti uživatele.
+                                    </p>
+                                    <a href="{$basePath}/doc/images/54.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/54.jpg" class="hover-shadow"
+                                             alt="Moje weby">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte web, který chcete <span>odstranit</span>
+                                        a klikněte na tlačítko <span>Upravit</span>.</p>
+                                    <a href="{$basePath}/doc/images/55.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/55.jpg" class="hover-shadow"
+                                             alt="Upravit web">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Vyberte možnost <span>Odstranit</span>.</p>
+                                    <a href="{$basePath}/doc/images/59.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/59.jpg" class="hover-shadow"
+                                             alt="Odstranit web">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Potvrďte odstránění kliknutím <span>Ano</span>.
+                                        V případě, že jste si to rozmyslel klikněte <span>Ne</span>.</p>
+                                    <a href="{$basePath}/doc/images/60.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/60.jpg" class="hover-shadow"
+                                             alt="Potvrdit odstránění webu">
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="section-txt" id="userSettings">
+                            <h3>Nastavení uživatelského účtu</h3>
+
+                            <p>Klikněte na <span>Nastavení</span> nacházející se v možností uživatele.
+                            </p>
+                            <a href="{$basePath}/doc/images/61.jpg" data-toggle="lightbox"
+                               data-gallery="documentation">
+                                <img src="{$basePath}/doc/images/61.jpg" class="hover-shadow"
+                                     alt="Nastavení uživatelského účtu">
+                            </a>
+                        </div>
+                        <div class="section-txt" id="changePassword">
+                            <h3>Změnit heslo</h3>
+                            <ol>
+                                <li>
+                                    <p>Vyplňte formulár zadáváním <span>Starého hesla</span>,
+                                        <span>Nového hesla</span> a <span>pro potvrzení</span> znovu zadavaním
+                                        nového hesla.
+                                    </p>
+                                    <a href="{$basePath}/doc/images/62.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/62.jpg" class="hover-shadow"
+                                             alt="Změnit heslo">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Uložte nové heslo kliknutím na tlačítko <span>Nastavit heslo</span>.</p>
+                                    <a href="{$basePath}/doc/images/63.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/63.jpg" class="hover-shadow"
+                                             alt="Změnit heslo">
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
+                        <div class="section-txt" id="emailSettings">
+                            <h3>Nastavení emailových adres</h3>
+                            <ol>
+                                <li>
+                                    <p>Klikněte na ikonku <img src="{$basePath}/doc/images/64.jpg"
+                                                               style="display:inline"
+                                                               class="hover-shadow"
+                                                               alt="Ikonka pro zobrazení formuláře z nastavení">
+                                        nacházející se na pravé stráně <span>Nastavení emailových adres</span>.
+                                    </p>
+                                    <a href="{$basePath}/doc/images/65.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/65.jpg" class="hover-shadow"
+                                             alt="Nastavení emailových adres">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Přidejte novou emailovou adresu vyplněním <span>pole Email</span> a kliknutím na
+                                        tlačítko
+                                        <span>Přidat</span>.</p>
+                                    <a href="{$basePath}/doc/images/66.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/66.jpg" class="hover-shadow"
+                                             alt="Přidávání nové emailový adresy">
+                                    </a>
+                                </li>
+                                <li>
+                                    <p>Ve sloupcí <span>Aktivní</span> ověrte emailovou adresu kliknutím na
+                                        <span>Ověřit emailovou adresu</span></p>.
+
+                                    <p>Po kliknutí je odeslán email s odkázem pro ověření emailové adresy.</p>
+
+                                    <a href="{$basePath}/doc/images/67.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/67.jpg" class="hover-shadow"
+                                             alt="Ověřit emailovou adresu">
+                                    </a>
+
+                                    <p><span class="note">Poznámka: </span> Doporučujeme zadat emailovou adresu, kterou vlastníte,
+                                        jinak nebudete moct emailovou adresu ověřit.</p>
+                                </li>
+                                <li>
+                                    <p>Ve sloupcí <span>Primární</span> nastavte emailovou adresu jako primární,
+                                        kliknutím na <span>Nastavit jako primární email</span>.</p>
+
+                                    <a href="{$basePath}/doc/images/68.jpg" data-toggle="lightbox"
+                                       data-gallery="documentation">
+                                        <img src="{$basePath}/doc/images/68.jpg" class="hover-shadow"
+                                             alt="Nastavit emailovou adresu jako primární">
+                                    </a>
+
+                                    <p><span class="note">Poznámka: </span> Emailová adresa lze nastavit jako primární, pouze pokud
+                                        je ověřená. Primární emailová adresa je použitá v případě
+                                        <span>obnovení hesla</span>. </p>
+                                </li>
+                                <li>
+                                    <p>Můžete emailovou adresu <span>odstranit</span> kliknutím na ikonku
+                                        <img src="{$basePath}/doc/images/32.jpg"
+                                             style="display:inline"
+                                             class="hover-shadow"
+                                             alt="Ikonka pro odstránění emailové adresy">.</p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{/block}
