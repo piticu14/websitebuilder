@@ -79,7 +79,7 @@
 
         },
         containerSettingShowFunction: function(containerSetting, container, target, self){
-            containerSetting.html('<a id="container_background" class="btn btn-u" href="javascript:;" data-dismiss="modal" ' +
+            containerSetting.html('<a id="container_background" class="btn btn-u" href="javascript:void(0)" data-dismiss="modal" ' +
                 'data-toggle="modal" data-target="#containerBackgroundModal">Zvolit pozadí</a>');
 
             function containerBackgroundModal(){

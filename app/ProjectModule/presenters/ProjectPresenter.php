@@ -15,7 +15,7 @@ use Latte;
 
 use App\Model\projectManager;
 
-class ProjectPresenter  extends AdminBasePresenter
+class ProjectPresenter extends AdminBasePresenter
 {
     /**
      * @var ProjectManager
@@ -72,13 +72,12 @@ class ProjectPresenter  extends AdminBasePresenter
     }
 
 
-
     protected function createComponentSiteForm()
     {
         $form = (new \ProjectFormFactory())->create();
         $form->addHidden('template_id');
         $form->onSuccess[] = function (Form $form) {
-            if($this->projectManager->subdomainDuplicate($form['subdomain']->value)){
+            if ($this->projectManager->subdomainDuplicate($form['subdomain']->value)) {
                 $nextId = $this->projectManager->getLastInsertedId() + 1;
                 $form['subdomain']->value = $form['subdomain']->value . $nextId;
             }
@@ -88,8 +87,8 @@ class ProjectPresenter  extends AdminBasePresenter
                 'src' => '/websitebuilder/www/img/blank_logo.jpg'
             ]);
             $project = $this->projectManager->add($data);
-            $path = 'user_images/' . $project->id . '/images/';
-            if(!file_exists($path)) mkdir($path,'0777',true);
+            $path = 'user_images/' . $project->subdomain . '/images/';
+            if (!file_exists($path)) mkdir($path, '0777', true);
 
             $this->flashMessage('Váš projekt byl uložen', 'success');
             $this->redirect('Project:all');
@@ -99,18 +98,26 @@ class ProjectPresenter  extends AdminBasePresenter
     }
 
 
-    public function renderChooseTemplate(){
+    public function renderChooseTemplate()
+    {
         $this->template->templates = $this->projectManager->getTemplates();
 
     }
 
-    public function actionEdit($id,$page_id)
+    public function actionEdit($subdomain, $page_url)
     {
         $this->template->gallery_images = [];
     }
-    public function renderEdit($id,$page_id)
+
+    public function renderEdit($subdomain, $page_url)
     {
-        $this->initTemplateVariables($id,$page_id,0);
+        $project = $this->projectManager->getBy('subdomain', $subdomain);
+        if ($project) {
+                $page = $this->pageManager->getByUrl($project->id,$page_url, 0);
+                if ($page) {
+                    $this->initTemplateVariables($project, $page->id, 0);
+                }
+        }
 
 
         /*
@@ -160,17 +167,17 @@ class ProjectPresenter  extends AdminBasePresenter
 
     }
 
-    private function initTemplateVariables($id,$page_id,$publish)
+    private function initTemplateVariables($project, $page_id, $publish)
     {
 
-        $project = $this->projectManager->get($id);
+
         $jsFiles = array();
         $cssFiles = array();
-        $dir = '../www/templates/' .$project->template_title .'/';
-        foreach (Finder::findFiles('*.js')->exclude('*jquery.min*','*bootstrap.min*','jquery.js','bootstrap.js','jquery*','google_map.js')->from($dir . 'js/') as $key => $file) {
+        $dir = '../www/templates/' . $project->template_title . '/';
+        foreach (Finder::findFiles('*.js')->exclude('*jquery.min*', '*bootstrap.min*', 'jquery.js', 'bootstrap.js', 'jquery*', 'google_map.js')->from($dir . 'js/') as $key => $file) {
             $jsFiles[] = $file->getBasename();
         }
-        foreach (Finder::findFiles('*.css')->exclude('*jquery.min*','*bootstrap.min*','bootstrap.css','default.css')->from($dir . 'css/') as $key => $file) {
+        foreach (Finder::findFiles('*.css')->exclude('*jquery.min*', '*bootstrap.min*', 'bootstrap.css', 'default.css')->from($dir . 'css/') as $key => $file) {
             $cssFiles[] = $file->getBasename();
         }
         $this->template->template_title = $project->template_title;
@@ -179,30 +186,30 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->template->cssFiles = $cssFiles;
 
 
-        $this->template->nav_items = $this->navManager->get($id,$publish);
+        $this->template->nav_items = $this->navManager->get($project->id, $publish);
         $this->template->current_page = $this->pageManager->get($page_id);
 
-        $this->template->user_images = $this->getUserImages($id);
+        $this->template->user_images = $this->getUserImages($project->subdomain);
 
-        $this->template->header = $this->headerManager->get($id,$publish);
-        $this->template->header_logo = JSON::decode($this->template->header->logo,Json::FORCE_ARRAY);
+        $this->template->header = $this->headerManager->get($project->id, $publish);
+        $this->template->header_logo = JSON::decode($this->template->header->logo, Json::FORCE_ARRAY);
 
-        $this->template->footer = $this->footerManager->get($id,$publish);
-        $this->template->social_media = JSON::decode($this->template->footer->social_media,JSON::FORCE_ARRAY);
+        $this->template->footer = $this->footerManager->get($project->id, $publish);
+        $this->template->social_media = JSON::decode($this->template->footer->social_media, JSON::FORCE_ARRAY);
 
 
+        $this->template->page_items = $this->pageItemManager->getAll($page_id, $publish);
+        bdump($page_id);
 
-        $this->template->page_items = $this->pageItemManager->getAll($page_id,$publish);
-
-        $this->template->first_page = $this->pageManager->first($id);
+        $this->template->first_page = $this->pageManager->first($project->id);
 
         $ids = array();
-        foreach($this->template->page_items as $page_item){
-            if($page_item->additional != ''){
-                $photogalleryIds = JSON::decode($page_item->additional,JSON::FORCE_ARRAY);
+        foreach ($this->template->page_items as $page_item) {
+            if ($page_item->additional != '') {
+                $photogalleryIds = JSON::decode($page_item->additional, JSON::FORCE_ARRAY);
 
-                foreach($photogalleryIds as $pg_ids) {
-                    foreach($pg_ids as $pg_id){
+                foreach ($photogalleryIds as $pg_ids) {
+                    foreach ($pg_ids as $pg_id) {
                         $ids[] = $pg_id;
 
                     }
@@ -223,6 +230,7 @@ class ProjectPresenter  extends AdminBasePresenter
 
 
         }
+        bdump($first_projects_pages);
         $this->template->user_projects = $user_projects;
         $this->template->first_projects_pages = $first_projects_pages;
     }
@@ -239,8 +247,8 @@ class ProjectPresenter  extends AdminBasePresenter
 
     private function getUserImages($id)
     {
-        $masks =['*.jpg','*.png','*.gif','*.jpeg'];
-        $dir = '../www/user_images/' . $id .'/images/';
+        $masks = ['*.jpg', '*.png', '*.gif', '*.jpeg'];
+        $dir = '../www/user_images/' . $id . '/images/';
         $images = array();
         foreach (Finder::findFiles($masks)
                      ->in($dir) as $file) {
@@ -250,24 +258,25 @@ class ProjectPresenter  extends AdminBasePresenter
         return $images;
     }
 
-    public function getPhotogalleryImages($id,$pg_path)
+    public function getPhotogalleryImages($id, $pg_path)
     {
-        $masks =['*.jpg','*.png','*.gif','*.jpeg'];
+        $masks = ['*.jpg', '*.png', '*.gif', '*.jpeg'];
         $dir = '../www/user_images/' . $id . '/' . $pg_path . '/';
         $images = array();
-        $path = 'user_images/' . $id . '/'. $pg_path  . '/';
-        if(!file_exists($path)) mkdir($path,'0777',true);
+        $path = 'user_images/' . $id . '/' . $pg_path . '/';
+        if (!file_exists($path)) mkdir($path, '0777', true);
         foreach (Finder::findFiles($masks)
                      ->in($dir) as $file) {
-            $images[] = $this->getHttpRequest()->getUrl()->basePath. $path . $file->getBasename();
+            $images[] = $this->getHttpRequest()->getUrl()->basePath . $path . $file->getBasename();
 
         }
         return $images;
     }
 
-    public function handleLoadPhotogalleryImages($pgPath) {
-        if($this->isAjax()){
-            $this->template->gallery_images = $this->getPhotogalleryImages($this->getParameter('id'),$pgPath);
+    public function handleLoadPhotogalleryImages($pgPath)
+    {
+        if ($this->isAjax()) {
+            $this->template->gallery_images = $this->getPhotogalleryImages($this->getParameter('subdomain'), $pgPath);
             //bdump($this->template->gallery_images);
         }
         $this->redrawControl('wrapper');
@@ -277,22 +286,21 @@ class ProjectPresenter  extends AdminBasePresenter
     public function handleAddImages()
     {
 
-        if($this->isAjax()) {
-            $path = 'user_images/' . $this->getParameter('id') . '/' . $this->getHttpRequest()->getPost('type') . '/';
-            if(!file_exists($path)) mkdir($path,'0777',true);
+        if ($this->isAjax()) {
+            $path = 'user_images/' . $this->getParameter('subdomain') . '/' . $this->getHttpRequest()->getPost('type') . '/';
+            if (!file_exists($path)) mkdir($path, '0777', true);
 
             $files = $this->getHttpRequest()->getFiles();
             $filesNames = array();
-            foreach($files as $file) {
-                if( $file->isOk()) {
+            foreach ($files as $file) {
+                if ($file->isOk()) {
                     $fileName = $file->getSanitizedName();
                     $file->move($path . $fileName);
                     $filesNames[] = $fileName;
+                }
             }
-        }
-            $this->template->user_images = $this->getUserImages($this->getParameter('id'));
-            $this->template->gallery_images = $this->getPhotogalleryImages($this->getParameter('id'),$this->getHttpRequest()->getPost('type'));
-
+            $this->template->user_images = $this->getUserImages($this->getParameter('subdomain'));
+            $this->template->gallery_images = $this->getPhotogalleryImages($this->getParameter('subdomain'), $this->getHttpRequest()->getPost('type'));
 
 
             $this->payload->src = $this->getHttpRequest()->getUrl()->basePath . $path . $filesNames[0];
@@ -306,62 +314,51 @@ class ProjectPresenter  extends AdminBasePresenter
         $this->redrawControl('photogalleryImages');
 
     }
-/*
-    public function handleGetImageJsonList(){
-        $user_images = $this->getUserImages($this->getParameter('id'));
-        $json_Image_list = array();
-        foreach ($user_images as $id => $image) {
-            $json_Image_list[] = array(
-                'image' => $this->getHttpRequest()->getUrl()->getBasePath() . $image
-            );
+
+    /*
+        public function handleGetImageJsonList(){
+            $user_images = $this->getUserImages($this->getParameter('id'));
+            $json_Image_list = array();
+            foreach ($user_images as $id => $image) {
+                $json_Image_list[] = array(
+                    'image' => $this->getHttpRequest()->getUrl()->getBasePath() . $image
+                );
+            }
+            $this->sendJson($json_Image_list);
         }
-        $this->sendJson($json_Image_list);
-    }
-*/
+    */
 
 
-    public function actionPublish($project_id,$pid)
+    public function actionPublish($subdomain, $page_url)
     {
-        $this->pageManager->publish($project_id);
-        $this->headerManager->publish($project_id);
-        $this->navManager->publish($project_id);
-        $this->pageItemManager->publish($project_id);
-        $this->footerManager->publish($project_id);
+        $project = $this->projectManager->getBy('subdomain',$subdomain);
+        $this->pageManager->publish($project->id);
+        $this->headerManager->publish($project->id);
+        $this->navManager->publish($project->id);
+        $this->pageItemManager->publish($project->id);
+        $this->footerManager->publish($project->id);
 
 
-
-        $this->flashMessage('Publikování proběhlo úspěšně.', 'success');
-        $this->redirect('Project:edit', array("id" => $project_id, 'page_id' => $pid));
+        $this->redirect('Project:edit', array("subdomain" => $subdomain, 'page_url' => $page_url));
 
     }
 
     public function handleSaveTemporary($nav, $header, $body, $footer)
     {
-       $body_array = Json::decode($body,Json::FORCE_ARRAY);
-        foreach($body_array as $order_on_page => $body) {
-            $body['order_on_page'] = $order_on_page;
-            if(isset($body['id'])){
-                $this->pageItemManager->update($body['id'],$body,0);
-            }else{
-                $this->pageItemManager->add($this->getParameter('page_id'),$body,0);
-            }
-
-            //$this->pageItemManager->add($this->getParameter('page_id'),$body,1);
-        }
-
+        $project = $this->projectManager->getBy('subdomain',$this->getParameter('subdomain'));
 
         $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
-        foreach ($nav_array as $sort_order => $nav){
+        foreach ($nav_array as $sort_order => $nav) {
             $nav['sort_order'] = $sort_order;
-            if(is_numeric($nav['id'])){
-                $this->navManager->update($nav,$nav['page_id'],0);
-                $this->pageManager->update($nav,$nav['page_id']);
-            }else{
-                $nav['project_id'] = $this->getParameter('id');
+            if (is_numeric($nav['id'])) {
+                $this->navManager->update($nav, $nav['page_id'], 0);
+                $this->pageManager->update($nav, $nav['page_id']);
+            } else {
+                $nav['project_id'] = $project->id;
 
                 $newPage = $this->pageManager->add(Nette\Utils\ArrayHash::from($nav));
                 $nav['page_id'] = $newPage->temp_id;
-                $this->navManager->add(Nette\Utils\ArrayHash::from($nav),0);
+                $this->navManager->add(Nette\Utils\ArrayHash::from($nav), 0);
 
                 /*
                 $nav['page_id'] = $newPage->publish_id;
@@ -372,13 +369,30 @@ class ProjectPresenter  extends AdminBasePresenter
         }
 
         $header_array = Json::decode($header, Json::FORCE_ARRAY);
-        $this->headerManager->update($header_array,$this->getParameter('id'),0);
+        $this->headerManager->update($header_array, $project->id, 0);
+
+        $body_array = Json::decode($body, Json::FORCE_ARRAY);
+        foreach ($body_array as $order_on_page => $body) {
+            $body['order_on_page'] = $order_on_page;
+            if (isset($body['id'])) {
+                $this->pageItemManager->update($body['id'], $body, 0);
+            } else {
+                $page = $this->pageManager->getByUrl($project->id, $this->getParameter('page_url'),0);
+                $this->pageItemManager->add($page->id, $body, 0);
+            }
+
+            //$this->pageItemManager->add($this->getParameter('page_id'),$body,1);
+        }
+
+        $footer_array = Json::decode($footer, Json::FORCE_ARRAY);
+        $this->footerManager->update($project->id, $footer_array, 0);
+
+        $this->projectManager->updateTime($project->id);
 
 
-        $footer_array =  Json::decode($footer, Json::FORCE_ARRAY);
-        $this->footerManager->update($this->getParameter('id'),$footer_array,0);
-
-        $this->projectManager->updateTime($this->getParameter('id'));
+        $this->template->nav_items = $this->navManager->get($project->id, 0);
+        $this->redrawControl('wrapper');
+        $this->redrawControl('header');
 
     }
 
@@ -395,16 +409,20 @@ class ProjectPresenter  extends AdminBasePresenter
 
     }
 
-    public function renderShow($id,$page_id)
+    public function renderShow($subdomain, $page_url)
     {
-        $project = $this->projectManager->get($id);
-        if(!$project->active){
-            $this->setView('../../../../app/presenters/templates/Error/notActive');
+        $project = $this->projectManager->getBy('project.subdomain', $subdomain);
+        if ($project) {
+            if (!$project->active) {
+                $this->setView('../../../../app/presenters/templates/Error/notActive');
+            } else {
+                $page = $this->pageManager->getByUrl($project->id,$page_url,1);
+                if ($page) {
+                    $this->initTemplateVariables($project, $page->id, 1);
+                }
+            }
         }
-        $this->initTemplateVariables($id,$page_id,1);
     }
-
-
 
 
 }

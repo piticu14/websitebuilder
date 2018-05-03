@@ -1,4 +1,5 @@
 
+{* TODO: Logo link is #. Change to Homepage link *}
 {block title}  {$current_page->title} {/block}
 {block stylesheets}
     {include #parent}
@@ -18,12 +19,8 @@
         float: none;
     }
 </style>
-
-    {import projects/{$template_title}/index.latte}
-
-    {include web}
-
     {snippetArea wrapper}
+    {include projects/{$template_title}/index.latte}
         {include modals.latte}
     {/snippetArea}
 {/block}
@@ -68,7 +65,7 @@
             {foreach $photogalleryIds as $pg_id}
             var pg_id = {$pg_id};
             if(pg_id === id){
-                var images = {$presenter->getPhotogalleryImages($presenter->getParameter('id'),'photogallery/'. $pg_id)};
+                var images = {$presenter->getPhotogalleryImages($presenter->getParameter('subdomain'),'photogallery/'. $pg_id)};
                 return images;
             }
             {/foreach}

@@ -1,45 +1,44 @@
-{block web}
-	<style>
+<style>
 
-		#body {
-			width: 95%;
-			margin:0 auto;
-			padding: 0;
-			height: 100%;
-		}
+    #body {
+        width: 95%;
+        margin: 0 auto;
+        padding: 0;
+        height: 100%;
+    }
+
+    #editFlashMessages {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+
+    {if $presenter->isLinkCurrent("Project:show")}
+
+    #page_item {
+        width: 70%;
+        margin: auto;
+        float: none;
+    }
+
+    {/if}
 
 
-		#editFlashMessages {
-			width: 70%;
-			margin: 0 auto;
-			margin-top: 100px;
-		}
-
-        {if $presenter->isLinkCurrent("Project:show")}
-
-        #page_item{
-            width:70%;
-            margin: auto;
-            float: none;
-        }
-        {/if}
-
-
-	</style>
+</style>
 <div id="wrapper1">
 
-{include header.latte}
-	<div id="wrapper">
-		<div class="row">
-			<div id="content-area">
-				<div id="editor">
-					<div id="body" data-url="{link deletePageItem!}">
+    {include header.latte}
+    <div id="wrapper">
+        <div class="row">
+            <div id="content-area">
+                <div id="editor">
+                    <div id="body" data-url="{link deletePageItem!}">
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {include footer.latte}
-{/block}
+

@@ -115,12 +115,13 @@ class ProjectManager extends BaseManager
 
     private function init($data, $project_id)
     {
-        $nav_titles = array('Item1','Item2','Item3','Item4');
+        $nav_titles = array('Úvod','Galerie','O nás','Kontakt');
 
         foreach($nav_titles as $key => $title) {
             $page_data = array(
                 'project_id' => $project_id,
                 'title' => $title,
+                'page_url' => Strings::webalize(Strings::lower($title)),
             );
             $page_hash = Nette\Utils\ArrayHash::from($page_data);
             $page_relationship = $this->pageManager->add($page_hash);
@@ -130,7 +131,6 @@ class ProjectManager extends BaseManager
                 'project_id' => $project_id,
                 'page_id' => $page_relationship->publish_id,
                 'title' => $title,
-                'url' => Strings::lower($title),
                 'sort_order' => $key
             );
             $nav_hash = Nette\Utils\ArrayHash::from($nav_data);
@@ -140,7 +140,6 @@ class ProjectManager extends BaseManager
                 'project_id' => $project_id,
                 'page_id' => $page_relationship->temp_id,
                 'title' => $title,
-                'url' => Strings::lower($title),
                 'sort_order' => $key
             );
             $nav_temp_hash = Nette\Utils\ArrayHash::from($nav_temp_data);
@@ -148,7 +147,6 @@ class ProjectManager extends BaseManager
             $this->navManager->add($nav_hash,1);
 
         }
-
         $this->headerManager->add($data,$project_id,0);
         $this->headerManager->add($data,$project_id,1);
 
@@ -199,13 +197,15 @@ class ProjectManager extends BaseManager
             ->fetch()->id;
     }
 
-    public function get($id)
+    public function getBy($column,$value)
     {
         return $this->getDatabase()->table(self::$table)
             ->select('project.*,template.title AS template_title')
-            ->where('project.id',$id)
+            ->where($column,$value)
             ->fetch();
     }
+
+
 
     public function patch($data)
     {

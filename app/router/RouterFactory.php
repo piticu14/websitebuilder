@@ -20,9 +20,10 @@ class RouterFactory
 		$router[] = new Route('activate/email[/<token>]', 'Settings:emailActivation');
 		$router[] = new Route('activate/account[/<token>]','Account:Activation');
 		$router[] = new Route('resetPassword[/<token>]','Account:Reset');
-		$router[] = new Route('<presenter>/<action>[/<id>][/<page_id>]', 'Homepage:default');
+		$router[] = new Route('<presenter>/<action>[/<subdomain>][/<page_url>]', 'Homepage:default');
 
 		return $router;
+
 	}
 
 }

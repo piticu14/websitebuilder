@@ -10,9 +10,7 @@
 
 {/block}
 {block content}
-
-    {import projects/{$template_title}/index.latte}
-    {include web}
+    {include projects/{$template_title}/index.latte}
 {/block}
 
 
@@ -36,11 +34,12 @@
         {/foreach}
     </script>
     <script>
+        {* TODO: Delete photos from photogallery *}
         function getPhotogalleryImages(id) {
             {foreach $photogalleryIds as $pg_id}
             var pg_id = {$pg_id};
             if(pg_id === id){
-                var images = {$presenter->getPhotogalleryImages($presenter->getParameter('id'),'photogallery/'. $pg_id)};
+                var images = {$presenter->getPhotogalleryImages($presenter->getParameter('subdomain'),'photogallery/'. $pg_id)};
                 return images;
             }
             {/foreach}
@@ -202,7 +201,6 @@
         });
 
         var background = {$header->background}
-                console.log(background);
                 $('#header-wrapper').attr('style',background);
     </script>
 {/block}

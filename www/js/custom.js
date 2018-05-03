@@ -390,7 +390,7 @@ $(document).on('click', '.showProject', function () {
     var project = $(this).data('project');
 
     //var projectLink = project.subdomain + '.fastweb.cz';
-    var projectLink = '/websitebuilder/www/project/show/' + project.id + '/' + project.page_publish_id;
+    var projectLink = '/websitebuilder/www/project/show/' + project.subdomain + '/' + project.url;
     $('#editProjectModal .modal-title').html(project.subdomain);
     $('#public-link').html(projectLink).attr('href', projectLink);
 
@@ -402,7 +402,7 @@ $(document).on('click', '.showProject', function () {
         $('#active').css('background','#FF3232');
     }
     $('#settings').attr('href', '/websitebuilder/www/settings/default/' + project.id);
-    $('#edit').attr('href', '/websitebuilder/www/project/edit/' + project.id + '/' + project.page_temp_id);
+    $('#edit').attr('href', '/websitebuilder/www/project/edit/' + project.subdomain + '/' + project.url);
     $('#delete').attr('href', '/websitebuilder/www/project/delete/' + project.id);
 
 

@@ -27,7 +27,7 @@
     <div id="header" class="container">
         <div id="logo_container">
             {if $presenter->isLinkCurrent("Project:edit")}
-                <a id="logo_edit" href="javascript:;"> <span
+                <a id="logo_edit" href="javascript:void(0)"> <span
                             class="fa fa-cog" aria-hidden="true" data-toggle="modal"
                             data-target="#headerModal"></span></a>
             {/if}
@@ -44,19 +44,20 @@
         </div>
         <div id="menu-wrapper">
             {if $presenter->isLinkCurrent("Project:edit")}
+                {snippet nav}
                 <ul id="menu">
                     {foreach $nav_items as $nav_item}
-                        {if (!$nav_item->new)}
-                            <li n:class="!$nav_item->active ? hide">
-                                <a n:class="$nav_item->page_id == $presenter->getParameter('page_id') ? active" n:href="Project:edit id => $presenter->getParameter('id'), page_id => $nav_item->page_id"
-                                        data-id="{$nav_item->id}" data-page_id="{$nav_item->page_id}"
-                                        data-title="{$nav_item->page_title}" data-keywords="{$nav_item->keywords}"
-                                        data-description="{$nav_item->description}"
-                                        data-active="{$nav_item->active}"
-                                        data-url="{link saveTemporary!}">{$nav_item->title}</a>
-                            </li>
-                        {/if}
-                    {/foreach}
+                    {if (!$nav_item->new)}
+                    <li n:class="!$nav_item->active ? hide,$nav_item->page_id == $presenter->getParameter('page_id') ? active">
+                        <a n:class="$nav_item->page_url == $presenter->getParameter('page_url') ? active"
+                                n:href="Project:edit subdomain => $presenter->getParameter('subdomain'), page_url => $nav_item->page_url"
+                                data-id="{$nav_item->id}" data-page_id = "{$nav_item->page_id}" data-title="{$nav_item->page_title}"
+                                data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}"
+                                data-page_url="{$nav_item->page_url}" data-active="{$nav_item->active}"
+                                data-url="{link saveTemporary!}">{$nav_item->title}</a>
+                    </li>
+                    {/if}
+                {/foreach}
                     <li id="page_drop_down_container" class="dropdown hide">
                         <a class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true"
                            aria-expanded="true">
@@ -65,38 +66,33 @@
                         </a>
                         <ul id="page_drop_down" class="dropdown-menu pull-right" aria-labelledby="dropdownMenu">
                             {foreach $nav_items as $nav_item}
-                                {if ($nav_item->new)}
-                                    <li n:class="!$nav_item->active ? hide">
-                                        <a n:class="$nav_item->page_id == $presenter->getParameter('page_id') ? active" n:href="Project:edit id => $presenter->getParameter('id'), page_id => $nav_item->page_id"
-                                                data-id="{$nav_item->id}" data-page_id="{$nav_item->page_id}"
-                                                data-title="{$nav_item->page_title}"
-                                                data-keywords="{$nav_item->keywords}"
-                                                data-description="{$nav_item->description}"
-                                                data-active="{$nav_item->active}"
-                                                data-url="{link saveTemporary!}">{$nav_item->title}</a>
-                                    </li>
-                                {/if}
-                            {/foreach}
+                            {if ($nav_item->new)}
+                            <li n:class="!$nav_item->active ? hide, $nav_item->page_id == $presenter->getParameter('page_id') ? active">
+                                <a n:class="$nav_item->page_url == $presenter->getParameter('page_url') ? active"
+                                        n:href="Project:edit subdomain => $presenter->getParameter('subdomain'), page_url => $nav_item->page_url"
+                                        data-id="{$nav_item->id}" data-page_id = "{$nav_item->page_id}" data-title="{$nav_item->page_title}"
+                                        data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}"
+                                        data-page_url="{$nav_item->url}"
+                                        data-url="{link saveTemporary!}">{$nav_item->title}</a>
+                            </li>
+                            {/if}
+                        {/foreach}
                         </ul>
                     </li>
                     <li><a id="menu_edit" href="#" data-toggle="modal" data-target="#menuModal">
                             <span class="fa fa-cog" aria-hidden="true"></span>
                         </a></li>
                 </ul>
+            {/snippet}
             {else}
                 <ul>
                     {foreach $nav_items as $nav_item}
                         {if (!$nav_item->new)}
-                            <li n:class="!$nav_item->active ? hide">
-                                <a n:class="$nav_item->page_id == $presenter->getParameter('page_id') ? active" n:href="Project:show id => $presenter->getParameter('id'), page_id => $nav_item->page_id"
-                                        data-id="{$nav_item->id}" data-page_id="{$nav_item->page_id}"
-                                        data-title="{$nav_item->page_title}"
-                                        data-keywords="{$nav_item->keywords}"
-                                        data-description="{$nav_item->description}"
-                                        data-active="{$nav_item->active}"
-                                        data-url="{link saveTemporary!}">{$nav_item->title}</a>
-                            </li>
-                        {/if}
+                    <li n:class="!$nav_item->active ? hide">
+                        <a n:class="$nav_item->page_url == $presenter->getParameter('page_url') ? active"
+                                n:href="Project:show subdomain => $presenter->getParameter('subdomain'), page_url => $nav_item->page_url">{$nav_item->title}</a>
+                    </li>
+                    {/if}
                     {/foreach}
                     <li id="page_drop_down_container" class="dropdown hide">
                         <a class="dropdown-toggle" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true"
@@ -107,16 +103,11 @@
                         <ul id="page_drop_down" class="dropdown-menu pull-right" aria-labelledby="dropdownMenu">
                             {foreach $nav_items as $nav_item}
                                 {if ($nav_item->new)}
-                                    <li n:class="!$nav_item->active ? hide">
-                                        <a n:class="$nav_item->page_id == $presenter->getParameter('page_id') ? active" n:href="Project:show id => $presenter->getParameter('id'), page_id => $nav_item->page_id"
-                                                data-id="{$nav_item->id}" data-page_id="{$nav_item->page_id}"
-                                                data-title="{$nav_item->page_title}"
-                                                data-keywords="{$nav_item->keywords}"
-                                                data-description="{$nav_item->description}"
-                                                data-active="{$nav_item->active}"
-                                                data-url="{link saveTemporary!}">{$nav_item->title}</a>
-                                    </li>
-                                {/if}
+                            <li n:class="!$nav_item->active ? hide">
+                                <a n:class="$nav_item->page_url == $presenter->getParameter('page_url') ? active"
+                                        n:href="Project:show subdomain => $presenter->getParameter('subdomain'), page_url => $nav_item->page_url">{$nav_item->title}</a>
+                            </li>
+                            {/if}
                             {/foreach}
                         </ul>
                     </li>

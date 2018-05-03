@@ -6,11 +6,15 @@ function init() {
 
     var modal_body = $('#nav_body');
     var modal_menu_links = $('.modal-menu-links');
+    console.log(modal_menu_links);
     var title = $(modal_menu_links).first().data('title');
     var keywords = $(modal_menu_links).first().data('keywords');
     var description = $(modal_menu_links).first().data('description');
+    var page_url = $(modal_menu_links).first().data('page_url');
     var active = $(modal_menu_links).first().data('active');
     var page_edit = $('#page_edit');
+
+    console.log(page_url);
     modal_body.find('.col-md-4').trigger('change');
 
     //$('#menuModalTitle').text('Editace stránek');
@@ -24,6 +28,7 @@ function init() {
     $(page_edit).find('input[name="title"]').val(title);
     $(page_edit).find('input[name="keywords"]').val(keywords);
     $(page_edit).find('input[name="description"]').val(description);
+    $(page_edit).find('input[name="page_url"]').val(page_url);
 
     if(!active) {
         $('#active').bootstrapToggle('off');
@@ -42,6 +47,7 @@ function nav_temp_save(){
     var title = $(page_edit).find('input[name="title"]').val();
     var keywords = $(page_edit).find('input[name="keywords"]').val();
     var description = $(page_edit).find('input[name="description"]').val();
+    var page_url = $(page_edit).find('input[name="page_url"]').val();
     var id = $('#nav_title').find('a').data("id");
 
 
@@ -50,6 +56,7 @@ function nav_temp_save(){
             $(this).data('title',title);
             $(this).data('keywords',keywords);
             $(this).data('description',description);
+            $(this).data('page_url',page_url);
         }
     });
 }
@@ -126,10 +133,10 @@ function savePage() {
     modal_link.data('title',pageForm.find('input[name="title"]').val());
     modal_link.data('keywords',pageForm.find('input[name="keywords"]').val());
     modal_link.data('description', pageForm.find('input[name="description"]').val());
+    modal_link.data('page_url', pageForm.find('input[name="page_url"]').val());
     modal_link.data('active',1);
     var parent = $('<li></li>');
     parent.append(modal_link);
-    console.log($('#menu a').not(':last,#dropdownMenu').length);
     if($('#menu a').not(':last,#dropdownMenu').length < 4){
         parent.addClass('hide');
         parent.insertBefore('#page_drop_down_container')
@@ -155,8 +162,6 @@ function getHeaderData()
     header.title = $('#title').html();
     header.subtitle = $('#subtitle').html();
 
-    console.log(header.title);
-    console.log(header.subtitle);
 
     var image = {};
     if($logo_container.find('img').length){
@@ -204,6 +209,7 @@ function getNavData() {
         menu_item.title = $(this).data('title');
         menu_item.keywords = $(this).data('keywords');
         menu_item.description = $(this).data('description');
+        menu_item.url = $(this).data('page_url');
         menu_item.active = $(this).data('active');
         pages.push(menu_item);
     });
@@ -307,6 +313,7 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
 
     $('#menu a').not(':last,#dropdownMenu').each(function(index){
 
+        console.log($(this).data('page_url'));
          var modal_link = $('<a></a>');
         modal_link.addClass('modal-menu-links padding-left');
         modal_link.attr('href','#');
@@ -315,6 +322,7 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
         modal_link.data('title',$(this).data('title'));
         modal_link.data('keywords',$(this).data('keywords'));
         modal_link.data('description',$(this).data('description'));
+        modal_link.data('page_url',$(this).data('page_url'));
         modal_link.data('active',$(this).data('active'));
         var parent = $('<li></li>');
         var i = $('<i></i>');
@@ -322,12 +330,12 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
         parent.append(i);
         parent.append(modal_link);
         if(index != 0){
-            parent.append('<a class="deletePage" href="javascript:;" data-id="'+ $(this).data('page_id') + '" ><i class="glyphicon glyphicon-trash"></i></a>');
+            parent.append('<a class="deletePage" href="javascript:void(0)" data-id="'+ $(this).data('page_id') + '" ><i class="glyphicon glyphicon-trash"></i></a>');
         }
         $('#page_items').append(parent);
 
     });
-    $('#page_items').append('<li><a data-dismiss="modal" data-toggle="modal" data-target="#newPageModal" class="btn btn-primary"  href="javascript:;" >Přidat stránku</a></li>');
+    $('#page_items').append('<li><a data-dismiss="modal" data-toggle="modal" data-target="#newPageModal" class="btn btn-primary"  href="javascript:void(0)" >Přidat stránku</a></li>');
     init();
 
     modal_body.find('a.modal-menu-links').each(function () {
@@ -340,6 +348,7 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
             $(page_edit).find('input[name="title"]').val($(this).data('title'));
             $(page_edit).find('input[name="keywords"]').val($(this).data('keywords'));
             $(page_edit).find('input[name="description"]').val($(this).data('description'));
+            $(page_edit).find('input[name="page_url"]').val($(this).data('page_url'));
             if(!$(this).data('active')) {
                 $('#active').bootstrapToggle('off');
             }else {
@@ -392,6 +401,7 @@ $(document).on('click','#save_pages',function(){
         //console.log($(modal_menu_links[index]).text());
         $(this).text($(modal_menu_links[index]).text());
         $(this).data('title',$(modal_menu_links[index]).data('title'));
+        $(this).data('page_url',$(modal_menu_links[index]).data('page_url'));
         $(this).data('keywords',$(modal_menu_links[index]).data('keywords'));
         $(this).data('description',$(modal_menu_links[index]).data('description'));
         $(this).data('active',$(modal_menu_links[index]).data('active'));
@@ -435,6 +445,7 @@ $("#newPageModal").on("hidden.bs.modal", function(){
     pageForm.find('input[name="name"]').val('');
     pageForm.find('input[name="title"]').val('');
     pageForm.find('input[name="keywords"]').val('');
+    pageForm.find('input[name="page_url"]').val('');
     pageForm.find('input[name="description"]').val('');
 });
 

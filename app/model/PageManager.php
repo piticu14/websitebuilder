@@ -29,6 +29,7 @@ class PageManager extends BaseManager
             ->insert([
                 'project_id' => $data->project_id,
                 'title' => $data->title,
+                'url' => $data->page_url,
                 'keywords' => isset($data->keywords) ? $data->keywords : '',
                 'description' => isset($data->description) ? $data->description : '',
                 'publish' => 0
@@ -38,6 +39,7 @@ class PageManager extends BaseManager
             ->insert([
                 'project_id' => $data->project_id,
                 'title' => $data->title,
+                'url' => $data->page_url,
                 'keywords' => isset($data->keywords) ? $data->keywords : '',
                 'description' => isset($data->description) ? $data->description : '',
                 'publish' => 1
@@ -79,28 +81,39 @@ class PageManager extends BaseManager
         $page_temp_nav = null;
         foreach($pages as $page){
             $page_temp_nav = $this->getDatabase()->table('nav')
-                ->select('*')
-                ->where('page_id',$page->id)
-                ->where('sort_order',0)
-                ->where('publish',0)
+                ->select('nav.*,page.url')
+                ->where('page.id',$page->id)
+                ->where('nav.sort_order',0)
+                ->where('nav.publish',0)
                 ->fetch();
 
             if($page_temp_nav) {
-                break;
+                return $page_temp_nav;
             }
         }
+        /*
         $page_relationship = $this->getDatabase()->table('page_relationships')
             ->where('temp_id',$page_temp_nav->page_id)
             ->fetch();
         return array(
             'temp_id' => $page_relationship->temp_id,
             'publish_id' => $page_relationship->publish_id);
+        */
     }
 
     public function get($id)
     {
         return $this->getDatabase()->table(self::$table)->get($id);
     }
+
+    public function getByUrl($project_id, $url, $publish)
+    {
+        return $this->getDatabase()->table(self::$table)
+            ->where('project_id', $project_id)
+            ->where('url', $url)
+            ->where('publish', $publish)->fetch();
+    }
+
 
     /** TODO: Update only if change exists */
     public function update($data, $id)
@@ -111,6 +124,7 @@ class PageManager extends BaseManager
                 'title' => $data['title'],
                 'description' => $data['description'],
                 'keywords' => $data['keywords'],
+                'url' => $data['url'],
                 'updated_at' => date("Y-m-d H:i:s")
             ]);
     }

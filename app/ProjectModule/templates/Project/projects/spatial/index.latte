@@ -1,45 +1,43 @@
-{block web}
-	<style>
-		.landing .navPanelToggle {
-			top:150px !important;
-		}
-		#body {
-			width: 95%;
-			margin:0 auto;
-			padding: 0;
-			height: 100%;
-		}
+<style>
+    .landing .navPanelToggle {
+        top: 150px !important;
+    }
 
+    #body {
+        width: 95%;
+        margin: 0 auto;
+        padding: 0;
+        height: 100%;
+    }
 
-		#editFlashMessages {
-			width: 73%;
-			margin: 0 auto;
-			height: 60px;
-		}
+    #editFlashMessages {
+        width: 73%;
+        margin: 0 auto;
+        height: 60px;
+    }
 
-		#page_item{
-			width:70%;
-			margin: auto;
-			float: none;
-		}
+    #page_item {
+        width: 70%;
+        margin: auto;
+        float: none;
+    }
 
-	</style>
+</style>
 
-	<div class="landing">
+<div class="landing">
 
-			{include header.latte}
+    {include header.latte}
 
-		<div class="row">
-			<div id="content-area">
-				<div id="editor">
-					<div id="body" data-url="{link deletePageItem!}">
+    <div class="row">
+        <div id="content-area">
+            <div id="editor">
+                <div id="body" data-url="{link deletePageItem!}">
 
-					</div>
-				</div>
-			</div>
-		</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		{include footer.latte}
+    {include footer.latte}
 
-	</div>
-{/block}
+</div>

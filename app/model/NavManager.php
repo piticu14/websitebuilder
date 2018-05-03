@@ -30,7 +30,6 @@ class NavManager extends BaseManager
                 ->insert([
                     'page_id' => $data->page_id,
                     'title' => $data->title,
-                    'url' => Strings::lower($data->title),
                     'sort_order' => $data->sort_order,
                     'new' => 0,
                     'publish' => $publish
@@ -40,7 +39,6 @@ class NavManager extends BaseManager
                 ->insert([
                     'page_id' => $data->page_id,
                     'title' => $data->title,
-                    'url' => Strings::lower($data->title),
                     'sort_order' => $data->sort_order,
                     'new' => 1,
                     'publish' => $publish
@@ -67,7 +65,7 @@ class NavManager extends BaseManager
     {
 
         return $this->getDatabase()->table(self::$table)
-            ->select('page.id AS page_id,page.title AS page_title,page.description,page.keywords,nav.*')
+            ->select('page.id AS page_id,page.title AS page_title,page.url AS page_url, page.description,page.keywords,nav.*')
             ->where('page.project_id', $project_id)
             ->where('nav.publish',$publish)
             ->where('page.deleted_at',NULL)

@@ -18,9 +18,9 @@
                  style="background-image:url('{$basePath}/thubmnails/{$row->ref('template','template_id')->title}.jpg');">
                 <div class="case-study__overlay">
                     <h2 class="case-study__title">{$row->subdomain}</h2>
-                    <a class="case-study__link" n:href = "Project:show id => $row->project_id, page_id => $first_projects_pages[$iterator->counter - 1]['publish_id']" target="_blank">Přehled</a> <br>
+                    <a class="case-study__link" n:href = "Project:show subdomain => $row->subdomain, page_url => $first_projects_pages[$iterator->counter - 1]['url']" target="_blank">Přehled</a> <br>
                     <a class="case-study__link showProject" data-toggle="modal"
-                       data-project='{"id":"{$row->project_id}","page_temp_id":"{$first_projects_pages[$iterator->counter - 1]['temp_id']}","page_publish_id":"{$first_projects_pages[$iterator->counter - 1]['publish_id']}","subdomain":"{$row->subdomain}","active":"{$row->active}"}'
+                       data-project='{"id":"{$row->project_id}","url":"{$first_projects_pages[$iterator->counter - 1]['url']}","subdomain":"{$row->subdomain}","active":"{$row->active}"}'
                        data-target="#editProjectModal" href="#">Upravit</a>
                 </div>
             </div>

@@ -64,10 +64,10 @@
                     <ul class="nav navbar-nav">
                         {if $presenter->isLinkCurrent("Project:edit")}
                             <li>
-                                <a id="publish" n:href="Project:publish, project_id => $presenter->getParameter('id'),pid => $presenter->getParameter('page_id')" class="navbar-btn btn btn-success">Publikovat</a></li>
+                                <a id="publish" n:href="Project:publish, subdomain => $presenter->getParameter('subdomain'),page_url => $presenter->getParameter('page_url')" class="navbar-btn btn btn-success">Publikovat</a></li>
 
                             <li>
-                                <a data-url="{link saveTemporary!}" id="temp_save" href="#" class="btn btn-warning navbar-btn">Uložit</a>
+                                <a data-url="{link saveTemporary! subdomain => $presenter->getParameter('subdomain'),page_url => $presenter->getParameter('page_url')}" id="temp_save" href="javascript:void(0)" class="btn btn-warning navbar-btn">Uložit</a>
                             </li>
 
                         {/if}
