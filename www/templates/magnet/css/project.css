@@ -181,15 +181,16 @@ a:hover, a:active, a:focus {
     background: #ffffff;
     padding: 18px 0;
     border: none;
-    margin-top: 62px;
+
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-  border-color: transparent;
+    margin-top: 62px;
+    border-color: transparent;
 }
 
 .navbar-default .navbar-brand {
-  padding-top: 6px;
+  padding-top: 12px;
 }
 
 

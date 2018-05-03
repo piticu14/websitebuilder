@@ -115,7 +115,10 @@ class ProjectPresenter extends AdminBasePresenter
         if ($project) {
                 $page = $this->pageManager->getByUrl($project->id,$page_url, 0);
                 if ($page) {
+                    bdump('aaaa');
                     $this->initTemplateVariables($project, $page->id, 0);
+                }else{
+                    bdump('bbbb');
                 }
         }
 
@@ -199,7 +202,7 @@ class ProjectPresenter extends AdminBasePresenter
 
 
         $this->template->page_items = $this->pageItemManager->getAll($page_id, $publish);
-        bdump($page_id);
+
 
         $this->template->first_page = $this->pageManager->first($project->id);
 
@@ -230,7 +233,6 @@ class ProjectPresenter extends AdminBasePresenter
 
 
         }
-        bdump($first_projects_pages);
         $this->template->user_projects = $user_projects;
         $this->template->first_projects_pages = $first_projects_pages;
     }
@@ -343,12 +345,14 @@ class ProjectPresenter extends AdminBasePresenter
 
     }
 
-    public function handleSaveTemporary($nav, $header, $body, $footer)
+    public function handleSaveTemporary($nav, $header, $body, $footer, $current_page_url)
     {
+
         $project = $this->projectManager->getBy('subdomain',$this->getParameter('subdomain'));
 
         $nav_array = Json::decode($nav, Json::FORCE_ARRAY);
         foreach ($nav_array as $sort_order => $nav) {
+
             $nav['sort_order'] = $sort_order;
             if (is_numeric($nav['id'])) {
                 $this->navManager->update($nav, $nav['page_id'], 0);
@@ -367,6 +371,7 @@ class ProjectPresenter extends AdminBasePresenter
             }
 
         }
+
 
         $header_array = Json::decode($header, Json::FORCE_ARRAY);
         $this->headerManager->update($header_array, $project->id, 0);
@@ -390,14 +395,18 @@ class ProjectPresenter extends AdminBasePresenter
         $this->projectManager->updateTime($project->id);
 
 
+
+
         $this->template->nav_items = $this->navManager->get($project->id, 0);
-        $this->redrawControl('wrapper');
-        $this->redrawControl('header');
+
+
+        //$this->redirect('Project:edit', array('subdomain' => $this->getParameter('subdomain'), 'page_url' => $current_url));
 
     }
 
     public function handleDeletePageItem($item_id)
     {
+        bdump($item_id);
         $this->pageItemManager->delete($item_id);
 
     }

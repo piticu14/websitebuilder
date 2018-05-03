@@ -6,7 +6,6 @@ function init() {
 
     var modal_body = $('#nav_body');
     var modal_menu_links = $('.modal-menu-links');
-    console.log(modal_menu_links);
     var title = $(modal_menu_links).first().data('title');
     var keywords = $(modal_menu_links).first().data('keywords');
     var description = $(modal_menu_links).first().data('description');
@@ -14,7 +13,7 @@ function init() {
     var active = $(modal_menu_links).first().data('active');
     var page_edit = $('#page_edit');
 
-    console.log(page_url);
+
     modal_body.find('.col-md-4').trigger('change');
 
     //$('#menuModalTitle').text('Editace stránek');
@@ -254,7 +253,7 @@ function getBodyContent() {
         $(this).removeAttr('data-id');
         item.photogallery_ids = photogallery_ids;
         item.content = $(this).prop('outerHTML');
-        console.log(item.content);
+
         items.push(item);
     });
 
@@ -274,9 +273,8 @@ function sendContent($link) {
     footer.content = $('#footer_content').html();
     footer.social_media = getSocialMedia();
     $.nette.ajax({
-        url: $link.data('url'),
+        url: $('#temp_save').attr('href') + '?do=saveTemporary',
         type: "POST",
-
         data: { nav: JSON.stringify(nav),
             header: JSON.stringify(header),
             body: JSON.stringify(body),
@@ -294,7 +292,6 @@ function sendContent($link) {
 
 $('#menu a').not(':last,#dropdownMenu').each(function(){
     $(this).off().on('click',function(e) {
-        e.preventDefault();
         sendContent($(this));
     });
 });
@@ -313,7 +310,6 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
 
     $('#menu a').not(':last,#dropdownMenu').each(function(index){
 
-        console.log($(this).data('page_url'));
          var modal_link = $('<a></a>');
         modal_link.addClass('modal-menu-links padding-left');
         modal_link.attr('href','#');
@@ -393,18 +389,31 @@ $('#menuModal').on('hidden.bs.modal', function () {
 
 /* If user press Save then change the Main Nav values */
 $(document).on('click','#save_pages',function(){
+
+    var temp_href = $('#temp_save').attr('href');
+    var publish_href = $('#publish').attr('href');
+    var current_page_url = temp_href.substring(temp_href.lastIndexOf("/") + 1);
     nav_temp_save();
     var menu = $('#menu a').not(':last,#dropdownMenu');
     var modal_body = $('#nav_body');
     var modal_menu_links = $(modal_body).find('a.modal-menu-links');
     menu.each(function(index){
+        var valid_page_url = $(modal_menu_links[index]).data('page_url').toLowerCase().replace(/ /g,'-');
+        var temp_url = temp_href.slice(0, temp_href.lastIndexOf('/'));
+        var publish_url = publish_href.slice(0, publish_href.lastIndexOf('/'));
+        if($(this).data('page_url') === current_page_url){
+            $('#temp_save').attr('href',temp_url + '/' + valid_page_url);
+            $('#publish').attr('href',publish_url + '/' + valid_page_url);
+
+        }
         //console.log($(modal_menu_links[index]).text());
         $(this).text($(modal_menu_links[index]).text());
         $(this).data('title',$(modal_menu_links[index]).data('title'));
-        $(this).data('page_url',$(modal_menu_links[index]).data('page_url'));
+        $(this).data('page_url',valid_page_url);
         $(this).data('keywords',$(modal_menu_links[index]).data('keywords'));
         $(this).data('description',$(modal_menu_links[index]).data('description'));
         $(this).data('active',$(modal_menu_links[index]).data('active'));
+        $(this).attr('href',url + '/' + valid_page_url);
 
         if($(modal_menu_links[index]).data('active')){
             $(this).parent().removeClass('hide')

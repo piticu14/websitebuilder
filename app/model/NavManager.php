@@ -103,7 +103,6 @@ class NavManager extends BaseManager
             if($publish_nav->count()) {
 
                 $publish_nav->update([
-                    'url' => $temp_nav->url,
                     'sort_order' => $temp_nav->sort_order,
                     'active' => $temp_nav->active,
                     'title' => $temp_nav->title,
@@ -118,7 +117,6 @@ class NavManager extends BaseManager
                     ->insert([
                         'page_id' => $new_publish_nav['page_id'],
                         'title' => $new_publish_nav['title'],
-                        'url' => Strings::lower($new_publish_nav['title']),
                         'sort_order' => $new_publish_nav['sort_order'],
                         'new' => $new_publish_nav['new'],
                         'publish' => 1

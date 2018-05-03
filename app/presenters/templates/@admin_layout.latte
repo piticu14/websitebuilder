@@ -67,7 +67,7 @@
                                 <a id="publish" n:href="Project:publish, subdomain => $presenter->getParameter('subdomain'),page_url => $presenter->getParameter('page_url')" class="navbar-btn btn btn-success">Publikovat</a></li>
 
                             <li>
-                                <a data-url="{link saveTemporary! subdomain => $presenter->getParameter('subdomain'),page_url => $presenter->getParameter('page_url')}" id="temp_save" href="javascript:void(0)" class="btn btn-warning navbar-btn">Uložit</a>
+                                <a data-url="{link saveTemporary!}" id="temp_save" n:href="Project:edit, subdomain => $presenter->getParameter('subdomain'),page_url => $presenter->getParameter('page_url')" class="btn btn-warning navbar-btn">Uložit</a>
                             </li>
 
                         {/if}

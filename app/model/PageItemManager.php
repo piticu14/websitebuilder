@@ -110,7 +110,6 @@ class PageItemManager extends BaseManager
         foreach ($pages as $page) {
             $page_items = $this->getAll($page->id,0);
             foreach ($page_items as  $page_item) {
-                bdump($page_item);
 
                 $item_relationship = $this->getDatabase()->table('page_item_relationships')
                     ->where('temp_id',$page_item->id);

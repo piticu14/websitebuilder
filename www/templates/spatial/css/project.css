@@ -1,4 +1,4 @@
-@import url(../../../../../www/templates/spatial/css/font-awesome.min.css);
+@import url(../../../../www/templates/spatial/css/font-awesome.min.css);
 @import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
 
 /*
@@ -1353,7 +1353,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 
         .landing .wrapper.style3 {
 			background-attachment: fixed;
-			background-image: url("../../../../../www/templates/spatial/css/images/overlay.png"), url("../../../../../www/templates/spatial/images/banner.jpg");
+			background-image: url("../../../../www/templates/spatial/css/images/overlay.png"), url("../../../../www/templates/spatial/images/banner.jpg");
 			background-position: center center;
 			background-size: cover;
 		}
@@ -1506,7 +1506,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
             #header.alt h1 {
 				color: #ffffff;
 				left: 2.5em;
-				top: 2em;
+				top: 1.5em;
 			}
 
                 #header.alt h1 a {
@@ -1707,7 +1707,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
     #header-wrapper {
 		padding: 16em 0 13em 0;
 		background-attachment: fixed;
-		background-image: url("../../../../../www/templates/spatial/css/images/overlay.png"), url("../../../../../www/templates/spatial/images/banner.jpg");
+		background-image: url("../../../../www/templates/spatial/css/images/overlay.png"), url("../../../../www/templates/spatial/images/banner.jpg");
 		background-position: center top;
 		background-size: cover;
 		line-height: 1.75;

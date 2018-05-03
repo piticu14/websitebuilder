@@ -331,10 +331,13 @@
   margin-bottom: 0;
   text-transform: uppercase;
   font-family: "Roboto", Arial, sans-serif;
-  color: black;
 }
 #fh5co-page #header-wrapper #logo_image_container i {
   color: #1FB57B;
+}
+
+#fh5co-page #header-wrapper #logo_image_container a {
+  color: black;
 }
 
 #fh5co-page #header-wrapper #logo_image_container a > span {
@@ -357,7 +360,7 @@
 
   margin: 0 0 0 0;
 }
-#fh5co-page #header-wrapper nav > ul > li {
+#fh5co-page #header-wrapper nav ul li {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -366,7 +369,7 @@
   zoom: 1;
   *display: inline;
 }
-#fh5co-page #header-wrapper nav > ul > li > a:not(#menu_edit) {
+#fh5co-page #header-wrapper nav ul  li  a:not(#menu_edit) {
   color: rgba(0, 0, 0, 0.5);
   font-size: 16px;
   padding: 12px 15px;
@@ -381,11 +384,11 @@
   position: relative;
   top: 3px;
 }
-#fh5co-page #header-wrapper nav ul li a:hover {
+#fh5co-page #header-wrapper nav ul  li  a:not(#menu_edit):hover{
   text-decoration: none;
   color: black;
 }
-#fh5co-page #header-wrapper nav ul li a:not(#menu_edit) .active,#fh5co-page  #header-wrapper nav ul li a:not(#menu-edit):focus {
+#fh5co-page #header-wrapper nav ul li a:not(#menu_edit).active,#fh5co-page  #header-wrapper nav ul li a:not(#menu-edit):focus {
   outline: none;
   text-decoration: none;
   color: white;

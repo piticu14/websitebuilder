@@ -5,7 +5,11 @@
         position: relative;
         top: 20px;
     }
-
+    #logo_image_container img{
+        max-width: 177px;
+        max-height: 106px;
+        vertical-align: middle;
+    }
     {if $presenter->isLinkCurrent("Project:show")}
     #menu-inner ul:not(#some-id) {
         padding-left: 0;
@@ -46,7 +50,7 @@
         {/if}
         <div id="logo_image_container">
             {if $header_logo['type'] == 'img'}
-                <img style="vertical-align: middle" width="100" height="100" src="{$header_logo['src']}"
+                <img src="{$header_logo['src']}"
                      alt="your image">
             {else}
                 <i class="glyphicon glyphicon-{$header_logo['src']}"></i>
@@ -63,7 +67,6 @@
 <div id="menu-wrapper">
     <div id="menu-inner">
         {if $presenter->isLinkCurrent("Project:edit")}
-            {snippet nav}
             <ul id="menu">
                 {foreach $nav_items as $nav_item}
                     {if (!$nav_item->new)}
@@ -103,7 +106,6 @@
                                 class="fa fa-cog" aria-hidden="true"></span></a>
                 </li>
             </ul>
-        {/snippet}
         {else}
             <ul>
                 {foreach $nav_items as $nav_item}

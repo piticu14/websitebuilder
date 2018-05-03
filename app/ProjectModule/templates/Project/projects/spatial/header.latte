@@ -6,16 +6,28 @@
     #logo_edit{
         margin-right:20px;
     }
+
+    #logo_icon{
+        padding-top:25px
+    }
+    #logo_image_container img{
+        max-width: 177px;
+        max-height: 106px;
+        vertical-align: middle;
+    }
     {if $presenter->isLinkCurrent("Project:show")}
         #header{
             top:0;
         }
+    #logo_icon{
+        padding-top:40px
+    }
     {/if}
     #logo_container {
         position: relative;
         bottom: 40px;
     }
-    {if ($first_page['temp_id'] == $presenter->getParameter('page_id') || $first_page['publish_id'] == $presenter->getParameter('page_id'))}
+    {if ($first_page['url'] == $presenter->getParameter('page_url'))}
     #header nav ul li a.active {
         color: #FFF;
     }
@@ -37,12 +49,12 @@
 </style>
 <!-- Header -->
 
-<header id="header" n:class="($first_page['temp_id'] == $presenter->getParameter('page_id') || $first_page['publish_id'] == $presenter->getParameter('page_id')) ? alt">
+<header id="header" n:class="($first_page['url'] == $presenter->getParameter('page_url')) ? alt">
     <div id="logo_container">
         <h1 id="logo_image_container">
 
             {if $header_logo['type'] == 'img'}
-                <img width="10%" height="auto" src="{$header_logo['src']}" alt="your image">
+                <img  src="{$header_logo['src']}" alt="Logo Image">
             {else}
                 <i id="logo_icon" class="glyphicon glyphicon-{$header_logo['src']}"></i>
             {/if}
@@ -57,7 +69,6 @@
 
     <nav id="nav">
         {if $presenter->isLinkCurrent("Project:edit")}
-            {snippet nav}
             <ul id="menu">
                 {foreach $nav_items as $nav_item}
                     {if (!$nav_item->new)}
@@ -95,7 +106,6 @@
                 <li><a id="menu_edit" href="#" data-toggle="modal" data-target="#menuModal"> <span
                                 class="fa fa-cog" aria-hidden="true"></span></a></li>
             </ul>
-        {/snippet}
         {else}
             <ul>
                 {foreach $nav_items as $nav_item}
@@ -133,7 +143,7 @@
 <a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
 
 <!-- Banner -->
-<section n:class="($first_page['temp_id'] == $presenter->getParameter('page_id') || $first_page['publish_id'] == $presenter->getParameter('page_id')) ? active : hide" id="header-wrapper">
+<section n:class="($first_page['url'] == $presenter->getParameter('page_url')) ? active : hide" id="header-wrapper">
     {snippet flashMessage}
         <div id="editFlashMessages" n:foreach="$flashes as $flash"
              class="alert alert-{$flash->type} alert-dismissible">

@@ -415,16 +415,15 @@ $(document).on('click', '.showProject', function () {
 /*ToDo: Change "menu" to  "nav" or "pages" */
 
 
-$(document).on('click', '#temp_save', function (e) {
+$('#temp_save').off().on('click', function (e) {
     e.preventDefault();
-
     sendContent($(this));
+
 });
 
-$(document).on('click', '#publish', function (e) {
+$('#publish').off().on('click', function (e) {
     e.preventDefault();
-    sendContent($('#temp_save'));
-    window.location.href = $(this).attr('href');
+    sendContent($(this));
 });
 
 function initPhotogallery(comp, imgs) {

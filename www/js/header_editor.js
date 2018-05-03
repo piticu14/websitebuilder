@@ -21,17 +21,17 @@ $('#headerModal').on('shown.bs.modal', function () {
             logo_image_container.children().first().remove();
             if(selected_logo.is('div')) {
                 var logo_image = $('<img>');
-                logo_image.attr('width','100px');
-                logo_image.attr('height','100px');
-                logo_image.attr('alt','User Image');
+                //logo_image.attr('width','100%');
+                //logo_image.attr('height','auto');
+                logo_image.attr('alt','Logo Image');
                 logo_image.attr('src',$(selected_logo).find('img').attr('src'));
                 logo_image_container.prepend(logo_image);
-                $('#menu').attr('style','padding-top:25px');
+                //$('#menu').attr('style','padding-top:25px');
             } else {
                 var logo_icon = $(selected_logo).children('span').clone();
                 var icon = "<i class='" + logo_icon.attr('class') + "'></i>";
                 logo_image_container.prepend(icon);
-                $('#menu').attr('style','padding-top:0');
+
             }
         }
 

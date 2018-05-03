@@ -19,8 +19,8 @@
         float: none;
     }
 </style>
-    {snippetArea wrapper}
     {include projects/{$template_title}/index.latte}
+    {snippetArea wrapper}
         {include modals.latte}
     {/snippetArea}
 {/block}
@@ -75,6 +75,7 @@
 
         var background = {$header->background}
         $('#header-wrapper').attr('style',background);
+
 
     </script>
 {/block}
