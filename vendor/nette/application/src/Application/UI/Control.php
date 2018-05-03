@@ -5,6 +5,8 @@
  * Copyright (c) 2004 David Grudl (https://davidgrudl.com)
  */
 
+/** TODO: Change dropdown project nav with user dropdown nav */
+
 namespace Nette\Application\UI;
 
 use Nette;

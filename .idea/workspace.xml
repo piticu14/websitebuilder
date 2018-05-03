@@ -1,97 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/modals.latte" description="&lt;div class=&quot;row&quot;&gt;" line="392" />
+    <bookmark url="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/modals.latte" description="&lt;div class=&quot;row&quot;&gt;" line="402" />
     <bookmark url="file://$PROJECT_DIR$/www/templates/plushiness/css/project.css" line="451" mnemonic="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="42a0ba0f-3ea5-4b2c-abfe-9e9f5a361476" name="Default" comment="Header Edit&#10;&#10;+added background header&#10;+ added">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/spatial/css/images/banner.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/spatial/css/images/pic01.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/spatial/css/images/pic02.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/spatial/css/images/pic03.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/spatial/css/images/pic04.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/spatial/css/images/pic05.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/spatial/css/images/pic06.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/spatial/css/images/pic07.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/DocumentationModule/presenters/DocumentationPresenter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/DocumentationModule/templates/Documentation/default.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/footer.latte" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/doc/css/normalize.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/doc/css/prettify.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/doc/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/doc/js/jquery.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/doc/js/prettify.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/doc/js/scripts.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/lesser/css/default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/magnet/css/default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/plushiness/css/project.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/templates/spatial/css/default.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/zkouska.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/plushiness/footer.latte" afterPath="" />
+    <list default="true" id="42a0ba0f-3ea5-4b2c-abfe-9e9f5a361476" name="Default" comment="+ doc text updated">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/websitebuilder.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/temp/sessions/sess_och9j6njug54m7pibukmptfnc6" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/embellished/footer.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/footer.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/embellished/header.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/header.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/embellished/images/overlay.png" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/images/overlay.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/embellished/index.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/index.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/embellished/license.txt" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/license.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/lesser/footer.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/footer.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/lesser/header.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/header.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/lesser/index.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/index.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/magnet/.idea/magnet.iml" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/.idea/magnet.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/magnet/footer.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/footer.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/magnet/header.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/header.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/magnet/index.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/index.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/plushiness/header.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/header.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/plushiness/index.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/index.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/footer.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/footer.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/header.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/header.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/images/banner.jpg" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/images/banner.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/images/pic01.jpg" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/images/pic01.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/images/pic02.jpg" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/images/pic02.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/images/pic03.jpg" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/images/pic03.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/images/pic04.jpg" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/images/pic04.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/images/pic05.jpg" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/images/pic05.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/images/pic06.jpg" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/images/pic06.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/images/pic07.jpg" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/images/pic07.jpg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/index.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/index.latte" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/templates/embellished/default.css" afterPath="$PROJECT_DIR$/www/templates/embellished/css/project.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/templates/lesser/css/style.css" afterPath="$PROJECT_DIR$/www/templates/lesser/css/project.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/templates/magnet/css/style.css" afterPath="$PROJECT_DIR$/www/templates/magnet/css/project.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/www/templates/spatial/css/main.css" afterPath="$PROJECT_DIR$/www/templates/spatial/css/project.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ProjectModule/presenters/ProjectPresenter.php" afterPath="$PROJECT_DIR$/app/ProjectModule/presenters/ProjectPresenter.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/all.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/all.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/edit.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/edit.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/modals.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/modals.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/ProjectModule/templates/Project/show.latte" afterPath="$PROJECT_DIR$/app/ProjectModule/templates/Project/show.latte" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/presenters/templates/@admin_layout.latte" afterPath="$PROJECT_DIR$/app/presenters/templates/@admin_layout.latte" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/nette/application/src/Application/UI/Control.php" afterPath="$PROJECT_DIR$/vendor/nette/application/src/Application/UI/Control.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vendor/tracy/tracy/tools/open-in-editor/windows/install.cmd" afterPath="$PROJECT_DIR$/vendor/tracy/tracy/tools/open-in-editor/windows/install.cmd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/dashboard_styles.css" afterPath="$PROJECT_DIR$/www/css/dashboard_styles.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/header_editor.js" afterPath="$PROJECT_DIR$/www/js/header_editor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/nav_editor.js" afterPath="$PROJECT_DIR$/www/js/nav_editor.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/embellished/css/default.css" afterPath="$PROJECT_DIR$/www/templates/embellished/css/default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/embellished/index.html" afterPath="$PROJECT_DIR$/www/templates/embellished/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/lesser/about.html" afterPath="$PROJECT_DIR$/www/templates/lesser/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/lesser/blog.html" afterPath="$PROJECT_DIR$/www/templates/lesser/blog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/lesser/contact.html" afterPath="$PROJECT_DIR$/www/templates/lesser/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/lesser/index.html" afterPath="$PROJECT_DIR$/www/templates/lesser/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/lesser/portfolio.html" afterPath="$PROJECT_DIR$/www/templates/lesser/portfolio.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/lesser/services.html" afterPath="$PROJECT_DIR$/www/templates/lesser/services.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/magnet/about.html" afterPath="$PROJECT_DIR$/www/templates/magnet/about.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/magnet/blog.html" afterPath="$PROJECT_DIR$/www/templates/magnet/blog.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/magnet/contact.html" afterPath="$PROJECT_DIR$/www/templates/magnet/contact.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/magnet/index.html" afterPath="$PROJECT_DIR$/www/templates/magnet/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/magnet/single-post.html" afterPath="$PROJECT_DIR$/www/templates/magnet/single-post.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/magnet/single-project.html" afterPath="$PROJECT_DIR$/www/templates/magnet/single-project.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/plushiness/css/default.css" afterPath="$PROJECT_DIR$/www/templates/plushiness/css/default.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/spatial/elements.html" afterPath="$PROJECT_DIR$/www/templates/spatial/elements.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/spatial/generic.html" afterPath="$PROJECT_DIR$/www/templates/spatial/generic.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/templates/spatial/index.html" afterPath="$PROJECT_DIR$/www/templates/spatial/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/vendor/keditor/dist/js/keditor-1.1.5.js" afterPath="$PROJECT_DIR$/www/vendor/keditor/dist/js/keditor-1.1.5.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="../CMS/temp/" />
+    <ignored path="../CMS/.idea/workspace.xml" />
+    <ignored path="../CMS/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -119,99 +49,62 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - websitebuilder@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="project" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - websitebuilder@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="page" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="websitebuilder" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6249213">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="DocumentationPresenter.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/DocumentationModule/presenters/DocumentationPresenter.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-0.0">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="default.latte" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/DocumentationModule/templates/Documentation/default.latte">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="1.4885057">
-                  <caret line="501" column="59" selection-start-line="501" selection-start-column="59" selection-end-line="501" selection-end-column="59" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="scripts.min.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/www/doc/js/scripts.min.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="keditor-1.1.5.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/www/vendor/keditor/dist/js/keditor-1.1.5.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-9.965517">
-                  <caret line="827" column="46" selection-start-line="827" selection-start-column="33" selection-end-line="827" selection-end-column="46" />
-                  <folding>
-                    <marker date="1525166763785" expanded="true" signature="78377:78383" placeholder="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="edit.latte" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/edit.latte">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-11.769231">
-                  <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.latte" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/index.latte">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-7.1923075">
-                  <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="default.latte" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/DocumentationModule/templates/Documentation/default.latte">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.8011494">
-                  <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#18855#18877#0#HTML" expanded="true" />
-                    <element signature="e#22527#22549#0#HTML" expanded="true" />
-                    <element signature="e#28348#28370#0#HTML" expanded="true" />
-                    <element signature="e#32743#32765#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="header.latte" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/header.latte">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-77.15385">
+              <caret line="118" column="117" selection-start-line="118" selection-start-column="117" selection-end-line="118" selection-end-column="117" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.05743243">
+              <caret line="2" column="18" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -227,25 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/www/vendor/keditor/plugins/ckeditor-4.5.6/config.js" />
-        <option value="$PROJECT_DIR$/app/model/PageItemManager.php" />
-        <option value="$PROJECT_DIR$/app/model/HeaderManager.php" />
-        <option value="$PROJECT_DIR$/www/js/custom.js" />
-        <option value="$PROJECT_DIR$/www/js/social_media_editor.js" />
-        <option value="$PROJECT_DIR$/www/css/header_editor.css" />
-        <option value="$PROJECT_DIR$/www/css/nav_editor.css" />
-        <option value="$PROJECT_DIR$/www/css/social_media_editor.css" />
-        <option value="$PROJECT_DIR$/www/templates/magnet/css/style.css" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/lesser/index.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/header.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/embellished/header.latte" />
-        <option value="$PROJECT_DIR$/www/templates/embellished/css/default.css" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/magnet/header.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/lesser/header.latte" />
-        <option value="$PROJECT_DIR$/www/js/header_editor.js" />
-        <option value="$PROJECT_DIR$/www/templates/plushiness/css/default.css" />
-        <option value="$PROJECT_DIR$/www/templates/lesser/css/style.css" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/magnet/footer.latte" />
         <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/plushiness/footer.latte" />
         <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/lesser/footer.latte" />
         <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/spatial/footer.latte" />
@@ -258,26 +132,45 @@
         <option value="$PROJECT_DIR$/www/templates/spatial/index.html" />
         <option value="$PROJECT_DIR$/www/templates/spatial/css/main.css" />
         <option value="$PROJECT_DIR$/www/templates/plushiness/index.html" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/show.latte" />
         <option value="$PROJECT_DIR$/app/presenters/templates/HomepagePresenter.php" />
         <option value="$PROJECT_DIR$/app/DocumentationModule/templates/default.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/all.latte" />
         <option value="$PROJECT_DIR$/www/doc/css/gallery.css" />
         <option value="$PROJECT_DIR$/www/doc/js/gallery.js" />
-        <option value="$PROJECT_DIR$/app/presenters/templates/@admin_layout.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/presenters/ProjectPresenter.php" />
-        <option value="$PROJECT_DIR$/www/js/nav_editor.js" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/modals.latte" />
         <option value="$PROJECT_DIR$/app/DocumentationModule/presenters/DocumentationPresenter.php" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/edit.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/index.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/index.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/index.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/index.latte" />
-        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/index.latte" />
         <option value="$PROJECT_DIR$/www/vendor/keditor/dist/js/keditor-1.1.5.js" />
         <option value="$PROJECT_DIR$/www/doc/js/scripts.min.js" />
+        <option value="$PROJECT_DIR$/www/js/social_media_editor.js" />
+        <option value="$PROJECT_DIR$/app/SettingsModule/presenters/SettingsPresenter.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/console.sql" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/subdomain.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/sub.latte" />
+        <option value="$PROJECT_DIR$/www/vendor/keditor/snippets/default/snippets.html" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/all.latte" />
+        <option value="$PROJECT_DIR$/app/router/RouterFactory.php" />
+        <option value="$PROJECT_DIR$/www/js/custom.js" />
+        <option value="$PROJECT_DIR$/app/presenters/templates/@admin_layout.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/footer.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/footer.latte" />
+        <option value="$PROJECT_DIR$/app/model/ProjectManager.php" />
+        <option value="$PROJECT_DIR$/app/model/NavManager.php" />
+        <option value="$PROJECT_DIR$/www/js/nav_editor.js" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/modals.latte" />
+        <option value="$PROJECT_DIR$/app/model/PageManager.php" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/presenters/ProjectPresenter.php" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/edit.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/index.latte" />
         <option value="$PROJECT_DIR$/app/DocumentationModule/templates/Documentation/default.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/show.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/index.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/index.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/index.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/index.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/header.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/header.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/header.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/header.latte" />
+        <option value="$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/header.latte" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -340,7 +233,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -369,319 +261,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="www" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="doc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spatial" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="plushiness" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="magnet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lesser" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="embellished" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ProjectModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="presenters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -718,90 +298,22 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="DocumentationModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Documentation" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DocumentationModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="presenters" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AccountModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="websitebuilder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AccountModule" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="presenters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CMS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CMS/.idea" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Ignored.Files" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="Console.TableResult.DefaultCopyAction" value="Tab Separated Values (TSV)" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -812,11 +324,11 @@
       <recent name="C:\xampp\htdocs\websitebuilder\www\templates\magnet\css" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\websitebuilder\app\ProjectModule\templates\Project" />
       <recent name="C:\xampp\htdocs\websitebuilder\www\css\documentation" />
       <recent name="C:\xampp\htdocs\websitebuilder\www\templates\spatial\css\images" />
       <recent name="C:\xampp\htdocs\websitebuilder\www\templates\magnet\css" />
       <recent name="C:\xampp\htdocs\websitebuilder\www\templates\lesser\css" />
-      <recent name="C:\xampp\htdocs\websitebuilder\www\templates\plushiness\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -1064,7 +576,31 @@
       <option name="project" value="LOCAL" />
       <updated>1524700291253</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="+ added some update to templates">
+      <created>1525195080441</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1525195080441</updated>
+    </task>
+    <task id="LOCAL-00036" summary="+ HowTo added&#10;+ photogallery preview image added&#10;+ content bg toggle (image,color) problem fixed&#10;">
+      <created>1525297555851</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1525297555851</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Templates update&#10;&#10;+added url form input&#10;+ URL use subdomain/page_url instead of project_id/page_id&#10;+ default page titles change to Uvod, Galerie, O nas, Kontakt&#10;+ removed usless files&#10;">
+      <created>1525343672977</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1525343672977</updated>
+    </task>
+    <task id="LOCAL-00038" summary="+ doc text updated">
+      <created>1525343716501</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1525343716501</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1080,44 +616,46 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15298508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16577825" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3409091" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30627707" sideWeight="0.50852877" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14552239" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39285713" sideWeight="0.4914712" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5021322" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18390192" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18614718" sideWeight="0.4914712" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33549783" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.4978678" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3409091" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3409091" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30627707" sideWeight="0.50852877" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33549783" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15298508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5021322" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39935064" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33549783" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.4978678" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1641791" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14552239" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39285713" sideWeight="0.4914712" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18390192" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18614718" sideWeight="0.4914712" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1134,10 +672,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Save data temporary(change see only user, not visitors)&#10;&#10;+ save temporary nav&#10;+ save temporary logo&#10;- save glyphicon logo doesn't work&#10;- save page's metdata (title, keywords, description) --&gt; not implemented&#10;" />
-    <MESSAGE value="Save data temporary(change see only user, not visitors)&#10;&#10;+save temporary header changes&#10;" />
-    <MESSAGE value="Save data temporary(change see only user, not visitors)&#10;&#10;+ save temporary footer&#10;+ save temporary social media&#10;" />
-    <MESSAGE value="Save data temporary(change see only user, not visitors)&#10;&#10;+ save temporary body&#10;+ delete temporary page items&#10;+ change Keditor BLOB Image to normal src&#10;+ when image selected upload it&#10;- video still use BLOB&#10;- audio still use BLOB&#10;" />
     <MESSAGE value="Save data temporary(change see only user, not visitors)&#10;&#10;+ change Keditor BLOB video src to normal src&#10;+ change Keditor BLOB audio src to normal src&#10;" />
     <MESSAGE value="Publish project&#10;&#10;+ Publish every change&#10;&#10;" />
     <MESSAGE value="Publish project&#10;&#10;+ create temporary/publish pages and connect them together&#10;+ publish button clicked =&gt; update publish pages&#10;" />
@@ -1159,296 +693,55 @@
     <MESSAGE value="+ useless templates removed" />
     <MESSAGE value="Update&#10;&#10;+ added background header&#10;+ added background page item&#10;+ fixed Save, Publish button hover&#10;+removed title, subtitle from Modal&#10;+ added ckeditor to title, subtitle&#10;" />
     <MESSAGE value="Templates Front-End updates&#10;&#10;+ edit buttons changed&#10;+ header front-end fixed&#10;+ templates added to git" />
-    <option name="LAST_COMMIT_MESSAGE" value="Templates Front-End updates&#10;&#10;+ edit buttons changed&#10;+ header front-end fixed&#10;+ templates added to git" />
+    <MESSAGE value="+ added some update to templates" />
+    <MESSAGE value="+ HowTo added&#10;+ photogallery preview image added&#10;+ content bg toggle (image,color) problem fixed&#10;" />
+    <MESSAGE value="Templates update&#10;&#10;+added url form input&#10;+ URL use subdomain/page_url instead of project_id/page_id&#10;+ default page titles change to Uvod, Galerie, O nas, Kontakt&#10;+ removed usless files&#10;" />
+    <MESSAGE value="+ doc text updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ doc text updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="30" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/www/js/header_editor.js</url>
+          <line>273</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/www/templates/plushiness/css/project.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39357907">
-          <caret line="635" column="0" selection-start-line="635" selection-start-column="0" selection-end-line="635" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/header_editor.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2627824">
-          <caret line="13" column="10" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33293697">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/social_media_editor.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/lesser/css/project.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0240965">
-          <caret line="971" column="17" selection-start-line="971" selection-start-column="17" selection-end-line="971" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/footer.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.65384614">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/footer.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/footer.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03908046">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/footer.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11724138">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/header.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.418181">
-          <caret line="59" column="36" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/footer.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6363635">
-          <caret line="15" column="37" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/custom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="392" column="23" selection-start-line="392" selection-start-column="23" selection-end-line="392" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/embellished/css/default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/plushiness/css/default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/lesser/css/default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/magnet/css/default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.036364">
-          <caret line="195" column="0" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/lesser/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62528735">
-          <caret line="56" column="37" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/exception--2018-04-27--14-19--0d7f2f42ba.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36875">
-          <caret line="2960" column="6632" selection-start-line="2960" selection-start-column="6632" selection-end-line="2960" selection-end-column="6632" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/spatial/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36883628">
-          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/spatial/css/default.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58577406">
-          <caret line="2737" column="60" selection-start-line="2737" selection-start-column="57" selection-end-line="2737" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/magnet/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3510848">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/embellished/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.653847">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/spatial/css/project.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09664694">
-          <caret line="1800" column="26" selection-start-line="1800" selection-start-column="26" selection-end-line="1800" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/templates/plushiness/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63708085">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/Homepage/default.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/HomepagePresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AccountModule/presenters/AccountPresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/css/dashboard_styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7229885">
-          <caret line="388" column="15" selection-start-line="388" selection-start-column="15" selection-end-line="388" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/show.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51486325">
-          <caret line="41" column="14" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/header.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07816092">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/all.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.9230769">
-          <caret line="6" column="35" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/doc/css/normalize.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38406658">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/doc/css/prettify.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/doc/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="98.73077">
           <caret line="20" column="7" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/presenters/templates/@admin_layout.latte">
+    <entry file="file://$PROJECT_DIR$/app/DocumentationModule/presenters/DocumentationPresenter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-32.807693">
-          <caret line="162" column="33" selection-start-line="162" selection-start-column="33" selection-end-line="162" selection-end-column="33" />
-          <folding />
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.project">
+    <entry file="file://$PROJECT_DIR$/www/js/social_media_editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SettingsModule/templates/Settings/default.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.153846">
+          <caret line="140" column="44" selection-start-line="140" selection-start-column="44" selection-end-line="140" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.user_email">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1457,17 +750,75 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AccountModule/forms/EmailFormFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/doc/js/scripts.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.724138">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/SettingsModule/presenters/SettingsPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6448276">
+          <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/presenters/AdminBasePresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/BaseManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.90106004">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/presenters/ProjectPresenter.php">
+    <entry file="file://$PROJECT_DIR$/www/vendor/keditor/snippets/default/snippets.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.090909">
-          <caret line="87" column="64" selection-start-line="87" selection-start-column="64" selection-end-line="87" selection-end-column="64" />
-          <folding>
-            <element signature="e#34#62#0#PHP" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="1.2505747">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.7">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.page_relationships">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1480,112 +831,322 @@
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/modals.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.345454">
-          <caret line="404" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="603" selection-end-column="6" />
-          <folding />
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.footer">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/nav_editor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="329" column="162" selection-start-line="329" selection-start-column="162" selection-end-line="329" selection-end-column="162" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/header.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31264368">
-          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/index.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17586207">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/index.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14252874">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/DocumentationModule/presenters/DocumentationPresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.project">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/router/RouterFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923">
+          <caret line="22" column="98" selection-start-line="22" selection-start-column="98" selection-end-line="22" selection-end-column="98" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/index.latte">
+    <entry file="file://$PROJECT_DIR$/app/presenters/templates/@admin_layout.latte">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1954023">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state vertical-scroll-proportion="-6.018182">
+          <caret line="69" column="207" selection-start-line="69" selection-start-column="207" selection-end-line="69" selection-end-column="207" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/index.latte">
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/footer.latte">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17586207">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+        <state vertical-scroll-proportion="-3.6538463">
+          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/edit.latte">
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/footer.latte">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/index.latte">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="-3.2771084">
+          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/vendor/keditor/dist/js/keditor-1.1.5.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.965517">
-          <caret line="827" column="46" selection-start-line="827" selection-start-column="33" selection-end-line="827" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="157" column="91" selection-start-line="157" selection-start-column="91" selection-end-line="157" selection-end-column="91" />
           <folding>
-            <marker date="1525166763785" expanded="true" signature="78377:78383" placeholder="..." />
+            <marker date="1525302625263" expanded="true" signature="16419:16432" placeholder="..." />
+            <marker date="1525302625263" expanded="true" signature="78524:78530" placeholder="..." />
+            <marker date="1525302625263" expanded="true" signature="78667:78673" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/doc/js/scripts.min.js">
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.page_item_relationships">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/PageItemManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.461538">
+          <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/ProjectManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.038462">
+          <caret line="123" column="22" selection-start-line="123" selection-start-column="22" selection-end-line="123" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.nav">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/nav_editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.655172">
+          <caret line="207" column="52" selection-start-line="207" selection-start-column="52" selection-end-line="207" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/modals.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.6363635">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/NavManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="67" column="77" selection-start-line="67" selection-start-column="77" selection-end-line="67" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/presenters/ProjectPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0">
+          <caret line="265" column="60" selection-start-line="265" selection-start-column="60" selection-end-line="265" selection-end-column="60" />
+          <folding>
+            <element signature="e#34#62#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/PageManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.672727">
+          <caret line="85" column="29" selection-start-line="85" selection-start-column="29" selection-end-line="85" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/header_editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7254902">
+          <caret line="66" column="96" selection-start-line="66" selection-start-column="96" selection-end-line="66" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.page">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/edit.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2627824">
+          <caret line="13" column="10" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/custom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6395089">
+          <caret line="419" column="0" selection-start-line="419" selection-start-column="0" selection-end-line="419" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/all.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1954023">
+          <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/ca612198/42c0c1b5-78aa-4e63-9ece-24f8427b48f4/websitebuilder.page_item">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/footer.latte">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/index.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.961538">
+          <caret line="51" column="10" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/index.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34240687">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/index.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.24355301">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/index.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2679083">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/magnet/header.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.756447">
+          <caret line="115" column="145" selection-start-line="115" selection-start-column="145" selection-end-line="115" selection-end-column="145" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/show.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2679083">
+          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/DocumentationModule/templates/Documentation/default.latte">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4885057">
-          <caret line="501" column="59" selection-start-line="501" selection-start-column="59" selection-end-line="501" selection-end-column="59" />
+        <state vertical-scroll-proportion="6.4541545">
+          <caret line="265" column="62" selection-start-line="265" selection-start-column="62" selection-end-line="265" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/index.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80372494">
+          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/lesser/header.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.474212">
+          <caret line="106" column="52" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/embellished/header.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0945559">
+          <caret line="100" column="37" selection-start-line="100" selection-start-column="37" selection-end-line="100" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/plushiness/header.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5730659">
+          <caret line="70" column="109" selection-start-line="70" selection-start-column="109" selection-end-line="70" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/ProjectModule/templates/Project/projects/spatial/header.latte">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-77.15385">
+          <caret line="118" column="117" selection-start-line="118" selection-start-column="117" selection-end-line="118" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05743243">
+          <caret line="2" column="18" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="18" />
           <folding />
         </state>
       </provider>
