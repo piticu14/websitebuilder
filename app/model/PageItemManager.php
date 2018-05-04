@@ -23,35 +23,28 @@ class PageItemManager extends BaseManager
             $additional['photogallery_ids'] = $data['photogallery_ids'];
         }
 
-        return $this->getDatabase()->table(self::$table)
-            ->insert([
-                'page_id' => $page_id,
-                'content' => $data['content'],
-                'order_on_page' => $data['order_on_page'],
-                'publish' => $publish,
-                'additional' => empty(array_filter($additional)) ? '' : JSON::encode($additional,Json::PRETTY)
-            ]);
+        if(!isset($data['deleted_at'])){
+            return $this->getDatabase()->table(self::$table)
+                ->insert([
+                    'page_id' => $page_id,
+                    'content' => $data['content'],
+                    'order_on_page' => $data['order_on_page'],
+                    'publish' => $publish,
+                    'additional' => empty(array_filter($additional)) ? '' : JSON::encode($additional,Json::PRETTY),
+                ]);
+        }
+
+        return null;
     }
 
     public function delete($id)
     {
-        $relationship = $this->getDatabase()->table('page_item_relationships')
-            ->where('temp_id',$id)->fetch();
 
-        if($relationship){
-            $this->getDatabase()->table(self::$table)
+        return $this->getDatabase()->table(self::$table)
                 ->where('id',$id)
                 ->update([
                     'deleted_at' => date("Y-m-d H:i:s")
                 ]);
-            $this->getDatabase()->table(self::$table)
-                ->where('id',$relationship->publish_id)
-                ->update([
-                    'deleted_at' => date("Y-m-d H:i:s")
-                ]);
-        }
-
-
     }
     /*
     public function deleteAll($project_id)
@@ -75,7 +68,7 @@ class PageItemManager extends BaseManager
     public function getAll($page_id,$publish)
     {
         return $this->getDatabase()->table(self::$table)
-            ->select('id,content,order_on_page,additional,page_id')
+            ->select('*')
             ->where('page_id',$page_id)
             ->where('publish',$publish)
             ->where('deleted_at',null)
@@ -108,7 +101,12 @@ class PageItemManager extends BaseManager
                 ->where('project_id',$project_id)->fetchAll();
 
         foreach ($pages as $page) {
-            $page_items = $this->getAll($page->id,0);
+            $page_items = $this->getDatabase()->table(self::$table)
+                ->select('*')
+                ->where('page_id',$page->id)
+                ->where('publish',0)
+                ->order('order_on_page','ASC')
+                ->fetchAll();
             foreach ($page_items as  $page_item) {
 
                 $item_relationship = $this->getDatabase()->table('page_item_relationships')
@@ -122,18 +120,19 @@ class PageItemManager extends BaseManager
                             'content' => $page_item->content,
                             'order_on_page' => $page_item->order_on_page,
                             'additional' => $page_item->additional,
-                            'updated_at' => date("Y-m-d H:i:s")
+                            'updated_at' => date("Y-m-d H:i:s"),
+                            'deleted_at' => ($page_item->deleted_at != null) ? date("Y-m-d H:i:s") : null
                         ]);
                 } else {
                     $page_relationship = $this->getDatabase()->table('page_relationships')
                         ->where('temp_id',$page_item->page_id)
                         ->fetch();
-                    $published_page_item = $this->add($page_relationship->publish_id,$page_item,1);
-                    $this->getDatabase()->table('page_item_relationships')->insert([
-                        'temp_id' => $page_item->id,
-                        'publish_id' => $published_page_item->id
-                    ]);
-
+                    if($published_page_item = $this->add($page_relationship->publish_id,$page_item,1)){
+                        $this->getDatabase()->table('page_item_relationships')->insert([
+                            'temp_id' => $page_item->id,
+                            'publish_id' => $published_page_item->id
+                        ]);
+                    }
                 }
             }
         }

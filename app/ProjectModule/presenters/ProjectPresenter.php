@@ -406,7 +406,6 @@ class ProjectPresenter extends AdminBasePresenter
 
     public function handleDeletePageItem($item_id)
     {
-        bdump($item_id);
         $this->pageItemManager->delete($item_id);
 
     }
