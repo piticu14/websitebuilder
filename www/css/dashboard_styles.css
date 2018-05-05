@@ -467,13 +467,13 @@ a:focus {
     font-size:1.5rem;
 }
 
-.btn-warning:hover {
+.btn-warning:hover, .btn-warning:focus {
     color: #fff !important;
     background-color: #ec971f !important;
     border-color: #d58512;
 }
 
-.btn-success:hover {
+.btn-success:hover, .btn-success.focus {
     color: #fff !important;
     background-color: #449d44 !important;
     border-color: #398439;

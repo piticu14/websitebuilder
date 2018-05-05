@@ -226,6 +226,7 @@ class ProjectPresenter extends AdminBasePresenter
 
     public function renderAll()
     {
+        /** TODO: Public link first page_url shows temp page_url. If page_url changed but not published ==> error*/
         $user_projects = $this->projectManager->getAll();
         $first_projects_pages = array();
         foreach ($user_projects as $user_project) {
@@ -341,6 +342,7 @@ class ProjectPresenter extends AdminBasePresenter
         $this->footerManager->publish($project->id);
 
 
+        $this->flashMessage('Publikování proběhlo úspěšně.','success');
         $this->redirect('Project:edit', array("subdomain" => $subdomain, 'page_url' => $page_url));
 
     }
@@ -393,15 +395,6 @@ class ProjectPresenter extends AdminBasePresenter
         $this->footerManager->update($project->id, $footer_array, 0);
 
         $this->projectManager->updateTime($project->id);
-
-
-
-
-        $this->template->nav_items = $this->navManager->get($project->id, 0);
-
-
-        //$this->redirect('Project:edit', array('subdomain' => $this->getParameter('subdomain'), 'page_url' => $current_url));
-
     }
 
     public function handleDeletePageItem($item_id)

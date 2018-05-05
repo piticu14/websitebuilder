@@ -29,14 +29,14 @@
     }
     {if ($first_page['url'] == $presenter->getParameter('page_url'))}
     #header nav ul li a.active {
-        color: #FFF;
+        color: #FFF !important;
     }
     #page_drop_down{
         background-color:#f32853;
     }
     {else}
     #header nav ul li a.active {
-        color: #484848;
+        color: #484848 !important;
     }
     #logo_container{
         bottom:0;
@@ -46,6 +46,25 @@
         padding-top:200px;
     }
     {/if}
+    {if $header->nav_color}
+    #header.alt nav a,
+    #header nav > ul > li > a{
+        color: {$header->nav_color|noescape} !important;
+    }
+    {/if}
+
+    {if $header->nav_color_hover}
+    #header.alt nav a:hover,
+    #header.alt nav a:focus,
+    #header nav > ul > li > a:hover,
+    #header nav > ul > li > a:focus{
+        color: {$header->nav_color_hover|noescape} !important;
+    }
+    {/if}
+
+    #header-wrapper .navbar-collapse > ul {
+        padding-top: 30px !important;
+    }
 </style>
 <!-- Header -->
 
@@ -69,7 +88,7 @@
 
     <nav id="nav">
         {if $presenter->isLinkCurrent("Project:edit")}
-            <ul id="menu">
+            <ul id="menu"  data-color="{$header->nav_color}" data-color_hover="{$header->nav_color_hover}">
                 {foreach $nav_items as $nav_item}
                     {if (!$nav_item->new)}
                         <li n:class="!$nav_item->active ? hide,$nav_item->page_id == $presenter->getParameter('page_id') ? active">

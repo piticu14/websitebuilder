@@ -26,6 +26,23 @@
     }
 
     {/if}
+    #menu-inner .active {
+        text-decoration: underline !important;
+        color: #FFF !important;
+    }
+    {if $header->nav_color}
+    #menu-inner > ul > li > a:not(#menu_edit) {
+        color: {$header->nav_color|noescape};
+    }
+    {/if}
+
+    {if $header->nav_color_hover}
+    #menu-inner > ul > li > a:not(#menu_edit):hover,#menu-inner > ul > li > a:not(#menu_edit):focus {
+        color: {$header->nav_color_hover|noescape} !important;
+    }
+    {/if}
+
+
 
 </style>
 
@@ -67,7 +84,7 @@
 <div id="menu-wrapper">
     <div id="menu-inner">
         {if $presenter->isLinkCurrent("Project:edit")}
-            <ul id="menu">
+            <ul id="menu"  data-color="{$header->nav_color}" data-color_hover="{$header->nav_color_hover}">
                 {foreach $nav_items as $nav_item}
                     {if (!$nav_item->new)}
                         <li n:class="!$nav_item->active ? hide,$nav_item->page_id == $presenter->getParameter('page_id') ? active">

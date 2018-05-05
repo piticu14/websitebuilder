@@ -205,7 +205,7 @@ a:hover, a:active, a:focus {
 }
 
 .navbar-default .navbar-nav > li a:not(#menu_edit):hover {
-    color: #333 !important;
+    color: #333 ;
 }
 
 .navbar-default .navbar-nav > li > a:hover,

@@ -56,6 +56,8 @@ class HeaderManager extends BaseManager
                 'subtitle' => $data['subtitle'],
                 'logo' => Json::encode($data['logo'], Json::PRETTY),
                 'background' => $data['background'],
+                'nav_color' => $data['nav_color'],
+                'nav_color_hover' => $data['nav_color_hover'],
                 'updated_at' => date("Y-m-d H:i:s")
             ]);
     }
@@ -70,7 +72,9 @@ class HeaderManager extends BaseManager
                 'title' => $temp_data->title,
                 'subtitle' => $temp_data->subtitle,
                 'logo' => $temp_data->logo,
-                'background' => $temp_data->background
+                'background' => $temp_data->background,
+                'nav_color' => $temp_data->nav_color,
+                'nav_color_hover' => $temp_data->nav_color_hover
             ]);
 
     }

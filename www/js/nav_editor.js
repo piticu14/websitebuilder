@@ -29,6 +29,10 @@ function init() {
     $(page_edit).find('input[name="description"]').val(description);
     $(page_edit).find('input[name="page_url"]').val(page_url);
 
+    console.log($("#menu").data('color'));
+    $('#qw_nav_color').val($('#menu').data('color'));
+    $('#qw_nav_color_hover').val($('#menu').data('color_hover'));
+
     if(!active) {
         $('#active').bootstrapToggle('off');
     } else {
@@ -173,6 +177,8 @@ function getHeaderData()
 
     header.logo = image;
     header.background = getHeaderBackgroundData();
+    header.nav_color = $('#menu').data('color');
+    header.nav_color_hover = $('#menu').data('color_hover');
 
     return header;
 }
@@ -413,7 +419,21 @@ $(document).on('click','#save_pages',function(){
         $(this).data('keywords',$(modal_menu_links[index]).data('keywords'));
         $(this).data('description',$(modal_menu_links[index]).data('description'));
         $(this).data('active',$(modal_menu_links[index]).data('active'));
-        $(this).attr('href',url + '/' + valid_page_url);
+        $(this).attr('href',temp_url + '/' + valid_page_url);
+
+        var nav_color = $('#qw_nav_color').val();
+        var nav_color_hover = $('#qw_nav_color_hover').val();
+
+        $('#menu').data('color',nav_color);
+        $('#menu').data('color_hover',nav_color_hover);
+        $(this).css('color',nav_color);
+        $(this).on('mouseover',(function(){
+            console.log('in');
+            $(this).css('color',nav_color_hover);
+        }));
+        $(this).on('mouseout',(function(){
+            $(this).css('color',$('#qw_nav_color').val());
+        }));
 
         if($(modal_menu_links[index]).data('active')){
             $(this).parent().removeClass('hide')

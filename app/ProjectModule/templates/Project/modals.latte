@@ -1,5 +1,4 @@
 <!-- Nav Edit Modal -->
-{* TODO: Delete nav item/page button *}
 <div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="menuModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
@@ -71,11 +70,35 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Barva textu</label>
+
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+
+                                            <div id="qw_nav_color" class="bfh-colorpicker"
+                                                 data-name="nav_bgcolor"
+                                                 data-color=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">Barva textu při najetí myší</label>
+
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+
+                                            <div style="top:10px" id="qw_nav_color_hover" class="bfh-colorpicker"
+                                                 data-name="nav_bgcolor"
+                                                 data-color=""></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                         <div id="page_options" class="row margin-top">
                             <div class="col-md-6">
-                                <p><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit v navigačním menu</span>
+                                <p class="text-left"><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit v navigačním menu</span>
                                 </p>
                             </div>
                             <div class="col-md-3 col-md-offset-3">
@@ -497,11 +520,36 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div id="qb_nav_color" class="form-group">
+                                    <label class="col-md-3 control-label">Barva textu</label>
+
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+
+                                            <div id="container_selected_color" class="bfh-colorpicker"
+                                                 data-name="nav_bgcolor"
+                                                 data-color=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="qb_nav_color_hover" class="form-group">
+                                    <label class="col-md-3 control-label">Barva textu při najetí myší</label>
+
+                                    <div class="col-md-8 inputGroupContainer">
+                                        <div class="input-group">
+
+                                            <div style="top:10px" id="container_selected_color" class="bfh-colorpicker"
+                                                 data-name="nav_bgcolor"
+                                                 data-color=""></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </div>
+
                         <div id="social_media_options" class="row margin-top">
                             <div class="col-md-6">
-                                <p><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit sociální síť</span>
+                                <p class="text-left"><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit sociální síť</span>
                                 </p>
                             </div>
                             <div class="col-md-3 col-md-offset-3">
@@ -514,6 +562,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

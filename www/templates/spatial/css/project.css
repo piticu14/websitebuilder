@@ -1523,7 +1523,7 @@ Released for free under the Creative Commons Attribution 3.0 license (templated.
 				}
 
                     #header.alt nav a:active, #header.alt nav a:hover {
-						color: #FFF;
+						color: #FFF !important;
 					}
 
             #header.alt .button {
