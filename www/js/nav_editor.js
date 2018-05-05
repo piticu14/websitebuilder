@@ -29,7 +29,6 @@ function init() {
     $(page_edit).find('input[name="description"]').val(description);
     $(page_edit).find('input[name="page_url"]').val(page_url);
 
-    console.log($("#menu").data('color'));
     $('#qw_nav_color').val($('#menu').data('color'));
     $('#qw_nav_color_hover').val($('#menu').data('color_hover'));
 
@@ -278,6 +277,8 @@ function sendContent($link) {
 
     footer.content = $('#footer_content').html();
     footer.social_media = getSocialMedia();
+    footer.social_color = $('#social_media').data('color');
+    footer.social_color_hover = $('#social_media').data('color_hover');
     $.nette.ajax({
         url: $('#temp_save').attr('href') + '?do=saveTemporary',
         type: "POST",
@@ -403,6 +404,14 @@ $(document).on('click','#save_pages',function(){
     var menu = $('#menu a').not(':last,#dropdownMenu');
     var modal_body = $('#nav_body');
     var modal_menu_links = $(modal_body).find('a.modal-menu-links');
+
+    var nav_color = $('#qw_nav_color').val();
+    var nav_color_hover = $('#qw_nav_color_hover').val();
+
+    $('#menu').data('color',nav_color);
+    $('#menu').data('color_hover',nav_color_hover);
+
+
     menu.each(function(index){
         var valid_page_url = $(modal_menu_links[index]).data('page_url').toLowerCase().replace(/ /g,'-');
         var temp_url = temp_href.slice(0, temp_href.lastIndexOf('/'));
@@ -420,19 +429,12 @@ $(document).on('click','#save_pages',function(){
         $(this).data('description',$(modal_menu_links[index]).data('description'));
         $(this).data('active',$(modal_menu_links[index]).data('active'));
         $(this).attr('href',temp_url + '/' + valid_page_url);
-
-        var nav_color = $('#qw_nav_color').val();
-        var nav_color_hover = $('#qw_nav_color_hover').val();
-
-        $('#menu').data('color',nav_color);
-        $('#menu').data('color_hover',nav_color_hover);
         $(this).css('color',nav_color);
         $(this).on('mouseover',(function(){
-            console.log('in');
             $(this).css('color',nav_color_hover);
         }));
         $(this).on('mouseout',(function(){
-            $(this).css('color',$('#qw_nav_color').val());
+            $(this).css('color',nav_color);
         }));
 
         if($(modal_menu_links[index]).data('active')){

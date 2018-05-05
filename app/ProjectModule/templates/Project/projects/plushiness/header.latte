@@ -42,6 +42,18 @@
     }
     {/if}
 
+    {if $footer->social_color}
+    #social_media li a {
+        color: {$footer->social_color|noescape};
+    }
+    {/if}
+
+    {if $footer->social_color_hover}
+    #social_media li a:hover,#social_media li a:focus {
+        color: {$footer->social_color_hover|noescape};
+    }
+    {/if}
+
 
 
 </style>

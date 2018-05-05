@@ -28,6 +28,13 @@
 {/if}
         {include header.latte}
         <div n:class="($first_page['url'] == $presenter->getParameter('page_url')) ? active : hide" id="fh5co-intro-section">
+            {snippet flashMessage}
+                <div id="editFlashMessages" n:foreach="$flashes as $flash" class="alert alert-{$flash->type} alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+
+                    <p class="text-center">{$flash->message}</p>
+                </div>
+            {/snippet}
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center">

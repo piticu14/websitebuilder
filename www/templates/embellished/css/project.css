@@ -96,7 +96,7 @@
 		width: 60px;
 		height: 60px;
 		line-height: 60px;
-		background: #6C2A6A;
+		background-color:rgba(0, 0, 0, 0.3);
 		border-radius: 30px;
 		text-align: center;
 	}
@@ -207,7 +207,7 @@
 		display: inline-block;
 		margin-bottom: 2em;
 		padding: 1em;
-		background: #6C2A6A;
+		background-color:rgba(0, 0, 0, 0.3);
 		border-radius: 50%;
 		font-size: 1.6em;
 		color: #FFF;

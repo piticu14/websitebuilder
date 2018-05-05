@@ -17,7 +17,7 @@
                     data-target="#footerModal"></span></a>
     {/if}
     <div id="social_container" class="container">
-        <ul id="social_media" class="icons">
+        <ul id="social_media" class="icons" data-color="{$footer->social_color}" data-color_hover="{$footer->social_color_hover}">
             {foreach $social_media AS $item}
                 <li n:class="!$item['active'] ? hide, active">
                     <a href="{$item['href']|noescape}" data-media="{$item['media']}" data-active="{$item['active']}">

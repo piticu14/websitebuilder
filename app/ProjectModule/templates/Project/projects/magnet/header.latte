@@ -50,14 +50,14 @@
 
     {if $header->nav_color}
     .navbar-default .navbar-nav > li> a {
-        color: {$header->nav_color|noescape} !important;
-        }
+        color: {$header->nav_color|noescape};
+    }
     {/if}
 
     {if $header->nav_color_hover}
     .navbar-default .navbar-nav > li> a:hover,.navbar-default .navbar-nav > li> a:focus {
         color: {$header->nav_color_hover|noescape} !important;
-        }
+    }
     {/if}
 
     #header-wrapper .navbar-collapse > ul {
@@ -69,6 +69,25 @@
     {$header->background|noescape}
     }
 
+    {/if}
+
+
+    {if $footer->social_color}
+    ul.contact li a:not(#social_media_icon) {
+        background: {$footer->social_color|noescape} !important;
+        -webkit-filter: invert(100%);
+        filter: invert(100%);
+    }
+    #social_media li a {
+        color: {$footer->social_color|noescape};
+
+    }
+    {/if}
+
+    {if $footer->social_color_hover}
+    #social_media li a:hover,#social_media li a:focus {
+        color: {$footer->social_color_hover|noescape};
+    }
     {/if}
 
 </style>

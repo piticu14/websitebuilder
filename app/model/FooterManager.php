@@ -30,6 +30,7 @@ class FooterManager extends BaseManager
     public function get($project_id,$publish)
     {
         return $this->getDatabase()->table(self::$table)
+            ->select('*')
             ->where('project_id',$project_id)
             ->where('publish',$publish)
             ->fetch();
@@ -50,6 +51,8 @@ class FooterManager extends BaseManager
             ->update([
                 'content' => $data['content'],
                 'social_media' =>  Json::encode($data['social_media'], Json::PRETTY),
+                'social_color' => $data['social_color'],
+                'social_color_hover' => $data['social_color_hover'],
                 'updated_at' => date("Y-m-d H:i:s")
             ]);
     }
@@ -63,7 +66,10 @@ class FooterManager extends BaseManager
             ->where('publish',1)
             ->update([
                 'content' => $temp_data->content,
-                'social_media' => $temp_data->social_media
+                'social_media' => $temp_data->social_media,
+                'social_color' => $temp_data->social_color,
+                'social_color_hover' => $temp_data->social_color_hover,
+                'updated_at' => date("Y-m-d H:i:s")
             ]);
     }
 }

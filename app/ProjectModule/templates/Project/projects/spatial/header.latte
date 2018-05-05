@@ -62,6 +62,20 @@
     }
     {/if}
 
+    {if $footer->social_color}
+    #social_media li a {
+        color: {$footer->social_color|noescape};
+    }
+    {/if}
+
+    {if $footer->social_color_hover}
+    #social_media li a:hover,#social_media li a:focus {
+        color: {$footer->social_color_hover|noescape} !important;
+    }
+    {/if}
+
+
+
     #header-wrapper .navbar-collapse > ul {
         padding-top: 30px !important;
     }
