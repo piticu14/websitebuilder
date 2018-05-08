@@ -1,4 +1,4 @@
-
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:400,700);
 /* =======================================================
 *
 * 	Template Style 
@@ -356,10 +356,7 @@
     display: none;
   }
 }
-#fh5co-page #header-wrapper nav ul {
 
-  margin: 0 0 0 0;
-}
 #fh5co-page #header-wrapper nav ul li {
   padding: 0;
   margin: 0;
@@ -674,11 +671,14 @@
 #fh5co-services-section .services-inner p {
   color: rgba(255, 255, 255, 0.7);
 }
-#fh5co-services-section .services-inner span {
+.services-inner img {
   display: block;
-  margin-bottom: 45px;
+  margin-top: 20px;
+  float: left;
+  height: 90px;
+  width: 90px;
 }
-#fh5co-services-section .services-inner span i {
+.services-inner span i {
   font-size: 40px;
   color: white;
   border: 2px solid rgba(255, 255, 255, 0.7);
@@ -695,28 +695,28 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-#fh5co-main-services-section .services-inner {
+.services-inner {
   position: relative;
   margin-bottom: 40px;
 }
 @media screen and (max-width: 768px) {
-  #fh5co-main-services-section .services-inner {
+  .services-inner {
     margin-bottom: 60px;
   }
 }
-#fh5co-main-services-section .services-inner .desc {
+.services-inner .desc {
   padding-left: 8em;
 }
-#fh5co-main-services-section .services-inner h3 {
+.services-inner h3 {
   color: rgba(0, 0, 0, 0.7);
 }
-#fh5co-main-services-section .services-inner span {
+.services-inner span {
   position: absolute;
   top: 30px;
   display: block;
   margin-bottom: 45px;
 }
-#fh5co-main-services-section .services-inner span i {
+.services-inner span i {
   font-size: 40px;
   color: #1fb57b;
   border: 2px solid #1fb57b;

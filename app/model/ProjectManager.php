@@ -103,7 +103,7 @@ class ProjectManager extends BaseManager
         $project = $this->getDatabase()->table(self::$table)->insert([
             'template_id' => $data->template_id,
             'user_id' => $this->getUser()->id,
-            'subdomain' => Strings::trim($data->subdomain),
+            'subdomain' => Strings::lower(Strings::webalize($data->subdomain)),
             'active' => $data->active
         ]);
 
@@ -121,7 +121,7 @@ class ProjectManager extends BaseManager
             $page_data = array(
                 'project_id' => $project_id,
                 'title' => $title,
-                'page_url' => Strings::webalize(Strings::lower($title)),
+                'url' => Strings::webalize(Strings::lower($title)),
             );
             $page_hash = Nette\Utils\ArrayHash::from($page_data);
             $page_relationship = $this->pageManager->add($page_hash);
@@ -130,7 +130,7 @@ class ProjectManager extends BaseManager
             $nav_data = array(
                 'project_id' => $project_id,
                 'page_id' => $page_relationship->publish_id,
-                'title' => $title,
+                'text' => $title,
                 'sort_order' => $key
             );
             $nav_hash = Nette\Utils\ArrayHash::from($nav_data);
@@ -139,16 +139,31 @@ class ProjectManager extends BaseManager
             $nav_temp_data = array(
                 'project_id' => $project_id,
                 'page_id' => $page_relationship->temp_id,
-                'title' => $title,
+                'text' => $title,
                 'sort_order' => $key
             );
             $nav_temp_hash = Nette\Utils\ArrayHash::from($nav_temp_data);
             $this->navManager->add($nav_temp_hash,0);
             $this->navManager->add($nav_hash,1);
 
+            $default_item_content = '<section id="page_item" style="text-align:center"><div class="row"><div class="col-sm-12" data-type="container-content">
+        <section data-type="component-text">
+        <p>Zde upravujte obsah Vašeho webu.</p>
+        </section></div></div></section>';
+
+
+            $page_item_temp = array(
+                'content' => $default_item_content,
+                'order_on_page' => 0,
+            );
+
+            $this->pageItemManager->add($page_relationship->temp_id,$page_item_temp,0);
+
+
         }
         $this->headerManager->add($data,$project_id,0);
         $this->headerManager->add($data,$project_id,1);
+
 
         $social_media = array(
             [
@@ -173,7 +188,7 @@ class ProjectManager extends BaseManager
             ]);
 
         $footer_data = array(
-            'content' => '<p>© 2018 FastWeb | Všechna práva vyhrazena.</p>',
+            'content' => '<p>© 2018 QuickWeb | Všechna práva vyhrazena.</p>',
             'social_media' => Json::encode($social_media)
         );
 
@@ -215,17 +230,11 @@ class ProjectManager extends BaseManager
             ->update($data);
     }
 
-    public function delete($id)
+    public function delete($subdomain)
     {
 
-
-        //$this->navManager->delete($id);
-        //$this->headerManager->delete($id);
-        //$this->footerManager->delete($id);
-        //$this->pageItemManager->deleteAll($id);
-        //$this->pageManager->deleteAll($id);
         $this->getDatabase()->table(self::$table)
-            ->where('id',$id)
+            ->where('subdomain',$subdomain)
             ->update([
                 'deleted_at' => date("Y-m-d H:i:s"),
             ]);

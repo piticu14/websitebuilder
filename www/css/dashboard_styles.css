@@ -83,18 +83,26 @@ a:focus {
     overflow: hidden;
     transition: all .4s ease;
 }
+@media screen and (min-width: 55em){
+    .case-study{
+        display: inline-block;
+        width:30%;
+    }
+}
 @media screen and (min-width: 37.5em) {
     .case-study {
         height: 225px;
     }
 }
-@media screen and (min-width: 45em) {
+@media screen and (min-width:100em) {
     .case-study {
         display: inline-block;
         width: 22.5%;
         margin-left: 25px;
     }
 }
+
+
 
 .case-study__img {
     width: 90%;
@@ -529,4 +537,19 @@ a:focus {
     top:0;
     left:0;
 
+}
+
+.overlay a{
+    color:black;
+    -webkit-appearance: checkbox !important;
+    -moz-appearance: checkbox !important;
+    -ms-appearance: checkbox !important;
+    -o-appearance: checkbox !important;
+    appearance: checkbox !important;
+    position: relative;
+    left: 40%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    filter: invert(100%) hue-rotate(18deg) brightness(1.7);
 }

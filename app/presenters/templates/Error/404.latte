@@ -1,8 +1,30 @@
 {block content}
-<h1 n:block=title>Page Not Found</h1>
 
-<p>The page you requested could not be found. It is possible that the address is
-incorrect, or that the page no longer exists. Please use a search engine to find
-what you are looking for.</p>
+<style>
+    body{
+        background:none;
+    }
+    #nette-error{ display: table; position: absolute; height: 100%; width: 50%; left: 25%; }
+    #nette-error div { margin-left: auto; margin-right: auto; background: white; display: table-cell; color: #333; text-align: center; vertical-align: middle;}
+    #nette-error h1 { font: bold 50px/1.1 sans-serif; display: block; margin: 40px }
+    #nette-error p {  font: 20px/1.4 sans-serif; margin: 40px; display: block }
+    #nette-error small { color: gray }
+</style>
 
-<p><small>error 404</small></p>
+<div id="nette-error">
+    <div>
+        <h1 n:block=title>Stránka nenalezena</h1>
+
+        <p>Omlouváme se, ale Vámi požadovaná stránka nebyla nalezena.
+
+            Zkontrolujte prosím zadanou URL adresu požadované stránky.
+            Pokud je adresa správně, pak byla tato stránka pravděpodobně již odstraněna, změnil se její název nebo není dočasně k dispozici. </p>
+
+        <p><small>error 404</small></p>
+    </div>
+</div>
+
+<script>
+    document.body.insertBefore(document.getElementById('nette-error'), document.body.firstChild);
+</script>
+{/block}

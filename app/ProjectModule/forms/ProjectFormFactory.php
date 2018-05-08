@@ -10,7 +10,7 @@ class ProjectFormFactory
         $form = new Form;
         $form->addText('title','Titulek webu')
             ->setRequired('Zadejte titulek webu')
-            ->setHtmlAttribute('placeholder','Fastweb')
+            ->setHtmlAttribute('placeholder','QuickWeb')
             ->addRule(Form::MAX_LENGTH,'Titulek nesmi překročit %d znaků',45);
         $form->addText('subtitle','Podtitulek webu')
             ->setRequired(false)

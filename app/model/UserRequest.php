@@ -34,7 +34,7 @@ class UserRequest extends BaseManager
         $data = array(
             'user_email_id' => $userEmailId,
             'type' => $type,
-            'token' => bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM)),
+            'token' => bin2hex(random_bytes(22)),
             'sent_at' => date("Y-m-d H:i:s")
         );
         return $this->getDatabase()->table(self::$table)->insert($data);

@@ -1,4 +1,4 @@
-{block title}Fastweb - Nápověda{/block}
+{block title}QuickWeb - Nápověda{/block}
 {block content}
     <style>
         .content-wrap span {
@@ -16,9 +16,17 @@
         .mySlides img {
             width: 100%;
         }
-        .note{
-            color:#00FF00;
-            font-size:18px;
+
+        .note {
+            color: #00FF00;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+
+        .important{
+            color: red;
+            font-size:22px;
+            text-decoration: underline;
         }
     </style>
     <section class="content">
@@ -80,8 +88,9 @@
                                 <img src="{$basePath}/doc/images/1.jpg" class="hover-shadow" alt="Moje weby">
                             </a>
 
-                            <p>Zde vidíte všechny weby, které na Vašem účtu existují. Můžete zde <a href="#registerWeb">vytvořit</a>, <a href="#webEdit">spravovat
-                                    </a> nebo <a href="#webDelete">odstranit</a> Vaše weby.</p>
+                            <p>Zde vidíte všechny weby, které na Vašem účtu existují. Můžete zde <a href="#registerWeb">vytvořit</a>,
+                                <a href="#webEdit">spravovat
+                                </a> nebo <a href="#webDelete">odstranit</a> Vaše weby.</p>
                             <hr>
                             <p>V pravém horním rohu najdete možnosti uživatele.</p>
                             <a href="{$basePath}/doc/images/2.jpg" data-toggle="lightbox" data-gallery="documentation">
@@ -121,16 +130,15 @@
                                     </a>
                                     <ol>
 
-                                        {* TODO: Prehled pepochopitelny *}
                                         <li><p>Při kliknutí na tlačítko <span>Přehled</span>
                                                 se zobrazi šablonu.</p></li>
                                         <li><p>Při kliknutí na tlačítko <span>Vybrat</span> bude šablona
                                                 použita pro úpravu webu.</p>
-                                        <a href="{$basePath}/doc/images/6.jpg" data-toggle="lightbox"
-                                           data-gallery="documentation">
-                                            <img src="{$basePath}/doc/images/6.jpg" class="hover-shadow"
-                                                 alt="Možností šablony">
-                                        </a>
+                                            <a href="{$basePath}/doc/images/6.jpg" data-toggle="lightbox"
+                                               data-gallery="documentation">
+                                                <img src="{$basePath}/doc/images/6.jpg" class="hover-shadow"
+                                                     alt="Možností šablony">
+                                            </a>
                                         </li>
                                     </ol>
                                 </li>
@@ -138,7 +146,8 @@
                                     <p>
                                         Po kliknutí na tlačítko <span>Vybrat</span> zadejte
                                         <span>titulek</span>, <span> podtitulek a
-                                        <span>subdomenu</span> </span> webu a vyberte, zda web bude <span>aktivní</span> nebo <span>neaktivní.</span>
+                                        <span>subdomenu</span> </span> webu a vyberte, zda web bude <span>aktivní</span>
+                                        nebo <span>neaktivní.</span>
                                     </p>
                                     <a href="{$basePath}/doc/images/7.jpg" data-toggle="lightbox"
                                        data-gallery="documentation">
@@ -156,13 +165,14 @@
                                         <img src="{$basePath}/doc/images/71.jpg" class="hover-shadow"
                                              alt="Uložit nový web">
                                     </a>
+
                                     <p>Váš nový web je připraven ke spravování.</p>
                                 </li>
                             </ol>
 
                         </div>
                         <div class="section-txt" id="publicWeb">
-                            <h3>Přehled webu (Publikovaný web)</h3>
+                            <h3>Veřejný web</h3>
                             <ol>
                                 <li>
                                     <p>Na stránce <span>Moje weby</span>
@@ -174,14 +184,13 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <p>Klikněte na tlačítko <span>Přehled</span>. Po kliknutí se Vám zobrazi
-                                    <a href="#publicateWeb">publikovaný web</a>.</p>
-                                    <p><span class="note">Poznámka: </span>Publikovaný web je web,
-                                        který uvidí bězní uživatele.</p>
+                                    <p>Klikněte na tlačítko <span>Veřejný web</span>. Po kliknutí se Vám zobrazi
+                                        web, který<a href="#publicateWeb"> publikujete</a> a, který uvidí běžní uživatele.</p>
+
                                     <a href="{$basePath}/doc/images/70.jpg" data-toggle="lightbox"
                                        data-gallery="documentation">
                                         <img src="{$basePath}/doc/images/70.jpg" class="hover-shadow"
-                                             alt="Tlačítko Přehled">
+                                             alt="Tlačítko Veřejný web">
                                     </a>
                             </ol>
                         </div>
@@ -283,7 +292,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <p>Vyberte, zda chcete jako pozadí použit <span>obrázek</span> nebo <span>barvu</span>.</p>
+                                    <p>Vyberte, zda chcete jako pozadí použit <span>obrázek</span> nebo
+                                        <span>barvu</span>.</p>
                                     <a href="{$basePath}/doc/images/21.jpg" data-toggle="lightbox"
                                        data-gallery="documentation">
                                         <img src="{$basePath}/doc/images/21.jpg" class="hover-shadow"
@@ -331,7 +341,8 @@
                                              alt="Úprava titulku">
                                     </a>
 
-                                    <p><span class="note">Poznámka: </span> Pomocí textového editoru můžete změnit vzhled textu.</p>
+                                    <p><span class="note">Poznámka: </span> Pomocí textového editoru můžete změnit
+                                        vzhled textu.</p>
                                     <a href="{$basePath}/doc/images/26.jpg" data-toggle="lightbox"
                                        data-gallery="documentation">
                                         <img src="{$basePath}/doc/images/26.jpg" class="hover-shadow"
@@ -383,7 +394,8 @@
                                              alt="Upravit stránku">
                                     </a>
 
-                                    <p><span class="note">Poznámka: </span><span>Titulek</span>, <span>Kličová slova</span> a <span>Popisek stránky</span>
+                                    <p><span class="note">Poznámka: </span><span>Titulek</span>,
+                                        <span>Kličová slova</span> a <span>Popisek stránky</span>
                                         slouží pro
                                         <span>SEO Optimalizace</span>.</p>
                                 </li>
@@ -398,9 +410,9 @@
                                 </li>
                                 <li>
                                     <p>Odstraňte stránku kliknutím na <img src="{$basePath}/doc/images/32.jpg"
-                                                                                  style="display:inline"
-                                                                                  class="hover-shadow"
-                                                                                  alt="Tlačítko pro odstránění">.</p>
+                                                                           style="display:inline"
+                                                                           class="hover-shadow"
+                                                                           alt="Tlačítko pro odstránění">.</p>
                                 </li>
                                 <li>
                                     <p>Novou stránku přidáte kliknutím na tlačítko <span>Přidat stránku</span>.</p>
@@ -481,9 +493,9 @@
                                 </li>
                                 <li>
                                     <p>Změnte pozadí obalu kliknutím na ikonu <img src="{$basePath}/doc/images/41.jpg"
-                                                                                    style="display:inline"
-                                                                                    class="hover-shadow"
-                                                                                    alt="Tlačítko pro nastavení obalu">.
+                                                                                   style="display:inline"
+                                                                                   class="hover-shadow"
+                                                                                   alt="Tlačítko pro nastavení obalu">.
                                     </p>
                                 <li>
                                     <p>V bočním panelu klikněte na tlačítko <span>Vybrat pozadí</span>.</p>
@@ -495,7 +507,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <p>Vyberte <span>Obrázek pozadí</span> nebo <span>Barvu pozadí</span> a uložte změny.
+                                    <p>Vyberte <span>Obrázek pozadí</span> nebo <span>Barvu pozadí</span> a uložte
+                                        změny.
                                     </p>
 
                                     <a href="{$basePath}/doc/images/47.jpg" data-toggle="lightbox"
@@ -504,7 +517,8 @@
                                              alt="Výběr pozadí obalu">
                                     </a>
 
-                                    <p><span class="note">Poznamka: </span>Výběr pozadí je stejný, jako výběr pozadí u <a
+                                    <p><span class="note">Poznamka: </span>Výběr pozadí je stejný, jako výběr pozadí u
+                                        <a
                                                 href="#headerEdit">záhlaví</a>.</p>
                                 </li>
 
@@ -553,8 +567,10 @@
                                                 alt="Tlačítko pro nastavení komponenty">
                                     </p>
 
-                                    <p>V bočním panelu najdete nastavení komponenty. Na níže uvedeném obrázku můžete vidět
-                                        <span.>Nastavení obrázku</span.></p>
+                                    <p>V bočním panelu najdete nastavení komponenty. Na níže uvedeném obrázku můžete
+                                        vidět
+                                        <span.>Nastavení obrázku</span.>
+                                    </p>
 
                                     <p><span class="note">Poznamka: </span>Každá komponenta má své nastavení.</p>
 
@@ -585,7 +601,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <p>Vyberte, zda pro úpravu pozadí chcete použit <span>obrázek</span> nebo <span>barvu</span>.</p>
+                                    <p>Vyberte, zda pro úpravu pozadí chcete použit <span>obrázek</span> nebo <span>barvu</span>.
+                                    </p>
                                     <a href="{$basePath}/doc/images/21.jpg" data-toggle="lightbox"
                                        data-gallery="documentation">
                                         <img src="{$basePath}/doc/images/21.jpg" class="hover-shadow"
@@ -633,7 +650,8 @@
                                              alt="Úprava textu zápatí">
                                     </a>
 
-                                    <p><span class="note">Poznámka: </span> Pomocí textového editoru můžete změnit vzhled textu.</p>
+                                    <p><span class="note">Poznámka: </span> Pomocí textového editoru můžete změnit
+                                        vzhled textu.</p>
                                     <a href="{$basePath}/doc/images/26.jpg" data-toggle="lightbox"
                                        data-gallery="documentation">
                                         <img src="{$basePath}/doc/images/26.jpg" class="hover-shadow"
@@ -684,6 +702,26 @@
                                     </a>
                                 </li>
                             </ol>
+                        </div>
+                        <div class='section-txt' id="saveWeb">
+                            <h3>Uložit změny</h3>
+                            <p>Uložte provedené změny kliknutím na tlačítko <img src="{$basePath}/doc/images/72.jpg"
+                                                                                  style="display:inline" class="hover-shadow"
+                                                                                  alt="Tlačítko pro uloženy změn"></p>
+                            <p>Pokud chcete upravit obsah jiné stránky, <b>stači v navigačním menu kliknout na stránku</b>,
+                            kterou chcete upravovat. Aktualní změny se ukládájí automaticky a není potřeba použit
+                            tlačítko <b>Uložit</b></p>
+                            <p><span class="note">Poznámka: </span> Pokud neuložite změny kliknutím na tlačítko <b>Uložit</b>
+                            nebo nepřejdete k jiné stránce provedené změny nebudou uložené.</p>
+                        </div>
+                        <div class='section-txt' id="publicateWeb">
+                            <h3>Uložit změny</h3>
+                            <p>Provedené změny publikujete kliknutím na tlačítko <img src="{$basePath}/doc/images/73.jpg"
+                                                                                 style="display:inline" class="hover-shadow"
+                                                                                 alt="Tlačítko pro publikace"></p>
+                            <p>Po kliknutí na tlačítko Publikovat se aktualizuje věřejný web (tj. web, který uvidí běžní uživatelé).</p>
+                            <p><span class="note">Poznámka: </span> Pokud <b>nepublikujete</b> změny, věřejný web nebude aktulizovat
+                            a bude jeho obsah bude ten, který byl posledně publikovan.</p>
                         </div>
                         <div class="section-txt" id="webSettings">
                             <h3>Nastavení webu</h3>
@@ -768,9 +806,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    {* TODO: V pripade rozmysleni *}
                                     <p>Potvrďte odstránění kliknutím <span>Ano</span>.
-                                        V případě, že jste si to rozmyslel/a klikněte <span>Ne</span>.</p>
+                                        V opačném případě, klikněte <span>Ne</span>.</p>
                                     <a href="{$basePath}/doc/images/60.jpg" data-toggle="lightbox"
                                        data-gallery="documentation">
                                         <img src="{$basePath}/doc/images/60.jpg" class="hover-shadow"
@@ -819,9 +856,9 @@
                             <ol>
                                 <li>
                                     <p>Klikněte na ikonu <img src="{$basePath}/doc/images/64.jpg"
-                                                               style="display:inline"
-                                                               class="hover-shadow"
-                                                               alt="Ikonka pro zobrazení formuláře z nastavení">
+                                                              style="display:inline"
+                                                              class="hover-shadow"
+                                                              alt="Ikonka pro zobrazení formuláře z nastavení">
                                         nacházející se na pravé stráně <span>Nastavení emailových adres</span>.
                                     </p>
                                     <a href="{$basePath}/doc/images/65.jpg" data-toggle="lightbox"
@@ -852,7 +889,8 @@
                                              alt="Ověřit emailovou adresu">
                                     </a>
 
-                                    <p><span class="note">Poznámka: </span> Doporučujeme zadat emailovou adresu, kterou vlastníte,
+                                    <p><span class="note">Poznámka: </span> Doporučujeme zadat emailovou adresu, kterou
+                                        vlastníte,
                                         jinak nebudete moct emailovou adresu ověřit.</p>
                                 </li>
                                 <li>
@@ -865,7 +903,8 @@
                                              alt="Nastavit emailovou adresu jako primární">
                                     </a>
 
-                                    <p><span class="note">Poznámka: </span> Emailovou adresu lze nastavit jako primární, pouze pokud
+                                    <p><span class="note">Poznámka: </span> Emailovou adresu lze nastavit jako primární,
+                                        pouze pokud
                                         je ověřená. Primární emailová adresa je použita v případě
                                         <span>obnovení hesla</span>. </p>
                                 </li>

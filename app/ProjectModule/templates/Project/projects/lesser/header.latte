@@ -1,23 +1,9 @@
-{*
-script>
-    $(document).on('ready',function(){
-        $('#save_logo').off().on('click', function () {
-            $('#menu').attr('style','padding-top:25px !important');
-        });
-    });
-
-</script>
-*}
 <style>
 
     #logo_image_container img {
         max-width: 177px;
         max-height: 106px;
         vertical-align: middle;
-    }
-
-    #logo_image_container i {
-        padding-top: 25px;
     }
 
     #logo_edit {
@@ -29,13 +15,22 @@ script>
         display: inline-block;
     }
 
-    {if $header_logo['type'] === 'img'}
-
+    {if $header_logo['type'] == "img"}
     #nav ul:not(#page_drop_down) {
-        padding-top: 20px;
+        margin-top: 30px;
     }
-
     {/if}
+    {if $presenter->isLinkCurrent('Project:show')}
+    #nav ul:not(#page_drop_down) {
+        margin-top: 8px;
+    }
+    {if $header_logo['type'] == "img"}
+    #nav ul:not(#page_drop_down) {
+        margin-top: 38px;
+    }
+    {/if}
+    {/if}
+
     {if $header->nav_color}
     #fh5co-page #header-wrapper nav ul li a:not(#menu_edit){
         color: {$header->nav_color|noescape} !important;
@@ -67,15 +62,13 @@ script>
         <div class="header-inner">
             <div id="logo_container">
                 <h1 id="logo_image_container">
-
                     {if $header_logo['type'] == 'img'}
-                        <img src="{$header_logo['src']}" alt="your image">
+                        <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']"><img src="{$header_logo['src']}" alt="Logo"></a>
                     {else}
-                        <i class="glyphicon glyphicon-{$header_logo['src']}"></i>
+                        <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']"><i class="glyphicon glyphicon-{$header_logo['src']}"></i></a>
                     {/if}
-                    <a id="web_title" href="#"><p id="title"
-                                                  {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->title|noescape}</p>
-                    </a>
+                    <p id="title" {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->title|noescape}</p>
+
                     {if $presenter->isLinkCurrent("Project:edit")}
 
                         <a id="logo_edit" class="navbar-brand" href="javascript:void(0)"> <span
@@ -88,7 +81,7 @@ script>
 
             <nav id="nav" role="navigation">
                 {if $presenter->isLinkCurrent("Project:edit")}
-                    <ul id="menu" data-color="{$header->nav_color}" data-color_hover="{$header->nav_color_hover}">
+                    <ul class="special_nav" id="menu" data-color="{$header->nav_color}" data-color_hover="{$header->nav_color_hover}">
                         {foreach $nav_items as $nav_item}
                             {if (!$nav_item->new)}
                                 <li n:class="!$nav_item->active ? hide">
@@ -132,7 +125,7 @@ script>
                                         class="fa fa-cog" aria-hidden="true"></span></a></li>
                     </ul>
                 {else}
-                    <ul>
+                    <ul class="special_nav">
                         {foreach $nav_items as $nav_item}
                             {if (!$nav_item->new)}
                                 <li n:class="!$nav_item->active ? hide">

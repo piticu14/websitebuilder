@@ -1,6 +1,5 @@
 <?php
 
-//TODO: Edit email template graphic
 
 namespace App\Presenters;
 
@@ -104,7 +103,7 @@ class AccountPresenter extends FrontBasePresenter
                 $userEmail = $this->userEmail->get($user->email);
                 $this->userRequest->deleteOld($userEmail->id, 'resetPassword');
                 $param = array(
-                    'from' => 'FastWeb <support@fastweb.cz>',
+                    'from' => 'QuickWeb <support@quickweb.fun>',
                     'to' => $emailAddress,
                     'subject' => 'Obnoveni hesla',
                     'email_template' => 'resetPasswordEmail',

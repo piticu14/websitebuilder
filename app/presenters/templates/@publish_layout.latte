@@ -4,10 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     {block stylesheets}
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{$basePath}/vendor/font-awesome/font-awesome.min.css">
+        <link rel="stylesheet" href="{$basePath}/vendor/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/photogallery_component.css">
+        <link rel="icon" href="{$basePath}/img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="{$basePath}/img/favicon.ico" type="image/x-icon">
 
 
     {/block}
@@ -17,7 +19,6 @@
     </noscript>
 </head>
 
-
 <body>
 
         {include content}
@@ -26,9 +27,9 @@
 
 {block scripts}
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+        <script src="{$basePath}/vendor/jquery/jquery-3.2.1.js"></script>
         <!-- Bootstrap -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{$basePath}/vendor/bootstrap/js/bootstrap.min.js"></script>
 {/block}
 </body>
 </html>

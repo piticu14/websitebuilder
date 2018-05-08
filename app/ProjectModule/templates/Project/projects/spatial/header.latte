@@ -29,7 +29,7 @@
     }
     {if ($first_page['url'] == $presenter->getParameter('page_url'))}
     #header nav ul li a.active {
-        color: #FFF !important;
+        color: #FFF;
     }
     #page_drop_down{
         background-color:#f32853;
@@ -37,6 +37,7 @@
     {else}
     #header nav ul li a.active {
         color: #484848 !important;
+        font-weight:bold;
     }
     #logo_container{
         bottom:0;
@@ -87,9 +88,9 @@
         <h1 id="logo_image_container">
 
             {if $header_logo['type'] == 'img'}
-                <img  src="{$header_logo['src']}" alt="Logo Image">
+                <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']"><img src="{$header_logo['src']}" alt="Logo"></a>
             {else}
-                <i id="logo_icon" class="glyphicon glyphicon-{$header_logo['src']}"></i>
+                <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']"> <i id="logo_icon" class="glyphicon glyphicon-{$header_logo['src']}"></i></a>
             {/if}
             {if $presenter->isLinkCurrent("Project:edit")}
 
@@ -129,7 +130,7 @@
                                             n:href="Project:edit subdomain => $presenter->getParameter('subdomain'), page_url => $nav_item->page_url"
                                             data-id="{$nav_item->id}" data-page_id = "{$nav_item->page_id}" data-title="{$nav_item->page_title}"
                                             data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}"
-                                            data-page_url="{$nav_item->url}"
+                                            data-page_url="{$nav_item->page_url}"
                                             data-url="{link saveTemporary!}">{$nav_item->title}</a>
                                 </li>
                             {/if}

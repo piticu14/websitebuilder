@@ -1,4 +1,4 @@
-
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700);
 html, body
 {
 	height: 100%;
@@ -11,7 +11,7 @@ body
 	background: #3D3D3D;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 11pt;
-	font-weight: 300;
+	font-weight: 400;
 	color: #6c6c6c
 }
 

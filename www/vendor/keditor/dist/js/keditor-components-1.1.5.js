@@ -28,6 +28,10 @@
             flog('init "audio" settings', form);
 
             form.append(
+                '<div id="upload_bar" class="progress">' +
+                '<div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0"' +
+                'aria-valuemin="0" aria-valuemax="100"></div>' +
+                '</div>'+
                 '<form class="form-horizontal">' +
                 '<div class="form-group">' +
                 '<label for="audioFileInput" class="col-sm-12">Zvukový soubor</label>' +
@@ -68,18 +72,19 @@
             var audio = component.find('audio');
             var fileInput = form.find('#audioFileInput');
             var btnAudioFileInput = form.find('.btn-audioFileInput');
+            var uploadbar = form.find('#upload_bar');
             btnAudioFileInput.off('click').on('click', function (e) {
                 e.preventDefault();
 
                 fileInput.trigger('click');
             });
             fileInput.off('change').on('change', function () {
+                uploadbar.show();
                 var file = this.files[0];
                 if (/audio/.test(file.type)) {
                     var data = new FormData();
                     data.append('audio', file);
-                    data.append('type','video');
-
+                    data.append('type', 'audio');
                     $.nette.ajax({
                         type: "POST",
                         enctype: 'multipart/form-data',
@@ -88,17 +93,27 @@
                         processData: false,
                         contentType: false,
                         cache: false,
-
+                        xhr: function() {
+                            var xhr = $.ajaxSettings.xhr();
+                            xhr.upload.onprogress = function(e) {
+                                var percent = (Math.floor(e.loaded / e.total *100) + '%');
+                                uploadbar.find('div.progress-bar').css('width',percent).text(percent);
+                            };
+                            return xhr;
+                        },
                         success: function (payload) {
+
 
                             audio.attr('src', payload.src);
 
-                            audio.on('load',(function () {
+                            audio.on('load', (function () {
                                 keditor.showSettingPanel(component, options);
                             }));
+                            uploadbar.find('div.progress-bar').css('width',0).text("");
+                            uploadbar.hide();
                         },
 
-                        error: function(jqXHR,status,error) {
+                        error: function (jqXHR, status, error) {
                             console.log(jqXHR);
                             console.log(status);
                             console.log(error);
@@ -227,7 +242,6 @@
                 'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/table.jpg'
             ];
             //flog('init "photo" component', component);
-            console.log(component);
             var gallery = component.find('.gallery');
             var galleryItems = component.find('.gallery-item');
             var numOfItems = gallery.children().length;
@@ -321,14 +335,13 @@
                 e.addClass('active');
             }
 
-            function addEvents(){
+            function addEvents() {
                 gallery.find('.gallery-item').each(function (index) {
-                    $(this).on('click',function(e) {
+                    $(this).on('click', function (e) {
                         selectItem($(this));
                     });
                 });
             }
-
 
 
             leftBtn.on('mouseenter', function () {
@@ -345,7 +358,6 @@
             });
 
 
-
             //Set random data-id if Gallery doesn't have one
             if (!component.find('.photogallery-container').attr('data-id')) {
                 component.find('.photogallery-container').attr('data-id', guid());
@@ -354,13 +366,11 @@
             //Set Images for Gallery and Add Event Listeners
 
 
-
-
             //Set random data-id if Gallery doesn't have one
             if (!component.find('.photogallery-container').attr('data-id')) {
                 component.find('.photogallery-container').attr('data-id', guid());
             } else {
-                if(getPhotogalleryImages(component.find('.photogallery-container').attr('data-id')).length > 0) {
+                if (getPhotogalleryImages(component.find('.photogallery-container').attr('data-id')).length > 0) {
                     images = getPhotogalleryImages(component.find('.photogallery-container').attr('data-id'));
                 }
             }
@@ -373,10 +383,6 @@
             });
 
             galleryItems.first().addClass('active');
-
-
-
-
 
 
             addEvents();
@@ -406,56 +412,28 @@
             var images = [];
             var featured = component.find('.featured-item');
 
-
             var gallery = component.find('.gallery');
-            var numOfItems = gallery.children().length;
-            var itemWidth = 23; // percent: as set in css
-
 
             var leftBtn = component.find('.move-btn.left');
             var rightBtn = component.find('.move-btn.right');
 
-            var leftInterval;
-            var rightInterval;
-
-            var scrollRate = 0.2;
             var left;
-
-
-
-
 
             leftBtn.bind('mouseenter');
             leftBtn.bind('mouseleave');
             rightBtn.bind('mouseenter');
             rightBtn.bind('mouseleave');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            function addEvents(){
+            function addEvents() {
                 galleryItems.each(function (index) {
                     $(this).css('background-image', 'url(' + images[index] + ')');
-                    $(this).on('click',function(e) {
+                    $(this).on('click', function (e) {
                         selectItem($(this));
                     });
                 });
             }
 
             function selectItem(e) {
-                console.log(component);
                 if (e.hasClass('active')) return;
 
                 featured.css('background-image', e.css('background-image'));
@@ -468,10 +446,35 @@
                 e.addClass('active');
             }
 
+            function photoGalleryEvents() {
 
+                var photogalleryModal = $('#photogalleryModal');
+                photogalleryModal.find('.overlay').hide();
+                photogalleryModal.find('.delete_photo').on('click', function (e) {
+                    e.preventDefault();
+                    var image_src = $(this).closest('.image_box').find('img').attr('src');
+                    $.nette.ajax({
+                        type: "POST",
+                        url: $(this).data('url'),
+                        data: {
+                            path: image_src,
+                            type: 'photogallery/' + pg_container_id
+                        },
+                    });
+                });
+                photogalleryModal.find('.image_box').on('mouseover', function () {
+                    $(this).children('.overlay').finish().fadeIn();
+                });
 
-            $('#photogalleryModal').off('show').on('show.bs.modal', function(){
+                photogalleryModal.find('.image_box').on('mouseout', function () {
+                    $(this).children('.overlay').finish().fadeOut();
+                });
 
+            }
+
+            $('#photogalleryModal').on('shown.bs.modal', function () {
+
+                // Get images from photogallery
                 var url = $('#photogalleryModal').data('url');
                 $.nette.ajax({
                     type: "POST",
@@ -481,29 +484,35 @@
                     success: function (payload) {
                     },
 
-                    error: function(jqXHR,status,error) {
+                    error: function (jqXHR, status, error) {
                         console.log(jqXHR);
                         console.log(status);
                         console.log(error);
                     }
                 });
 
-                $('#photogallery_images').sortable({ items: ".image_box" });
-                $(this).find('input[name="images"]').off().on('change',function(){
-                    uploadImages($('#photogalleryModal').find('#upload_bar'),$(this),'photogallery/' + pg_container_id);
+
+                $('#photogallery_images').sortable({items: ".image_box"});
+                $(this).find('input[name="images"]').off().on('change', function () {
+                    uploadImages($('#photogalleryModal').find('#upload_bar'), $(this), 'photogallery/' + pg_container_id);
                 });
 
-                $(this).find('#save_photogallery').off().on('click',function(){
+                $(document).ajaxStop(function () {
+                    photoGalleryEvents();
+                });
+
+
+                $(this).find('#save_photogallery').off().on('click', function () {
                     var gallery = component.find('.gallery');
                     gallery.html('');
-                    $('#photogallery_images').find('.image_box').each(function(){
+                    $('#photogallery_images').find('.image_box').each(function () {
                         var image =
                             $('<div class="item-wrapper">' +
                                 '<figure class="gallery-item image-holder r-3-2 transition"></figure>' +
-                            '</div>');
+                                '</div>');
                         //image.find('.gallery-item').css('background-image','url(' +  $(this).find('img').attr('src') + ')');
                         images.push($(this).find('img').attr('src'));
-                       gallery.append(image);
+                        gallery.append(image);
                         gallery.find('.gallery-item').each(function (index) {
                             $(this).css('background-image', 'url(' + images[index] + ')');
                         });
@@ -622,7 +631,7 @@
 
                     var data = new FormData();
                     data.append('image', file);
-                    data.append('type','images');
+                    data.append('type', 'images');
 
                     $.nette.ajax({
                         type: "POST",
@@ -636,17 +645,17 @@
 
                         success: function (payload) {
                             var img = keditor.getSettingComponent().find('img');
-                            img.attr('src',payload.src);
+                            img.attr('src', payload.src);
                             img.css({
                                 width: '',
                                 height: ''
                             });
-                            img.on('load',function () {
+                            img.on('load', function () {
                                 keditor.showSettingPanel(keditor.getSettingComponent(), options);
                             });
                         },
 
-                        error: function(jqXHR,status,error) {
+                        error: function (jqXHR, status, error) {
                             console.log(jqXHR);
                             console.log(status);
                             console.log(error);
@@ -751,7 +760,7 @@
             inputWidth.val(img.width());
             inputHeight.val(img.height());
 
-            $('<img />').attr('src', img.attr('src')).on('load',(function() {
+            $('<img />').attr('src', img.attr('src')).on('load', (function () {
                 self.ratio = this.width / this.height;
                 self.width = this.width;
                 self.height = this.height;
@@ -886,6 +895,10 @@
             flog('init "video" settings', form);
 
             form.append(
+                '<div id="upload_bar" class="progress">' +
+                '<div class="progress-bar" role="progressbar" style="width: 0;" aria-valuenow="0"' +
+                'aria-valuemin="0" aria-valuemax="100"></div>' +
+                '</div>' +
                 '<form class="form-horizontal">' +
                 '<div class="form-group">' +
                 '<label for="videoFileInput" class="col-sm-12">Video soubor</label>' +
@@ -940,17 +953,19 @@
             var video = component.find('video');
             var fileInput = form.find('#videoFileInput');
             var btnVideoFileInput = form.find('.btn-videoFileInput');
+            var uploadbar = form.find('#upload_bar');
             btnVideoFileInput.on('click', function (e) {
                 e.preventDefault();
 
                 fileInput.trigger('click');
             });
             fileInput.off('change').on('change', function () {
+                uploadbar.show();
                 var file = this.files[0];
                 if (/video/.test(file.type)) {
                     var data = new FormData();
                     data.append('video', file);
-                    data.append('type','video');
+                    data.append('type', 'video');
 
                     $.nette.ajax({
                         type: "POST",
@@ -961,16 +976,26 @@
                         contentType: false,
                         cache: false,
 
+                        xhr: function() {
+                            var xhr = $.ajaxSettings.xhr();
+                            xhr.upload.onprogress = function(e) {
+                                var percent = (Math.floor(e.loaded / e.total *100) + '%');
+                                uploadbar.find('div.progress-bar').css('width',percent).text(percent);
+                            };
+                            return xhr;
+                        },
 
                         success: function (payload) {
                             video.attr('src', payload.src);
 
-                            video.on('load',(function () {
+                            video.on('load', (function () {
                                 keditor.showSettingPanel(component, options);
                             }));
+                            uploadbar.find('div.progress-bar').css('width',0).text("");
+                            uploadbar.hide();
                         },
 
-                        error: function(jqXHR,status,error) {
+                        error: function (jqXHR, status, error) {
                             console.log(jqXHR);
                             console.log(status);
                             console.log(error);

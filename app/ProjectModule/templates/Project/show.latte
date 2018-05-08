@@ -5,7 +5,7 @@
     {foreach $cssFiles as $cssFile}
         <link rel="stylesheet" href="{$basePath}/templates/{$template_title}/css/{$cssFile}">
     {/foreach}
-    <link rel="stylesheet" href="{$presenter->getParameter('appDir')}/ProjectModule/templates/Project/projects/{$template_title}/style.css">
+    {*<link rel="stylesheet" href="{$presenter->getParameter('appDir')}/ProjectModule/templates/Project/projects/{$template_title}css/project.css">*}
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
 
 {/block}
@@ -24,7 +24,6 @@
     <script>
 
         if($('#page_drop_down').children().length) {
-            console.log('Yes');
             $('#page_drop_down_container').removeClass('hide');
         }
 
@@ -34,10 +33,9 @@
         {/foreach}
     </script>
     <script>
-        {* TODO: Delete photos from photogallery *}
         function getPhotogalleryImages(id) {
             {foreach $photogalleryIds as $pg_id}
-            var pg_id = {$pg_id};
+            var pg_id = {$pg_id}
             if(pg_id === id){
                 var images = {$presenter->getPhotogalleryImages($presenter->getParameter('subdomain'),'photogallery/'. $pg_id)};
                 return images;
@@ -68,8 +66,11 @@
             var images = [];
 
             var id = $(this).attr('data-id');
+            console.log(id);
             if(getPhotogalleryImages(id).length > 0){
+                console.log('Yes');
                 images = getPhotogalleryImages(id);
+
             }else{
                 images = [
                     'https://s3-us-west-2.amazonaws.com/forconcepting/800Wide50Quality/car.jpg',
@@ -199,6 +200,7 @@
 
         addEventListeners();
         });
+
 
         var background = {$header->background}
                 $('#header-wrapper').attr('style',background);

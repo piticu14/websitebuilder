@@ -23,6 +23,15 @@ class PageItemManager extends BaseManager
             $additional['photogallery_ids'] = $data['photogallery_ids'];
         }
 
+        if(!empty(array_filter($additional))){
+            $additional = JSON::encode($additional,Json::PRETTY);
+        } else if(isset($data['additional'])){
+            $additional = $data['additional'];
+        } else {
+            $additional = '';
+        }
+
+
         if(!isset($data['deleted_at'])){
             return $this->getDatabase()->table(self::$table)
                 ->insert([
@@ -30,7 +39,7 @@ class PageItemManager extends BaseManager
                     'content' => $data['content'],
                     'order_on_page' => $data['order_on_page'],
                     'publish' => $publish,
-                    'additional' => empty(array_filter($additional)) ? '' : JSON::encode($additional,Json::PRETTY),
+                    'additional' => $additional,
                 ]);
         }
 

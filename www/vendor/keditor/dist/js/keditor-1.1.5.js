@@ -445,7 +445,6 @@
         
         if (typeof options.snippetsUrl === 'string' && options.snippetsUrl.length > 0) {
             flog('Getting snippets form "' + options.snippetsUrl + '"...');
-            
             return $.ajax({
                 type: 'get',
                 dataType: 'html',

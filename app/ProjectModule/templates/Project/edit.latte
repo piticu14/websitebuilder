@@ -30,10 +30,11 @@
         <script src="{$basePath}/templates/{$template_title}/js/{$jsFile}"></script>
     {/foreach}
     <script type="text/javascript">
+        CKEDITOR.dtd.$removeEmpty.span = 0;
         $(function () {
             $('#editor').keditor({
                 contentAreasSelector: '#body, #footer',
-                snippetsUrl: {$basePath} +'/vendor/keditor/snippets/default/snippets.html',
+                snippetsUrl: {$basePath} + '/templates/' + {$template_title}+ '/snippets/snippets.html' ,
                 tabContainersText: 'Obaly',
                 tabContainersTitle: 'Obaly',
                 tabComponentsText: 'Komponenty',

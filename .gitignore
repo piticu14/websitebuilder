@@ -1,3 +1,2 @@
-app/config/
-temp/
-.idea/
+*
+!.gitignore

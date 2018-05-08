@@ -3,11 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{$basePath}/vendor/bootstrap/css/bootstrap.min.css">
     <link href="{$basePath}/vendor/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{$basePath}/vendor/bootstrap/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="{$basePath}/vendor/font-awesome/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{$basePath}/css/styles.css">
+    <link rel="icon" href="{$basePath}/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{$basePath}/img/favicon.ico" type="image/x-icon">
 
     <title>{ifset title}{include title|stripHtml} {/ifset} </title>
 </head>
@@ -20,14 +22,14 @@
 
     {block scripts}
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+        <script src="{$basePath}/vendor/jquery/jquery-3.2.1.js"></script>
         <!-- jQuery UI -->
-        <script src="http://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="{$basePath}/vendor/jquery/jquery-ui.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="{$basePath}/vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="{$basePath}/vendor/nette.ajax.js"></script>
         <script src="{$basePath}/vendor/netteForms.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+        <script src="{$basePath}/vendor/bootstrap/js/bootstrapvalidator.min.js"></script>
         <script>
         $(function () {
             $.nette.init();

@@ -1,4 +1,4 @@
-{block title}FastWeb - Moje projekty{/block}
+{block title}QuickWeb - Moje projekty{/block}
 {block content}
     <br>
     <link href='https://fonts.googleapis.com/css?family=Oswald:700,300' rel='stylesheet' type='text/css'>
@@ -15,12 +15,12 @@
         <br>
         {foreach $user_projects as $key => $row}
             <div class="case-study"
-                 style="background-image:url('{$basePath}/thubmnails/{$row->ref('template','template_id')->title}.jpg');">
+                 style="background-image:url('{$basePath}/thubmnails/{$row->ref('template','template_id')->title}.jpg');background-size:100% 100%">
                 <div class="case-study__overlay">
                     <h2 class="case-study__title">{$row->subdomain}</h2>
-                    <a class="case-study__link" n:href = "Project:show subdomain => $row->subdomain, page_url => $first_projects_pages[$iterator->counter - 1]['url']" target="_blank">Přehled</a> <br>
+                    <a class="case-study__link" n:href = "Project:show subdomain => $row->subdomain, page_url => $first_public_pages[$iterator->counter - 1]['url']" target="_blank">Veřejný web</a> <br>
                     <a class="case-study__link showProject" data-toggle="modal"
-                       data-project='{"id":"{$row->project_id}","url":"{$first_projects_pages[$iterator->counter - 1]['url']}","subdomain":"{$row->subdomain}","active":"{$row->active}"}'
+                       data-project='{"id":"{$row->project_id}","temp_url":"{$first_temp_pages[$iterator->counter - 1]['url']}","public_url":"{$first_public_pages[$iterator->counter - 1]['url']}","subdomain":"{$row->subdomain}","active":"{$row->active}"}'
                        data-target="#editProjectModal" href="#">Upravit</a>
                 </div>
             </div>

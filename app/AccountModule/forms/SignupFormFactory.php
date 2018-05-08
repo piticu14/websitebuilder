@@ -85,7 +85,7 @@ class SignupFormFactory
                 if(($new_user = $this->users->register($values)) !== false) {
                     $userEmail = $this->userEmail->add($new_user->id,$values->email,1);
                     $param = array(
-                        'from' => 'FastWeb <support@fastweb.cz>',
+                        'from' => 'QuickWeb <support@quickweb.fun>',
                         'to' => $values->email,
                         'subject' => 'Aktivace účtu',
                         'email_template' => 'userActivation',

@@ -6,22 +6,18 @@ $(document).ready(function () {
         $('#collapse1').addClass('in');
     }
     if ($('#frm-emailVerificationForm').length) {
-        console.log('call email validator from docReady');
         emailVerificationFormValidator();
     }
     if ($('#frm-securityQuestionForm').length) {
-        console.log('call sec validator from docReady');
         securityQuestionFormValidator();
     }
 });
 
 $(document).ajaxStop(function () {
     if ($('#frm-emailVerificationForm').length) {
-        console.log('call email validator from ajaxStop');
         emailVerificationFormValidator();
     }
     if ($('#frm-securityQuestionForm').length) {
-        console.log('call sec validator from ajaxStop');
         securityQuestionFormValidator();
     }
 });
@@ -63,43 +59,6 @@ $(document).on('click', '#setPrimary', function (e) {
     });
 });
 
-/*
-
- $(document).on('click', '#sendPasswordLink', function(e){
- e.preventDefault();
- $.nette.ajax({
- url: $('#frm-securityQuestionForm').data('url'),
- type: "POST",
- data: { user_question_answer: $('#questionAnswer').val(),
- emailAddress: $('#frm-securityQuestionForm').data('email'),
- user_security_question: $('#securityQuestion').val()},
- error: function(jqXHR,status,error) {
- console.log(jqXHR);
- console.log(status);
- console.log(error);
- }
- });
- });
- */
-
-/*
- jQuery(function() {
- ---------------------
- jQuery('#showall').click(function() {
- jQuery('.targetDiv').show();
- });
- ---------------------------------
- jQuery('.target-box').hide();
- jQuery('.show-box').click(function(e) {
- e.preventDefault();
-
- var flag = $(this).data('flag');
- $('#box' + $(this).data('target')).stop().slideToggle(500);
-
- $(this).data('flag', !flag);
- });
- });
- */
 $('#frm-resetPasswordForm').bootstrapValidator({
     feedbackIcons: {
         valid: 'glyphicon glyphicon-ok',
@@ -389,8 +348,8 @@ $(document).on('click', '.showProject', function () {
 
     var project = $(this).data('project');
 
-    //var projectLink = project.subdomain + '.fastweb.cz';
-    var projectLink = '/websitebuilder/www/project/show/' + project.subdomain + '/' + project.url;
+    //var projectLink = project.subdomain + '.QuickWeb.cz';
+    var projectLink = '/websitebuilder/www/project/show/' + project.subdomain + '/' + project.public_url;
     $('#editProjectModal .modal-title').html(project.subdomain);
     $('#public-link').html(projectLink).attr('href', projectLink);
 
@@ -402,8 +361,8 @@ $(document).on('click', '.showProject', function () {
         $('#active').css('background','#FF3232');
     }
     $('#settings').attr('href', '/websitebuilder/www/settings/default/' + project.id);
-    $('#edit').attr('href', '/websitebuilder/www/project/edit/' + project.subdomain + '/' + project.url);
-    $('#delete').attr('href', '/websitebuilder/www/project/delete/' + project.id);
+    $('#edit').attr('href', '/websitebuilder/www/project/edit/' + project.subdomain + '/' + project.temp_url);
+    $('#delete').attr('href', '/websitebuilder/www/project/delete/' + project.subdomain);
 
 
 });

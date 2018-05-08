@@ -73,7 +73,7 @@ class SettingsPresenter extends AdminBasePresenter
 
         $this->userRequest->deleteOld($userEmail->id, 'emailVerification');
         $param = array(
-            'from' => 'FastWeb <support@fastweb.cz>',
+            'from' => 'QuickWeb <support@quickweb.fun>',
             'to' => $userEmail->email,
             'subject' => 'Potvrzeni emailové adresy',
             'email_template' => 'emailActivation',

@@ -14,22 +14,13 @@ class PageManager extends BaseManager
 {
     private static $table = 'page';
 
-    private function getAll($project_id,$publish)
-    {
-        return $this->getDatabase()->table(self::$table)
-            ->where('project_id',$project_id)
-            ->where('publish',$publish)
-            ->where('deleted_at',NULL)
-            ->fetchAll();
-    }
-
     public function add($data)
     {
         $temp_page = $this->getDatabase()->table(self::$table)
             ->insert([
                 'project_id' => $data->project_id,
                 'title' => $data->title,
-                'url' => $data->page_url,
+                'url' => $data->url,
                 'keywords' => isset($data->keywords) ? $data->keywords : '',
                 'description' => isset($data->description) ? $data->description : '',
                 'publish' => 0
@@ -39,7 +30,7 @@ class PageManager extends BaseManager
             ->insert([
                 'project_id' => $data->project_id,
                 'title' => $data->title,
-                'url' => $data->page_url,
+                'url' => $data->url,
                 'keywords' => isset($data->keywords) ? $data->keywords : '',
                 'description' => isset($data->description) ? $data->description : '',
                 'publish' => 1
@@ -53,52 +44,21 @@ class PageManager extends BaseManager
     }
 
 
-    /*
-    public function deleteAll($project_id)
+    public function first($project_id,$publish)
     {
-
-        $pages = $this->getDatabase()->table(self::$table)
-            ->where('project_id',$project_id)->fetchAll();
-
-        foreach ($pages as $page) {
-            $this->getDatabase()->table('page_relationships')
-                ->where('temp_id',$page->id)
-                ->delete();
-        }
-
-        return $this->getDatabase()->table(self::$table)
-            ->where('project_id',$project_id)
-            ->delete();
-    }
-    */
-
-    public function first($project_id)
-    {
-        $pages = $this->getDatabase()->table(self::$table)
+        $first_page = $this->getDatabase()->table(self::$table)
                 ->where('project_id',$project_id)
+                ->where('publish',$publish)
                 ->where('deleted_at',NULL)
-                ->fetchAll();
-        $page_temp_nav = null;
-        foreach($pages as $page){
-            $page_temp_nav = $this->getDatabase()->table('nav')
+                ->limit(1)
+                ->fetch();
+            return $this->getDatabase()->table('nav')
                 ->select('nav.*,page.url')
-                ->where('page.id',$page->id)
+                ->where('page.id',$first_page->id)
                 ->where('nav.sort_order',0)
-                ->where('nav.publish',0)
+                ->where('nav.publish',$publish)
                 ->fetch();
 
-            if($page_temp_nav) {
-                return $page_temp_nav;
-            }
-        }
-        /*
-        $page_relationship = $this->getDatabase()->table('page_relationships')
-            ->where('temp_id',$page_temp_nav->page_id)
-            ->fetch();
-        return array(
-            'temp_id' => $page_relationship->temp_id,
-            'publish_id' => $page_relationship->publish_id);
-        */
     }
 
     public function get($id)

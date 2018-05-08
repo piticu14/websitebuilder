@@ -59,13 +59,14 @@
                             class="fa fa-cog" aria-hidden="true" data-toggle="modal"
                             data-target="#headerModal"></span></a>
             {/if}
-            <div id="logo_image_container">
+            <div>
+                <a id="logo_image_container" n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']">
                 {if $header_logo['type'] == 'img'}
-                    <img src="{$header_logo['src']}"
-                         alt="your image">
+                    <img src="{$header_logo['src']}" alt="Logo">
                 {else}
                     <i class="glyphicon glyphicon-{$header_logo['src']}"></i>
                 {/if}
+                </a>
                 <h1 id="title" {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->title|noescape}</h1>
                 <p id="subtitle" {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->subtitle|noescape}</p>
             </div>
@@ -99,7 +100,7 @@
                                         n:href="Project:edit subdomain => $presenter->getParameter('subdomain'), page_url => $nav_item->page_url"
                                         data-id="{$nav_item->id}" data-page_id = "{$nav_item->page_id}" data-title="{$nav_item->page_title}"
                                         data-keywords="{$nav_item->keywords}" data-description="{$nav_item->description}" data-active="{$nav_item->active}"
-                                        data-page_url="{$nav_item->url}"
+                                        data-page_url="{$nav_item->page_url}"
                                         data-url="{link saveTemporary!}">{$nav_item->title}</a>
                             </li>
                             {/if}

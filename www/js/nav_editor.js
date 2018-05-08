@@ -239,7 +239,6 @@ function getBodyContent() {
     var items = [];
     var body_content =  $('#body').keditor('getContent');
 
-    //console.log($('#body section').attr('data-id'));
     $(body_content + '#page_item').each(function(index){
 
         var photogallery_ids = [];
@@ -262,7 +261,6 @@ function getBodyContent() {
         items.push(item);
     });
 
-    //console.log(items);
     return items;
 }
 
@@ -274,6 +272,7 @@ function sendContent($link) {
     var header = getHeaderData();
     var body = getBodyContent();
     var footer = {};
+
 
     footer.content = $('#footer_content').html();
     footer.social_media = getSocialMedia();
@@ -490,6 +489,5 @@ $('#cover').bind('ajaxStart', function(){
 
 
 if($('#page_drop_down').children().length) {
-    console.log('Yes');
     $('#page_drop_down_container').removeClass('hide');
 }

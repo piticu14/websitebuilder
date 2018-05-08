@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="{$basePath}/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="{$basePath}/img/favicon.ico" type="image/x-icon">
     {block stylesheets}
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{$basePath}/vendor/font-awesome/font-awesome.min.css">
+        <link rel="stylesheet" href="{$basePath}/vendor/bootstrap/css/bootstrap.min.css">
 
-        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+        <link href="{$basePath}/vendor/bootstrap/css/bootstrap-toggle.min.css" rel="stylesheet">
 
         <link href="{$basePath}/vendor/form-helpers/css/bootstrap-formhelpers.min.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
+        <link rel="stylesheet" href="{$basePath}/vendor/bootstrap/css/bootstrapValidator.min.css">
 
-        {*
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/redmond/jquery-ui.css">
-*}
+
 
         <link rel="stylesheet" href="{$basePath}/css/normalize.css">
         <link rel="stylesheet" type="text/css" href="{$basePath}/css/dashboard_styles.css">
@@ -27,7 +27,7 @@
         {if $presenter->isLinkCurrent("Documentation:*")}
             <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
             <link rel="stylesheet" type="text/css" href="{$basePath}/doc/css/style.css">
-            <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+            <link rel="stylesheet" type="text/css" href="{$basePath}/vendor/ekko-lightbox/ekko-lightbox.css">
             <link rel="stylesheet" type="text/css" href="{$basePath}/doc/css/prettify.css">
             <link rel="stylesheet" type="text/css" href="{$basePath}/doc/css/normalize.css" >
         {/if}
@@ -54,7 +54,7 @@
         <div class="col-sm-2 col-sm-offset-1">
             <!-- Logo -->
             <div class="logo">
-                <h1><a n:href="Homepage:default">FastWeb</a></h1>
+                <h1><a n:href="Homepage:default">QuickWeb</a></h1>
             </div>
         </div>
         <div class="col-sm-4 col-sm-offset-4">
@@ -95,26 +95,24 @@
 
 {block scripts}
     <!-- Start of PhotoGallery components scripts -->
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/45226/material-photo-gallery.min.js"></script>
+    <script src="{$basePath}/vendor/material-photo-gallery.min.js"></script>
 
     <!-- End of PhotoGallery components scripts -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="{$basePath}/vendor/jquery/jquery-3.2.1.js"></script>
     <!-- Bootstrap -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{$basePath}/vendor/bootstrap/js/bootstrap.min.js"></script>
     <!-- jQuery UI -->
-    <script type="text/javascript"
-            src="{$basePath}/vendor/keditor/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{$basePath}/vendor/keditor/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{$basePath}/vendor/nette.ajax.js"></script>
     <script src="{$basePath}/vendor/netteForms.js"></script>
     <script src="{$basePath}/vendor/form-helpers/js/bootstrap-formhelpers.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="{$basePath}/vendor/bootstrap/js/bootstrapvalidator.min.js"></script>
+    <script src="{$basePath}/vendor/bootstrap/js/bootstrap-toggle.min.js"></script>
 
-    {*<script src="http://malsup.github.io/jquery.blockUI.js"></script>*}
     <script type="text/javascript"
             src="{$basePath}/vendor/keditor/plugins/jquery.nicescroll-3.6.6/jquery.nicescroll.min.js"></script>
     <script type="text/javascript" src="{$basePath}/vendor/keditor/plugins/ckeditor-4.5.6/ckeditor.js"></script>
@@ -154,7 +152,7 @@
     {if $presenter->isLinkCurrent("Documentation:*")}
         <script src="{$basePath}/doc/js/prettify.min.js"></script>
         <script src="{$basePath}/doc/js/scripts.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+        <script src="{$basePath}/vendor/ekko-lightbox/ekko-lightbox.min.js"></script>
     {/if}
     <script>
         $(document).on('click', '[data-toggle="lightbox"]', function(event) {

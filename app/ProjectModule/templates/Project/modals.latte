@@ -437,6 +437,17 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-3 control-label">Titulek</label>
+
+                            <div class="col-md-8 inputGroupContainer">
+                                <div class="input-group">
+                                            <span class="mycolor input-group-addon"><i
+                                                        class="glyphicon glyphicon-edit"></i></span>
+                                    <input name="title" type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class=" text-left col-md-3 control-label">Kličová slova</label>
 
                             <div class="col-md-8 inputGroupContainer">
@@ -597,7 +608,7 @@
                     {snippet photogalleryImages}
                         {foreach $gallery_images as $image}
                             <div class="image_box">
-                                <div class="overlay"><input type="checkbox" checked></div>
+                                <div class="overlay"><a class="delete_photo" data-url="{link deletePhoto!}" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></div>
                                 <img src="{$image}" alt="User Image">
                             </div>
                         {/foreach}
