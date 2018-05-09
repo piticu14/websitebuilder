@@ -14,13 +14,13 @@
                     <div class="col-md-4 text-left">
                         <ul data-url={link deletePage!} id="page_items" class="text-left"></ul>
                     </div>
-                    <div id="page_edit" class="col-md-8 text-center left-vline">
+                    <div id="page_form" class="col-md-8 text-center left-vline">
                         <div class="row">
                             <div id="nav_title" class="col-md-6">
                             </div>
                             <div class="col-md-6">
                                 <div class="pull-right">
-                                    <a href="#">Upravit stránku</a>
+                                    <a id="edit_page" data-url="{link Project:edit subdomain => $presenter->getParameter('subdomain')}" href="#">Upravit stránku</a>
                                 </div>
                             </div>
                         </div>

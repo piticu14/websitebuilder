@@ -4,8 +4,6 @@
     }
 </style>
 <footer id="footer_container">
-    {dump $footer->social_color}
-    {dump $footer->social_color_hover}
     {if $presenter->isLinkCurrent("Project:edit")}
         <a id="footer_edit" href="javascript:void(0)"> <span
                     class="fa fa-cog" aria-hidden="true" data-toggle="modal"
@@ -28,7 +26,8 @@
                 <ul id="social_media" class="social-icon" data-color="{$footer->social_color}" data-color_hover="{$footer->social_color_hover}">
                     {foreach $social_media AS $item}
                         <li n:class="!$item['active'] ? hide, active">
-                            <a href="{$item['href']|noescape}" data-media="{$item['media']}" data-active="{$item['active']}" class="fa fa-{$item['media']|lower}">&nbsp;</a>
+                            <a href="{$item['href']|noescape}" data-media="{$item['media']}" data-active="{$item['active']}"
+                               class="fa fa-{$item['media']|lower}" target="_blank">&nbsp;</a>
                         </li>
                     {/foreach}
                     {if $presenter->isLinkCurrent("Project:edit")}

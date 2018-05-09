@@ -86,10 +86,10 @@ class ProjectPresenter extends AdminBasePresenter
             $data = $form->getValues();
             $data['logo'] = JSON::encode([
                 'type' => 'img',
-                'src' => '/websitebuilder/www/img/default_logo.png'
+                'src' => 'default'
             ]);
             $project = $this->projectManager->add($data);
-            $path = 'user_images/' . $project->subdomain . '/images/';
+            $path = 'web_data/' . $project->subdomain . '/images/';
             if (!file_exists($path)) mkdir($path, 0755, true);
 
             $this->flashMessage('Váš projekt byl uložen', 'success');
@@ -210,11 +210,11 @@ class ProjectPresenter extends AdminBasePresenter
     private function getUserImages($id)
     {
         $masks = ['*.jpg', '*.png', '*.gif', '*.jpeg'];
-        $dir = '../www/user_images/' . $id . '/images/';
+        $dir = '../www/web_data/' . $id . '/images/';
         $images = array();
         foreach (Finder::findFiles($masks)
                      ->in($dir) as $file) {
-            $images[] = 'user_images/' . $id . '/images/' . $file->getBasename();
+            $images[] = 'web_data/' . $id . '/images/' . $file->getBasename();
 
         }
         return $images;
@@ -223,9 +223,9 @@ class ProjectPresenter extends AdminBasePresenter
     public function getPhotogalleryImages($id, $pg_path)
     {
         $masks = ['*.jpg', '*.png', '*.gif', '*.jpeg'];
-        $dir = '../www/user_images/' . $id . '/' . $pg_path . '/';
+        $dir = '../www/web_data/' . $id . '/' . $pg_path . '/';
         $images = array();
-        $path = 'user_images/' . $id . '/' . $pg_path . '/';
+        $path = 'web_data/' . $id . '/' . $pg_path . '/';
         if (!file_exists($path)) mkdir($path, 0755, true);
         foreach (Finder::findFiles($masks)
                      ->in($dir) as $file) {
@@ -239,7 +239,6 @@ class ProjectPresenter extends AdminBasePresenter
     {
         if ($this->isAjax()) {
             $this->template->gallery_images = $this->getPhotogalleryImages($this->getParameter('subdomain'), $pgPath);
-            //bdump($this->template->gallery_images);
         }
         $this->redrawControl('wrapper');
         $this->redrawControl('photogalleryImages');
@@ -249,7 +248,8 @@ class ProjectPresenter extends AdminBasePresenter
     {
 
         if ($this->isAjax()) {
-            $path = 'user_images/' . $this->getParameter('subdomain') . '/' . $this->getHttpRequest()->getPost('type') . '/';
+
+            $path = 'web_data/' . $this->getParameter('subdomain') . '/' . $this->getHttpRequest()->getPost('type') . '/';
             if (!file_exists($path)) mkdir($path, 0755, true);
 
             $files = $this->getHttpRequest()->getFiles();

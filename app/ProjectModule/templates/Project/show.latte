@@ -1,5 +1,10 @@
 {layout '../../../presenters/templates/@publish_layout.latte'}
 {block title}  {$current_page->title} {/block}
+{block meta}
+    {include #parent}
+    <meta name="description" content="{$current_page->description}">
+    <meta name="keywords" content="{$current_page->keywords}">
+{/block}
 {block stylesheets}
     {include #parent}
     {foreach $cssFiles as $cssFile}

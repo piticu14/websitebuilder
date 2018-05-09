@@ -27,7 +27,7 @@
                         <div class="modal-body">
                                 <div class="row">
                                     <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">{label title}</label>
+                                        {label title class => 'col-md-3 col-xs-12 control-label'}
 
                                         <div class="col-md-7 col-xs-12 inputGroupContainer">
                                             <div class="input-group">
@@ -37,7 +37,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">{label subtitle}</label>
+                                        {label subtitle, class => 'col-md-3 col-xs-12 control-label'}
 
                                         <div class="col-md-7 col-xs-12 inputGroupContainer">
                                             <div class="input-group">
@@ -48,7 +48,7 @@
                                         </div>
                                     </div>
                                     <div n:class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">{label subdomain}</label>
+                                        {label subdomain, class => 'col-md-3 col-xs-12 control-label'}
 
                                         <div class="col-md-7 col-xs-12 inputGroupContainer">
                                             <div class="input-group">
@@ -58,7 +58,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3 col-xs-12 control-label">Aktivní</label>
+                                        <label for="frm-siteForm-active" class="col-md-3 col-xs-12 control-label">Aktivní</label>
                                         <div class="col-md-7 col-xs-12 inputGroupContainer">
                                             <div class="checkbox">
                                                 {input active class => 'form-control'}
@@ -76,19 +76,6 @@
                 </div>
             </div>
             {/form}
-            {*
-            <div class="case-study study4">
-                <figure>
-                    <img class="case-study__img" src="https://static.squarespace.com/static/51b79838e4b0b8b55c75cf91/t/51c4b688e4b03003ea9f1a63/1371846281755/Hexxis+Logo+White.png" alt="" />
-                </figure>
-
-                <div class="case-study__overlay">
-                    <h2 class="case-study__title">Imperial Template</h2>
-                    <a class="case-study__link" href="#">Preview</a><br>
-                    <a class="case-study__link" href="#">Choose</a>
-                </div>
-            </div>
-            *}
         </div>
 </div>
 {/block}

@@ -120,6 +120,15 @@
     display:none;
 }
 
+#edit_page{
+    color: #337ab7;
+    text-decoration:none;
+}
+
+#edit_page:hover, #edit_page:active, #edit_page:focus {
+    text-decoration:underline;
+}
+
 
 
 

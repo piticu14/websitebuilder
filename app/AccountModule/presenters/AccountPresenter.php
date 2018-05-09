@@ -176,7 +176,6 @@ class AccountPresenter extends FrontBasePresenter
 
     public function actionActivation($token)
     {
-        bdump($token);
         if ($token) {
             if ($this->userRequest->checkToken($token) > 0) {
                 $RPrequest = $this->userRequest->get($token, 'userActivation');

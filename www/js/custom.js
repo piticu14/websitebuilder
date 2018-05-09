@@ -26,7 +26,6 @@ $(document).on('click', '#addEmail', function (e) {
     $.nette.ajax({
         url: $(this).data('url'),
         type: "POST",
-        async: false,
         cache: false,
         data: {email: $(this).data('email')},
         success: function (payload) {
@@ -45,7 +44,6 @@ $(document).on('click', '#setPrimary', function (e) {
     $.nette.ajax({
         url: $(this).data('url'),
         type: "POST",
-        async: false,
         cache: false,
         data: {email: $(this).data('email')},
         success: function (payload) {
@@ -152,7 +150,7 @@ $('#frm-signinForm').bootstrapValidator({
         },
 
     }
-})
+});
 
 $('#frm-siteForm').bootstrapValidator({
     feedbackIcons: {
@@ -197,7 +195,33 @@ $('#frm-siteForm').bootstrapValidator({
         }
 
     }
-})
+});
+
+$('#frm-projectSettingsForm').bootstrapValidator({
+    feedbackIcons: {
+        valid: 'glyphicon glyphicon-ok',
+        invalid: 'glyphicon glyphicon-remove',
+        validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+        subdomain: {
+            validators: {
+                regexp: {
+                    regexp: /^[\W = [A-Za-z0-9]+$/,
+                    message: 'Subdoména může obsahovat pouze čislice a písmenka'
+                },
+                notEmpty: {
+                    message: 'Zadejte subdoménu'
+                },
+                stringLength: {
+                    max: 20,
+                    message: 'Subdoména může mít nejvíce 20 znaků'
+                }
+            }
+        }
+    }
+});
+
 
 
 function securityQuestionFormValidator() {
@@ -213,9 +237,9 @@ function securityQuestionFormValidator() {
                 url: form.data('url'),
                 type: "POST",
                 data: {
-                    user_question_answer: $('#questionAnswer').val(),
+                    user_question_answer: $('#frm-securityQuestionForm-security_question_answer').val(),
                     emailAddress: form.data('email'),
-                    user_security_question: $('#securityQuestion').val()
+                    user_security_question: $('#frm-securityQuestionForm-security_question').val()
                 },
                 error: function (jqXHR, status, error) {
                     console.log(jqXHR);
@@ -360,7 +384,7 @@ $(document).on('click', '.showProject', function () {
         $('#active').html('Neaktivní');
         $('#active').css('background','#FF3232');
     }
-    $('#settings').attr('href', '/websitebuilder/www/settings/default/' + project.id);
+    $('#settings').attr('href', '/websitebuilder/www/settings/default/' + project.subdomain);
     $('#edit').attr('href', '/websitebuilder/www/project/edit/' + project.subdomain + '/' + project.temp_url);
     $('#delete').attr('href', '/websitebuilder/www/project/delete/' + project.subdomain);
 

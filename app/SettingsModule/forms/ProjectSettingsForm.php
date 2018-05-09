@@ -2,6 +2,7 @@
 
 use Nette\Application\UI\Form;
 use App\Model\ProjectManager;
+use Nette\Utils\FileSystem;
 
 class ProjectSettingsForm
 {
@@ -14,15 +15,16 @@ class ProjectSettingsForm
         $this->projectManager = $projectManager;
     }
 
-    public function create($id)
+    public function create($subdomain)
     {
-        $project = $this->projectManager->get($id);
+        $project = $this->projectManager->getBy('subdomain',$subdomain);
         $form = new Form;
         $form->addText('subdomain','Subdomena')
         ->setDefaultValue($project->subdomain);
         $form->addCheckbox('active','Aktivni')
             ->setDefaultValue($project->active);
-        $form->addHidden('id',$id);
+        $form->addHidden('id',$project->id);
+        $form->addHidden('old_subdomain',$subdomain);
         $form->addSubmit('send','Uložit');
         $form->onSuccess[] = [$this, 'projectSettingsFormSucceeded'];
 
@@ -32,11 +34,13 @@ class ProjectSettingsForm
     public function projectSettingsFormSucceeded($form)
     {
         $values = $form->getValues();
-        if($this->projectManager->subdomainDuplicate($values->subdomain)){
+        if($this->projectManager->subdomainDuplicate($values->subdomain,$values->id)){
             $values['subdomain'] = $values['subdomain'] . $values->id;
         }
-        bdump($values);
-        $values['updated_at'] = date("Y-m-d H:i:s");
+        $dir = '../www/web_data/';
+        if($values['old_subdomain'] !== $values['subdomain']){
+            FileSystem::rename($dir . $values['old_subdomain'],$dir . $values['subdomain']);
+        }
         $this->projectManager->patch($values);
     }
 

@@ -11,23 +11,25 @@ function init() {
     var description = $(modal_menu_links).first().data('description');
     var page_url = $(modal_menu_links).first().data('page_url');
     var active = $(modal_menu_links).first().data('active');
-    var page_edit = $('#page_edit');
+    var page_form = $('#page_form');
+    var edit_page = $('#edit_page');
 
 
     modal_body.find('.col-md-4').trigger('change');
 
-    //$('#menuModalTitle').text('Editace stránek');
+    edit_page.attr('href',edit_page.data('url') + '/' + $(modal_menu_links).first().data('page_url'));
+
     $('#nav_body').find('ul').sortable({ items: "> li:not(:first,:last)" });
 
     $('#nav_title').html(
-        '<a data-id="' + $(modal_menu_links).first().data('id') + '" class="text-left" href="#"><span id="edit_menu_icon" class="glyphicon glyphicon-edit"></span>' + modal_body.find('a.modal-menu-links').first().text() +'</a>'
+        '<a data-id="' + $(modal_menu_links).first().data('id') + '" class="text-left" href="#">' + modal_body.find('a.modal-menu-links').first().text() +'<span id="edit_menu_icon" class="glyphicon glyphicon-edit"></span></a>'
     );
     change_menuitem_text();
 
-    $(page_edit).find('input[name="title"]').val(title);
-    $(page_edit).find('input[name="keywords"]').val(keywords);
-    $(page_edit).find('input[name="description"]').val(description);
-    $(page_edit).find('input[name="page_url"]').val(page_url);
+    $(page_form).find('input[name="title"]').val(title);
+    $(page_form).find('input[name="keywords"]').val(keywords);
+    $(page_form).find('input[name="description"]').val(description);
+    $(page_form).find('input[name="page_url"]').val(page_url);
 
     $('#qw_nav_color').val($('#menu').data('color'));
     $('#qw_nav_color_hover').val($('#menu').data('color_hover'));
@@ -39,17 +41,17 @@ function init() {
     }
 
 
-    $(page_edit).hide().fadeIn('slow');
+    $(page_form).hide().fadeIn('slow');
 }
 
 /* Temporary save by editing the modal-menu-links text and data-attributes (menu on the left side)*/
 
 function nav_temp_save(){
-    var page_edit = $('#page_edit');
-    var title = $(page_edit).find('input[name="title"]').val();
-    var keywords = $(page_edit).find('input[name="keywords"]').val();
-    var description = $(page_edit).find('input[name="description"]').val();
-    var page_url = $(page_edit).find('input[name="page_url"]').val();
+    var page_form = $('#page_form');
+    var title = $(page_form).find('input[name="title"]').val();
+    var keywords = $(page_form).find('input[name="keywords"]').val();
+    var description = $(page_form).find('input[name="description"]').val();
+    var page_url = $(page_form).find('input[name="page_url"]').val();
     var id = $('#nav_title').find('a').data("id");
 
 
@@ -95,7 +97,7 @@ function change_menuitem_text() {
                 if (!$(this).val()) {
                     e.preventDefault();
                 } else {
-                    $(this).replaceWith('<a data-id="' + nav_title.data('id') + '" class="text-left" href="#"><span id="edit_menu_icon" class="glyphicon glyphicon-edit"></span>' + $(this).val() + ' </a>');
+                    $(this).replaceWith('<a data-id="' + nav_title.data('id') + '" class="text-left" href="#">' + $(this).val() + '<span id="edit_menu_icon" class="glyphicon glyphicon-edit"></span></a>');
                     modal_body.find('.col-md-4').trigger('change');
 
                 }
@@ -129,18 +131,19 @@ $('#nav_body').on('change', '.col-md-4', function () {
 function savePage() {
     var pageForm = $('#pageForm');
     var modal_link = $('<a></a>');
+    var id = guid();
     modal_link.attr('href','#');
     modal_link.text(pageForm.find('input[name="name"]').val());
-    modal_link.data('id',guid());
-    modal_link.data('title',pageForm.find('input[name="title"]').val());
-    modal_link.data('keywords',pageForm.find('input[name="keywords"]').val());
-    modal_link.data('description', pageForm.find('input[name="description"]').val());
-    modal_link.data('page_url', pageForm.find('input[name="page_url"]').val());
-    modal_link.data('active',1);
+    modal_link.attr('data-id',id);
+    modal_link.attr('data-page_id',id);
+    modal_link.attr('data-title',pageForm.find('input[name="title"]').val());
+    modal_link.attr('data-keywords',pageForm.find('input[name="keywords"]').val());
+    modal_link.attr('data-description', pageForm.find('input[name="description"]').val());
+    modal_link.attr('data-page_url', pageForm.find('input[name="page_url"]').val());
+    modal_link.attr('data-active',1);
     var parent = $('<li></li>');
     parent.append(modal_link);
     if($('#menu a').not(':last,#dropdownMenu').length < 4){
-        parent.addClass('hide');
         parent.insertBefore('#page_drop_down_container')
     }else {
         $('#page_drop_down').append(parent);
@@ -166,9 +169,15 @@ function getHeaderData()
 
 
     var image = {};
-    if($logo_container.find('img').length){
-        image.type = 'img'
-        image.src = $('#logo_image_container img').attr('src');
+    var logo_image = $logo_container.find('img');
+    if(logo_image.length){
+        if(logo_image.data('default')){
+            image.type = 'img';
+            image.src = 'default';
+        }else{
+            image.type = 'img';
+            image.src = $('#logo_image_container img').attr('src').substring($('#logo_image_container img').attr('src').lastIndexOf('/') + 1);
+        }
     }else {
         image.type = 'i';
         image.src = getIconName($logo_container.find('i').attr('class'))
@@ -309,7 +318,8 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
     e.preventDefault();
 
     var modal_body = $('#nav_body');
-    var page_edit = $('#page_edit');
+    var page_form = $('#page_form');
+    var edit_page = $('#edit_page');
 
     $('#page_items').empty();
     $('#page_items').hide().fadeIn('slow');
@@ -344,19 +354,20 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
         $(this).on('click', function (e) {
             e.preventDefault();
             nav_temp_save();
+            edit_page.attr('href',edit_page.data('url') + '/' + $(this).data('page_url'));
             $('#nav_title').html(
-                    '<a data-id="' + $(this).data('id') + '" class="text-left" href="#"><span id="edit_menu_icon" class="glyphicon glyphicon-edit"></span>' + $(this).text() + '</a>');
+                    '<a data-id="' + $(this).data('id') + '" class="text-left" href="#">' + $(this).text() + '<span id="edit_menu_icon" class="glyphicon glyphicon-edit"></span></a>');
 
-            $(page_edit).find('input[name="title"]').val($(this).data('title'));
-            $(page_edit).find('input[name="keywords"]').val($(this).data('keywords'));
-            $(page_edit).find('input[name="description"]').val($(this).data('description'));
-            $(page_edit).find('input[name="page_url"]').val($(this).data('page_url'));
+            $(page_form).find('input[name="title"]').val($(this).data('title'));
+            $(page_form).find('input[name="keywords"]').val($(this).data('keywords'));
+            $(page_form).find('input[name="description"]').val($(this).data('description'));
+            $(page_form).find('input[name="page_url"]').val($(this).data('page_url'));
             if(!$(this).data('active')) {
                 $('#active').bootstrapToggle('off');
             }else {
                 $('#active').bootstrapToggle('on');
             }
-            $('#page_edit').hide().fadeIn('slow');
+            $('#page_form').hide().fadeIn('slow');
             change_menuitem_text();
         });
     });
@@ -364,23 +375,41 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
     $('.deletePage').each(function(){
         $(this).off().on('click',function(){
 
+
             var button = $(this);
+            if($.isNumeric(button.data('id'))){
+                button.parent().remove();
+                $('#menu a[data-page_id = ' + button.data('id') +']').parent().remove();
 
-            $.nette.ajax({
-                url: $('#page_items').data('url'),
-                type: "POST",
-                data: { pid: $(this).data('id')},
-                error: function(jqXHR,status,error) {
-                    console.log(jqXHR);
-                    console.log(status);
-                    console.log(error);
-                },
-                success: function(payload) {
-                    button.parent().remove();
-                    $('#menu a[data-page_id = ' + button.data('id') +']').parent().remove();
-                }
-            });
+                $.nette.ajax({
+                    url: $('#page_items').data('url'),
+                    type: "POST",
+                    data: { pid: $(this).data('id')},
+                    error: function(jqXHR,status,error) {
+                        console.log(jqXHR);
+                        console.log(status);
+                        console.log(error);
+                    },
+                    success: function(payload) {
+                        button.parent().remove();
+                        $('#menu a[data-page_id = ' + button.data('id') +']').parent().remove();
+                    }
+                });
 
+            } else {
+                button.parent().remove();
+                $('#menu a[data-page_id = ' + button.data('id') +']').parent().remove();
+            }
+
+            console.log($('#menu > li > a').not(':last,#dropdownMenu').length);
+            if($('#menu > li > a').not(':last,#dropdownMenu').length < 4){
+                console.log('Less than 4');
+
+                var last_nav_item = $('#page_drop_down_container').prev();
+                var first_drop_down = $('#page_drop_down li').first();
+                first_drop_down.insertBefore(last_nav_item);
+
+            }
         });
 
     });
@@ -389,7 +418,7 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
 
 $('#menuModal').on('hidden.bs.modal', function () {
     $('#page_items').hide();
-    $('#page_edit').hide();
+    $('#page_form').hide();
 });
 
 
@@ -420,27 +449,26 @@ $(document).on('click','#save_pages',function(){
             $('#publish').attr('href',publish_url + '/' + valid_page_url);
 
         }
-        //console.log($(modal_menu_links[index]).text());
-        $(this).text($(modal_menu_links[index]).text());
-        $(this).data('title',$(modal_menu_links[index]).data('title'));
-        $(this).data('page_url',valid_page_url);
-        $(this).data('keywords',$(modal_menu_links[index]).data('keywords'));
-        $(this).data('description',$(modal_menu_links[index]).data('description'));
-        $(this).data('active',$(modal_menu_links[index]).data('active'));
-        $(this).attr('href',temp_url + '/' + valid_page_url);
-        $(this).css('color',nav_color);
-        $(this).on('mouseover',(function(){
-            $(this).css('color',nav_color_hover);
-        }));
-        $(this).on('mouseout',(function(){
+            $(this).text($(modal_menu_links[index]).text());
+            $(this).data('title',$(modal_menu_links[index]).data('title'));
+            $(this).data('page_url',valid_page_url);
+            $(this).data('keywords',$(modal_menu_links[index]).data('keywords'));
+            $(this).data('description',$(modal_menu_links[index]).data('description'));
+            $(this).data('active',$(modal_menu_links[index]).data('active'));
+            $(this).attr('href',temp_url + '/' + valid_page_url);
             $(this).css('color',nav_color);
-        }));
+            $(this).on('mouseover',(function(){
+                $(this).css('color',nav_color_hover);
+            }));
+            $(this).on('mouseout',(function(){
+                $(this).css('color',nav_color);
+            }));
 
-        if($(modal_menu_links[index]).data('active')){
-            $(this).parent().removeClass('hide')
-        }else {
-            $(this).parent().addClass('hide');
-        }
+            if($(modal_menu_links[index]).data('active')){
+                $(this).parent().removeClass('hide')
+            }else {
+                $(this).parent().addClass('hide');
+            }
     });
 
     hideDropDownMenu();

@@ -28,6 +28,7 @@ class UserEmail extends BaseManager
     {
         return $this->getDatabase()->table(self::$table)
             ->where('email', $email)
+            ->where('deleted_at',NULL)
             ->fetch();
     }
 
@@ -42,6 +43,7 @@ class UserEmail extends BaseManager
     {
         return $this->getDatabase()->table(self::$table)
             ->where('email', $email)
+            ->where('deleted_at',NULL)
             ->count();
     }
 
@@ -49,6 +51,7 @@ class UserEmail extends BaseManager
     {
         return $this->getDatabase()->table(self::$table)
             ->where('email', $email)
+            ->where('deleted_at',NULL)
             ->update([
                 'active' => 1
             ]);
@@ -62,9 +65,10 @@ class UserEmail extends BaseManager
             ->fetchAll();
     }
 
-    public function setPrimary($email)
+    public function setPrimary($user_id,$email)
     {
         $this->getDatabase()->table(self::$table)
+            ->where('user_id',$user_id)
             ->where('is_primary', 1)
             ->update([
                 'is_primary' => 0
@@ -76,9 +80,20 @@ class UserEmail extends BaseManager
             ]);
     }
 
-    public function delete($id)
+
+    public function getPrimary()
     {
         return $this->getDatabase()->table(self::$table)
+            ->select('*')
+            ->where('user_id',$this->getUser()->id)
+            ->where('deleted_at',NULL)
+            ->where('is_primary',1)
+            ->fetch();
+    }
+
+    public function delete($id)
+    {
+         $this->getDatabase()->table(self::$table)
             ->where('id',$id)
             ->update([
                 'deleted_at' => date("Y-m-d H:i:s")

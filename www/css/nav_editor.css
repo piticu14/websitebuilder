@@ -48,15 +48,12 @@
 #edit_menu_icon {
     font-size:15px;
     color:#777;
-    visibility: hidden;
 }
 
-#nav_title a:hover #edit_menu_icon {  visibility: visible;  }
+#nav_title a:hover #edit_menu_icon {  color:#000 }
+#nav_title a:hover {  color:#000;text-decoration:underline  }
 
-
-#menu:hover #menu_edit { visibility: visible}
-
-#page_edit {
+#page_form {
     display:none;
 }
 

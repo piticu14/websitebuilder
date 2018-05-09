@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    {block meta}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    {/block}
     <link rel="icon" href="{$basePath}/img/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="{$basePath}/img/favicon.ico" type="image/x-icon">
     {block stylesheets}
@@ -76,11 +78,10 @@
                                         class="caret"></b></a>
                             <ul class="dropdown-menu fadeInUp">
                                 <li><a n:href="Project:all">Moje weby</a></li>
-                                <li><a n:href="Settings:default">Nastaveni</a></li>
+                                <li><a n:href="Settings:default subdomain => $presenter->getParameter('subdomain')">Nastaveni</a></li>
                                 {*<li><a href="#">Změna šablony</a></li>*}
                                 <li><a n:href="Documentation:default">Nápověda</a></li>
                                 <li><a n:href='Account:out'>Logout</a></li>
-
                             </ul>
                         </li>
                     </ul>

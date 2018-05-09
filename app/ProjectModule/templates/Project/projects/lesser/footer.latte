@@ -31,7 +31,7 @@
 
                 {foreach $social_media AS $item}
                     <li n:class="!$item['active'] ? hide, active">
-                        <a href="{$item['href']|noescape}" data-media="{$item['media']}" data-active="{$item['active']}">
+                        <a href="{$item['href']|noescape}" data-media="{$item['media']}" data-active="{$item['active']}" target="_blank">
                             <i class="fa fa-{$item['media']|lower}"></i>
                             {$item['media']|firstUpper}
                         </a>

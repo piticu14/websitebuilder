@@ -28,6 +28,7 @@ $('#headerModal').on('shown.bs.modal', function () {
                 var logo_image = $('<img>');
                 logo_image.attr('alt','Logo Image');
                 logo_image.attr('src',$(selected_logo).find('img').attr('src'));
+                logo_image.attr('data-default',0);
                 logo_image_container.prepend(logo_image);
                 $('.special_nav').attr('style','margin-top:30px');
             } else {

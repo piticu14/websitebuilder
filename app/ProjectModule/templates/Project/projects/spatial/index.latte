@@ -27,7 +27,16 @@
 <div class="landing">
 
     {include header.latte}
+    {if $first_page['url'] != $presenter->getParameter('page_url')}
+    {snippet flashMessage}
+        <div id="editFlashMessages" n:foreach="$flashes as $flash"
+             class="alert alert-{$flash->type} alert-dismissible" style="margin-top: 169px;">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 
+            <p class="text-center">{$flash->message}</p>
+        </div>
+    {/snippet}
+    {/if}
     <div class="row">
         <div id="content-area">
             <div id="editor">

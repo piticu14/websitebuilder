@@ -60,8 +60,7 @@ class SettingsPresenter extends AdminBasePresenter
             $this->flashMessage('Emailová adresa již v databázi existuje.', 'danger');
             $this->redrawControl('flashes');
         } else {
-            $userEmail = $this->userEmail->add($this->getUser()->id, $values->email);
-            //$this->sendEmailActivation($userEmail);
+            $this->userEmail->add($this->getUser()->id,$values['email']);
             $this->flashMessage('Vaš email byl úspěšně přidan.', 'success');
             $this->redirect('this');
         }
@@ -132,7 +131,7 @@ class SettingsPresenter extends AdminBasePresenter
     public function handleSetPrimary($email)
     {
         if ($this->isAjax()) {
-            if ($this->users->setPrimaryEmail($email)) {
+            if ($this->users->setPrimaryEmail($this->getUser()->id,$email)) {
                 $this->template->userEmails = $this->userEmail->getAll();
             } else {
                 $this->flashMessage('Váš email není aktivován. Nelze nastavit jako primární', 'danger');
@@ -140,11 +139,11 @@ class SettingsPresenter extends AdminBasePresenter
             }
 
         }
-        $this->redrawControl('userEmailsList');
+        $this->redrawControl('emailSettings');
 
     }
 
-    public function renderDefault($id)
+    public function renderDefault($subdomain)
     {
         if (!isset($this->template->userEmails)) {
             $this->template->userEmails = $this->userEmail->getAll();
@@ -174,9 +173,9 @@ class SettingsPresenter extends AdminBasePresenter
 
     protected function createComponentProjectSettingsForm()
     {
-        $form = (new \ProjectSettingsForm($this->projectManager))->create($this->getParameter('id'));
+        $form = (new \ProjectSettingsForm($this->projectManager))->create($this->getParameter('subdomain'));
         $form->onSuccess[] = function (Form $form) {
-            $this->flashMessage('Aktualizace uspesna');
+            $this->flashMessage('Aktualizace proběhla v pořádku.','success');
             $this->redirect('Project:all');
         };
         return $form;
@@ -184,7 +183,18 @@ class SettingsPresenter extends AdminBasePresenter
 
     public function actionDeleteEmail($id)
     {
-        $this->userEmail->delete($id);
-        $this->redirect('Settings:');
+        $primaryEmail = $this->userEmail->getPrimary();
+
+        if($primaryEmail->id == $id) {
+            $this->flashMessage('Primární adresa nelze odstranit','danger');
+            $this->redirect('Settings:');
+        } else {
+            $this->userEmail->delete($id);
+            $this->flashMessage('Emailová adresa byla smazana.');
+            $this->redirect('Settings:');
+        }
+
+
+
     }
 }

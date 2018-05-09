@@ -79,7 +79,13 @@
         {/if}
         <div id="logo_image_container">
             {if $header_logo['type'] == 'img'}
-                <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']"><img src="{$header_logo['src']}" alt="Logo"></a>
+                <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']">
+                    {if $header_logo['src'] == 'default'}
+                        <img src="{$basePath}/img/default_logo.png" alt="Logo default" data-default="true">
+                    {else}
+                        <img src="{$basePath}/web_data/{$presenter->getParameter('subdomain')}/images/{$header_logo['src']}" alt="Logo" data-default="false">
+                    {/if}
+                </a>
             {else}
                 <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']"><i class="glyphicon glyphicon-{$header_logo['src']}"></i></a>
             {/if}

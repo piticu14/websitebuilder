@@ -76,19 +76,6 @@ class ProjectManager extends BaseManager
             ->where('project.user_id',$this->getUser()->id)->fetchAll();
 
 
-        /*
-        $data = array();
-
-        foreach($projects as $project) {
-            bdump($project->template->title);
-            $data[] = $project->related('header')
-                ->where('project_id',$project->id)->fetch();
-        }
-
-        bdump(array_merge($data));
-        die();
-        */
-
         $data = $this->getDatabase()->table('header')
             ->select('project.*,header.*')
         ->where('header.project_id',$projects)
@@ -197,11 +184,19 @@ class ProjectManager extends BaseManager
     }
 
 
-    public function subdomainDuplicate($subdomain)
+    public function subdomainDuplicate($subdomain,$project_id = false)
     {
-        return $this->getDatabase()->table(self::$table)
-            ->where('subdomain',$subdomain)
-            ->count();
+        if($project_id){
+            return $this->getDatabase()->table(self::$table)
+                ->where('subdomain',$subdomain)
+                ->where('NOT id',$project_id)
+                ->count();
+        } else {
+            return $this->getDatabase()->table(self::$table)
+                ->where('subdomain',$subdomain)
+                ->count();
+        }
+
     }
 
     public function getLastInsertedId()
@@ -220,14 +215,16 @@ class ProjectManager extends BaseManager
             ->fetch();
     }
 
-
-
     public function patch($data)
     {
 
         $this->getDatabase()->table(self::$table)
             ->where('id',$data->id)
-            ->update($data);
+            ->update([
+                'subdomain' => $data->subdomain,
+                'active' => $data->active,
+                'updated_at' => date("Y-m-d H:i:s")
+            ]);
     }
 
     public function delete($subdomain)

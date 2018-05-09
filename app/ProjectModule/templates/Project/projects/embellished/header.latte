@@ -61,11 +61,15 @@
             {/if}
             <div>
                 <a id="logo_image_container" n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']">
-                {if $header_logo['type'] == 'img'}
-                    <img src="{$header_logo['src']}" alt="Logo">
-                {else}
-                    <i class="glyphicon glyphicon-{$header_logo['src']}"></i>
-                {/if}
+                        {if $header_logo['type'] == 'img'}
+                            {if $header_logo['src'] == 'default'}
+                                <img src="{$basePath}/img/default_logo.png" alt="Logo default" data-default="true">
+                            {else}
+                            <img src="{$basePath}/web_data/{$presenter->getParameter('subdomain')}/images/{$header_logo['src']}" alt="Logo" data-default="false">
+                            {/if}
+                        {else}
+                        <i class="glyphicon glyphicon-{$header_logo['src']}"></i>
+                        {/if}
                 </a>
                 <h1 id="title" {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->title|noescape}</h1>
                 <p id="subtitle" {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->subtitle|noescape}</p>

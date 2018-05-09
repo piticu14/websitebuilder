@@ -102,7 +102,11 @@
             <div id="logo_container">
                         <a class="navbar-brand" id="logo_image_container" n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']">
                             {if $header_logo['type'] == 'img'}
-                                <img src="{$header_logo['src']}" alt="Logo">
+                                {if $header_logo['src'] == 'default'}
+                                    <img src="{$basePath}/img/default_logo.png" alt="Logo default" data-default="true">
+                                {else}
+                                    <img src="{$basePath}/web_data/{$presenter->getParameter('subdomain')}/images/{$header_logo['src']}" alt="Logo" data-default="false">
+                                {/if}
                             {else}
                                 <i class="glyphicon glyphicon-{$header_logo['src']}"></i>
                             {/if}
@@ -172,7 +176,7 @@
                         <ul id="page_drop_down" class="dropdown-menu" aria-labelledby="dropdownMenu">
                             {foreach $nav_items as $nav_item}
                                 {if ($nav_item->new)}
-                                    <li n:class="!$nav_item->active ? hide",$nav_item->page_url == $presenter->getParameter('page_url') ? active">
+                                    <li n:class="!$nav_item->active ? hide ,$nav_item->page_url == $presenter->getParameter('page_url') ? active">
                                         <a n:href="Project:show subdomain => $presenter->getParameter('subdomain'), page_url => $nav_item->page_url">{$nav_item->title}</a>
                                     </li>
                                 {/if}

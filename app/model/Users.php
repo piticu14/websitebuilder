@@ -121,17 +121,17 @@ class Users extends BaseManager
 
 
     /** TODO: Maybe delete active column from user and use active from email */
-    public function setPrimaryEmail($email)
+    public function setPrimaryEmail($user_id,$email)
     {
 
         $userEmail = $this->userEmail->get($email);
         if($userEmail->active){
             $this->getDatabase()->table('user')
-                ->where('id',$this->getUser()->id)
+                ->where('id',$user_id)
                 ->update([
                     'email' => $email
                 ]);
-            $this->userEmail->setPrimary($email);
+            $this->userEmail->setPrimary($user_id, $email);
             return true;
         }
 

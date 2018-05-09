@@ -15,24 +15,31 @@
         display: inline-block;
     }
 
+    .dropdown-menu li a {
+        padding-left:15px !important;
+    }
+
     {if $header_logo['type'] == "img"}
     #nav ul:not(#page_drop_down) {
         margin-top: 30px;
     }
+
     {/if}
     {if $presenter->isLinkCurrent('Project:show')}
     #nav ul:not(#page_drop_down) {
         margin-top: 8px;
     }
+
     {if $header_logo['type'] == "img"}
     #nav ul:not(#page_drop_down) {
         margin-top: 38px;
     }
+
     {/if}
     {/if}
 
     {if $header->nav_color}
-    #fh5co-page #header-wrapper nav ul li a:not(#menu_edit){
+    #fh5co-page #header-wrapper nav ul li a:not(#menu_edit) {
         color: {$header->nav_color|noescape} !important;
     }
 
@@ -48,12 +55,14 @@
     #fh5co-page .fh5co-social li a {
         color: {$footer->social_color|noescape};
     }
+
     {/if}
 
     {if $footer->social_color_hover}
-    #fh5co-page .fh5co-social li a:hover,#fh5co-page .fh5co-social li a:focus {
+    #fh5co-page .fh5co-social li a:hover, #fh5co-page .fh5co-social li a:focus {
         color: {$footer->social_color_hover|noescape};
     }
+
     {/if}
 </style>
 <header id="header-wrapper" role="banner">
@@ -63,11 +72,19 @@
             <div id="logo_container">
                 <h1 id="logo_image_container">
                     {if $header_logo['type'] == 'img'}
-                        <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']"><img src="{$header_logo['src']}" alt="Logo"></a>
-                    {else}
-                        <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']"><i class="glyphicon glyphicon-{$header_logo['src']}"></i></a>
-                    {/if}
-                    <p id="title" {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->title|noescape}</p>
+                    <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']">
+                        {if $header_logo['src'] == 'default'}
+                            <img src="{$basePath}/img/default_logo.png" alt="Default logo" data-default="true">
+                        {else}
+                            <img src="{$basePath}/web_data/{$presenter->getParameter('subdomain')}/images/{$header_logo['src']}" alt="Logo" data-default="false">
+                        {/if}
+                    </a>
+                        {else}
+                            <a n:href="$presenter->getParameter('action') subdomain => $presenter->getParameter('subdomain'), page_url => $first_page['url']"><i
+                                        class="glyphicon glyphicon-{$header_logo['src']}"></i></a>
+                        {/if}
+                    <p id="title"
+                       {if $presenter->isLinkCurrent("Project:edit")}contenteditable="true"{/if}>{$header->title|noescape}</p>
 
                     {if $presenter->isLinkCurrent("Project:edit")}
 
@@ -81,7 +98,8 @@
 
             <nav id="nav" role="navigation">
                 {if $presenter->isLinkCurrent("Project:edit")}
-                    <ul class="special_nav" id="menu" data-color="{$header->nav_color}" data-color_hover="{$header->nav_color_hover}">
+                    <ul class="special_nav" id="menu" data-color="{$header->nav_color}"
+                        data-color_hover="{$header->nav_color_hover}">
                         {foreach $nav_items as $nav_item}
                             {if (!$nav_item->new)}
                                 <li n:class="!$nav_item->active ? hide">

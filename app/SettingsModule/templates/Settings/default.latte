@@ -137,7 +137,7 @@
                 </div>
 
             </div>
-            {if $presenter->getParameter('id')}
+            {if $presenter->getParameter('subdomain')}
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -149,6 +149,7 @@
                 <div id="collapse3" class="panel-collapse collapse">
                     <div class="panel-body">
                         {form projectSettingsForm , class => "well form-horizontal",  data-error-container => '#error'}
+                            {label active}
                             <div id="errorContainer"
                                  class="alert alert-danger alert-dismissible" n:if="$form->hasErrors()">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -156,7 +157,7 @@
                                 <p n:foreach="$form->errors as $error">{$error}</p>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">{label subdomain}</label>
+                                {label subdomain, class => 'col-md-4 control-label'}
 
                                 <div class="col-md-4 inputGroupContainer">
                                     <div class="input-group">
@@ -166,16 +167,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">{label active}</label>
+                                <label for="frm-projectSettingsForm-active" class="col-md-4 control-label"></label>
 
                                 <div class="col-md-4 inputGroupContainer">
                                     <div class="input-group">
-                                        {input active, class => 'btn btn-u'}
+                                        {input active}
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-4 control-label">{label send}</label>
+                                <label for="frm-projectSettingsForm-send" class="col-md-4 control-label"></label>
 
                                 <div class="col-md-4 inputGroupContainer">
                                     <div class="input-group">
