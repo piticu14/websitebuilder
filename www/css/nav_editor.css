@@ -19,8 +19,8 @@
     padding-left: 5px;
 }
 
-.modal-menu-links{
-
+.modal-menu-links,.modal-menu-links:focus, .modal-menu-links:active,.modal-menu-links:visited{
+    text-decoration:none;
     color:#007bff;
     text-align:left;
 

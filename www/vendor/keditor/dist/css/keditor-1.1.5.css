@@ -348,7 +348,7 @@ body.highlighted-container-content .keditor-container:before {
   left: -39px;
   border: 1px solid #333;
   border-radius: 3px;
-  overflow: hidden;
+  /*overflow: hidden*/;
 }
 .keditor-container > .keditor-toolbar > a {
   background: #333;

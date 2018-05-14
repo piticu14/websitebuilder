@@ -11,6 +11,8 @@ $(document).ready(function () {
     if ($('#frm-securityQuestionForm').length) {
         securityQuestionFormValidator();
     }
+
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
 
 $(document).ajaxStop(function () {
@@ -134,6 +136,10 @@ $('#frm-signinForm').bootstrapValidator({
                     min: 6,
                     max: 50,
                     message: 'Uživatelské jméno nesmi být kratší 6 znaků a delší 50 znaků'
+                },
+                regexp: {
+                    regexp: /^[a-zA-Z0-9_]+$/,
+                    message: 'Uživatelské jméno může obsahovat pouze písmena, číslice a podtržítko'
                 }
             }
         },
@@ -182,7 +188,7 @@ $('#frm-siteForm').bootstrapValidator({
             validators: {
                 regexp: {
                     regexp: /^[\W = [A-Za-z0-9]+$/,
-                    message: 'Subdoména může obsahovat pouze čislice a písmenka'
+                    message: 'Subdoména může obsahovat pouze číslice a písmena'
                 },
                 notEmpty: {
                     message: 'Zadejte subdoménu'
@@ -321,6 +327,10 @@ $('#frm-signupForm').bootstrapValidator({
                     min: 6,
                     max: 50,
                     message: 'Uživatelské jméno nesmí být kratší 6 znaků a delší 50 znaků'
+                },
+                regexp: {
+                    regexp: /^[a-zA-Z0-9_]+$/,
+                    message: 'Uživatelské jméno může obsahovat pouze písmena, číslice a podtržítko'
                 }
             }
         },
@@ -409,6 +419,3 @@ $('#publish').off().on('click', function (e) {
     sendContent($(this));
 });
 
-function initPhotogallery(comp, imgs) {
-
-}

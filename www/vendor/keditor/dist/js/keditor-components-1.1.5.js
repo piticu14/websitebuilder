@@ -473,7 +473,7 @@
             }
 
             $('#photogalleryModal').on('shown.bs.modal', function () {
-
+                $("body").addClass("modal-open");
                 // Get images from photogallery
                 var url = $('#photogalleryModal').data('url');
                 $.nette.ajax({

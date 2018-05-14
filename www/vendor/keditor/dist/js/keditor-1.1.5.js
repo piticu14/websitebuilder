@@ -65,7 +65,6 @@
         extraTabs: null,
         defaultComponentType: 'blank',
         sidebarContainer: null,
-
         snippetsTooltipEnabled: true,
         snippetsTooltipPosition: 'left',
         snippetsFilterEnabled: true,
@@ -99,8 +98,7 @@
 
             }
             $('#containerBackgroundModal').on('shown.bs.modal', function () {
-                //console.log(e.relatedTarget.id);
-
+                $("body").addClass("modal-open");
 
                 $('#background_images_wrapper').hide().fadeIn('slow');
                 $('#background_color_wrapper').hide();
@@ -1177,18 +1175,18 @@
             
             var settingBtn = '';
             if (options.containerSettingEnabled === true) {
-                settingBtn = '<a href="javascript:void(0);" class="keditor-ui btn-container-setting">' + options.btnSettingContainerText + '</a>';
+                settingBtn = '<a href="javascript:void(0);" data-toggle="tooltip"  data-placement="right" title="Kliknutím zobrazite nastavení obalu v pravém panelu." class="keditor-ui btn-container-setting">' + options.btnSettingContainerText + '</a>';
             }
             
             flog('Render KEditor toolbar for container', container);
             container.append(
                 '<div class="keditor-toolbar keditor-toolbar-container ' + (isNested ? 'keditor-toolbar-sub-container' : '') + '">' +
-                '   <a href="javascript:void(0);" class="keditor-ui btn-container-reposition">' + options.btnMoveContainerText + '</a>' + settingBtn +
-                '   <a href="javascript:void(0);" class="keditor-ui btn-container-duplicate">' + options.btnDuplicateContainerText + '</a>' +
-                '   <a href="javascript:void(0);" class="keditor-ui btn-container-delete">' + options.btnDeleteContainerText + '</a>' +
+                '<a href="javascript:void(0);" data-toggle="tooltip"  data-placement="right" title="Kliknutím a přetažením přesouváte obal." class="keditor-ui btn-container-reposition">' + options.btnMoveContainerText + '</a>' + settingBtn +
+                '<a href="javascript:void(0);" data-toggle="tooltip"  data-placement="right" title="Kliknutím zduplikujete obal." class="keditor-ui btn-container-duplicate">' + options.btnDuplicateContainerText + '</a>' +
+                '<a href="javascript:void(0);" data-toggle="tooltip"  data-placement="right" title="Kliknutím odstraníte obal." class="keditor-ui btn-container-delete">' + options.btnDeleteContainerText + '</a>' +
                 '</div>'
             );
-            
+            $("body").tooltip({ selector: '[data-toggle=tooltip]' });
             container.attr('id', self.generateId(isNested ? 'sub-container' : 'container'));
             
             var containerContents = container.find('[data-type="container-content"]');
@@ -1453,15 +1451,15 @@
             var isSettingEnabled = componentData.settingEnabled;
             var settingBtn = '';
             if (isSettingEnabled) {
-                settingBtn = '<a href="javascript:void(0);" class="keditor-ui btn-component-setting">' + options.btnSettingComponentText + '</a>';
+                settingBtn = '<a href="javascript:void(0);" data-toggle="tooltip"  data-placement="right" title="Kliknutím zobrazite nastavení komponenty v pravém panelu." class="keditor-ui btn-component-setting">' + options.btnSettingComponentText + '</a>';
             }
             
             flog('Render KEditor toolbar for component', component);
             component.append(
                 '<div class="keditor-toolbar keditor-toolbar-component">' +
-                '   <a href="javascript:void(0);" class="keditor-ui btn-component-reposition">' + options.btnMoveComponentText + '</a>' + settingBtn +
-                '   <a href="javascript:void(0);" class="keditor-ui btn-component-duplicate">' + options.btnDuplicateComponentText + '</a>' +
-                '   <a href="javascript:void(0);" class="keditor-ui btn-component-delete">' + options.btnDeleteComponentText + '</a>' +
+                '   <a href="javascript:void(0);" data-toggle="tooltip"  data-placement="top" title="Kliknutím a přetažením přesouváte komponentu." class="keditor-ui btn-component-reposition">' + options.btnMoveComponentText + '</a>' + settingBtn +
+                '   <a href="javascript:void(0);" data-toggle="tooltip"  data-placement="top" title="Kliknutím zduplikujete komponentu." class="keditor-ui btn-component-duplicate">' + options.btnDuplicateComponentText + '</a>' +
+                '   <a href="javascript:void(0);" data-toggle="tooltip"  data-placement="top" title="Kliknutím odstraníte komponentu." class="keditor-ui btn-component-delete">' + options.btnDeleteComponentText + '</a>' +
                 '</div>'
             );
             

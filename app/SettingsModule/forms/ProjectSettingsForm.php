@@ -34,6 +34,7 @@ class ProjectSettingsForm
     public function projectSettingsFormSucceeded($form)
     {
         $values = $form->getValues();
+        /* TODO: If project deleted reuse the subdomain. Not sure. When rename folder it may coflict with deleted folder  */
         if($this->projectManager->subdomainDuplicate($values->subdomain,$values->id)){
             $values['subdomain'] = $values['subdomain'] . $values->id;
         }

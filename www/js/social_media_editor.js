@@ -79,11 +79,9 @@ $(document).on('click', '#save_social_media', function () {
 
         $(this).css('color',social_color);
         $(this).on('mouseover',(function(){
-            console.log('in');
             $(this).css('color',social_color_hover);
         }));
         $(this).on('mouseout',(function(){
-            console.log('out');
             $(this).css('color',social_color);
         }));
         if ($(modal_social_media_links[index]).data('active')) {

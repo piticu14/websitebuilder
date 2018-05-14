@@ -401,9 +401,7 @@ $('#menuModal').off('shown.bs.modal').on('shown.bs.modal', function (e) {
                 $('#menu a[data-page_id = ' + button.data('id') +']').parent().remove();
             }
 
-            console.log($('#menu > li > a').not(':last,#dropdownMenu').length);
             if($('#menu > li > a').not(':last,#dropdownMenu').length < 4){
-                console.log('Less than 4');
 
                 var last_nav_item = $('#page_drop_down_container').prev();
                 var first_drop_down = $('#page_drop_down li').first();

@@ -157,6 +157,12 @@
                                 <p n:foreach="$form->errors as $error">{$error}</p>
                             </div>
                             <div class="form-group">
+                                <a href="#" class="form-tooltip" data-html="true" data-toggle="tooltip" data-placement="right"
+                                   title="Text, který se nachází před hlavním odkazem webu, tj. <b>quickweb.fun</b>.
+                                   Definuje konkretní web, ketrý uživatel uvidí.Např.: <br>
+                                   <i><b><u>SUBDOMENA</u></b>.quickweb.fun/url</i>">
+                                    <span class="glyphicon glyphicon-info-sign"></span>
+                                </a>
                                 {label subdomain, class => 'col-md-4 control-label'}
 
                                 <div class="col-md-4 inputGroupContainer">

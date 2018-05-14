@@ -79,43 +79,6 @@ function setBackground(selected_background,container){
     }
 }
 
-// Do I use this?.....
-/*
-$.extend({
-    replaceTag: function (currentElem, newTagObj, keepProps) {
-        var $currentElem = $(currentElem);
-        var i, $newTag = $(newTagObj).clone();
-        if (keepProps) {//{{{
-            newTag = $newTag[0];
-            newTag.className = currentElem.className;
-            $.extend(newTag.classList, currentElem.classList);
-            $.extend(newTag.attributes, currentElem.attributes);
-        }//}}}
-        $currentElem.wrapAll($newTag);
-        $currentElem.contents().unwrap();
-        // return node; (Error spotted by Frank van Luijn)
-        return this; // Suggested by ColeLawrence
-    }
-});
-
-$.fn.extend({
-    replaceTag: function (newTagObj, keepProps) {
-        // "return" suggested by ColeLawrence
-        return this.each(function() {
-            jQuery.replaceTag(this, newTagObj, keepProps);
-        });
-    }
-});
-*/
-
-/*
-$('#logo_container').mouseover(function(){
-   $('#logo_edit').css("visibility","visible");
-});
-$('#logo_container').mouseout(function(){
-    $('#logo_edit').css("visibility","hidden");
-});
-*/
 
 function logoImageModal(){
     $(document).on('click','#logo_icons',function(e){
@@ -134,7 +97,7 @@ function logoImageModal(){
 
 }
 $('#logoImageModal').on('shown.bs.modal', function () {
-
+    $("body").addClass("modal-open");
     $('#user_images').hide().fadeIn('slow');
     $('.bt-glyphicons').hide();
     logoImageModal();
@@ -162,16 +125,13 @@ function headerBackgroundModal(){
     headerBackgroundSelection();
 
 }
-$('#headerBackgroundModal').on('shown.bs.modal', function (e) {
-    //console.log(e.relatedTarget.id);
-
-
-
+$('#headerBackgroundModal').on('shown.bs.modal', function () {
+    $("body").addClass("modal-open");
     $('#background_images').hide().fadeIn('slow');
     $('#background_color').hide();
     headerBackgroundModal();
     $(this).find('input[name="images"]').off().on('change',function(){
-        uploadImages($('#logoImageModal').find('#upload_bar'), $(this),'images');
+        uploadImages($('#headerBackgroundModal').find('#upload_bar'), $(this),'images');
     });
 
 

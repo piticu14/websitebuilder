@@ -20,13 +20,19 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="pull-right">
-                                    <a id="edit_page" data-url="{link Project:edit subdomain => $presenter->getParameter('subdomain')}" href="#">Upravit stránku</a>
+                                    <a id="edit_page"
+                                       data-url="{link Project:edit subdomain => $presenter->getParameter('subdomain')}"
+                                       href="#">Upravit stránku</a>
                                 </div>
                             </div>
                         </div>
                         <div class="row margin-top">
                             <form class="form-horizontal">
                                 <div class="form-group">
+                                    <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                                       title="Titulek stránky je text, který se nachází v titulkovém pruhu prohlížeče (úplně nahoře)">
+                                        <span class="glyphicon glyphicon-info-sign"></span>
+                                    </a>
                                     <label class="col-md-3 control-label">Titulek</label>
 
                                     <div class="col-md-8 inputGroupContainer">
@@ -38,6 +44,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                                       title="Kličová slova slouží pro vyhledávače, aby snadněji pochopily, o čem se na té které stránce píše.
+                               Klíčová slova se oddělují čárkami, za čárkami mohou být mezery.">
+                                        <span class="glyphicon glyphicon-info-sign"></span>
+                                    </a>
                                     <label class=" text-left col-md-3 control-label">Kličová slova</label>
 
                                     <div class="col-md-8 inputGroupContainer">
@@ -49,6 +60,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                                       title="Popisek stránky je popis obsahu stránky, který vyhledávače vypisuji,
+                               pokud obsahuje hledané slovo (nebo většinu hledaných slov).">
+                                        <span class="glyphicon glyphicon-info-sign"></span>
+                                    </a>
                                     <label class="col-md-3 control-label">Popisek stránky</label>
 
                                     <div class="col-md-8 inputGroupContainer">
@@ -60,6 +76,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <a href="#" class="form-tooltip" data-html="true" data-toggle="tooltip" data-placement="left"
+                                       title="URL stránky je text, který se nachází v odkazu webu za posledním znakem
+                               '/'. <p>URL identifikuje Vaše stránku.</p>
+       <p>Např: <i>http://mujweb.quickweb.fun/<b><u>URL</u></b></i></p>">
+                                        <span class="glyphicon glyphicon-info-sign"></span>
+                                    </a>
                                     <label class="col-md-3 control-label">URL stránky</label>
 
                                     <div class="col-md-8 inputGroupContainer">
@@ -71,6 +93,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                                       title="Barva textu všech položek navigačního menu. Nelze nastavit jednotlivě.">
+                                        <span class="glyphicon glyphicon-info-sign"></span>
+                                    </a>
                                     <label class="col-md-3 control-label">Barva textu</label>
 
                                     <div class="col-md-8 inputGroupContainer">
@@ -83,6 +109,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                                                                               title="Barva textu položek navigačního menu při najetí myší. Nelze nastavit jednotlivě.">
+                                        <span style="top:10px" class="glyphicon glyphicon-info-sign"></span>
+                                    </a>
                                     <label class="col-md-3 control-label">Barva textu při najetí myší</label>
 
                                     <div class="col-md-8 inputGroupContainer">
@@ -98,7 +128,8 @@
                         </div>
                         <div id="page_options" class="row margin-top">
                             <div class="col-md-6">
-                                <p class="text-left"><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit v navigačním menu</span>
+                                <p class="text-left"><span class="glyphicon glyphicon-eye-open"></span><span
+                                            class="padding-left">Zobrazit v navigačním menu</span>
                                 </p>
                             </div>
                             <div class="col-md-3 col-md-offset-3">
@@ -143,7 +174,8 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         {*<input type="file" name="image" accept="image/*">*}
-                                        <a id="logo_image" class="btn btn-u" href="javascript:void(0)" data-dismiss="modal"
+                                        <a id="logo_image" class="btn btn-u" href="javascript:void(0)"
+                                           data-dismiss="modal"
                                            data-toggle="modal" data-target="#logoImageModal">Zvolit obrázek</a>
 
                                     </div>
@@ -156,7 +188,8 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         {*<input type="file" name="image" accept="image/*">*}
-                                        <a id="logo_image" class="btn btn-u" href="javascript:void(0)" data-dismiss="modal"
+                                        <a id="logo_image" class="btn btn-u" href="javascript:void(0)"
+                                           data-dismiss="modal"
                                            data-toggle="modal" data-target="#headerBackgroundModal">Zvolit pozadí</a>
 
                                     </div>
@@ -426,6 +459,12 @@
                 <div class="row margin-top">
                     <form id="pageForm" class="form-horizontal">
                         <div class="form-group">
+                            <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                               title="Název stránky je název položky z navigačního menu, která je spojená se stránkou,
+                            kterou právě upravujete/přidáváte.">
+                                <span class="glyphicon glyphicon-info-sign"></span>
+                            </a>
+
                             <label class="col-md-3 control-label">Název</label>
 
                             <div class="col-md-8 inputGroupContainer">
@@ -437,6 +476,10 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                                                               title="Titulek stránky je text, který se nachází v titulkovém pruhu prohlížeče (úplně nahoře)">
+                                <span class="glyphicon glyphicon-info-sign"></span>
+                            </a>
                             <label class="col-md-3 control-label">Titulek</label>
 
                             <div class="col-md-8 inputGroupContainer">
@@ -448,6 +491,11 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                               title="Kličová slova slouží pro vyhledávače, aby snadněji pochopily, o čem se na té které stránce píše.
+                               Klíčová slova se oddělují čárkami, za čárkami mohou být mezery.">
+                                <span class="glyphicon glyphicon-info-sign"></span>
+                            </a>
                             <label class=" text-left col-md-3 control-label">Kličová slova</label>
 
                             <div class="col-md-8 inputGroupContainer">
@@ -459,6 +507,11 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                               title="Popisek stránky je popis obsahu stránky, který vyhledávače vypisuji,
+                               pokud obsahuje hledané slovo (nebo většinu hledaných slov).">
+                                <span class="glyphicon glyphicon-info-sign"></span>
+                            </a>
                             <label class="col-md-3 control-label">Popisek stránky</label>
 
                             <div class="col-md-8 inputGroupContainer">
@@ -470,6 +523,12 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <a href="#" class="form-tooltip" data-html="true" data-toggle="tooltip" data-placement="left"
+                               title="URL stránky je text, který se nachází v odkazu webu za posledním znakem
+                               '/'. <p>URL identifikuje Vaše stránku.</p>
+       <p>Např: <i>http://mujweb.quickweb.fun/<b><u>URL</u></b></i></p>">
+                                <span class="glyphicon glyphicon-info-sign"></span>
+                            </a>
                             <label class="col-md-3 control-label">URL stránky</label>
 
                             <div class="col-md-8 inputGroupContainer">
@@ -522,6 +581,11 @@
                         <div class="row margin-top">
                             <form class="form-horizontal">
                                 <div class="form-group">
+                                    <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                                       title="Odkaz na Váš profil sociální sítě. Návštevníkům se po kliknutí na ikonu sociální sítě,
+                                       otevře nové okno v prohližecí s Vaším profilem.">
+                                        <span class="glyphicon glyphicon-info-sign"></span>
+                                    </a>
                                     <label class="col-md-3 control-label">Odkaz</label>
 
                                     <div class="col-md-8 inputGroupContainer">
@@ -532,6 +596,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                                       title="Barva textu všech položek sociálních sítí. Nelze nastavit jednotlivě.">
+                                        <span class="glyphicon glyphicon-info-sign"></span>
+                                    </a>
                                     <label class="col-md-3 control-label">Barva textu</label>
 
                                     <div class="col-md-8 inputGroupContainer">
@@ -544,6 +612,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <a href="#" class="form-tooltip" data-toggle="tooltip" data-placement="left"
+                                       title="Barva textu položek socilálních sítí při najetí myší. Nelze nastavit jednotlivě.">
+                                        <span style="top:10px" class="glyphicon glyphicon-info-sign"></span>
+                                    </a>
                                     <label class="col-md-3 control-label">Barva textu při najetí myší</label>
 
                                     <div class="col-md-8 inputGroupContainer">
@@ -560,7 +632,8 @@
 
                         <div id="social_media_options" class="row margin-top">
                             <div class="col-md-6">
-                                <p class="text-left"><span class="glyphicon glyphicon-eye-open"></span><span class="padding-left">Zobrazit sociální síť</span>
+                                <p class="text-left"><span class="glyphicon glyphicon-eye-open"></span><span
+                                            class="padding-left">Zobrazit sociální síť</span>
                                 </p>
                             </div>
                             <div class="col-md-3 col-md-offset-3">
@@ -608,7 +681,8 @@
                     {snippet photogalleryImages}
                         {foreach $gallery_images as $image}
                             <div class="image_box">
-                                <div class="overlay"><a class="delete_photo" data-url="{link deletePhoto!}" href="#"><i class="fa fa-trash" aria-hidden="true"></i></a></div>
+                                <div class="overlay"><a class="delete_photo" data-url="{link deletePhoto!}" href="#"><i
+                                                class="fa fa-trash" aria-hidden="true"></i></a></div>
                                 <img src="{$image}" alt="User Image">
                             </div>
                         {/foreach}
@@ -663,7 +737,8 @@
                                 <div class="col-md-8 inputGroupContainer">
                                     <div class="input-group">
                                         {*<input type="file" name="image" accept="image/*">*}
-                                        <a id="logo_image" class="btn btn-u" href="javascript:void(0)" data-dismiss="modal"
+                                        <a id="logo_image" class="btn btn-u" href="javascript:void(0)"
+                                           data-dismiss="modal"
                                            data-toggle="modal" data-target="#headerBackgroundModal">Zvolit pozadí</a>
 
                                     </div>

@@ -161,7 +161,7 @@ class AccountPresenter extends FrontBasePresenter
                 $RPrequest = $this->userRequest->get($token, 'resetPassword');
                 $now = DateTime::from(date("Y-m-d H:i:s"));
                 $RPRequestTime = DateTime::from($RPrequest->sent_at);
-                $RPRequestExpiredTime = $RPRequestTime->modifyClone('+10 minutes');
+                $RPRequestExpiredTime = $RPRequestTime->modifyClone('+1 day');
                 if ($now > $RPRequestExpiredTime) {
                     $this->setView('../../../../app/presenters/templates/Error/410');
                 } else {
@@ -181,7 +181,7 @@ class AccountPresenter extends FrontBasePresenter
                 $RPrequest = $this->userRequest->get($token, 'userActivation');
                 $now = DateTime::from(date("Y-m-d H:i:s"));
                 $RPRequestTime = DateTime::from($RPrequest->sent_at);
-                $RPRequestExpiredTime = $RPRequestTime->modifyClone('+10 minutes');
+                $RPRequestExpiredTime = $RPRequestTime->modifyClone('+1 day');
                 if ($now > $RPRequestExpiredTime) {
                     $this->setView('../../../../app/presenters/templates/Error/410');
                 } else {

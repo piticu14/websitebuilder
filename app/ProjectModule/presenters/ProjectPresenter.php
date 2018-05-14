@@ -18,7 +18,6 @@ use Latte;
 
 class ProjectPresenter extends AdminBasePresenter
 {
-    /** TODO: User logo image URL add first page */
     /**
      * @var ProjectManager
      */
@@ -182,7 +181,6 @@ class ProjectPresenter extends AdminBasePresenter
 
     public function renderAll()
     {
-        /** TODO: Public link first page_url shows temp page_url. If page_url changed but not published ==> error*/
         $user_projects = $this->projectManager->getAll();
         $first_temp_pages = array();
         $first_public_pages = array();
